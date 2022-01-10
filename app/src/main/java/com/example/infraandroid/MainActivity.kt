@@ -32,5 +32,8 @@ class MainActivity : AppCompatActivity() {
 
         // 바텀 네비게이션 뷰와 네비게이션을 묶어준다
         NavigationUI.setupWithNavController(mBinding.myBottomNav, navController)
+
+        val bottomNavigationView = mBinding.myBottomNav as BottomNavigationView
+
     }
 }
