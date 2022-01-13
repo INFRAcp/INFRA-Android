@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/home_fragment">
+    app:startDestination="@id/login_fragment">
 
     <fragment
         android:id="@+id/home_fragment"
@@ -19,10 +19,27 @@
         android:id="@+id/chat_fragment"
         android:name="com.example.infraandroid.fragments.ChatFragment"
         android:label="fragment_chat"
-        tools:layout="@layout/fragment_chat" />
+        tools:layout="@layout/fragment_chat" >
+        <argument
+            android:name="userIdArgs"
+            app:argType="string"
+            android:defaultValue='""' />
+    </fragment>
     <fragment
         android:id="@+id/my_info_fragment"
         android:name="com.example.infraandroid.fragments.MyInfoFragment"
         android:label="fragment_my_info"
         tools:layout="@layout/fragment_my_info" />
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.example.infraandroid.fragments.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_fragment_to_home_fragment"
+            app:destination="@id/home_fragment" />
+        <action
+            android:id="@+id/action_login_fragment_to_chat_fragment"
+            app:destination="@id/chat_fragment" />
+    </fragment>
 </navigation>
