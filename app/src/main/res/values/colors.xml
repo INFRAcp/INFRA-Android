@@ -8,7 +8,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <!-- 인프라 색깔 추가 -->
+    <color name="infra_black_a">#383838</color>
     <color name="infra_gray_a">#B4B4B4</color>
+    <color name="infra_gray_b">#DBDBDB</color>
+    <color name="infra_gray_c">#F5F5F6</color>
+    <color name="infra_gray_d">#E2E2E5</color>
+    <color name="infra_gray_e">#EBEBEB</color>
+    <color name="infra_gray_f">#AEAEAE</color>
     <color name="infra_blue_a">#1843A1</color>
+    <color name="infra_blue_b">#4052e8</color>
     <color name="infra_skyblue_a">#4B8EFF</color>
+
 </resources>

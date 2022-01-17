@@ -12,6 +12,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 import android.annotation.SuppressLint
+import android.view.View
+import androidx.navigation.fragment.NavHostFragment.findNavController
+import com.example.infraandroid.fragments.LoginFragment
+import com.example.infraandroid.fragments.LoginFragmentDirections
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,10 +34,16 @@ class MainActivity : AppCompatActivity() {
         // 네비게이션 컨트롤러
         val navController = navHostFragment.navController
 
+        // 바텀 네비게이션 뷰 출력하는 곳과 출력하지 않는 곳 구분
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if(destination.id == R.id.login_fragment)
+                mBinding.myBottomNav.visibility = View.GONE
+            else
+                mBinding.myBottomNav.visibility = View.VISIBLE
+        }
+
         // 바텀 네비게이션 뷰와 네비게이션을 묶어준다
         NavigationUI.setupWithNavController(mBinding.myBottomNav, navController)
-
-        val bottomNavigationView = mBinding.myBottomNav as BottomNavigationView
-
     }
+
 }

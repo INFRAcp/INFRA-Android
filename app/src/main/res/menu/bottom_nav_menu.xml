@@ -12,7 +12,7 @@
         android:icon="@drawable/ic_category"
         />
     <item
-        android:id="@+id/chat_fragment"
+        android:id="@+id/chatting_room_list_fragment"
         android:title="채팅"
         android:icon="@drawable/ic_chat"
         />
