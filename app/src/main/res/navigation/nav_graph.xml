@@ -34,4 +34,9 @@
             android:id="@+id/action_login_fragment_to_home_fragment"
             app:destination="@id/home_fragment" />
     </fragment>
+    <fragment
+        android:id="@+id/chatting_room_list_fragment"
+        android:name="com.example.infraandroid.chat.ChattingRoomListFragment"
+        android:label="fragment_chatting_room_list"
+        tools:layout="@layout/fragment_chatting_room_list" />
 </navigation>

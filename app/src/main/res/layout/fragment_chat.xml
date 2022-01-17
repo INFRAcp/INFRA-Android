@@ -42,6 +42,7 @@
             app:layout_constraintLeft_toRightOf="@id/back_to_chat_list_button"/>
 
         <ImageButton
+            android:id="@+id/chat_more_menu_open_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
