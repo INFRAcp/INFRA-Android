@@ -76,8 +76,8 @@
 
         <EditText
             android:id="@+id/home_search_et"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="320dp"
+            android:layout_height="40dp"
             android:padding="5dip"
             android:background="@drawable/rounded_edittext"
             android:hint="키워드를 입력해보세요. 예시) 어플, 봉사, 스터디"
