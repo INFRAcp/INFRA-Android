@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">InfraAndroid</string>
+    <string name="home_user_hi">안녕하세요! 김프라님</string>
 </resources>

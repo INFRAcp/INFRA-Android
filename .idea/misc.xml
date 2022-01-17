@@ -31,10 +31,23 @@
         <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/layout/item_chatting_room_list_recyclerview.xml" value="0.13333333333333333" />
         <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/layout/item_my_chat_recyclerview.xml" value="0.1" />
         <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
+        <entry key="..\:/infra/INFRA-Android/app/src/main/res/drawable-v24/btn_arrow_more_white.xml" value="0.1" />
+        <entry key="..\:/infra/INFRA-Android/app/src/main/res/drawable-v24/ic_bookmark.xml" value="0.1" />
+        <entry key="..\:/infra/INFRA-Android/app/src/main/res/drawable-v24/ic_btn_arrow_more_black.xml" value="0.1" />
+        <entry key="..\:/infra/INFRA-Android/app/src/main/res/drawable-v24/ic_codicon_search.xml" value="0.1" />
+        <entry key="..\:/infra/INFRA-Android/app/src/main/res/drawable-v24/ic_recommed_project_rectangle.xml" value="0.1" />
+        <entry key="..\:/infra/INFRA-Android/app/src/main/res/drawable-v24/ic_rectangle_25.xml" value="0.1" />
+        <entry key="..\:/infra/INFRA-Android/app/src/main/res/drawable-v24/rounded_edittext.xml" value="0.1" />
+        <entry key="..\:/infra/INFRA-Android/app/src/main/res/drawable/botton_shape.xml" value="0.13240740740740742" />
+        <entry key="..\:/infra/INFRA-Android/app/src/main/res/layout/buttob.xml" value="0.12158054711246201" />
+        <entry key="..\:/infra/INFRA-Android/app/src/main/res/layout/buttonshape.xml" value="0.12158054711246201" />
+        <entry key="..\:/infra/INFRA-Android/app/src/main/res/layout/fragment_chat.xml" value="0.11096014492753623" />
+        <entry key="..\:/infra/INFRA-Android/app/src/main/res/layout/fragment_home.xml" value="0.23292797006548177" />
+        <entry key="..\:/infra/INFRA-Android/app/src/main/res/layout/item_project.xml" value="0.4" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

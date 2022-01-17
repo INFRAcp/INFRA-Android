@@ -17,5 +17,6 @@
     <color name="infra_gray_f">#AEAEAE</color>
     <color name="infra_blue_a">#1843A1</color>
     <color name="infra_blue_b">#4052e8</color>
+    <color name="infra_skyblue_a">#4B8EFF</color>
 
 </resources>
