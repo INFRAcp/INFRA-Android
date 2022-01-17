@@ -1,15 +1,15 @@
-package com.example.infraandroid.RVA
+package com.example.infraandroid.rva
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.infraandroid.DataClass.RecommedProject
-import com.example.infraandroid.databinding.ActivityMainBinding
+import com.example.infraandroid.dataclass.RecommedProject
 import com.example.infraandroid.databinding.ItemProjectBinding
 
-class RecomProjectRVAdapter(private val recomprojectList: ArrayList<RecommedProject>):
+class RecomProjectRVAdapter() :
     RecyclerView.Adapter<RecomProjectRVAdapter.ViewHolder>(){
+
+    val recomprojectList = ArrayList<RecommedProject>()
     override fun onCreateViewHolder(
         viewGroup: ViewGroup,
         viewType: Int
@@ -32,8 +32,8 @@ class RecomProjectRVAdapter(private val recomprojectList: ArrayList<RecommedProj
             binding.itemProjectNameTv.text = recomproject.name
             binding.itemProjectMemberNumTv.text = recomproject.member
             binding.itemProjectStateTv.text = recomproject.state
-            binding.itemRecommedProjectPhotoIv.setImageResource(recomproject.photo!!)
-
+            //binding.itemRecommedProjectPhotoIv.setImageResource(recomproject.photo!!)
         }
     }
+
 }
