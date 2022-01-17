@@ -10,8 +10,11 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import com.example.infraandroid.R
 import com.example.infraandroid.UserId
 import com.example.infraandroid.databinding.FragmentChatBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -53,14 +56,11 @@ class ChatFragment : Fragment() {
         // 채팅 데이터의 변화를 감지
         val childEventListener = object : ChildEventListener {
             override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
-                Log.d(TAG, "onChildAdded:" + dataSnapshot.key!!)
 
                 // A new comment has been added, add it to the displayed list
                 chatList.clear()
-                var count = 0
                 val tempMessage = MessageInfo("","")
                 for(snapshot in dataSnapshot.children){
-                    Log.d(TAG, "onChildAdded: $snapshot")
                     if(snapshot.key=="senderId"){
                         tempMessage.senderId=snapshot.value.toString()
                     }
@@ -139,6 +139,10 @@ class ChatFragment : Fragment() {
 
             }
             mBinding!!.inputMessageEdittext.setText("")
+        }
+        val bottomSheetDialogFragment = ChatMoreMenuBottomSheetFragment()
+        mBinding!!.chatMoreMenuOpenButton.setOnClickListener {
+            activity?.supportFragmentManager?.let { it1 -> bottomSheetDialogFragment.show(it1, bottomSheetDialogFragment.tag) }
         }
     }
 
