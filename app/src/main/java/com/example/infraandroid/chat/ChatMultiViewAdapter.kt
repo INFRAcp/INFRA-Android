@@ -12,6 +12,9 @@ import com.example.infraandroid.R
 import com.example.infraandroid.UserId
 import com.example.infraandroid.databinding.ItemChatRecyclerviewBinding
 import com.example.infraandroid.databinding.ItemMyChatRecyclerviewBinding
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
 class ChatMultiViewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
@@ -60,10 +63,18 @@ class ChatMultiViewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     ) : RecyclerView.ViewHolder(binding.root){
         fun onBind(messageInfo: MessageInfo){
             binding.chatMessageTextview.text = messageInfo.message
-            binding.chatSendTimeTextview.text = messageInfo.senderId
             Glide.with(itemView)
                 .load(R.drawable.other_user_photo)
                 .into(binding.opponentProfileImageview)
+
+            var hour = messageInfo.sendTime.substring(11..12)
+            var min = messageInfo.sendTime.substring(14..15)
+            if(hour.toInt() > 12){
+                binding.chatSendTimeTextview.text = (hour.toInt()-12).toString()+":"+min+" PM"
+            }
+            else{
+                binding.chatSendTimeTextview.text = hour+":"+min+" AM"
+            }
         }
     }
 
@@ -72,7 +83,14 @@ class ChatMultiViewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     ) : RecyclerView.ViewHolder(binding.root){
         fun onBind(messageInfo: MessageInfo){
             binding.myChatMessageTextview.text = messageInfo.message
-            binding.myChatSendTimeTextview.text = messageInfo.senderId
+            var hour = messageInfo.sendTime.substring(11..12)
+            var min = messageInfo.sendTime.substring(14..15)
+            if(hour.toInt() > 12){
+                binding.myChatSendTimeTextview.text = (hour.toInt()-12).toString()+":"+min+" PM"
+            }
+            else{
+                binding.myChatSendTimeTextview.text = hour+":"+min+" AM"
+            }
         }
     }
 }

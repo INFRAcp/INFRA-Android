@@ -38,5 +38,9 @@
         android:id="@+id/chatting_room_list_fragment"
         android:name="com.example.infraandroid.chat.ChattingRoomListFragment"
         android:label="fragment_chatting_room_list"
-        tools:layout="@layout/fragment_chatting_room_list" />
+        tools:layout="@layout/fragment_chatting_room_list" >
+        <action
+            android:id="@+id/action_chatting_room_list_fragment_to_chat_fragment"
+            app:destination="@id/chat_fragment" />
+    </fragment>
 </navigation>
