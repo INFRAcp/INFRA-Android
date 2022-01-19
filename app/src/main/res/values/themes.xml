@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.InfraAndroid" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="Theme.InfraAndroid" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryDark">@color/purple_700</item>
@@ -17,4 +17,17 @@
         parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@drawable/chat_more_menu_background</item>
     </style>
+    <style name="chipTextAppearance1" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="android:textSize">10dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/noto_sans_kr_regular</item>
+        <item name="android:textStyle">italic|bold</item>
+    </style>
+    <style name="chipTextAppearance2" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="android:textSize">10dp</item>
+        <item name="android:textColor">@color/infra_skyblue_a</item>
+        <item name="android:fontFamily">@font/noto_sans_kr_regular</item>
+        <item name="android:textStyle">italic|bold</item>
+    </style>
+
 </resources>

@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">InfraAndroid</string>
     <string name="home_user_hi">안녕하세요! 김프라님</string>
+    <string name="home_make_new_proj">프로젝트 생성</string>
+    <string name="home_recommend_proj">이런 프로젝트는 어떠세요?</string>
+    <string name="home_hot_proj">지금 핫한 프로젝트!</string>
+    <string name="home_self_development">자기개발이 목적이라면?</string>
 </resources>

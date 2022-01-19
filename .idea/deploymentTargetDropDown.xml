@@ -7,12 +7,20 @@
         <deviceKey>
           <Key>
             <type value="VIRTUAL_DEVICE_PATH" />
+<<<<<<< Updated upstream
             <value value="C:\Users\Seungmin\.android\avd\SOPT_Seminar_AVD_API_30.avd" />
 
+=======
+            <value value="C:\Users\user\.android\avd\InfraAndroid_API_30.avd" />
+>>>>>>> Stashed changes
           </Key>
         </deviceKey>
       </Target>
     </targetSelectedWithDropDown>
+<<<<<<< Updated upstream
     <timeTargetWasSelectedWithDropDown value="2022-01-15T16:03:47.699846300Z" />
+=======
+    <timeTargetWasSelectedWithDropDown value="2022-01-17T13:40:35.885551300Z" />
+>>>>>>> Stashed changes
   </component>
 </project>

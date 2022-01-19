@@ -5,7 +5,7 @@
     android:id="@+id/home_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.infraandroid.fragments.HomeFragment">
+    tools:context="com.example.infraandroid.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -33,6 +33,7 @@
             android:layout_height="wrap_content"
             android:text="@string/home_user_hi"
             android:textColor="@color/black"
+            android:fontFamily="@font/sans_pro_regular"
             android:textSize="15dp"
             android:textStyle="bold"
             android:layout_marginTop="2dp"
@@ -40,16 +41,27 @@
             app:layout_constraintStart_toEndOf="@id/home_user_photo_iv"
             app:layout_constraintTop_toTopOf="@id/home_user_photo_iv"/>
         <TextView
-            android:id="@+id/home_user_characteristic_tv"
+            android:id="@+id/home_user_characteristic1_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="#산업디자이너 #3D모델링"
+            android:text="#산업디자이너"
+            android:fontFamily="@font/sans_pro_regular"
             android:textColor="@color/infra_gray_a"
             android:textSize="11dp"
             app:layout_constraintStart_toStartOf="@id/home_user_hi_tv"
             app:layout_constraintTop_toBottomOf="@id/home_user_hi_tv" />
+        <TextView
+            android:id="@+id/home_user_characteristic2_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="#3D모델링"
+            android:fontFamily="@font/sans_pro_regular"
+            android:textColor="@color/infra_gray_a"
+            android:textSize="11dp"
+            app:layout_constraintStart_toEndOf="@id/home_user_characteristic1_tv"
+            app:layout_constraintTop_toTopOf="@id/home_user_characteristic1_tv" />
 
-        <!--        얘네 Framelayout으로 묶을지 고민-->
+        <!--        이미지 완료되면 텍스트 뷰 새로 만들기-->
         <ImageView
             android:id="@+id/home_new_project_iv"
             android:layout_width="300dp"
@@ -57,87 +69,121 @@
             android:src="@drawable/not_finished"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_user_characteristic_tv"
+            app:layout_constraintTop_toBottomOf="@id/home_user_characteristic1_tv"
             android:layout_marginTop="17dp"/>
 
-<!--        위치 이동 예정-->
-        <Button
-            android:id="@+id/home_make_new_project_bt"
+        <android.widget.Button
+            android:id="@+id/home_btn_make_new_proj"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_rectangle_25"
-            android:text="프로젝트 생성"
-            android:textColor="@color/white"
+            android:layout_height="26dp"
+            android:text="@string/home_make_new_proj"
             android:textSize="10dp"
+            android:textColor="@color/white"
+            android:background="@drawable/botton_shape_home_new_proj"
             app:layout_constraintBottom_toBottomOf="@id/home_new_project_iv"
             app:layout_constraintEnd_toEndOf="@id/home_new_project_iv"
             android:layout_marginBottom="11dp"
-            android:layout_marginEnd="13dp"/>
+            android:layout_marginEnd="13dp" />
 
+<!--        글자 굵기 다르게 -->
         <EditText
             android:id="@+id/home_search_et"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="320dp"
+            android:layout_height="26dp"
             android:padding="5dip"
             android:background="@drawable/rounded_edittext"
             android:hint="키워드를 입력해보세요. 예시) 어플, 봉사, 스터디"
+            android:fontFamily="@font/noto_sans_kr_bold"
+            android:includeFontPadding="false"
             android:inputType="text"
             android:textSize="11dp"
             app:layout_constraintTop_toBottomOf="@id/home_new_project_iv"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            />
         <ImageView
             android:id="@+id/home_keyword_search_iv"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@drawable/ic_codicon_search"
             app:layout_constraintTop_toTopOf="@id/home_search_et"
-            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/home_search_et"
             app:layout_constraintEnd_toEndOf="@id/home_search_et"
             android:layout_marginEnd="13dp"/>
 
-<!-- chip 커스텀 중 오류 발생... 해결 예정...-->
-
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/home_keyword_chipgroup"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintTop_toBottomOf="@id/home_search_et"
-            android:layout_marginTop="20dp"
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="30dp">
-            <com.google.android.material.chip.Chip
-                android:id="@+id/home_keyword1_chip"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
+            app:layout_constraintTop_toBottomOf="@id/home_search_et">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/home_keyword_chipgroup"
                 android:layout_width="wrap_content"
-                android:layout_height="26dp"
-                android:text="스터디" />
-            <com.google.android.material.chip.Chip
-                android:id="@+id/home_keyword2_chip"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="26dp"
-                android:text="비트코인" />
-            <com.google.android.material.chip.Chip
-                android:id="@+id/home_keyword3_chip"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="26dp"
-                android:text="IOS" />
-            <com.google.android.material.chip.Chip
-                android:id="@+id/home_keyword4_chip"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="26dp"
-                android:text="엔터테인먼트" />
-            <com.google.android.material.chip.Chip
-                android:id="@+id/home_keyword5_chip"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:layout_width="wrap_content"
-                android:layout_height="26dp"
-                />
-        </com.google.android.material.chip.ChipGroup>
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/home_keyword1_chip"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:backgroundTint="@color/infra_blue_c"
+                    android:text="스터디"
+                    android:textAppearance="@style/chipTextAppearance1"
+                    app:chipMinTouchTargetSize="0dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/home_keyword2_chip"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:backgroundTint="@color/white"
+                    app:chipStrokeColor="@color/infra_skyblue_a"
+                    app:chipStrokeWidth="1dp"
+                    android:text="비트코인"
+                    android:textAppearance="@style/chipTextAppearance2"
+                    app:chipMinTouchTargetSize="0dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/home_keyword3_chip"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:backgroundTint="@color/white"
+                    app:chipStrokeColor="@color/infra_skyblue_a"
+                    app:chipStrokeWidth="1dp"
+                    android:text="IOS"
+                    android:textAppearance="@style/chipTextAppearance2"
+                    app:chipMinTouchTargetSize="0dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/home_keyword4_chip"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:backgroundTint="@color/white"
+                    app:chipStrokeColor="@color/infra_skyblue_a"
+                    app:chipStrokeWidth="1dp"
+                    android:text="엔터테인먼트"
+                    android:textAppearance="@style/chipTextAppearance2"
+                    app:chipMinTouchTargetSize="0dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/home_keyword5_chip"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:backgroundTint="@color/white"
+                    app:chipStrokeColor="@color/infra_blue_c"
+                    app:chipStrokeWidth="1dp"
+                    android:text="어플개발"
+                    android:textAppearance="@style/chipTextAppearance2"
+                    app:chipMinTouchTargetSize="0dp" />
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
 
         <ImageView
             android:id="@+id/home_background_iv"
@@ -153,10 +199,11 @@
             android:id="@+id/home_recommed_project_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="이런 프로젝트는 어떠세요?"
+            android:text="@string/home_recommend_proj"
             android:textColor="@color/white"
+            android:fontFamily="@font/noto_sans_kr_bold"
+            android:includeFontPadding="false"
             android:textSize="15dp"
-            android:textStyle="bold"
             app:layout_constraintTop_toTopOf="@id/home_background_iv"
             android:layout_marginTop="26dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -171,7 +218,6 @@
             android:layout_marginTop="32dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="31dp"/>
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/home_recommed_project_recycleview"
             android:layout_width="match_parent"
@@ -188,7 +234,7 @@
             android:id="@+id/home_hot_project_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="지금 핫한 프로젝트!"
+            android:text="@string/home_hot_proj"
             android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="bold"
@@ -222,7 +268,7 @@
             android:id="@+id/home_self_develope_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="자기개발이 목적이라면?"
+            android:text="@string/home_self_development"
             android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="bold"
@@ -240,6 +286,18 @@
             android:layout_marginTop="6dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="31dp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/home_self_develope_recycleview"
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginStart="10dp"
+            tools:listitem="@layout/item_project"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_self_develope_tv"/>
+
 
 
 
