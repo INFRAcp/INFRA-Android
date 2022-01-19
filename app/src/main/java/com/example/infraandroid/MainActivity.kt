@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         // 바텀 네비게이션 뷰 출력하는 곳과 출력하지 않는 곳 구분
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if(destination.id == R.id.login_fragment)
+            if(destination.id == R.id.login_fragment || destination.id == R.id.chat_fragment)
                 mBinding.myBottomNav.visibility = View.GONE
             else
                 mBinding.myBottomNav.visibility = View.VISIBLE

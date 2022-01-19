@@ -18,6 +18,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
@@ -31,6 +32,7 @@ class ChatFragment : Fragment() {
     private val chatAdapter = ChatMultiViewAdapter()
     private val database = Firebase.database
     val chatList = mutableListOf<MessageInfo>()
+    private var opponentId = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,22 +55,31 @@ class ChatFragment : Fragment() {
         // 리사이클러뷰
         mBinding?.chatRecyclerview?.adapter = chatAdapter
 
+
         // 채팅 데이터의 변화를 감지
         val childEventListener = object : ChildEventListener {
             override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
 
                 // A new comment has been added, add it to the displayed list
                 chatList.clear()
-                val tempMessage = MessageInfo("","")
+                val tempMessage = MessageInfo("","","")
                 for(snapshot in dataSnapshot.children){
+                    Log.d(TAG, "onChildAdded: "+ snapshot.key.toString())
                     if(snapshot.key=="senderId"){
                         tempMessage.senderId=snapshot.value.toString()
                     }
                     if(snapshot.key=="message"){
                         tempMessage.message=snapshot.value.toString()
                     }
+                    if(snapshot.key=="sendTime"){
+                        tempMessage.sendTime=snapshot.value.toString()
+                    }
+                    if(snapshot.key=="user1"){
+                        opponentId = snapshot.value.toString()
+                    }
                 }
-                chatList.add(tempMessage)
+                if(tempMessage.senderId!="" && tempMessage.message!="" && tempMessage.sendTime!="")
+                    chatList.add(tempMessage)
                 chatAdapter.messageList.addAll(chatList)
                 chatAdapter.notifyDataSetChanged()
                 // ...
@@ -114,27 +125,47 @@ class ChatFragment : Fragment() {
             }
         }
 
-        val databaseReference = database.getReference("message")
+        val chatRoomIndexString = UserId.chatRoomIndex.toString()
+        val databaseReference = database.getReference(chatRoomIndexString)
         databaseReference.addChildEventListener(childEventListener)
 
         // 보내기 버튼을 누르면 firebase realtime db에 저장
         buttonToSend.setOnClickListener {
             val messageToSend = mBinding?.inputMessageEdittext?.text
-            val c = Calendar.getInstance()
-            val dataFormat = SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
-            val dateTime = dataFormat.format(c.time)
-            val myRef = database.getReference("message").child(dateTime)
+            val now: Long = System.currentTimeMillis()
+            val date = Date(now)
+            val dataFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+            val dateTime = dataFormat.format(date)
+            val myRef = database.getReference(chatRoomIndexString).child(dateTime)
+
+            // 대화하는 두 사람의 Id값을 firebase realtime db에 저장
+            val userRef = database.getReference(chatRoomIndexString).child("users")
+            val lastMessageRef = database.getReference(chatRoomIndexString).child("lastMessage")
+            val userHashMap = HashMap<String, String>()
+            userHashMap["user1"] = UserId.userId
+            // 상대방의 아이디 가져와서 user2에 저장
+            userHashMap["user2"] = opponentId
+            userHashMap["user1ProfileImg"] = "user1의 프로필 이미지 url"
+            userHashMap["user2ProfileImg"] = "user2의 프로필 이미지 url"
+            userRef.setValue(userHashMap)
 
             if (messageToSend != null) {
                 if(messageToSend.isBlank())
                     Toast.makeText(activity, "input message!", Toast.LENGTH_SHORT).show()
                 else {
                     val hashMap = HashMap<String, String>()
+                    val lastMessageHashMap = HashMap<String, String>()
 
                     hashMap["senderId"] = UserId.userId
                     hashMap["message"] = messageToSend.toString()
+                    hashMap["sendTime"] = dateTime
+                    // 가장 최근 메시지 데이터 저장
+                    lastMessageHashMap["senderId"]=UserId.userId
+                    lastMessageHashMap["lastMessage"]=messageToSend.toString()
+                    lastMessageHashMap["lastTime"]=dateTime
 
                     myRef.setValue(hashMap)
+                    lastMessageRef.setValue(lastMessageHashMap)
                 }
 
             }

@@ -1,4 +1,4 @@
-package com.example.infraandroid.rva
+package com.example.infraandroid.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -13,13 +13,13 @@ class RecomProjectRVAdapter() :
     override fun onCreateViewHolder(
         viewGroup: ViewGroup,
         viewType: Int
-    ): RecomProjectRVAdapter.ViewHolder {
+    ): ViewHolder {
         val binding: ItemProjectBinding = ItemProjectBinding.inflate(LayoutInflater.from(viewGroup.context),viewGroup, false)
 
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: RecomProjectRVAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(recomprojectList[position])
     }
 

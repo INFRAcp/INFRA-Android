@@ -1,4 +1,4 @@
-package com.example.infraandroid.DataClass
+package com.example.infraandroid.dataclass
 
 data class RecommedProject(
     var group: String? = "",

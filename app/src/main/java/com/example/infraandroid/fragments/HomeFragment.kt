@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.infraandroid.DataClass.RecommedProject
-import com.example.infraandroid.RVA.RecomProjectRVAdapter
+import com.example.infraandroid.dataclass.RecommedProject
 import com.example.infraandroid.databinding.FragmentHomeBinding
+import com.example.infraandroid.adapter.RecomProjectRVAdapter
 
 class HomeFragment : Fragment() {
     private  var mBinding : FragmentHomeBinding? = null
@@ -24,15 +24,19 @@ class HomeFragment : Fragment() {
 
         mBinding = binding
 
+        return mBinding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         //리사이클러뷰 어뎁터 연결
-        binding.homeHotProjectRecycleview.adapter = RecomProjectRVAdapter(recommedProjectData)
+        mBinding?.homeHotProjectRecycleview?.adapter = RecomProjectRVAdapter()
 
         //레이아웃 매니저 설정
         //val layoutManager = LinearLayoutManager(this)
         //layoutManager.orientation = LinearLayoutManager.HORIZONTAL
-        binding.homeHotProjectRecycleview.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        mBinding?.homeHotProjectRecycleview?.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
-        return mBinding?.root
     }
 
     override fun onDestroyView() {
