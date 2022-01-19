@@ -1,9 +1,8 @@
-package com.example.infraandroid.adapter
+package com.example.infraandroid.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.infraandroid.dataclass.RecommedProject
 import com.example.infraandroid.databinding.ItemProjectBinding
 
 class RecomProjectRVAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
@@ -13,7 +12,7 @@ class RecomProjectRVAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     override fun onCreateViewHolder(
         viewGroup: ViewGroup,
         viewType: Int
-    ): RecomProjectRVAdapter.ViewHolder {
+    ): ViewHolder {
         val binding: ItemProjectBinding = ItemProjectBinding.inflate(LayoutInflater.from(viewGroup.context),viewGroup, false)
 
         return ViewHolder(binding)
@@ -34,6 +33,8 @@ class RecomProjectRVAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             binding.itemProjectNameTv.text = recomproject.name
             binding.itemProjectMemberNumTv.text = recomproject.member
             binding.itemProjectStateTv.text = recomproject.state
+            binding.itemKeyword1Chip.text = recomproject.keyword1
+            binding.itemKeyword1Chip.text = recomproject.keyword2
         }
     }
 }
