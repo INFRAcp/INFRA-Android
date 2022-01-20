@@ -126,7 +126,7 @@ class ChatFragment : Fragment() {
         }
 
         val chatRoomIndexString = UserId.chatRoomIndex.toString()
-        val databaseReference = database.getReference(chatRoomIndexString)
+        val databaseReference = database.getReference("chatting").child(chatRoomIndexString)
         databaseReference.addChildEventListener(childEventListener)
 
         // 보내기 버튼을 누르면 firebase realtime db에 저장
@@ -136,11 +136,11 @@ class ChatFragment : Fragment() {
             val date = Date(now)
             val dataFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
             val dateTime = dataFormat.format(date)
-            val myRef = database.getReference(chatRoomIndexString).child(dateTime)
+            val myRef = database.getReference("chatting").child(chatRoomIndexString).child(dateTime)
 
             // 대화하는 두 사람의 Id값을 firebase realtime db에 저장
-            val userRef = database.getReference(chatRoomIndexString).child("users")
-            val lastMessageRef = database.getReference(chatRoomIndexString).child("lastMessage")
+            val userRef = database.getReference("chatting").child(chatRoomIndexString).child("users")
+            val lastMessageRef = database.getReference("chatting").child(chatRoomIndexString).child("lastMessage")
             val userHashMap = HashMap<String, String>()
             userHashMap["user1"] = UserId.userId
             // 상대방의 아이디 가져와서 user2에 저장
