@@ -5,4 +5,5 @@ data class ChattingRoomInfo (
     var opponentName : String,
     var lastMessage : String,
     var lastTime : String,
+    var chattingRoomIndex : Int,
 )

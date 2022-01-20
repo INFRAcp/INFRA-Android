@@ -51,25 +51,27 @@ class ChattingRoomListFragment : Fragment() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 chattingRoomAdapter.chattingList.clear()
                 chattingRoomList.clear()
-                val tempChattingRoom = ChattingRoomInfo("상대방 프로필 이미지","","","")
                 for(shot in snapshot.children){
+                    val tempChattingRoom = ChattingRoomInfo("상대방 프로필 이미지","","","", 0)
                     Log.d(TAG, "onDataChange: " + shot.key)
-                    if(shot.key == "lastMessage"){
-                        tempChattingRoom.lastMessage = shot.child("lastMessage").value.toString()
-                        tempChattingRoom.lastTime = shot.child("lastTime").value.toString()
+                   if(shot.child("users").child("user1").value.toString()==UserId.userId){
+                       tempChattingRoom.lastMessage = shot.child("lastMessage").child("lastMessage").value.toString()
+                       tempChattingRoom.lastTime = shot.child("lastMessage").child("lastTime").value.toString()
+                       tempChattingRoom.opponentName = shot.child("users").child("user2").value.toString()
+                       tempChattingRoom.chattingRoomIndex = shot.key?.toInt() ?: 0
+                       tempChattingRoom.opponentProfileImg = shot.child("users").child("user2ProfileImg").value.toString()
+                   }
+                    if(shot.child("users").child("user2").value.toString()==UserId.userId){
+                        tempChattingRoom.lastMessage = shot.child("lastMessage").child("lastMessage").value.toString()
+                        tempChattingRoom.lastTime = shot.child("lastMessage").child("lastTime").value.toString()
+                        tempChattingRoom.opponentName = shot.child("users").child("user1").value.toString()
+                        tempChattingRoom.chattingRoomIndex = shot.key?.toInt() ?: 0
+                        tempChattingRoom.opponentProfileImg = shot.child("users").child("user1ProfileImg").value.toString()
                     }
-                    if(shot.key == "users"){
-                        if(shot.child("user1").value==UserId.userId){
-                            tempChattingRoom.opponentName = shot.child("user2").value.toString()
-                        }
-                        if(shot.child("user2").value==UserId.userId){
-                            tempChattingRoom.opponentName = shot.child("user1").value.toString()
-                        }
-                    }
+                    Log.d(TAG, "chattinglist: "+tempChattingRoom.lastMessage+" // " + tempChattingRoom.lastTime+ " // "+tempChattingRoom.opponentName)
+                    if(tempChattingRoom.lastMessage!="" && tempChattingRoom.lastTime!="" && tempChattingRoom.opponentName!="")
+                        chattingRoomList.add(tempChattingRoom)
                 }
-                Log.d(TAG, "chattinglist: "+tempChattingRoom.lastMessage+" // " + tempChattingRoom.lastTime+ " // "+tempChattingRoom.opponentName)
-                if(tempChattingRoom.lastMessage!="" && tempChattingRoom.lastTime!="" && tempChattingRoom.opponentName!="")
-                    chattingRoomList.add(tempChattingRoom)
                 chattingRoomAdapter.chattingList.addAll(chattingRoomList)
                 chattingRoomAdapter.notifyDataSetChanged()
             }
@@ -80,7 +82,7 @@ class ChattingRoomListFragment : Fragment() {
 
         }
 
-        val databaseReference = database.getReference("1")
+        val databaseReference = database.getReference("chatting")
         databaseReference.addValueEventListener(valueEventListener)
     }
 

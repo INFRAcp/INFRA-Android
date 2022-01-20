@@ -73,7 +73,7 @@ class ChatMultiViewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
                 binding.chatSendTimeTextview.text = (hour.toInt()-12).toString()+":"+min+" PM"
             }
             else{
-                binding.chatSendTimeTextview.text = hour+":"+min+" AM"
+                binding.chatSendTimeTextview.text = hour[1]+":"+min+" AM"
             }
         }
     }
@@ -89,7 +89,7 @@ class ChatMultiViewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
                 binding.myChatSendTimeTextview.text = (hour.toInt()-12).toString()+":"+min+" PM"
             }
             else{
-                binding.myChatSendTimeTextview.text = hour+":"+min+" AM"
+                binding.myChatSendTimeTextview.text = hour[1]+":"+min+" AM"
             }
         }
     }

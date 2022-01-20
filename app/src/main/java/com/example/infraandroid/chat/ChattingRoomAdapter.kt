@@ -8,6 +8,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.infraandroid.R
+import com.example.infraandroid.UserId
 import com.example.infraandroid.databinding.FragmentChattingRoomListBinding
 import com.example.infraandroid.databinding.ItemChattingRoomListRecyclerviewBinding
 import java.text.SimpleDateFormat
@@ -39,6 +40,7 @@ class ChattingRoomAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 .load(R.drawable.other_user_photo)
                 .into(binding.chattingRoomListImageview)
             itemView.setOnClickListener {
+                UserId.chatRoomIndex = chattingRoomInfo.chattingRoomIndex
                 it.findNavController().navigate(R.id.action_chatting_room_list_fragment_to_chat_fragment)
             }
 
@@ -58,7 +60,7 @@ class ChattingRoomAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                     binding.lastChatTimeTextview.text = (hour.toInt()-12).toString()+":"+min+" PM"
                 }
                 else{
-                    binding.lastChatTimeTextview.text = hour+":"+min+" AM"
+                    binding.lastChatTimeTextview.text = hour[1]+":"+min+" AM"
                 }
             }
         }
