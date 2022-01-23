@@ -5,4 +5,6 @@
     <string name="home_recommend_proj">이런 프로젝트는 어떠세요?</string>
     <string name="home_hot_proj">지금 핫한 프로젝트!</string>
     <string name="home_self_development">자기개발이 목적이라면?</string>
+    <string name="category_my_idea_description">내 아이디어 수정, 신청현황,\n 팀원 관리를 해보세요!</string>
+    <string name="category_look_my_idea_list">내 아이디어 목록 보기 ></string>
 </resources>

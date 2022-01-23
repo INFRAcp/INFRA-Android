@@ -15,9 +15,13 @@
     <color name="infra_gray_d">#E2E2E5</color>
     <color name="infra_gray_e">#EBEBEB</color>
     <color name="infra_gray_f">#AEAEAE</color>
+    <color name="infra_gray_g">#A1A1A1</color>
+    <color name="infra_gray_h">#737373</color>
     <color name="infra_blue_a">#1843A1</color>
     <color name="infra_blue_b">#4052e8</color>
     <color name="infra_blue_c">#1027E2</color>
+    <color name="infra_blue_d">#E8EFFB</color>
+    <color name="infra_blue_e">#3347E6</color>
     <color name="infra_skyblue_a">#4B8EFF</color>
 
 

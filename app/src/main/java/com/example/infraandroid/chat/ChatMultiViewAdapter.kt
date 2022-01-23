@@ -63,6 +63,13 @@ class ChatMultiViewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     ) : RecyclerView.ViewHolder(binding.root){
         fun onBind(messageInfo: MessageInfo){
             binding.chatMessageTextview.text = messageInfo.message
+
+            val date = messageInfo.sendTime.substring(0..3)+"년 "+messageInfo.sendTime.substring(5..6)+"월 "+messageInfo.sendTime.substring(8..9)+"일"
+            binding.opponentDateLineTextview.text = date
+            if(!messageInfo.dateLine){
+                binding.opponentDateLineConstraintLayout.visibility = View.GONE
+            }
+
             Glide.with(itemView)
                 .load(R.drawable.other_user_photo)
                 .into(binding.opponentProfileImageview)
@@ -82,6 +89,12 @@ class ChatMultiViewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
         private val binding: ItemMyChatRecyclerviewBinding
     ) : RecyclerView.ViewHolder(binding.root){
         fun onBind(messageInfo: MessageInfo){
+            val date = messageInfo.sendTime.substring(0..3)+"년 "+messageInfo.sendTime.substring(5..6)+"월 "+messageInfo.sendTime.substring(8..9)+"일"
+            binding.dateLineTextview.text = date
+            if(!messageInfo.dateLine){
+                binding.dateLineConstraintLayout.visibility = View.GONE
+            }
+
             binding.myChatMessageTextview.text = messageInfo.message
             var hour = messageInfo.sendTime.substring(11..12)
             var min = messageInfo.sendTime.substring(14..15)

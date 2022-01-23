@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import com.example.infraandroid.R
 import com.example.infraandroid.UserId
@@ -58,6 +59,7 @@ class ChatFragment : Fragment() {
 
         // 채팅 데이터의 변화를 감지
         val childEventListener = object : ChildEventListener {
+            var date = ""
             override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
 
                 // A new comment has been added, add it to the displayed list
@@ -73,8 +75,15 @@ class ChatFragment : Fragment() {
                     }
                     if(snapshot.key=="sendTime"){
                         tempMessage.sendTime=snapshot.value.toString()
+                        val thisMessageTime = snapshot.value.toString().substring(0..9)
+                        if(date==thisMessageTime){
+                            tempMessage.dateLine = false
+                        }
+                        else{
+                            date = thisMessageTime
+                        }
                     }
-                    if(snapshot.key=="user1"){
+                    if(snapshot.key=="user1") {
                         opponentId = snapshot.value.toString()
                     }
                 }
@@ -153,6 +162,7 @@ class ChatFragment : Fragment() {
                 if(messageToSend.isBlank())
                     Toast.makeText(activity, "input message!", Toast.LENGTH_SHORT).show()
                 else {
+                    // 채팅 관련 정보들 저장
                     val hashMap = HashMap<String, String>()
                     val lastMessageHashMap = HashMap<String, String>()
 
