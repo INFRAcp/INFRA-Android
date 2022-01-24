@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/find_team_item_constraint_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/idea_list_constraint_layout_background"
+    android:layout_marginHorizontal="30dp"
+    android:layout_marginVertical="10dp">
+
+    <ImageView
+        android:id="@+id/find_team_item_image_view"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/other_user_photo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="24dp"/>
+
+    <TextView
+        android:id="@+id/find_team_item_name_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/find_team_item_image_view"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="김프라"
+        android:fontFamily="@font/noto_sans_kr_bold"
+        android:textSize="15sp"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="16dp"
+        android:includeFontPadding="false"/>
+
+    <TextView
+        android:id="@+id/find_team_item_major_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/find_team_item_image_view"
+        app:layout_constraintTop_toBottomOf="@id/find_team_item_name_text_view"
+        android:text="UX 디자이너"
+        android:textSize="10sp"
+        android:fontFamily="@font/noto_sans_kr_bold"
+        android:includeFontPadding="false"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="4dp"/>
+
+    <ImageView
+        android:id="@+id/find_team_star_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_yellow_star"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="56dp"/>
+
+    <TextView
+        android:id="@+id/find_team_rate_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        app:layout_constraintLeft_toRightOf="@id/find_team_star_image_view"
+        app:layout_constraintTop_toTopOf="@id/find_team_star_image_view"
+        app:layout_constraintBottom_toBottomOf="@id/find_team_star_image_view"
+        android:layout_marginLeft="4dp"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:includeFontPadding="false"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/find_team_rate_population_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/find_team_rate_text_view"
+        app:layout_constraintBottom_toBottomOf="@id/find_team_rate_text_view"
+        app:layout_constraintTop_toTopOf="@id/find_team_rate_text_view"
+        android:text="(4)"
+        android:textSize="10sp"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:includeFontPadding="false"
+        android:layout_marginLeft="4dp"/>
+
+    <TextView
+        android:id="@+id/hash_tag_study"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="스터디"
+        android:background="@drawable/hash_tag_main_keyword_background"
+        app:layout_constraintTop_toBottomOf="@id/find_team_item_image_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:paddingVertical="4dp"
+        android:paddingHorizontal="12dp"
+        android:textSize="11sp"
+        android:fontFamily="@font/noto_sans_kr_thin"
+        android:textColor="@color/infra_blue_c"
+        android:includeFontPadding="false"/>
+
+    <TextView
+        android:id="@+id/hash_tag_android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Android"
+        android:background="@drawable/hash_tag_sub_keyword_background"
+        app:layout_constraintTop_toTopOf="@id/hash_tag_study"
+        app:layout_constraintLeft_toRightOf="@+id/hash_tag_study"
+        app:layout_constraintBottom_toBottomOf="@id/hash_tag_study"
+        android:layout_marginLeft="6dp"
+        android:paddingVertical="4dp"
+        android:paddingHorizontal="12dp"
+        android:textSize="11sp"
+        android:fontFamily="@font/noto_sans_kr_thin"
+        android:textColor="@color/infra_skyblue_a"
+        android:includeFontPadding="false"/>
+
+    <TextView
+        android:id="@+id/hash_tag_bitcoin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="비트코인"
+        android:background="@drawable/hash_tag_sub_keyword_background"
+        app:layout_constraintTop_toTopOf="@id/hash_tag_android"
+        app:layout_constraintLeft_toRightOf="@+id/hash_tag_android"
+        app:layout_constraintBottom_toBottomOf="@id/hash_tag_android"
+        android:layout_marginLeft="6dp"
+        android:paddingVertical="4dp"
+        android:paddingHorizontal="12dp"
+        android:textSize="11sp"
+        android:fontFamily="@font/noto_sans_kr_thin"
+        android:textColor="@color/infra_skyblue_a"
+        android:includeFontPadding="false"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,7 +8,8 @@ import androidx.fragment.app.Fragment
 import com.example.infraandroid.databinding.FragmentCategoryTeamBinding
 
 class CategoryTeamFragment : Fragment() {
-    private  var mBinding : FragmentCategoryTeamBinding? = null
+    private var mBinding : FragmentCategoryTeamBinding? = null
+    val categoryFindTeamMemberAdapter = CategoryFindTeamMemberAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,6 +22,22 @@ class CategoryTeamFragment : Fragment() {
         mBinding = binding
 
         return mBinding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        mBinding?.categoryFindTeamRecyclerView?.adapter = categoryFindTeamMemberAdapter
+        categoryFindTeamMemberAdapter.teamMemberList.addAll(
+            listOf<CategoryFindTeamMemberInfo>(
+                CategoryFindTeamMemberInfo("","김프라","소프트웨어학과","4","10"),
+                CategoryFindTeamMemberInfo("", "은진", "안드천재", "2", "9"),
+                CategoryFindTeamMemberInfo("", "승민", "안드바보", "2", "9")
+            )
+        )
+
+        categoryFindTeamMemberAdapter.notifyDataSetChanged()
+
     }
 
     override fun onDestroyView() {

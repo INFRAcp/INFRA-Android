@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_edittext"
-                android:hint="키워드를 입력해보세요. 예시) 어플, 봉사, 스터디"
+                android:hint="@string/category_search_hint"
                 android:fontFamily="@font/noto_sans_kr_bold"
                 android:inputType="phone"
                 android:textSize="11dp"
