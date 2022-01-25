@@ -29,7 +29,8 @@
         android:textSize="15sp"
         android:layout_marginTop="24dp"
         android:layout_marginLeft="16dp"
-        android:includeFontPadding="false"/>
+        android:includeFontPadding="false"
+        android:textColor="@color/infra_black_a"/>
 
     <TextView
         android:id="@+id/find_team_item_major_text_view"
@@ -42,7 +43,8 @@
         android:fontFamily="@font/noto_sans_kr_bold"
         android:includeFontPadding="false"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="4dp"/>
+        android:layout_marginTop="4dp"
+        android:textColor="@color/infra_gray_i"/>
 
     <ImageView
         android:id="@+id/find_team_star_image_view"
@@ -65,6 +67,7 @@
         android:layout_marginLeft="4dp"
         android:fontFamily="@font/noto_sans_kr_regular"
         android:includeFontPadding="false"
+        android:textColor="@color/infra_black_a"
         android:textSize="14sp"/>
 
     <TextView
@@ -78,7 +81,9 @@
         android:textSize="10sp"
         android:fontFamily="@font/noto_sans_kr_regular"
         android:includeFontPadding="false"
-        android:layout_marginLeft="4dp"/>
+        android:layout_marginTop="2dp"
+        android:layout_marginLeft="4dp"
+        android:textColor="@color/infra_gray_j"/>
 
     <TextView
         android:id="@+id/hash_tag_study"
