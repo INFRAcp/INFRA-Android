@@ -112,7 +112,9 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 android:fontFamily="@font/noto_sans_kr_regular"
-                android:includeFontPadding="false"/>
+                android:includeFontPadding="false"
+                android:minHeight="0dp"
+                />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/idea_list_constraint_layout"
