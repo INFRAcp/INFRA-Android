@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_chat" />
     <fragment
         android:id="@+id/my_info_fragment"
-        android:name="com.example.infraandroid.fragments.MyInfoFragment"
+        android:name="com.example.infraandroid.myinfo.MyInfoFragment"
         android:label="fragment_my_info"
         tools:layout="@layout/fragment_my_info" />
     <fragment

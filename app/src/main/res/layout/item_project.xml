@@ -13,11 +13,12 @@
         android:adjustViewBounds="true"
         android:src="@drawable/ic_recommed_project_rectangle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/shadow_1"/>
 
     <ImageView
         android:id="@+id/item_recommed_project_photo_iv"
-        android:layout_width="wrap_content"
+        android:layout_width="180dp"
         android:layout_height="120dp"
         android:src="@drawable/project_photo"
         app:layout_constraintStart_toStartOf="@id/item_recommed_project_list_iv"
@@ -29,15 +30,14 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@id/item_recommed_project_list_iv"
         app:layout_constraintStart_toStartOf="@id/item_recommed_project_list_iv"
-        android:layout_marginTop="12dp"
-        android:layout_marginStart="10dp">
+        android:layout_marginTop="12dp">
         <com.google.android.material.chip.Chip
             android:id="@+id/item_keyword1_chip"
             style="@style/Widget.MaterialComponents.Chip.Choice"
             app:layout_constraintTop_toTopOf="@id/item_recommed_project_list_iv"
             app:layout_constraintStart_toStartOf="@id/item_recommed_project_list_iv"
             android:layout_marginTop="12dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="18dp"
             android:layout_width="wrap_content"
             android:layout_height="24dp"
             android:backgroundTint="@color/white"
