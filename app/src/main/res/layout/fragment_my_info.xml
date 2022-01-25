@@ -5,7 +5,7 @@
     android:id="@+id/my_info_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.infraandroid.fragments.MyInfoFragment">
+    tools:context="com.example.infraandroid.myinfo.MyInfoFragment">
 
     <TextView
         android:id="@+id/my_info_fragment_text"
