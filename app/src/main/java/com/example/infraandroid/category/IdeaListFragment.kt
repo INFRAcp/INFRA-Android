@@ -5,12 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import com.example.infraandroid.R
-import com.example.infraandroid.databinding.FragmentCategoryIdeaBinding
+import com.example.infraandroid.databinding.FragmentIdeaListBinding
 
-class CategoryIdeaFragment : Fragment() {
-    private  var mBinding : FragmentCategoryIdeaBinding? = null
+class IdeaListFragment : Fragment() {
+    private  var mBinding : FragmentIdeaListBinding? = null
+    private  val ideaListAdapter = IdeaListAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -18,7 +17,7 @@ class CategoryIdeaFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val binding = FragmentCategoryIdeaBinding.inflate(inflater, container, false)
+        val binding = FragmentIdeaListBinding.inflate(inflater, container, false)
 
         mBinding = binding
 
@@ -27,10 +26,13 @@ class CategoryIdeaFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        mBinding?.ideaListLookAllButton?.setOnClickListener {
-            it.findNavController().navigate(R.id.action_category_fragment_to_idea_list_fragment)
-        }
+        mBinding?.ideaListRecyclerView?.adapter = ideaListAdapter
+        ideaListAdapter.ideaList.addAll(
+            listOf<IdeaListInfo>(
+                IdeaListInfo("","멸종 위기 동물", "공모전","1/2", "동물", "웹디자인","마감임박!")
+            )
+        )
+        ideaListAdapter.notifyDataSetChanged()
     }
 
     override fun onDestroyView() {

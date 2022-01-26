@@ -22,15 +22,20 @@
         <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/layout/chat_more_menu.xml" value="0.22" />
         <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/layout/fragment_category.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/layout/fragment_category_idea.xml" value="0.1" />
+        <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/layout/fragment_category_team.xml" value="0.1" />
         <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/layout/fragment_chat.xml" value="0.19515151515151516" />
         <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/layout/fragment_chatting_room_list.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/layout/fragment_home.xml" value="0.15489130434782608" />
+        <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/layout/fragment_idea_list.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/layout/fragment_login.xml" value="0.22" />
         <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/layout/fragment_my_info.xml" value="0.15489130434782608" />
         <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/layout/item_category_find_team_recyclerview.xml" value="0.7333333333333334" />
         <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/layout/item_chat_recyclerview.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/layout/item_chatting_room_list_recyclerview.xml" value="0.13333333333333333" />
+        <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/layout/item_idea_list.xml" value="0.5" />
         <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/layout/item_my_chat_recyclerview.xml" value="0.1" />
+        <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/layout/item_project.xml" value="0.1" />
         <entry key="..\:/Users/Seungmin/GitProjects/Infra_Android/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2" />
         <entry key="..\:/infra/INFRA-Android/app/src/main/res/drawable-v24/btn_arrow_more_white.xml" value="0.1" />
         <entry key="..\:/infra/INFRA-Android/app/src/main/res/drawable-v24/ic_bookmark.xml" value="0.1" />
