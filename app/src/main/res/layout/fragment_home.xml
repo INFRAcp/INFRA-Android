@@ -85,41 +85,51 @@
             android:layout_marginBottom="11dp"
             android:layout_marginEnd="13dp" />
 
-<!--        글자 굵기 다르게 -->
-        <EditText
-            android:id="@+id/home_search_et"
-            android:layout_width="320dp"
-            android:layout_height="26dp"
-            android:padding="5dp"
-            android:background="@drawable/rounded_edittext"
-            android:hint="키워드를 입력해보세요. 예시) 어플, 봉사, 스터디"
-            android:elevation="10dp"
-            android:paddingVertical="10dp"
-            android:fontFamily="@font/noto_sans_kr_bold"
-            android:includeFontPadding="false"
-            android:inputType="text"
-            android:textSize="11sp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/home_search_constraintlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/home_new_project_iv"
+            android:background="@drawable/rounded_edittext"
             android:layout_marginTop="20dp"
+            android:layout_marginHorizontal="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-        <ImageView
-            android:id="@+id/home_keyword_search_iv"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_codicon_search"
-            app:layout_constraintTop_toTopOf="@id/home_search_et"
-            app:layout_constraintBottom_toBottomOf="@id/home_search_et"
-            app:layout_constraintEnd_toEndOf="@id/home_search_et"
-            android:layout_marginEnd="13dp"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:elevation="10dp">
+            <EditText
+                android:id="@+id/home_search_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:background="@drawable/rounded_edittext"
+                android:hint="@string/category_search_hint"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:inputType="text"
+                android:textSize="11sp"
+                android:paddingLeft="20dp"
+                android:paddingVertical="4dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="20dp"/>
+            <ImageView
+                android:id="@+id/home_keyword_search_iv"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_codicon_search"
+                app:layout_constraintTop_toTopOf="@id/home_search_et"
+                app:layout_constraintBottom_toBottomOf="@id/home_search_et"
+                app:layout_constraintEnd_toEndOf="@id/home_search_et"
+                android:layout_marginEnd="13dp"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:scrollbars="none"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_search_et">
+            app:layout_constraintTop_toBottomOf="@id/home_search_constraintlayout">
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -129,12 +139,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="스터디"
-                    android:background="@drawable/hash_tag_main_keyword_background"
+                    android:background="@drawable/hash_tag_main_keyword_blue_background"
                     android:paddingVertical="5dp"
                     android:paddingHorizontal="14dp"
                     android:textSize="11sp"
-                    android:fontFamily="@font/noto_sans_kr_thin"
-                    android:textColor="@color/infra_blue_c"
+                    android:fontFamily="@font/noto_sans_kr_regular"
+                    android:textColor="@color/white"
                     android:includeFontPadding="false"/>
                 <TextView
                     android:id="@+id/home_hash_tag_two"
@@ -146,7 +156,7 @@
                     android:paddingVertical="5dp"
                     android:paddingHorizontal="14dp"
                     android:textSize="11sp"
-                    android:fontFamily="@font/noto_sans_kr_thin"
+                    android:fontFamily="@font/noto_sans_kr_regular"
                     android:textColor="@color/infra_blue_c"
                     android:includeFontPadding="false"/>
                 <TextView
@@ -159,7 +169,7 @@
                     android:paddingVertical="5dp"
                     android:paddingHorizontal="14dp"
                     android:textSize="11sp"
-                    android:fontFamily="@font/noto_sans_kr_thin"
+                    android:fontFamily="@font/noto_sans_kr_regular"
                     android:textColor="@color/infra_blue_c"
                     android:includeFontPadding="false"/>
                 <TextView
@@ -172,7 +182,7 @@
                     android:paddingVertical="5dp"
                     android:paddingHorizontal="14dp"
                     android:textSize="11sp"
-                    android:fontFamily="@font/noto_sans_kr_thin"
+                    android:fontFamily="@font/noto_sans_kr_regular"
                     android:textColor="@color/infra_blue_c"
                     android:includeFontPadding="false"/>
                 <TextView
@@ -185,7 +195,7 @@
                     android:paddingVertical="5dp"
                     android:paddingHorizontal="14dp"
                     android:textSize="11sp"
-                    android:fontFamily="@font/noto_sans_kr_thin"
+                    android:fontFamily="@font/noto_sans_kr_regular"
                     android:textColor="@color/infra_blue_c"
                     android:includeFontPadding="false"/>
             </LinearLayout>
@@ -199,7 +209,7 @@
             android:scaleType="centerCrop"
             android:src="@drawable/ic_recommed_project_back"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_search_et"
+            app:layout_constraintTop_toBottomOf="@id/home_search_constraintlayout"
             android:layout_marginTop="70dp"
             app:layout_constraintHorizontal_bias="1.0" />
         <TextView
@@ -235,7 +245,9 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_recommed_project_tv"/>
+            app:layout_constraintTop_toBottomOf="@id/home_recommed_project_tv"
+            android:paddingBottom="10dp"
+            android:clipToPadding="false"/>
 
         <TextView
             android:id="@+id/home_hot_project_tv"
@@ -262,14 +274,16 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/home_hot_project_recycleview"
             android:layout_width="match_parent"
-            android:layout_height="210dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
             android:layout_marginStart="10dp"
             tools:listitem="@layout/item_project"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_hot_project_tv"/>
+            app:layout_constraintTop_toBottomOf="@id/home_hot_project_tv"
+            android:paddingBottom="10dp"
+            android:clipToPadding="false" />
 
         <TextView
             android:id="@+id/home_self_develope_tv"
@@ -303,7 +317,9 @@
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_self_develope_tv"/>
+            app:layout_constraintTop_toBottomOf="@id/home_self_develope_tv"
+            android:paddingBottom="10dp"
+            android:clipToPadding="false"/>
 
 
 

@@ -27,8 +27,8 @@ class SelfDevelopeRVAdapter (): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             binding.itemProjectNameTv.text = selfDevelope.name
             binding.itemProjectMemberNumTv.text = selfDevelope.member
             binding.itemProjectStateTv.text = selfDevelope.state
-            binding.itemKeyword1Chip.text = selfDevelope.keyword1
-            binding.itemKeyword1Chip.text = selfDevelope.keyword2
+            binding.itemHashTagOne.text = selfDevelope.keyword1
+            binding.itemHashTagTwo.text = selfDevelope.keyword2
         }
     }
 }

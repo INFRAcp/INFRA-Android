@@ -27,8 +27,8 @@ class HotProjectRVAdapter (): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             binding.itemProjectNameTv.text = hotproject.name
             binding.itemProjectMemberNumTv.text = hotproject.member
             binding.itemProjectStateTv.text = hotproject.state
-            binding.itemKeyword1Chip.text = hotproject.keyword1
-            binding.itemKeyword1Chip.text = hotproject.keyword2
+            binding.itemHashTagOne.text = hotproject.keyword1
+            binding.itemHashTagTwo.text = hotproject.keyword2
         }
     }
 
