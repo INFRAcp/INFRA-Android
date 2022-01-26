@@ -14,7 +14,11 @@
         android:id="@+id/category_fragment"
         android:name="com.example.infraandroid.category.CategoryFragment"
         android:label="fragment_category"
-        tools:layout="@layout/fragment_category" />
+        tools:layout="@layout/fragment_category" >
+        <action
+            android:id="@+id/action_category_fragment_to_idea_list_fragment"
+            app:destination="@id/idea_list_fragment" />
+    </fragment>
     <fragment
         android:id="@+id/chat_fragment"
         android:name="com.example.infraandroid.chat.ChatFragment"
@@ -43,4 +47,8 @@
             android:id="@+id/action_chatting_room_list_fragment_to_chat_fragment"
             app:destination="@id/chat_fragment" />
     </fragment>
+    <fragment
+        android:id="@+id/idea_list_fragment"
+        android:name="com.example.infraandroid.category.IdeaListFragment"
+        android:label="IdeaListFragment" />
 </navigation>

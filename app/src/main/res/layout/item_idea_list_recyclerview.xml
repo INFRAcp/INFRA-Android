@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="15dp"
+    android:layout_marginHorizontal="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/project_image_view"
+        android:layout_width="84dp"
+        android:layout_height="100dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:src="@drawable/ic_idea_list_img"/>
+
+    <TextView
+        android:id="@+id/project_category_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/project_image_view"
+        android:text="어플제작"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:includeFontPadding="false"
+        android:textSize="10sp"/>
+
+    <TextView
+        android:id="@+id/project_category_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/project_category_text_view"
+        app:layout_constraintLeft_toRightOf="@id/project_image_view"
+        android:text="건축모드"
+        android:fontFamily="@font/noto_sans_kr_bold"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:includeFontPadding="false"
+        android:layout_marginLeft="16dp"/>
+
+    <ImageView
+        android:id="@+id/people_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_uil_users_number"
+        app:layout_constraintLeft_toRightOf="@id/project_image_view"
+        app:layout_constraintTop_toBottomOf="@id/project_category_title"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/people_icon"
+        app:layout_constraintTop_toTopOf="@id/people_icon"
+        app:layout_constraintBottom_toBottomOf="@id/people_icon"
+        android:text="6/8명"
+        android:layout_marginLeft="4dp"
+        android:textSize="10sp"
+        android:fontFamily="@font/noto_sans_kr_bold"/>
+
+    <TextView
+        android:id="@+id/hash_tag_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/project_image_view"
+        android:text="건축"
+        app:layout_constraintTop_toBottomOf="@id/people_icon"
+        android:background="@drawable/hash_tag_sub_keyword_background"
+        android:textColor="@color/infra_skyblue_a"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="5dp"
+        android:textSize="10sp"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:includeFontPadding="false"/>
+
+    <TextView
+        android:id="@+id/hash_tag_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="안드로이드"
+        app:layout_constraintLeft_toRightOf="@id/hash_tag_one"
+        app:layout_constraintTop_toTopOf="@id/hash_tag_one"
+        app:layout_constraintBottom_toBottomOf="@id/hash_tag_one"
+        android:background="@drawable/hash_tag_sub_keyword_background"
+        android:textColor="@color/infra_skyblue_a"
+        android:layout_marginLeft="16dp"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="5dp"
+        android:textSize="10sp"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:includeFontPadding="false"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="마감임박!"
+        android:textColor="@color/infra_purple_a"
+        android:textSize="10sp"
+        android:fontFamily="@font/noto_sans_kr_bold"
+        app:layout_constraintBottom_toBottomOf="@id/hash_tag_two"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@drawable/ic_bookmark"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

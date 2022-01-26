@@ -1,26 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="deploymentTargetDropDown">
-    <targetSelectedWithDropDown>
+    <runningDeviceTargetSelectedWithDropDown>
       <Target>
-        <type value="QUICK_BOOT_TARGET" />
+        <type value="RUNNING_DEVICE_TARGET" />
         <deviceKey>
           <Key>
-            <type value="VIRTUAL_DEVICE_PATH" />
-<<<<<<< Updated upstream
-            <value value="C:\Users\Seungmin\.android\avd\SOPT_Seminar_AVD_API_30.avd" />
-
-=======
-            <value value="C:\Users\user\.android\avd\InfraAndroid_API_30.avd" />
->>>>>>> Stashed changes
+            <type value="SERIAL_NUMBER" />
+            <value value="ce071717c4cd2cf90d" />
           </Key>
         </deviceKey>
       </Target>
-    </targetSelectedWithDropDown>
-<<<<<<< Updated upstream
-    <timeTargetWasSelectedWithDropDown value="2022-01-15T16:03:47.699846300Z" />
-=======
-    <timeTargetWasSelectedWithDropDown value="2022-01-17T13:40:35.885551300Z" />
->>>>>>> Stashed changes
+    </runningDeviceTargetSelectedWithDropDown>
+    <timeTargetWasSelectedWithDropDown value="2022-01-26T06:34:19.516427100Z" />
   </component>
 </project>
