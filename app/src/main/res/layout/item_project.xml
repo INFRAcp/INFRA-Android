@@ -4,58 +4,51 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginLeft="21dp">
-
-    <ImageView
-        android:id="@+id/item_recommed_project_list_iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:src="@drawable/ic_recommed_project_rectangle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/shadow_1"/>
+    android:background="@drawable/idea_list_constraint_layout_background"
+    android:layout_marginLeft="21dp"
+    android:elevation="10dp">
 
     <ImageView
         android:id="@+id/item_recommed_project_photo_iv"
         android:layout_width="180dp"
         android:layout_height="120dp"
         android:src="@drawable/project_photo"
-        app:layout_constraintStart_toStartOf="@id/item_recommed_project_list_iv"
-        app:layout_constraintEnd_toEndOf="@id/item_recommed_project_list_iv"
-        app:layout_constraintTop_toTopOf="@id/item_recommed_project_list_iv" />
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/item_keyword_chipgroup"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/item_hash_tag_one"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/item_recommed_project_list_iv"
-        app:layout_constraintStart_toStartOf="@id/item_recommed_project_list_iv"
-        android:layout_marginTop="12dp">
-        <com.google.android.material.chip.Chip
-            android:id="@+id/item_keyword1_chip"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            app:layout_constraintTop_toTopOf="@id/item_recommed_project_list_iv"
-            app:layout_constraintStart_toStartOf="@id/item_recommed_project_list_iv"
-            android:layout_marginTop="12dp"
-            android:layout_marginStart="18dp"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:backgroundTint="@color/white"
-            app:chipMinTouchTargetSize="0dp"
-            android:textAppearance="@style/chipTextAppearance2"
-            android:text="건축" />
-        <com.google.android.material.chip.Chip
-            android:id="@+id/item_keyword2_chip"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            app:layout_constraintTop_toTopOf="@id/item_keyword1_chip"
-            app:layout_constraintStart_toEndOf="@id/item_keyword1_chip"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:backgroundTint="@color/white"
-            app:chipMinTouchTargetSize="0dp"
-            android:textAppearance="@style/chipTextAppearance2"
-            android:text="안드로이드" />
-    </com.google.android.material.chip.ChipGroup>
+        android:text="비트코인"
+        android:background="@drawable/hash_tag_main_keyword_white_background"
+        android:paddingVertical="5dp"
+        android:paddingHorizontal="12dp"
+        android:textSize="11sp"
+        android:elevation="10dp"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:textColor="@color/infra_blue_f"
+        android:includeFontPadding="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="12dp"/>
+    <TextView
+        android:id="@+id/item_hash_tag_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="IOS"
+        android:layout_marginStart="6dp"
+        android:background="@drawable/hash_tag_main_keyword_white_background"
+        android:paddingVertical="5dp"
+        android:paddingHorizontal="12dp"
+        android:textSize="11sp"
+        android:elevation="10dp"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:textColor="@color/infra_blue_f"
+        android:includeFontPadding="false"
+        app:layout_constraintStart_toEndOf="@id/item_hash_tag_one"
+        app:layout_constraintTop_toTopOf="@id/item_hash_tag_one"/>
 
     <TextView
         android:id="@+id/item_project_group_tv"
@@ -63,7 +56,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/item_recommed_project_photo_iv"
         android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="@id/item_recommed_project_list_iv"
+        app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="10dp"
         android:text="어플제작"
         android:textSize="10dp"
@@ -81,14 +74,26 @@
         android:fontFamily="@font/sans_pro_regular"
         android:textColor="@color/black"
         android:textStyle="bold"/>
+    <ImageView
+        android:id="@+id/icon_member_iv"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_people"
+        app:layout_constraintTop_toBottomOf="@id/item_project_name_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="12dp"/>
     <TextView
         android:id="@+id/item_project_member_num_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/item_recommed_project_list_iv"
         android:layout_marginBottom="10dp"
-        app:layout_constraintStart_toStartOf="@id/item_project_group_tv"
-        android:text="참여인원 6/8명"
+        app:layout_constraintStart_toEndOf="@id/icon_member_iv"
+        app:layout_constraintTop_toTopOf="@id/icon_member_iv"
+        android:layout_marginStart="4dp"
+        android:text="6/8명"
         android:textSize="10dp"
         android:fontFamily="@font/noto_sans_kr_regular"
         android:includeFontPadding="false"
@@ -98,15 +103,15 @@
         android:id="@+id/item_project_state_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
         android:text="모집중!"
         android:textColor="@color/infra_skyblue_a"
         android:textSize="10dp"
         android:fontFamily="@font/noto_sans_kr_bold"
         android:includeFontPadding="false"
-        app:layout_constraintBottom_toBottomOf="@id/item_recommed_project_list_iv"
-        app:layout_constraintEnd_toEndOf="@id/item_recommed_project_list_iv" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"/>
 
     <ImageView
         android:id="@+id/item_bookmark_iv"
@@ -114,9 +119,9 @@
         android:layout_height="20dp"
         android:src="@drawable/ic_bookmark"
         app:layout_constraintTop_toBottomOf="@id/item_recommed_project_photo_iv"
-        app:layout_constraintEnd_toEndOf="@id/item_recommed_project_list_iv"
+        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp" />
+        android:layout_marginEnd="12dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,21 +33,21 @@ class HomeFragment : Fragment() {
 
         //프로젝트 제안 리사이클러뷰 어뎁터
         mBinding?.homeRecommedProjectRecycleview?.adapter = RecomprojectRVAdapter
-        val tempData = RecommedProject("test","test","test","test","test","test", 3)
+        val tempData = RecommedProject("Group","Name","6/8명","모집중!","tag1","tag2", 3)
         recomprojectList.add(tempData)
         RecomprojectRVAdapter.recomprojectList.addAll(recomprojectList)
         RecomprojectRVAdapter.notifyDataSetChanged()
 
         //핫 프로젝트 리사이클러뷰 어뎁터
         mBinding?.homeHotProjectRecycleview?.adapter = HotProjectRVAdapter
-        val tempData2 = HotProject("hottest","hottest","hottest","hottest","hottest","hottest", 3)
+        val tempData2 = HotProject("Group","Name","6/8명","모집완료!","tag1","tag2", 3)
         hotpjectList.add(tempData2)
         HotProjectRVAdapter.hotprojectList.addAll(hotpjectList)
         HotProjectRVAdapter.notifyDataSetChanged()
 
         //자기개발 리사이클러뷰 어뎁터
         mBinding?.homeSelfDevelopeRecycleview?.adapter = SelfDevelopeRVAdapter
-        val tempData3 = SelfDevelope("selftest","selftest","selftest","selftest","selftest","selftest", 3)
+        val tempData3 = SelfDevelope("Group","Name","6/8명","모집중!","tag1","tag2", 3)
         selfdevList.add(tempData3)
         SelfDevelopeRVAdapter.selfdevelopeList.addAll(selfdevList)
         SelfDevelopeRVAdapter.notifyDataSetChanged()
