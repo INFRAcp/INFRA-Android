@@ -132,7 +132,7 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/category_finished_pr_background"
-                android:layout_width="120dp"
+                android:layout_width="118dp"
                 android:layout_height="8dp"
                 android:background="@color/infra_orange_a"
                 android:fillViewport="true"
@@ -161,7 +161,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="32dp"
-                android:background="@drawable/idea_list_constraint_layout_background"
+                android:background="@drawable/info_finished_proj_background"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/category_finished_pr_title_textview">
 
@@ -200,85 +200,251 @@
                     app:layout_constraintTop_toBottomOf="@id/category_finished_pr_cate_textview" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/category_finished_pr_text_constraintlayout"
+            <TextView
+                android:id="@+id/category_finished_pr_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_kr_regular"
+                android:includeFontPadding="false"
+                android:background="@drawable/category_info_finished_proj_background"
+                android:text="건축에 대해서 심오하게 공부하고 실제 건물을 지어볼 수 있게 시뮬레이션이 가능한 어플을 만드는 프로젝트였습니다."
+                android:textColor="@color/infra_gray_j"
+                android:textSize="14sp"
+                android:paddingLeft="15dp"
                 app:layout_constraintTop_toBottomOf="@id/category_finished_pr_constraintlayout"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="22dp"
-                android:layout_marginStart="50dp">
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/category_info_line_background"
-                    android:layout_width="1dp"
-                    android:layout_height="wrap_content"
-                    android:background="@color/infra_gray_j"
-                    android:fillViewport="true"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-                <TextView
-                    android:id="@+id/category_finished_pr_textview"
-                    android:layout_width="270dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/noto_sans_kr_light"
-                    android:includeFontPadding="false"
-                    android:text="건축에 대해서 심오하게 공부하고 실제 건물을 지어볼 수 있게 시뮬레이션이 가능한 어플을 만드는 프로젝트였습니다."
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    app:layout_constraintStart_toStartOf="@id/category_info_line_background"
-                    android:layout_marginStart="15dp"
-                    app:layout_constraintTop_toTopOf="parent"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="72dp"/>
 
-            <ImageView
-                android:id="@+id/category_icon_github_iv"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/category_portfolio_linearlayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_github"
-                app:layout_constraintTop_toBottomOf="@id/category_finished_pr_text_constraintlayout"
-                android:layout_marginTop="66dp"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="40dp"/>
-            <ImageView
-                android:id="@+id/category_icon_instagram_iv"
+                android:layout_marginStart="40dp"
+                app:layout_constraintTop_toBottomOf="@id/category_finished_pr_textview"
+                android:layout_marginTop="60dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="40dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/category_instagram_linearlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/category_icon_instagram_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_instagram" />
+                    <TextView
+                        android:id="@+id/category_link_instagram_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="링크주소"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textSize="11sp"
+                        android:textColor="@color/infra_gray_l"
+                        android:includeFontPadding="false"
+                        android:layout_marginStart="9dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/category_github_linearlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp">
+
+                    <ImageView
+                        android:id="@+id/category_icon_github_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_github" />
+
+                    <TextView
+                        android:id="@+id/category_link_github_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="9dp"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:includeFontPadding="false"
+                        android:text="링크주소"
+                        android:textColor="@color/infra_gray_l"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/category_behance_linearlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp">
+                    <ImageView
+                        android:id="@+id/category_icon_behance_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_behance" />
+                    <TextView
+                        android:id="@+id/category_link_behance_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="링크주소"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textSize="11sp"
+                        android:textColor="@color/infra_gray_l"
+                        android:includeFontPadding="false"
+                        android:layout_marginStart="9dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/category_google_drive_linearlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp">
+                    <ImageView
+                        android:id="@+id/category_icon_google_drive_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_logos_google_drive" />
+                    <TextView
+                        android:id="@+id/category_link_google_drive_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="링크주소"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textSize="11sp"
+                        android:textColor="@color/infra_gray_l"
+                        android:includeFontPadding="false"
+                        android:layout_marginStart="9dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/category_youtube_linearlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp">
+                    <ImageView
+                        android:id="@+id/category_icon_youtube_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_youtube" />
+                    <TextView
+                        android:id="@+id/category_link_youtube_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="링크주소"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textSize="11sp"
+                        android:textColor="@color/infra_gray_l"
+                        android:includeFontPadding="false"
+                        android:layout_marginStart="9dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/category_notion_linearlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp">
+                    <ImageView
+                        android:id="@+id/category_icon_notion_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_notion" />
+                    <TextView
+                        android:id="@+id/category_link_notion_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="링크주소"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textSize="11sp"
+                        android:textColor="@color/infra_gray_l"
+                        android:includeFontPadding="false"
+                        android:layout_marginStart="9dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/category_link_linearlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp">
+                    <ImageView
+                        android:id="@+id/category_icon_link_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_link" />
+                    <TextView
+                        android:id="@+id/category_link_link_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="링크주소"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textSize="11sp"
+                        android:textColor="@color/infra_gray_l"
+                        android:includeFontPadding="false"
+                        android:layout_marginStart="9dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_instagram"
-                app:layout_constraintTop_toBottomOf="@id/category_icon_github_iv"
-                android:layout_marginTop="18dp"
-                app:layout_constraintStart_toStartOf="@id/category_icon_github_iv"/>
-            <ImageView
-                android:id="@+id/category_icon_behance_iv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_behance"
-                app:layout_constraintTop_toBottomOf="@id/category_icon_instagram_iv"
-                android:layout_marginTop="18dp"
-                app:layout_constraintStart_toStartOf="@id/category_icon_github_iv"/>
-            <ImageView
-                android:id="@+id/category_icon_logos_google_drive_iv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_logos_google_drive"
-                app:layout_constraintTop_toBottomOf="@id/category_icon_behance_iv"
-                android:layout_marginTop="18dp"
-                app:layout_constraintStart_toStartOf="@id/category_icon_github_iv"/>
-            <ImageView
-                android:id="@+id/category_icon_youtube_iv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_youtube"
-                app:layout_constraintTop_toBottomOf="@id/category_icon_logos_google_drive_iv"
-                android:layout_marginTop="18dp"
-                app:layout_constraintStart_toStartOf="@id/category_icon_github_iv"/>
-            <ImageView
-                android:id="@+id/category_icon_link_iv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_link"
-                app:layout_constraintTop_toBottomOf="@id/category_icon_youtube_iv"
-                android:layout_marginTop="18dp"
-                app:layout_constraintStart_toStartOf="@id/category_icon_github_iv"/>
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="40dp"
+                app:layout_constraintTop_toBottomOf="@id/category_portfolio_linearlayout"
+                android:layout_marginTop="50dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="50dp">
+                <TextView
+                    android:id="@+id/category_info_hash_tag_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="대학원"
+                    android:background="@drawable/hash_tag_main_keyword_background"
+                    android:paddingVertical="5dp"
+                    android:paddingHorizontal="14dp"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:textColor="@color/infra_skyblue_a"
+                    android:includeFontPadding="false"/>
+                <TextView
+                    android:id="@+id/category_info_hash_tag_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="오토바이"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/hash_tag_main_keyword_background"
+                    android:paddingVertical="5dp"
+                    android:paddingHorizontal="14dp"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:textColor="@color/infra_skyblue_a"
+                    android:includeFontPadding="false"/>
+                <TextView
+                    android:id="@+id/category_info_hash_tag_three"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CAD"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/hash_tag_main_keyword_background"
+                    android:paddingVertical="5dp"
+                    android:paddingHorizontal="14dp"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:textColor="@color/infra_skyblue_a"
+                    android:includeFontPadding="false"/>
+                <TextView
+                    android:id="@+id/category_info_hash_tag_four"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="스터디"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/hash_tag_main_keyword_background"
+                    android:paddingVertical="5dp"
+                    android:paddingHorizontal="14dp"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:textColor="@color/infra_blue_c"
+                    android:includeFontPadding="false"/>
+            </LinearLayout>
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

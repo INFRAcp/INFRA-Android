@@ -3,10 +3,10 @@
     <!--  res/drawable/rounded_edittext.xml -->
     <solid android:color="#FFFFFF"/>
     <corners
-        android:bottomRightRadius="15dp"
-        android:bottomLeftRadius="15dp"
-        android:topLeftRadius="15dp"
-        android:topRightRadius="15dp"/>
+        android:bottomRightRadius="21dp"
+        android:bottomLeftRadius="21dp"
+        android:topLeftRadius="21dp"
+        android:topRightRadius="21dp"/>
     <!-- Drop Shadow Stack -->
     <item> <shape> <padding android:top="1dp" android:right="1dp" android:bottom="2dp" android:left="1dp" /> <corners android:radius="5dp" /> <solid android:color="#00CCCCCC" /> </shape> </item>
     <item> <shape> <padding android:top="1dp" android:right="1dp" android:bottom="2dp" android:left="1dp" /> <corners android:radius="5dp" /> <solid android:color="#10CCCCCC" /> </shape> </item>

@@ -33,8 +33,8 @@ class RecomProjectRVAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             binding.itemProjectNameTv.text = recomproject.name
             binding.itemProjectMemberNumTv.text = recomproject.member
             binding.itemProjectStateTv.text = recomproject.state
-            binding.itemKeyword1Chip.text = recomproject.keyword1
-            binding.itemKeyword1Chip.text = recomproject.keyword2
+            binding.itemHashTagOne.text = recomproject.keyword1
+            binding.itemHashTagTwo.text = recomproject.keyword2
         }
     }
 }
