@@ -9,42 +9,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <!--        근데 이미지 동그랗게 들어오는거는 crop으로 가능-->
         <ImageView
-            android:id="@+id/category_info_user_profile_iv"
             android:layout_width="71dp"
             android:layout_height="71dp"
             android:src="@drawable/user_profile"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="64dp" />
-        <ImageView
-            android:id="@+id/category_info_bubble_one_iv"
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:src="@drawable/bubble_one"
-            app:layout_constraintStart_toEndOf="@id/category_info_user_profile_iv"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="92dp"
-            android:layout_marginStart="88dp"/>
-        <ImageView
-            android:id="@+id/category_info_bubble_two_iv"
-            android:layout_width="11dp"
-            android:layout_height="11dp"
-            android:src="@drawable/bubble_two"
-            app:layout_constraintStart_toEndOf="@id/category_info_user_profile_iv"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="60dp"
-            android:layout_marginStart="36dp"/>
-        <ImageView
-            android:id="@+id/category_info_bubble_three_iv"
-            android:layout_width="6dp"
-            android:layout_height="6dp"
-            android:src="@drawable/bubble_three"
-            app:layout_constraintEnd_toStartOf="@id/category_info_user_profile_iv"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="102dp"
-            android:layout_marginEnd="100dp"/>
+            android:layout_marginTop="64dp"
+            android:layout_marginStart="144dp" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/category_info_constraint_layout"

@@ -5,17 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.example.infraandroid.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.LabelVisibilityMode
 
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView
-
-import com.google.android.material.bottomnavigation.BottomNavigationView
-
-import android.annotation.SuppressLint
 import android.view.View
-import androidx.navigation.fragment.NavHostFragment.findNavController
-import com.example.infraandroid.fragments.LoginFragment
-import com.example.infraandroid.fragments.LoginFragmentDirections
 
 class MainActivity : AppCompatActivity() {
 

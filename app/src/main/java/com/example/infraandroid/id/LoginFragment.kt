@@ -1,8 +1,6 @@
-package com.example.infraandroid.fragments
+package com.example.infraandroid.id
 
-import android.app.Activity
 import android.content.ContentValues.TAG
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,18 +9,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
-import com.example.infraandroid.MainActivity
 import com.example.infraandroid.R
 import com.example.infraandroid.UserId
 import com.example.infraandroid.databinding.FragmentLoginBinding
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 
 class LoginFragment : Fragment() {
     private var mBinding : FragmentLoginBinding? = null
@@ -73,7 +64,7 @@ class LoginFragment : Fragment() {
         }
 
         // 회원가입 버튼을 눌렀을 때
-        mBinding!!.registerButton.setOnClickListener {
+        mBinding!!.loginRegisterTv.setOnClickListener {
             val inputId = mBinding!!.idEdittext.text.toString()
             val inputPw = mBinding!!.pwEdittext.text.toString()
 
