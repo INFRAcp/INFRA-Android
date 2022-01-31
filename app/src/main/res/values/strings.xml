@@ -8,4 +8,5 @@
     <string name="category_my_idea_description">내 아이디어 수정, 신청현황,\n 팀원 관리를 해보세요!</string>
     <string name="category_look_my_idea_list">내 아이디어 목록 보기 ></string>
     <string name="category_search_hint">키워드를 입력해보세요. 예시) 어플, 봉사, 스터디</string>
+    <string name="login_sign_up"><u>인프라가 처음이신가요? 회원가입하기</u></string>
 </resources>
