@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/category_information"
+    android:background="@color/infra_blue_c">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!--        근데 이미지 동그랗게 들어오는거는 crop으로 가능-->
+        <ImageView
+            android:layout_width="71dp"
+            android:layout_height="71dp"
+            android:src="@drawable/user_profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="64dp"
+            android:layout_marginStart="144dp" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/category_info_constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="184dp"
+            android:background="@drawable/category_info_background"
+            android:fillViewport="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/category_info_name_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:includeFontPadding="false"
+                android:text="기리니"
+                android:textColor="@color/black"
+                android:textSize="26sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/category_info_constraint_layout" />
+
+            <TextView
+                android:id="@+id/category_info_depart_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="42dp"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:includeFontPadding="false"
+                android:text="기계공학과"
+                android:textColor="@color/infra_gray_i"
+                android:textSize="13sp"
+                app:layout_constraintStart_toEndOf="@id/category_info_name_textview"
+                app:layout_constraintTop_toTopOf="@id/category_info_constraint_layout" />
+
+            <TextView
+                android:id="@+id/category_info_star_point_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="42dp"
+                android:fontFamily="@font/noto_sans_kr_medium"
+                android:includeFontPadding="false"
+                android:text="4"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toStartOf="@id/category_info_num_of_eval_textview"
+                app:layout_constraintTop_toTopOf="@id/category_info_constraint_layout" />
+
+            <TextView
+                android:id="@+id/category_info_num_of_eval_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="46dp"
+                android:layout_marginEnd="30dp"
+                android:fontFamily="@font/noto_sans_kr_medium"
+                android:includeFontPadding="false"
+                android:text="(100)"
+                android:textColor="@color/infra_gray_i"
+                android:textSize="10sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/category_info_constraint_layout" />
+
+            <LinearLayout
+                android:id="@+id/category_info_linearlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="30dp"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/category_info_constraint_layout">
+                <!--                textview사이에 이미지 넣는 코드 수정-->
+                <TextView
+                    android:id="@+id/category_info_text_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_kr_light"
+                    android:includeFontPadding="false"
+                    android:text="안녕하세요! 저를 소개합니다"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/category_info_user_photo2_imageview"
+                    android:layout_width="380dp"
+                    android:layout_height="190dp"
+                    android:layout_marginTop="75dp"
+                    android:src="@drawable/category_user_photo_two"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/category_info_text2_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="40dp"
+                    android:fontFamily="@font/noto_sans_kr_light"
+                    android:includeFontPadding="false"
+                    android:text="블라블라블라 제 가족들과 찍은 사진입니다."
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/category_info_user_photo2_imageview" />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/category_finished_pr_background"
+                android:layout_width="118dp"
+                android:layout_height="8dp"
+                android:background="@color/infra_orange_a"
+                android:fillViewport="true"
+                app:layout_constraintBottom_toBottomOf="@id/category_finished_pr_title_textview"
+                app:layout_constraintEnd_toEndOf="@id/category_finished_pr_title_textview"
+                app:layout_constraintStart_toStartOf="@id/category_finished_pr_title_textview"
+                app:layout_constraintTop_toTopOf="@id/category_finished_pr_title_textview" />
+
+            <TextView
+                android:id="@+id/category_finished_pr_title_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="42dp"
+                android:fontFamily="@font/noto_sans_kr_medium"
+                android:includeFontPadding="false"
+                android:text="진행한 프로젝트"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/category_info_linearlayout" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/category_finished_pr_constraintlayout"
+                android:layout_width="188dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/info_finished_proj_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/category_finished_pr_title_textview">
+
+                <ImageView
+                    android:id="@+id/category_finished_pr_imageview"
+                    android:layout_width="78dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/finished_pr"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/category_finished_pr_cate_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:layout_marginTop="14dp"
+                    android:fontFamily="@font/source_sans_pro_semibold"
+                    android:includeFontPadding="false"
+                    android:text="어플제작"
+                    android:textColor="@color/infra_gray_i"
+                    android:textSize="9sp"
+                    app:layout_constraintStart_toEndOf="@id/category_finished_pr_imageview"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/category_finished_pr_name_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/source_sans_pro_bold"
+                    android:includeFontPadding="false"
+                    android:text="건축모드"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@id/category_finished_pr_cate_textview"
+                    app:layout_constraintTop_toBottomOf="@id/category_finished_pr_cate_textview" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/category_finished_pr_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_kr_regular"
+                android:includeFontPadding="false"
+                android:background="@drawable/category_info_finished_proj_background"
+                android:text="건축에 대해서 심오하게 공부하고 실제 건물을 지어볼 수 있게 시뮬레이션이 가능한 어플을 만드는 프로젝트였습니다."
+                android:textColor="@color/infra_gray_j"
+                android:textSize="14sp"
+                android:paddingLeft="15dp"
+                app:layout_constraintTop_toBottomOf="@id/category_finished_pr_constraintlayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="22dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="72dp"/>
+
+            <LinearLayout
+                android:id="@+id/category_portfolio_linearlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="40dp"
+                app:layout_constraintTop_toBottomOf="@id/category_finished_pr_textview"
+                android:layout_marginTop="60dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="40dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/category_instagram_linearlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/category_icon_instagram_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_instagram" />
+                    <TextView
+                        android:id="@+id/category_link_instagram_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="링크주소"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textSize="11sp"
+                        android:textColor="@color/infra_gray_l"
+                        android:includeFontPadding="false"
+                        android:layout_marginStart="9dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/category_github_linearlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp">
+
+                    <ImageView
+                        android:id="@+id/category_icon_github_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_github" />
+
+                    <TextView
+                        android:id="@+id/category_link_github_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="9dp"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:includeFontPadding="false"
+                        android:text="링크주소"
+                        android:textColor="@color/infra_gray_l"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/category_behance_linearlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp">
+                    <ImageView
+                        android:id="@+id/category_icon_behance_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_behance" />
+                    <TextView
+                        android:id="@+id/category_link_behance_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="링크주소"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textSize="11sp"
+                        android:textColor="@color/infra_gray_l"
+                        android:includeFontPadding="false"
+                        android:layout_marginStart="9dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/category_google_drive_linearlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp">
+                    <ImageView
+                        android:id="@+id/category_icon_google_drive_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_logos_google_drive" />
+                    <TextView
+                        android:id="@+id/category_link_google_drive_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="링크주소"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textSize="11sp"
+                        android:textColor="@color/infra_gray_l"
+                        android:includeFontPadding="false"
+                        android:layout_marginStart="9dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/category_youtube_linearlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp">
+                    <ImageView
+                        android:id="@+id/category_icon_youtube_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_youtube" />
+                    <TextView
+                        android:id="@+id/category_link_youtube_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="링크주소"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textSize="11sp"
+                        android:textColor="@color/infra_gray_l"
+                        android:includeFontPadding="false"
+                        android:layout_marginStart="9dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/category_notion_linearlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp">
+                    <ImageView
+                        android:id="@+id/category_icon_notion_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_notion" />
+                    <TextView
+                        android:id="@+id/category_link_notion_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="링크주소"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textSize="11sp"
+                        android:textColor="@color/infra_gray_l"
+                        android:includeFontPadding="false"
+                        android:layout_marginStart="9dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/category_link_linearlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp">
+                    <ImageView
+                        android:id="@+id/category_icon_link_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_link" />
+                    <TextView
+                        android:id="@+id/category_link_link_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="링크주소"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textSize="11sp"
+                        android:textColor="@color/infra_gray_l"
+                        android:includeFontPadding="false"
+                        android:layout_marginStart="9dp"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="40dp"
+                app:layout_constraintTop_toBottomOf="@id/category_portfolio_linearlayout"
+                android:layout_marginTop="50dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="50dp">
+                <TextView
+                    android:id="@+id/category_info_hash_tag_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="대학원"
+                    android:background="@drawable/hash_tag_main_keyword_background"
+                    android:paddingVertical="5dp"
+                    android:paddingHorizontal="14dp"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:textColor="@color/infra_skyblue_a"
+                    android:includeFontPadding="false"/>
+                <TextView
+                    android:id="@+id/category_info_hash_tag_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="오토바이"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/hash_tag_main_keyword_background"
+                    android:paddingVertical="5dp"
+                    android:paddingHorizontal="14dp"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:textColor="@color/infra_skyblue_a"
+                    android:includeFontPadding="false"/>
+                <TextView
+                    android:id="@+id/category_info_hash_tag_three"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CAD"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/hash_tag_main_keyword_background"
+                    android:paddingVertical="5dp"
+                    android:paddingHorizontal="14dp"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:textColor="@color/infra_skyblue_a"
+                    android:includeFontPadding="false"/>
+                <TextView
+                    android:id="@+id/category_info_hash_tag_four"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="스터디"
+                    android:layout_marginStart="6dp"
+                    android:background="@drawable/hash_tag_main_keyword_background"
+                    android:paddingVertical="5dp"
+                    android:paddingHorizontal="14dp"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:textColor="@color/infra_blue_c"
+                    android:includeFontPadding="false"/>
+            </LinearLayout>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</ScrollView>

@@ -31,12 +31,15 @@
         tools:layout="@layout/fragment_my_info" />
     <fragment
         android:id="@+id/login_fragment"
-        android:name="com.example.infraandroid.fragments.LoginFragment"
+        android:name="com.example.infraandroid.id.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
             android:id="@+id/action_login_fragment_to_home_fragment"
             app:destination="@id/home_fragment" />
+        <action
+            android:id="@+id/action_login_fragment_to_sign_in_first_fragment"
+            app:destination="@id/sign_in_first_fragment" />
     </fragment>
     <fragment
         android:id="@+id/chatting_room_list_fragment"
@@ -51,4 +54,9 @@
         android:id="@+id/idea_list_fragment"
         android:name="com.example.infraandroid.category.IdeaListFragment"
         android:label="IdeaListFragment" />
+    <fragment
+        android:id="@+id/sign_in_first_fragment"
+        android:name="com.example.infraandroid.id.SignUpFirstFragment"
+        android:label="fragment_sign_up_first"
+        tools:layout="@layout/fragment_sign_up_first" />
 </navigation>

@@ -9,6 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <!-- 인프라 색깔 추가 -->
     <color name="infra_black_a">#383838</color>
+    <color name="infra_black_b">#262626</color>
+
     <color name="infra_gray_a">#B4B4B4</color>
     <color name="infra_gray_b">#DBDBDB</color>
     <color name="infra_gray_c">#F5F5F6</color>
@@ -22,6 +24,14 @@
     <color name="infra_gray_k">#A6A6A6</color>
     <color name="infra_gray_l">#7E7E7E</color>
     <color name="infra_gray_m">#b5b5b5</color>
+    <color name="infra_gray_n">#a3a3a3</color>
+    <color name="infra_gray_o">#E5E5E5</color>
+    <color name="infra_gray_p">#EBEBEC</color>
+    <color name="infra_gray_q">#8E8F94</color>
+    <color name="infra_gray_r">#95959A</color>
+    <color name="infra_gray_s">#9C9DA1</color>
+    <color name="infra_gray_t">#E2E2E2</color>
+    <color name="infra_gray_u">#DCE1E4</color>
 
     <color name="infra_blue_a">#1843A1</color>
     <color name="infra_blue_b">#4052e8</color>
@@ -29,8 +39,14 @@
     <color name="infra_blue_d">#E8EFFB</color>
     <color name="infra_blue_e">#3347E6</color>
     <color name="infra_blue_f">#0019E0</color>
+
+
     <color name="infra_skyblue_a">#4B8EFF</color>
+
     <color name="infra_orange_a">#FFDF6F</color>
+
     <color name="infra_purple_a">#9277F8</color>
+
+    <color name="infra_red_a">#FF3D00</color>
 
 </resources>

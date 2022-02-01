@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/infra_gray_c"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.infraandroid.id.SignUpFirstFragment">
+
+    <TextView
+        android:id="@+id/sign_up_page_one_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1/4"
+        android:textColor="@color/infra_gray_s"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:fontFamily="@font/noto_sans_kr_bold"
+        android:textSize="16sp"
+        android:includeFontPadding="false"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:id="@+id/sign_up_comment_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sigin_in_comment"
+        android:textColor="@color/infra_blue_f"
+        android:fontFamily="@font/leferi_base_bold"
+        android:textSize="26sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="104dp"
+        android:layout_marginLeft="24dp"/>
+
+    <TextView
+        android:id="@+id/sing_up_first_id_hint_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/input_make_id_edit_text"
+        app:layout_constraintLeft_toLeftOf="@id/input_make_id_edit_text"
+        android:text="아이디"
+        android:textSize="11sp"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:textColor="@color/infra_gray_q"
+        android:includeFontPadding="false"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:translationZ="90dp"/>
+
+    <EditText
+        android:id="@+id/input_make_id_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_background"
+        android:paddingLeft="17dp"
+        android:paddingTop="28dp"
+        android:paddingBottom="14dp"
+        app:layout_constraintTop_toBottomOf="@id/sign_up_comment_text_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/check_button"
+        android:layout_marginTop="24dp"
+        android:layout_marginLeft="20dp"
+        android:hint="@string/make_id_hint"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:includeFontPadding="false"
+        android:textSize="14sp"
+        android:textColorHint="@color/infra_gray_t"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/check_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sign_in_button_selector"
+        android:text="중복 확인"
+        app:layout_constraintLeft_toRightOf="@id/input_make_id_edit_text"
+        app:layout_constraintTop_toTopOf="@id/input_make_id_edit_text"
+        app:layout_constraintBottom_toBottomOf="@id/input_make_id_edit_text"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="10dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:textSize="14sp"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="18dp"
+        style="?android:borderlessButtonStyle"
+        android:enabled="false"/>
+
+    <TextView
+        android:id="@+id/sing_up_first_pw_hint_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/input_make_pw_edit_text"
+        app:layout_constraintLeft_toLeftOf="@id/input_make_pw_edit_text"
+        android:text="비밀번호"
+        android:textSize="11sp"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:textColor="@color/infra_gray_q"
+        android:includeFontPadding="false"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:translationZ="90dp"/>
+
+    <EditText
+        android:id="@+id/input_make_pw_edit_text"
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_background"
+        android:paddingLeft="17dp"
+        android:paddingTop="28dp"
+        android:paddingBottom="14dp"
+        app:layout_constraintTop_toBottomOf="@id/input_make_id_edit_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="20dp"
+        android:hint="@string/make_pw_hint"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:includeFontPadding="false"
+        android:textSize="14sp"
+        android:textColorHint="@color/infra_gray_t" />
+
+    <ImageView
+        android:id="@+id/input_pw_visibility_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_hide_pw"
+        app:layout_constraintTop_toTopOf="@id/input_make_pw_edit_text"
+        app:layout_constraintRight_toRightOf="@id/input_make_pw_edit_text"
+        app:layout_constraintBottom_toBottomOf="@id/input_make_pw_edit_text"
+        android:layout_marginRight="17dp"
+        android:padding="5dp"
+        android:tag="invisible"/>
+
+    <TextView
+        android:id="@+id/sing_up_first_check_pw_hint_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/input_check_pw_edit_text"
+        app:layout_constraintLeft_toLeftOf="@id/input_check_pw_edit_text"
+        android:text="비밀번호 확인"
+        android:textSize="11sp"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:textColor="@color/infra_gray_q"
+        android:includeFontPadding="false"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:translationZ="90dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/same_id_warning"
+        android:textSize="12sp"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:textColor="@color/infra_red_a"
+        app:layout_constraintTop_toBottomOf="@id/input_make_id_edit_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/input_make_pw_edit_text"
+        android:layout_marginLeft="30dp"
+        android:visibility="invisible"
+        />
+
+    <ImageView
+        android:id="@+id/check_pw_visibility_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_hide_pw"
+        app:layout_constraintTop_toTopOf="@id/input_check_pw_edit_text"
+        app:layout_constraintRight_toRightOf="@id/input_check_pw_edit_text"
+        app:layout_constraintBottom_toBottomOf="@id/input_check_pw_edit_text"
+        android:layout_marginRight="17dp"
+        android:padding="5dp"
+        android:translationZ="90dp"
+        android:tag="invisible"/>
+
+    <EditText
+        android:id="@+id/input_check_pw_edit_text"
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_background"
+        android:paddingLeft="17dp"
+        android:paddingTop="28dp"
+        android:paddingBottom="14dp"
+        app:layout_constraintTop_toBottomOf="@id/input_make_pw_edit_text"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="20dp"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:includeFontPadding="false"
+        android:textSize="14sp"
+        android:textColorHint="@color/infra_gray_t" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sign_in_button_selector"
+        android:textColor="@color/white"
+        android:text="다음"
+        style="?android:borderlessButtonStyle"
+        android:layout_marginTop="170dp"
+        android:layout_marginHorizontal="26dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/input_check_pw_edit_text"
+        android:fontFamily="@font/noto_sans_kr_bold"
+        android:textSize="16sp"
+        android:paddingVertical="4dp"
+        android:enabled="false"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

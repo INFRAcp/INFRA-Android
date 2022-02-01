@@ -5,17 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.example.infraandroid.databinding.ActivityMainBinding
-import com.google.android.material.bottomnavigation.LabelVisibilityMode
 
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView
-
-import com.google.android.material.bottomnavigation.BottomNavigationView
-
-import android.annotation.SuppressLint
 import android.view.View
-import androidx.navigation.fragment.NavHostFragment.findNavController
-import com.example.infraandroid.fragments.LoginFragment
-import com.example.infraandroid.fragments.LoginFragmentDirections
 
 class MainActivity : AppCompatActivity() {
 
@@ -36,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         // 바텀 네비게이션 뷰 출력하는 곳과 출력하지 않는 곳 구분
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if(destination.id == R.id.login_fragment || destination.id == R.id.chat_fragment)
+            if(destination.id == R.id.login_fragment || destination.id == R.id.chat_fragment || destination.id == R.id.sign_in_first_fragment)
                 mBinding.myBottomNav.visibility = View.GONE
             else
                 mBinding.myBottomNav.visibility = View.VISIBLE
