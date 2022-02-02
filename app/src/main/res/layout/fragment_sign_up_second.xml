@@ -51,7 +51,7 @@
 
     <EditText
         android:id="@+id/input_name_edit_text"
-        android:inputType="textPassword"
+        android:inputType="textPersonName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/login_background"
@@ -85,6 +85,7 @@
 
     <EditText
         android:id="@+id/input_phone_edit_text"
+        android:inputType="phone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/login_background"
@@ -139,7 +140,7 @@
 
     <EditText
         android:id="@+id/input_certification_number_edit_text"
-        android:inputType="textPassword"
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/login_background"
@@ -147,6 +148,7 @@
         android:paddingTop="28dp"
         android:paddingBottom="14dp"
         android:hint="@string/certification_number_hint"
+        android:maxLength="5"
         app:layout_constraintTop_toBottomOf="@id/input_phone_edit_text"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="15dp"
@@ -157,6 +159,7 @@
         android:textColorHint="@color/infra_gray_t" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/go_to_third_sign_up_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/sign_in_button_selector"
@@ -184,7 +187,8 @@
         android:textSize="12sp"
         android:fontFamily="@font/noto_sans_kr_regular"
         android:includeFontPadding="false"
-        android:layout_marginTop="4dp"/>
+        android:layout_marginTop="4dp"
+        android:visibility="invisible"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
