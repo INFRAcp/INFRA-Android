@@ -36,6 +36,15 @@ android {
     viewBinding{
         enabled = true
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    // Java 8 사용을 위한 build.gradle 설정
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -66,4 +75,7 @@ dependencies {
     // Glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+    // Kakao SDK 모듈 설정
+    implementation "com.kakao.sdk:v2-user:2.8.5"
 }

@@ -11,7 +11,7 @@
     <string name="login_sign_up"><u>인프라가 처음이신가요? 회원가입하기</u></string>
     <string name="sigin_in_comment">인프라에서 다양한\n아이디어를 접해볼까요?</string>
     <string name="make_id_hint">영문,숫자 모두 포함 6자리 이상</string>
-    <string name="make_pw_hint">영문,숫자 모두 포함 8~20자리</string>
+    <string name="make_pw_hint">영문,숫자,특수문자 모두 포함 8~20자리</string>
     <string name="same_id_warning">중복되는 아이디 입니다!</string>
     <string name="certify_phone">휴대폰 본인인증</string>
     <string name="input_phone_hint">하이픈(-)포함해서 입력해주세요</string>

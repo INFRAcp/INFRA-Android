@@ -17,7 +17,7 @@
         android:textSize="26sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="104dp"
         android:layout_marginLeft="24dp"/>
 
     <TextView
@@ -36,7 +36,7 @@
 
     <EditText
         android:id="@+id/input_nick_name_edit_text"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/login_background"
@@ -85,7 +85,7 @@
 
     <EditText
         android:id="@+id/input_email_edit_text"
-        android:inputType="textPassword"
+        android:inputType="textEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/login_background"
@@ -104,6 +104,7 @@
         android:textColorHint="@color/infra_gray_t" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/go_to_last_sign_up_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/sign_in_button_selector"
