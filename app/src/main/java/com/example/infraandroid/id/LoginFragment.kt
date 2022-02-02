@@ -15,6 +15,12 @@ import com.example.infraandroid.databinding.FragmentLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
+// 로그인 페이지
+// 작성자 : 신승민
+// 최종 수정일 : 2022-02-01
+// History
+// 2022-02-01 : 회원 가입 버튼 누르면 회원 가입 페이지로 이동하도록 수정
+
 class LoginFragment : Fragment() {
     private var mBinding : FragmentLoginBinding? = null
     private lateinit var auth: FirebaseAuth
@@ -33,8 +39,6 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
 
         // 로그인 버튼을 눌렀을 때
         mBinding!!.loginButton.setOnClickListener {
@@ -65,10 +69,7 @@ class LoginFragment : Fragment() {
 
         // 회원가입 버튼을 눌렀을 때
         mBinding!!.loginRegisterTv.setOnClickListener {
-            val inputId = mBinding!!.idEdittext.text.toString()
-            val inputPw = mBinding!!.pwEdittext.text.toString()
-
-            createUser(inputId, inputPw)
+            it.findNavController().navigate(R.id.action_login_fragment_to_sign_in_first_fragment)
         }
     }
 

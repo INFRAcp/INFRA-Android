@@ -29,6 +29,9 @@
     <color name="infra_gray_p">#EBEBEC</color>
     <color name="infra_gray_q">#8E8F94</color>
     <color name="infra_gray_r">#95959A</color>
+    <color name="infra_gray_s">#9C9DA1</color>
+    <color name="infra_gray_t">#E2E2E2</color>
+    <color name="infra_gray_u">#DCE1E4</color>
 
     <color name="infra_blue_a">#1843A1</color>
     <color name="infra_blue_b">#4052e8</color>
@@ -36,8 +39,14 @@
     <color name="infra_blue_d">#E8EFFB</color>
     <color name="infra_blue_e">#3347E6</color>
     <color name="infra_blue_f">#0019E0</color>
+
+
     <color name="infra_skyblue_a">#4B8EFF</color>
+
     <color name="infra_orange_a">#FFDF6F</color>
+
     <color name="infra_purple_a">#9277F8</color>
+
+    <color name="infra_red_a">#FF3D00</color>
 
 </resources>

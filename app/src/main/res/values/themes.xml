@@ -29,5 +29,10 @@
         <item name="android:fontFamily">@font/noto_sans_kr_regular</item>
         <item name="android:textStyle">italic|bold</item>
     </style>
+    
+    <style name="EditTextGreyStyle" parent="Widget.Design.TextInputLayout">
+        <item name="colorControlNormal">@android:color/transparent</item>
+        <item name="boxStrokeColor">@android:color/transparent</item>
+    </style>
 
 </resources>

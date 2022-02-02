@@ -23,7 +23,7 @@
         android:text="어플제작"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="4dp"
-        android:fontFamily="@font/noto_sans_kr_regular"
+        android:fontFamily="@font/noto_sans_kr_bold"
         android:includeFontPadding="false"
         android:textSize="10sp"/>
 
@@ -47,7 +47,7 @@
         android:src="@drawable/ic_uil_users_number"
         app:layout_constraintLeft_toRightOf="@id/project_image_view"
         app:layout_constraintTop_toBottomOf="@id/project_category_title"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="8dp"
         android:layout_marginLeft="16dp"/>
 
     <TextView
@@ -70,8 +70,8 @@
         app:layout_constraintTop_toBottomOf="@id/people_icon"
         android:background="@drawable/hash_tag_sub_keyword_background"
         android:textColor="@color/infra_skyblue_a"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="14dp"
         android:paddingHorizontal="14dp"
         android:paddingVertical="5dp"
         android:textSize="10sp"
@@ -88,7 +88,7 @@
         app:layout_constraintBottom_toBottomOf="@id/hash_tag_one"
         android:background="@drawable/hash_tag_sub_keyword_background"
         android:textColor="@color/infra_skyblue_a"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="6dp"
         android:paddingHorizontal="14dp"
         android:paddingVertical="5dp"
         android:textSize="10sp"
