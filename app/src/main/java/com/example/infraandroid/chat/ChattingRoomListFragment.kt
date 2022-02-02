@@ -7,18 +7,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import com.example.infraandroid.R
-import com.example.infraandroid.UserId
+import com.example.infraandroid.InfraApplication
 import com.example.infraandroid.databinding.FragmentChattingRoomListBinding
-import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 
 class ChattingRoomListFragment : Fragment() {
@@ -54,14 +49,14 @@ class ChattingRoomListFragment : Fragment() {
                 for(shot in snapshot.children){
                     val tempChattingRoom = ChattingRoomInfo("상대방 프로필 이미지","","","", 0)
                     Log.d(TAG, "onDataChange: " + shot.key)
-                   if(shot.child("users").child("user1").value.toString()==UserId.userId){
+                   if(shot.child("users").child("user1").value.toString()== InfraApplication.userId){
                        tempChattingRoom.lastMessage = shot.child("lastMessage").child("lastMessage").value.toString()
                        tempChattingRoom.lastTime = shot.child("lastMessage").child("lastTime").value.toString()
                        tempChattingRoom.opponentName = shot.child("users").child("user2").value.toString()
                        tempChattingRoom.chattingRoomIndex = shot.key?.toInt() ?: 0
                        tempChattingRoom.opponentProfileImg = shot.child("users").child("user2ProfileImg").value.toString()
                    }
-                    if(shot.child("users").child("user2").value.toString()==UserId.userId){
+                    if(shot.child("users").child("user2").value.toString()==InfraApplication.userId){
                         tempChattingRoom.lastMessage = shot.child("lastMessage").child("lastMessage").value.toString()
                         tempChattingRoom.lastTime = shot.child("lastMessage").child("lastTime").value.toString()
                         tempChattingRoom.opponentName = shot.child("users").child("user1").value.toString()
