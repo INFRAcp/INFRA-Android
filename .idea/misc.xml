@@ -85,6 +85,7 @@
         <entry key="..\:/infra/INFRA-Android/app/src/main/res/drawable/idea_list_constraint_layout_background.xml" value="0.14635416666666667" />
         <entry key="..\:/infra/INFRA-Android/app/src/main/res/drawable/info_finished_proj_background.xml" value="0.26153846153846155" />
         <entry key="..\:/infra/INFRA-Android/app/src/main/res/drawable/shadow_1.xml" value="0.26979166666666665" />
+        <entry key="..\:/infra/INFRA-Android/app/src/main/res/layout/activity_main.xml" value="0.24094202898550723" />
         <entry key="..\:/infra/INFRA-Android/app/src/main/res/layout/buttob.xml" value="0.12158054711246201" />
         <entry key="..\:/infra/INFRA-Android/app/src/main/res/layout/buttonshape.xml" value="0.12158054711246201" />
         <entry key="..\:/infra/INFRA-Android/app/src/main/res/layout/category_information.xml" value="0.264" />
@@ -96,7 +97,16 @@
         <entry key="..\:/infra/INFRA-Android/app/src/main/res/layout/fragment_home.xml" value="0.4521276595744681" />
         <entry key="..\:/infra/INFRA-Android/app/src/main/res/layout/fragment_my_info.xml" value="0.1515625" />
         <entry key="..\:/infra/INFRA-Android/app/src/main/res/layout/item_category_find_team_recyclerview.xml" value="0.72" />
+<<<<<<< Updated upstream
         <entry key="..\:/infra/INFRA-Android/app/src/main/res/layout/item_chat_recyclerview.xml" value="1.0" />
+=======
+        <entry key="..\:/infra/INFRA-Android/app/src/main/res/layout/item_chat_recyclerview.xml" value="0.2797527047913447" />
+        <entry key="..\:/infra/INFRA-Android/app/src/main/res/layout/item_chatting_room_list_recyclerview.xml" value="0.24947916666666667" />
+        <entry key="..\:/infra/INFRA-Android/app/src/main/res/layout/item_idea_list_recyclerview.xml" value="0.24094202898550723" />
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
         <entry key="..\:/infra/INFRA-Android/app/src/main/res/layout/item_my_chat_recyclerview.xml" value="0.2463768115942029" />
         <entry key="..\:/infra/INFRA-Android/app/src/main/res/layout/item_project.xml" value="0.6" />
       </map>

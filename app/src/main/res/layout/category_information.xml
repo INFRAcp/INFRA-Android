@@ -9,6 +9,19 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/category_information_modify_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="수정"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/noto_sans_kr_medium"
+            android:includeFontPadding="false"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="33dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="22dp"/>
         <ImageView
             android:id="@+id/category_info_user_profile_iv"
             android:layout_width="71dp"
@@ -84,6 +97,15 @@
                 app:layout_constraintStart_toEndOf="@id/category_info_name_textview"
                 app:layout_constraintTop_toTopOf="@id/category_info_constraint_layout" />
 
+            <ImageView
+                android:id="@+id/category_info_yellow_star_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_yellow_star"
+                app:layout_constraintEnd_toStartOf="@id/category_info_star_point_textview"
+                app:layout_constraintTop_toTopOf="@id/category_info_star_point_textview"
+                app:layout_constraintBottom_toBottomOf="@id/category_info_star_point_textview"
+                android:layout_marginEnd="3dp"/>
             <TextView
                 android:id="@+id/category_info_star_point_textview"
                 android:layout_width="wrap_content"
@@ -424,7 +446,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="대학원"
-                    android:background="@drawable/hash_tag_main_keyword_background"
+                    android:background="@drawable/hash_tag_keyword_skyblue_background"
                     android:paddingVertical="5dp"
                     android:paddingHorizontal="14dp"
                     android:textSize="11sp"
@@ -437,7 +459,7 @@
                     android:layout_height="wrap_content"
                     android:text="오토바이"
                     android:layout_marginStart="6dp"
-                    android:background="@drawable/hash_tag_main_keyword_background"
+                    android:background="@drawable/hash_tag_keyword_skyblue_background"
                     android:paddingVertical="5dp"
                     android:paddingHorizontal="14dp"
                     android:textSize="11sp"
@@ -450,7 +472,7 @@
                     android:layout_height="wrap_content"
                     android:text="CAD"
                     android:layout_marginStart="6dp"
-                    android:background="@drawable/hash_tag_main_keyword_background"
+                    android:background="@drawable/hash_tag_keyword_skyblue_background"
                     android:paddingVertical="5dp"
                     android:paddingHorizontal="14dp"
                     android:textSize="11sp"
