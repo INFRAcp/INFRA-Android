@@ -2,11 +2,10 @@ package com.example.infraandroid.category
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-<<<<<<< Updated upstream
+
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-=======
->>>>>>> Stashed changes
+
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.infraandroid.R
@@ -50,13 +49,7 @@ class CategoryFindTeamMemberAdapter():RecyclerView.Adapter<RecyclerView.ViewHold
             itemView.setOnClickListener {
                 it.findNavController().navigate(R.id.action_category_team_fragment_to_category_information_fragment)
             }
-=======
-//            작성자 : 이은진
-//            작성일 : 2022.02.01
-//            itemView.setOnClickListener {
-//                it.findNavController().navigate(R.id.action_categoryTeamFragment_to_categoryInformationFragment)
-//            }
->>>>>>> Stashed changes
+
         }
     }
 }
