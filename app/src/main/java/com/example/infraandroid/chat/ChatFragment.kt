@@ -1,25 +1,18 @@
 package com.example.infraandroid.chat
 
-import android.media.Image
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
-import com.example.infraandroid.R
-import com.example.infraandroid.UserId
+import com.example.infraandroid.InfraApplication
 import com.example.infraandroid.databinding.FragmentChatBinding
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
@@ -134,7 +127,7 @@ class ChatFragment : Fragment() {
             }
         }
 
-        val chatRoomIndexString = UserId.chatRoomIndex.toString()
+        val chatRoomIndexString = InfraApplication.chatRoomIndex.toString()
         val databaseReference = database.getReference("chatting").child(chatRoomIndexString)
         databaseReference.addChildEventListener(childEventListener)
 
@@ -151,7 +144,7 @@ class ChatFragment : Fragment() {
             val userRef = database.getReference("chatting").child(chatRoomIndexString).child("users")
             val lastMessageRef = database.getReference("chatting").child(chatRoomIndexString).child("lastMessage")
             val userHashMap = HashMap<String, String>()
-            userHashMap["user1"] = UserId.userId
+            userHashMap["user1"] = InfraApplication.userId
             // 상대방의 아이디 가져와서 user2에 저장
             userHashMap["user2"] = opponentId
             userHashMap["user1ProfileImg"] = "user1의 프로필 이미지 url"
@@ -166,11 +159,11 @@ class ChatFragment : Fragment() {
                     val hashMap = HashMap<String, String>()
                     val lastMessageHashMap = HashMap<String, String>()
 
-                    hashMap["senderId"] = UserId.userId
+                    hashMap["senderId"] = InfraApplication.userId
                     hashMap["message"] = messageToSend.toString()
                     hashMap["sendTime"] = dateTime
                     // 가장 최근 메시지 데이터 저장
-                    lastMessageHashMap["senderId"]=UserId.userId
+                    lastMessageHashMap["senderId"]=InfraApplication.userId
                     lastMessageHashMap["lastMessage"]=messageToSend.toString()
                     lastMessageHashMap["lastTime"]=dateTime
 

@@ -112,6 +112,7 @@
         android:paddingLeft="17dp"
         android:paddingTop="28dp"
         android:paddingBottom="14dp"
+        android:maxLength="20"
         app:layout_constraintTop_toBottomOf="@id/input_make_id_edit_text"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="24dp"
@@ -195,6 +196,7 @@
         android:textColorHint="@color/infra_gray_t" />
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/go_to_second_sign_up_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/sign_in_button_selector"

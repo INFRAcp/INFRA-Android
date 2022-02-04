@@ -1,15 +1,12 @@
 package com.example.infraandroid.chat
 
-import android.content.ContentValues.TAG
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.infraandroid.InfraApplication
 import com.example.infraandroid.R
-import com.example.infraandroid.UserId
-import com.example.infraandroid.databinding.FragmentChattingRoomListBinding
 import com.example.infraandroid.databinding.ItemChattingRoomListRecyclerviewBinding
 import java.text.SimpleDateFormat
 import java.util.*
@@ -40,7 +37,7 @@ class ChattingRoomAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 .load(R.drawable.other_user_photo)
                 .into(binding.chattingRoomListImageview)
             itemView.setOnClickListener {
-                UserId.chatRoomIndex = chattingRoomInfo.chattingRoomIndex
+                InfraApplication.chatRoomIndex = chattingRoomInfo.chattingRoomIndex
                 it.findNavController().navigate(R.id.action_chatting_room_list_fragment_to_chat_fragment)
             }
 
