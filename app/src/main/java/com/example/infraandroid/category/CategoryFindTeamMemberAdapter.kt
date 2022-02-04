@@ -38,7 +38,7 @@ class CategoryFindTeamMemberAdapter():RecyclerView.Adapter<RecyclerView.ViewHold
             binding.findTeamItemNameTextView.text = categoryFindTeamMemberInfo.name
             binding.findTeamItemMajorTextView.text = categoryFindTeamMemberInfo.major
 
-<<<<<<< Updated upstream
+
 //            navConstroller = Navigation.findNavController(itemView)
 //            itemView.setOnClickListener {
 //                navConstroller.navigate(R.id.action_categoryTeamFragment_to_categoryInformationFragment)
