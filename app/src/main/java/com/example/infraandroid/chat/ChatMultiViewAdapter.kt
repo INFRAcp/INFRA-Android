@@ -1,20 +1,16 @@
 package com.example.infraandroid.chat
 
 import android.content.ContentValues.TAG
-import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.infraandroid.InfraApplication
 import com.example.infraandroid.R
-import com.example.infraandroid.UserId
 import com.example.infraandroid.databinding.ItemChatRecyclerviewBinding
 import com.example.infraandroid.databinding.ItemMyChatRecyclerviewBinding
-import java.text.SimpleDateFormat
-import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 
 class ChatMultiViewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
 
@@ -42,13 +38,13 @@ class ChatMultiViewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     override fun getItemCount(): Int = messageList.size
 
     override fun getItemViewType(position: Int): Int {
-        if(messageList[position].senderId == UserId.userId)
+        if(messageList[position].senderId == InfraApplication.userId)
             return 1
         Log.d(TAG, "getItemViewType: "+messageList[position])
         return 2
     }
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if(messageList[position].senderId==UserId.userId){
+        if(messageList[position].senderId==InfraApplication.userId){
             (holder as MyChatViewHolder).onBind(messageList[position])
             holder.setIsRecyclable(false)
         }

@@ -2,8 +2,15 @@ package com.example.infraandroid.category
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+<<<<<<< HEAD
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+=======
+
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+
+>>>>>>> 6024aca2597938ed6d2c29f5b6162d418a932b6d
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.infraandroid.R
