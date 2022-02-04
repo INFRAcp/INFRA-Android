@@ -71,57 +71,8 @@
         android:id="@+id/sign_in_first_fragment"
         android:name="com.example.infraandroid.id.SignUpFirstFragment"
         android:label="fragment_sign_up_first"
-        tools:layout="@layout/fragment_sign_up_first" />
-
-    <fragment
-        android:id="@+id/category_team_fragment"
-        android:name="com.example.infraandroid.category.CategoryTeamFragment"
-        android:label="category_team_fragment"
-        tools:layout="@layout/fragment_category_team">
-        <action
-            android:id="@+id/action_category_team_fragment_to_category_information_fragment"
-            app:destination="@id/category_information_fragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/category_information_fragment"
-        android:name="com.example.infraandroid.category.CategoryInformationFragment"
-        android:label="category_information_fragment"
-        tools:layout="@layout/category_information"/>
-    <fragment
-        android:id="@+id/my_info_modify_fragment"
-        android:name="com.example.infraandroid.myinfo.MyInfoModifyFragment"
-        android:label="my_info_modify_fragment"
-        tools:layout="@layout/fragment_my_info_modify"/>
-    <fragment
-        android:id="@+id/category_team_idea_fragment"
-        android:name="com.example.infraandroid.category.CategoryTeamIdeaFragment"
-        android:label="category_team_idea_fragment"
-        tools:layout="@layout/category_team_idea"/>
-<<<<<<< HEAD
-=======
-
->>>>>>> 6024aca2597938ed6d2c29f5b6162d418a932b6d
-    <fragment
-        android:id="@+id/categoryTeamFragment"
-        android:name="com.example.infraandroid.category.CategoryTeamFragment"
-        android:label="CategoryTeamFragment"
-        tools:layout="@layout/fragment_category_team">
-        <action
-            android:id="@+id/action_categoryTeamFragment_to_categoryInformationFragment"
-            app:destination="@id/categoryInformationFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/categoryInformationFragment"
-        android:name="com.example.infraandroid.category.CategoryInformationFragment"
-        android:label="CategoryInformationFragment"
-        tools:layout="@layout/category_information"/>
-
-<<<<<<< HEAD
-</navigation>
-=======
-</navigation>
-
-        <action
+        tools:layout="@layout/fragment_sign_up_first">
+          <action
             android:id="@+id/action_sign_in_first_fragment_to_sign_up_second_fragment"
             app:destination="@id/sign_up_second_fragment" />
     </fragment>
@@ -148,6 +99,49 @@
             android:id="@+id/action_sign_up_third_fragment_to_sign_up_fourth_fragment"
             app:destination="@id/sign_up_fourth_fragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/category_team_fragment"
+        android:name="com.example.infraandroid.category.CategoryTeamFragment"
+        android:label="category_team_fragment"
+        tools:layout="@layout/fragment_category_team">
+        <action
+            android:id="@+id/action_category_team_fragment_to_category_information_fragment"
+            app:destination="@id/category_information_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/category_information_fragment"
+        android:name="com.example.infraandroid.category.CategoryInformationFragment"
+        android:label="category_information_fragment"
+        tools:layout="@layout/category_information"/>
+    <fragment
+        android:id="@+id/my_info_modify_fragment"
+        android:name="com.example.infraandroid.myinfo.MyInfoModifyFragment"
+        android:label="my_info_modify_fragment"
+        tools:layout="@layout/fragment_my_info_modify"/>
+    <fragment
+        android:id="@+id/category_team_idea_fragment"
+        android:name="com.example.infraandroid.category.CategoryTeamIdeaFragment"
+        android:label="category_team_idea_fragment"
+        tools:layout="@layout/category_team_idea"/>
+
+    <fragment
+        android:id="@+id/categoryTeamFragment"
+        android:name="com.example.infraandroid.category.CategoryTeamFragment"
+        android:label="CategoryTeamFragment"
+        tools:layout="@layout/fragment_category_team">
+        <action
+            android:id="@+id/action_categoryTeamFragment_to_categoryInformationFragment"
+            app:destination="@id/categoryInformationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryInformationFragment"
+        android:name="com.example.infraandroid.category.CategoryInformationFragment"
+        android:label="CategoryInformationFragment"
+        tools:layout="@layout/category_information"/>
+
+
 </navigation>
 
->>>>>>> 6024aca2597938ed6d2c29f5b6162d418a932b6d
+      
+
