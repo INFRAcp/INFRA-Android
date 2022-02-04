@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="660dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
@@ -33,12 +33,12 @@
         android:layout_height="8dp"
         android:background="@color/infra_orange_a"
         android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="@id/category_team_idea_period_textview"
-        app:layout_constraintEnd_toEndOf="@id/category_team_idea_period_textview"
-        app:layout_constraintStart_toStartOf="@id/category_team_idea_period_textview"
-        app:layout_constraintTop_toTopOf="@id/category_team_idea_period_textview" />
+        app:layout_constraintBottom_toBottomOf="@id/my_info_self_intro_tv"
+        app:layout_constraintEnd_toEndOf="@id/my_info_self_intro_tv"
+        app:layout_constraintStart_toStartOf="@id/my_info_self_intro_tv"
+        app:layout_constraintTop_toTopOf="@id/my_info_self_intro_tv" />
     <TextView
-        android:id="@+id/category_team_idea_period_textview"
+        android:id="@+id/my_info_self_intro_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -49,7 +49,149 @@
        android:textColor="@color/black"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/modify_save_iv" />
+        app:layout_constraintTop_toBottomOf="@id/my_info_modify_name_tv" />
+    <EditText
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        app:layout_constraintStart_toEndOf="@id/my_info_self_intro_tv"
+        app:layout_constraintTop_toTopOf="@id/my_info_self_intro_tv"/>
+    <View
+        android:id="@+id/my_info_modify_line_one_view"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/infra_light_gray_c"
+        app:layout_constraintTop_toBottomOf="@id/my_info_self_intro_tv"
+        android:layout_marginHorizontal="22dp"
+        android:layout_marginTop="15dp"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="102dp"
+        android:layout_height="8dp"
+        android:background="@color/infra_orange_a"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="@id/my_info_finished_project_tv"
+        app:layout_constraintEnd_toEndOf="@id/my_info_finished_project_tv"
+        app:layout_constraintStart_toStartOf="@id/my_info_finished_project_tv"
+        app:layout_constraintTop_toTopOf="@id/my_info_finished_project_tv" />
+    <TextView
+        android:id="@+id/my_info_finished_project_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/noto_sans_kr_medium"
+        android:includeFontPadding="false"
+        android:text="진행한 프로젝트:"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_info_modify_line_one_view" />
+    <EditText
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:background="@null"
+        app:layout_constraintStart_toEndOf="@id/my_info_finished_project_tv"
+        app:layout_constraintTop_toTopOf="@id/my_info_finished_project_tv"/>
+    <View
+        android:id="@+id/my_info_modify_line_two_view"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/infra_light_gray_c"
+        app:layout_constraintTop_toBottomOf="@id/my_info_finished_project_tv"
+        android:layout_marginHorizontal="22dp"
+        android:layout_marginVertical="16dp"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_info_modify_line_one_view"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="34dp"
+        android:layout_height="8dp"
+        android:background="@color/infra_orange_a"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="@id/my_info_link_tv"
+        app:layout_constraintEnd_toEndOf="@id/my_info_link_tv"
+        app:layout_constraintStart_toStartOf="@id/my_info_link_tv"
+        app:layout_constraintTop_toTopOf="@id/my_info_link_tv" />
+    <TextView
+        android:id="@+id/my_info_link_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/noto_sans_kr_medium"
+        android:includeFontPadding="false"
+        android:text="링크:"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_info_modify_line_two_view" />
+    <EditText
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        app:layout_constraintStart_toEndOf="@id/my_info_link_tv"
+        app:layout_constraintTop_toTopOf="@id/my_info_link_tv"/>
+    <View
+        android:id="@+id/my_info_modify_line_three_view"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/infra_light_gray_c"
+        app:layout_constraintTop_toBottomOf="@id/my_info_link_tv"
+        android:layout_marginHorizontal="22dp"
+        android:layout_marginVertical="16dp"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_info_modify_line_two_view"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="30dp"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="60dp"
+        android:layout_height="8dp"
+        android:background="@color/infra_orange_a"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="@id/my_info_hashtag_tv"
+        app:layout_constraintEnd_toEndOf="@id/my_info_hashtag_tv"
+        app:layout_constraintStart_toStartOf="@id/my_info_hashtag_tv"
+        app:layout_constraintTop_toTopOf="@id/my_info_hashtag_tv" />
+    <TextView
+        android:id="@+id/my_info_hashtag_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/noto_sans_kr_medium"
+        android:includeFontPadding="false"
+        android:text="해시태그:"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_info_modify_line_three_view" />
+    <EditText
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        app:layout_constraintStart_toEndOf="@id/my_info_hashtag_tv"
+        app:layout_constraintTop_toTopOf="@id/my_info_hashtag_tv"/>
+    <View
+        android:id="@+id/my_info_modify_line_four_view"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/infra_light_gray_c"
+        app:layout_constraintTop_toBottomOf="@id/my_info_hashtag_tv"
+        android:layout_marginHorizontal="22dp"
+        android:layout_marginTop="15dp"/>
 
 
 

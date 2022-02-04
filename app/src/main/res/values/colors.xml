@@ -35,6 +35,7 @@
 
     <color name="infra_light_gray_a">#ededed</color>
     <color name="infra_light_gray_b">#A8A8A8</color>
+    <color name="infra_light_gray_c">#E3E3E3</color>
 
     <color name="infra_blue_a">#1843A1</color>
     <color name="infra_blue_b">#4052e8</color>
