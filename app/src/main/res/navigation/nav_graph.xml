@@ -61,7 +61,6 @@
     <fragment
         android:id="@+id/idea_list_fragment"
         android:name="com.example.infraandroid.category.IdeaListFragment"
-<<<<<<< Updated upstream
         android:label="idea_list_fragment"
         tools:layout="@layout/fragment_idea_list">
         <action
@@ -98,8 +97,7 @@
         android:name="com.example.infraandroid.category.CategoryTeamIdeaFragment"
         android:label="category_team_idea_fragment"
         tools:layout="@layout/category_team_idea"/>
-=======
-        android:label="IdeaListFragment" />
+
     <fragment
         android:id="@+id/categoryTeamFragment"
         android:name="com.example.infraandroid.category.CategoryTeamFragment"
@@ -114,5 +112,5 @@
         android:name="com.example.infraandroid.category.CategoryInformationFragment"
         android:label="CategoryInformationFragment"
         tools:layout="@layout/category_information"/>
->>>>>>> Stashed changes
+
 </navigation>
