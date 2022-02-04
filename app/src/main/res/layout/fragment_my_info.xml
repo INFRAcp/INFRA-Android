@@ -124,70 +124,98 @@
             android:layout_marginTop="26dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp">
-            <ImageView
-                android:id="@+id/my_info_my_info_iv"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
-                android:src="@drawable/my_info"
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/my_info_my_info_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="36dp"
-                android:layout_marginTop="24dp"/>
-            <TextView
-                android:id="@+id/my_info_my_info_tv"
+                android:layout_marginTop="24dp">
+                <ImageView
+                    android:id="@+id/my_info_my_info_iv"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/my_info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:id="@+id/my_info_my_info_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="내 정보"
+                    android:textColor="@color/white"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:includeFontPadding="false"
+                    app:layout_constraintTop_toBottomOf="@id/my_info_my_info_iv"
+                    app:layout_constraintStart_toStartOf="@id/my_info_my_info_iv"
+                    app:layout_constraintEnd_toEndOf="@id/my_info_my_info_iv"
+                    android:layout_marginTop="8dp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/my_info_intro_page_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="내 정보"
-                android:textColor="@color/white"
-                android:textSize="11sp"
-                android:fontFamily="@font/noto_sans_kr_medium"
-                android:includeFontPadding="false"
-                app:layout_constraintTop_toBottomOf="@id/my_info_my_info_iv"
-                app:layout_constraintStart_toStartOf="@id/my_info_my_info_iv"
-                app:layout_constraintEnd_toEndOf="@id/my_info_my_info_iv"
-                android:layout_marginTop="8dp"/>
-            <ImageView
-                android:id="@+id/my_info_intro_page_iv"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
-                android:src="@drawable/intro_page"
-                app:layout_constraintTop_toTopOf="@id/my_info_my_info_iv"
+                app:layout_constraintTop_toTopOf="@id/my_info_my_info_layout"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
-            <TextView
-                android:id="@+id/my_info_intro_page_tv"
+                app:layout_constraintEnd_toEndOf="parent">
+                <ImageView
+                    android:id="@+id/my_info_intro_page_iv"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/intro_page"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:id="@+id/my_info_intro_page_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="소개 페이지"
+                    android:textColor="@color/white"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:includeFontPadding="false"
+                    app:layout_constraintTop_toBottomOf="@id/my_info_intro_page_iv"
+                    app:layout_constraintStart_toStartOf="@id/my_info_intro_page_iv"
+                    app:layout_constraintEnd_toEndOf="@id/my_info_intro_page_iv"
+                    android:layout_marginTop="8dp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/my_info_bookmark_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="소개 페이지"
-                android:textColor="@color/white"
-                android:textSize="11sp"
-                android:fontFamily="@font/noto_sans_kr_medium"
-                android:includeFontPadding="false"
-                app:layout_constraintTop_toBottomOf="@id/my_info_intro_page_iv"
-                app:layout_constraintStart_toStartOf="@id/my_info_intro_page_iv"
-                app:layout_constraintEnd_toEndOf="@id/my_info_intro_page_iv"
-                android:layout_marginTop="8dp"/>
-            <ImageView
-                android:id="@+id/my_info_bookmark_iv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_bookmark_white"
-                app:layout_constraintTop_toTopOf="@id/my_info_my_info_iv"
+                app:layout_constraintTop_toTopOf="@id/my_info_my_info_layout"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="36dp"/>
-            <TextView
-                android:id="@+id/my_info_bookmark_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="스크랩"
-                android:textColor="@color/white"
-                android:textSize="11sp"
-                android:fontFamily="@font/noto_sans_kr_medium"
-                android:includeFontPadding="false"
-                app:layout_constraintTop_toBottomOf="@id/my_info_bookmark_iv"
-                app:layout_constraintStart_toStartOf="@id/my_info_bookmark_iv"
-                app:layout_constraintEnd_toEndOf="@id/my_info_bookmark_iv"
-                android:layout_marginTop="8dp"/>
+                android:layout_marginEnd="36dp">
+                <ImageView
+                    android:id="@+id/my_info_bookmark_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_bookmark_white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:id="@+id/my_info_bookmark_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="스크랩"
+                    android:textColor="@color/white"
+                    android:textSize="11sp"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:includeFontPadding="false"
+                    app:layout_constraintTop_toBottomOf="@id/my_info_bookmark_iv"
+                    app:layout_constraintStart_toStartOf="@id/my_info_bookmark_iv"
+                    app:layout_constraintEnd_toEndOf="@id/my_info_bookmark_iv"
+                    android:layout_marginTop="8dp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout

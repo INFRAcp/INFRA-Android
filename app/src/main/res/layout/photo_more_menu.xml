@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/info_modify_menu_opponent_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="프로필 이미지 선택"
+        android:textSize="20sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/noto_sans_kr_bold"
+        android:includeFontPadding="false"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="26dp"
+        android:layout_marginStart="33dp"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/take_photo_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/info_modify_menu_opponent_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="33dp">
+        <ImageView
+            android:id="@+id/take_photo_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_camera"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+        <TextView
+            android:id="@+id/take_photo_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="사진 찍기"
+            android:layout_marginLeft="27dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/noto_sans_kr_regular"
+            app:layout_constraintLeft_toRightOf="@id/take_photo_iv"
+            app:layout_constraintTop_toTopOf="@id/take_photo_iv"
+            app:layout_constraintBottom_toBottomOf="@id/take_photo_iv" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/find_album_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/take_photo_constraint_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp">
+        <ImageView
+            android:id="@+id/find_album_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_album"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+        <TextView
+            android:id="@+id/find_album_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="앨범에서 선택"
+            android:layout_marginLeft="27dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/noto_sans_kr_regular"
+            app:layout_constraintLeft_toRightOf="@id/find_album_iv"
+            app:layout_constraintTop_toTopOf="@id/find_album_iv"
+            app:layout_constraintBottom_toBottomOf="@id/find_album_iv" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/delete_profile_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/find_album_constraint_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp">
+        <ImageView
+            android:id="@+id/delete_profile_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_delete"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"/>
+        <TextView
+            android:id="@+id/delete_profile_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="프로필 사진 삭제하기"
+            android:layout_marginLeft="27dp"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:includeFontPadding="false"
+            android:fontFamily="@font/noto_sans_kr_regular"
+            app:layout_constraintLeft_toRightOf="@id/delete_profile_iv"
+            app:layout_constraintTop_toTopOf="@id/delete_profile_iv"
+            app:layout_constraintBottom_toBottomOf="@id/delete_profile_iv" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

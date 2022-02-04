@@ -5,11 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentCategoryTeamBinding
 
 class CategoryTeamFragment : Fragment() {
     private var mBinding : FragmentCategoryTeamBinding? = null
-    val categoryFindTeamMemberAdapter = CategoryFindTeamMemberAdapter()
+    private val categoryFindTeamMemberAdapter = CategoryFindTeamMemberAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -26,6 +28,7 @@ class CategoryTeamFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         mBinding?.categoryFindTeamRecyclerView?.adapter = categoryFindTeamMemberAdapter
         categoryFindTeamMemberAdapter.teamMemberList.addAll(

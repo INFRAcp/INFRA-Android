@@ -8,6 +8,5 @@ data class HotProject(
     var keyword1: String? = "",
     var keyword2: String? = "",
     var photo: Int,
-    //var photo: Int? = null
-    //chip 그룹도 생각
+    //var photo: String? = null
 )
