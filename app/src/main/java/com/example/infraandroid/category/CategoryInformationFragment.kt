@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.CategoryInformationBinding
+import com.example.infraandroid.myinfo.MyInfoModifyMenuBottomSheetFragment
 
 
 class CategoryInformationFragment: Fragment() {
@@ -26,6 +27,10 @@ class CategoryInformationFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val bottomSheetDialogFragment = MyInfoModifyMenuBottomSheetFragment()
+        mBinding!!.categoryInformationModifyTv.setOnClickListener{
+            activity?.supportFragmentManager?.let { it1 -> bottomSheetDialogFragment.show(it1, bottomSheetDialogFragment.tag) }
+        }
     }
 
     override fun onDestroyView() {

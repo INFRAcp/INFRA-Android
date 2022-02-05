@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.infraandroid.chat.ChatMoreMenuBottomSheetFragment
 import com.example.infraandroid.databinding.FragmentMyInfoModifyBinding
 
 class MyInfoModifyFragment : Fragment() {
@@ -26,7 +25,7 @@ class MyInfoModifyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val bottomSheetDialogFragment = MyInfoModifyMenuBottomSheetFragment()
+        val bottomSheetDialogFragment = MyInfoPhotoMoreMenuBottomSheetFragment()
         mBinding!!.myInfoModifyPhotoMoreIv.setOnClickListener {
             activity?.supportFragmentManager?.let { it1 -> bottomSheetDialogFragment.show(it1, bottomSheetDialogFragment.tag) }
         }

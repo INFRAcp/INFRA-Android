@@ -84,11 +84,7 @@
         <action
             android:id="@+id/action_sign_up_second_fragment_to_sign_up_third_fragment"
             app:destination="@id/sign_up_third_fragment" />
-        <argument
-            android:name="userId"
-            app:argType="string" />
-        <argument android:name="userPw"
-            app:argType="string" />
+
     </fragment>
     <fragment
         android:id="@+id/sign_up_fourth_fragment"
@@ -99,6 +95,7 @@
             android:id="@+id/action_sign_up_fourth_fragment_to_login_fragment"
             app:destination="@id/login_fragment" />
     </fragment>
+
     <fragment
         android:id="@+id/sign_up_third_fragment"
         android:name="com.example.infraandroid.id.SignUpThirdFragment"
@@ -107,17 +104,6 @@
         <action
             android:id="@+id/action_sign_up_third_fragment_to_sign_up_fourth_fragment"
             app:destination="@id/sign_up_fourth_fragment" />
-        <argument
-            android:name="newUserId"
-            app:argType="string" />
-        <argument android:name="newUserPw"
-            app:argType="string" />
-        <argument
-            android:name="newUserName"
-            app:argType="string" />
-        <argument
-            android:name="newUserPhone"
-            app:argType="string" />
     </fragment>
 
     <fragment
@@ -159,5 +145,4 @@
         android:name="com.example.infraandroid.category.CategoryInformationFragment"
         android:label="CategoryInformationFragment"
         tools:layout="@layout/category_information"/>
-
 </navigation>
