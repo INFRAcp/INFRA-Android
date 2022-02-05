@@ -18,6 +18,8 @@ import java.util.regex.Pattern
 // 회원가입 second depth 페이지 (휴대폰 본인인증)
 // 작성자 : 신승민
 // 작성일 : 2022-02-02
+// Update
+// 2022-02-06 휴대폰 본인인증 서버 연결 (작성자 : 신승민)
 
 class SignUpSecondFragment : Fragment(){
     private  var mBinding : FragmentSignUpSecondBinding? = null
@@ -83,6 +85,9 @@ class SignUpSecondFragment : Fragment(){
         nextButton.setOnClickListener{
             it.findNavController().navigate(R.id.action_sign_up_second_fragment_to_sign_up_third_fragment)
         }
+
+
+
     }
 
     override fun onDestroyView() {

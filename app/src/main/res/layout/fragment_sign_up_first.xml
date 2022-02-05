@@ -151,6 +151,7 @@
         android:translationZ="90dp"/>
 
     <TextView
+        android:id="@+id/do_not_use_this_id_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/same_id_warning"
@@ -212,5 +213,16 @@
         android:textSize="16sp"
         android:paddingVertical="4dp"
         android:enabled="false"/>
+
+    <ImageView
+        android:id="@+id/can_use_icon_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_can_use_this_id"
+        app:layout_constraintTop_toTopOf="@id/input_make_id_edit_text"
+        app:layout_constraintRight_toRightOf="@id/input_make_id_edit_text"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="22dp"
+        android:visibility="invisible"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

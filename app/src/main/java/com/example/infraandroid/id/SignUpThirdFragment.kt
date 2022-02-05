@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.provider.ContactsContract
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
@@ -13,13 +14,23 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentSignUpThirdBinding
+import com.example.infraandroid.id.IdViewModel.Companion.TAG
+import com.example.infraandroid.id.api.RequestUserData
+import com.example.infraandroid.id.api.ResponseUserData
+import com.example.infraandroid.id.api.ServiceCreator
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 // 회원가입 third depth 페이지 (닉네임 설정)
 // 작성자 : 신승민
 // 작성일 : 2022-02-02
+// Update
+// 2022-02-06 회원가입 첫 페이지와 두번째 페이지에서 SafeArgs로 정보 받아서 서버에 넘겨주는 작업 (작성자 : 신승민)
 
 class SignUpThirdFragment : Fragment(){
     private  var mBinding : FragmentSignUpThirdBinding? = null
@@ -40,6 +51,7 @@ class SignUpThirdFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val args by navArgs<SignUpThirdFragmentArgs>()
         val nickName = mBinding?.inputNickNameEditText as EditText
         val email = mBinding?.inputEmailEditText as EditText
         val nextButton = mBinding?.goToLastSignUpButton as AppCompatButton
@@ -69,7 +81,62 @@ class SignUpThirdFragment : Fragment(){
 
         // 다음 버튼 누르면 다음 페이지로 넘어감
         nextButton.setOnClickListener{
-            it.findNavController().navigate(R.id.action_sign_up_third_fragment_to_sign_up_fourth_fragment)
+            val requestUserData = RequestUserData(
+                userId = args.newUserId,
+                userPw = args.newUserPw,
+                userNickname = nickName.text.toString(),
+                userPhone = args.newUserPhone,
+                userEmail = email.text.toString(),
+                userName = args.newUserName
+            )
+
+            val call: Call<ResponseUserData> = ServiceCreator.signUpService
+                .postSignUp(requestUserData)
+
+            call.enqueue(object:Callback<ResponseUserData>{
+                override fun onResponse(
+                    call: Call<ResponseUserData>,
+                    response: Response<ResponseUserData>
+                ) {
+                    if(response.isSuccessful){
+                        when (response.body()?.code) {
+                            1000 -> {
+                                it.findNavController().navigate(R.id.action_sign_up_third_fragment_to_sign_up_fourth_fragment)
+                            }
+                            2021 -> {
+                                Toast.makeText(requireActivity(),"중복된 이메일입니다.", Toast.LENGTH_SHORT).show()
+                            }
+                            2016 -> {
+                                Toast.makeText(requireActivity(),"이메일 형식을 확인해주세요.", Toast.LENGTH_SHORT).show()
+                            }
+                            2018 -> {
+                                Toast.makeText(requireActivity(),"필수 정보가 비어있습니다.", Toast.LENGTH_SHORT).show()
+                            }
+                            2019 -> {
+                                Toast.makeText(requireActivity(),"필수 정보가 비어있습니다.", Toast.LENGTH_SHORT).show()
+                            }
+                            3116 -> {
+                                Toast.makeText(requireActivity(),"탈퇴한 후 일주일 후에 가입 가능합니다.", Toast.LENGTH_SHORT).show()
+                            }
+                            3117 -> {
+                                Toast.makeText(requireActivity(),"강제 탈퇴된 사용자로 3개월 후에 가입 가능합니다.", Toast.LENGTH_SHORT).show()
+                            }
+                            3118 -> {
+                                Toast.makeText(requireActivity(),"이미 인프라의 회원입니다.", Toast.LENGTH_SHORT).show()
+                            }
+                            4000 -> {
+                                Toast.makeText(requireActivity(),"데이터베이스 연결에 실패하였습니다.", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseUserData>, t: Throwable) {
+                    Log.d(TAG, "onFailure: $t")
+                }
+
+            })
         }
     }
 
