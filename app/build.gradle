@@ -36,6 +36,10 @@ android {
     viewBinding{
         enabled = true
     }
+    // 데이터 바인딩 사용
+    dataBinding {
+        enabled = true
+    }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

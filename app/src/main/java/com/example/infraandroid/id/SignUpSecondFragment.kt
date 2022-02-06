@@ -3,15 +3,20 @@ package com.example.infraandroid.id
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentSignUpSecondBinding
+import com.example.infraandroid.id.SharedIdViewModel.Companion.TAG
 import java.util.regex.Pattern
 
 
@@ -22,7 +27,8 @@ import java.util.regex.Pattern
 // 2022-02-06 휴대폰 본인인증 서버 연결 (작성자 : 신승민)
 
 class SignUpSecondFragment : Fragment(){
-    private  var mBinding : FragmentSignUpSecondBinding? = null
+    private var mBinding : FragmentSignUpSecondBinding? = null
+    private val sharedViewModel : SharedIdViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -83,10 +89,10 @@ class SignUpSecondFragment : Fragment(){
 
         // 다음 버튼 눌렀을 때 다음 페이지로 넘아감
         nextButton.setOnClickListener{
+            sharedViewModel.updateInputName(inputNameEditText.text.toString())
+            sharedViewModel.updateInputPhone(inputPhoneNumberEditText.text.toString())
             it.findNavController().navigate(R.id.action_sign_up_second_fragment_to_sign_up_third_fragment)
         }
-
-
 
     }
 

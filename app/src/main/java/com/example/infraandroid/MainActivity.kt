@@ -8,6 +8,9 @@ import androidx.navigation.ui.NavigationUI
 import com.example.infraandroid.databinding.ActivityMainBinding
 
 import android.view.View
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.example.infraandroid.id.SharedIdViewModel
 import com.kakao.sdk.common.util.Utility
 
 class MainActivity : AppCompatActivity() {
@@ -41,6 +44,11 @@ class MainActivity : AppCompatActivity() {
 
         val keyHash = Utility.getKeyHash(this)
         Log.d("해시키", keyHash)
+
+        // 회원가입 ViewModel
+        val signUpViewModel = ViewModelProvider(this).get(SharedIdViewModel::class.java)
+
     }
+
 
 }

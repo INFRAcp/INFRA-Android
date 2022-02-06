@@ -1,6 +1,5 @@
 package com.example.infraandroid.id
 
-import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
@@ -16,39 +15,38 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentSignUpFirstBinding
-import com.example.infraandroid.id.IdViewModel.Companion.TAG
+import com.example.infraandroid.id.SharedIdViewModel.Companion.TAG
 import com.example.infraandroid.id.api.ResponseCheckUserIdData
 import com.example.infraandroid.id.api.ServiceCreator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.regex.Pattern
-import android.graphics.drawable.GradientDrawable
-import androidx.navigation.fragment.findNavController
+import androidx.lifecycle.ViewModelProvider
 
 
 // 회원가입 first depth 페이지
 // 작성자 : 신승민
 // 작성일 : 2022-02-01
 // Update
-// 2022-02-05 아이디 중복확인 서버 연결, 아이디와 비밀번호 SafeArgs이용해서 회원가입으로 보냄(작성자 : 신승민)
+// 2022-02-05 아이디 중복확인 서버 연결, 아이디와 비밀번호 Shared Live Data 이용해서 회원가입으로 보냄(작성자 : 신승민)
 
 
 class SignUpFirstFragment : Fragment() {
     private  var mBinding : FragmentSignUpFirstBinding? = null
-    lateinit var idViewModel: IdViewModel
+    private val sharedViewModel : SharedIdViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         val binding = FragmentSignUpFirstBinding.inflate(inflater, container, false)
-
         mBinding = binding
 
         return mBinding?.root
@@ -56,6 +54,8 @@ class SignUpFirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
 
         val checkButton = mBinding?.checkButton as AppCompatButton
         val inputMakeIdEdittext = mBinding?.inputMakeIdEditText as EditText
@@ -164,7 +164,10 @@ class SignUpFirstFragment : Fragment() {
 
         // 다음 버튼 누르면 다음 페이지로 이동
         goToSecondSignUpButton.setOnClickListener {
-            Log.d(TAG, "onViewCreated: "+ inputMakeIdEdittext.text.toString() + inputMakePwEditText.text.toString())
+            val newId = inputMakeIdEdittext.text.toString()
+            val newPw = inputMakePwEditText.text.toString()
+            sharedViewModel.updateInputId(newId)
+            sharedViewModel.updateInputPw(newPw)
             it.findNavController()
                 .navigate(R.id.action_sign_up_first_fragment_to_sign_up_second_fragment)
         }
@@ -193,13 +196,13 @@ class SignUpFirstFragment : Fragment() {
                         Toast.makeText(requireActivity(),"네트워크 오류",Toast.LENGTH_SHORT).show()
                     }
                 }
-
                 override fun onFailure(call: Call<ResponseCheckUserIdData>, t: Throwable) {
                     Log.d(TAG, "onFailure: $t")
                 }
-
             })
         }
+
+
 
     }
 
