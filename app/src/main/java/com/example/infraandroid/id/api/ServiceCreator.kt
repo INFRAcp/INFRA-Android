@@ -13,4 +13,5 @@ object ServiceCreator {
 
     val userDoubleCheckService : UserDoubleCheckService = retrofit.create(UserDoubleCheckService::class.java)
     val signUpService : SignUpService = retrofit.create(SignUpService::class.java)
+    val sendSMSService : SMSService = retrofit.create(SMSService::class.java)
 }

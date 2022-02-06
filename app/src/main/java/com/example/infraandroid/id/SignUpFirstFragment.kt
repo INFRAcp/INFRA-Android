@@ -40,6 +40,7 @@ import androidx.lifecycle.ViewModelProvider
 class SignUpFirstFragment : Fragment() {
     private  var mBinding : FragmentSignUpFirstBinding? = null
     private val sharedViewModel : SharedIdViewModel by activityViewModels()
+    private var isChecked = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -116,14 +117,14 @@ class SignUpFirstFragment : Fragment() {
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 if (Pattern.matches("^(?=.*\\d)(?=.*[~`!@#$%\\^&*()-])(?=.*[a-zA-Z]).{8,20}$", inputMakePwEditText.text.toString())) {
-                    if(inputCheckPwEditText.text.toString() == inputMakePwEditText.text.toString())
+                    if(inputCheckPwEditText.text.toString() == inputMakePwEditText.text.toString() && isChecked)
                         goToSecondSignUpButton.isEnabled = true
                 }
             }
 
             override fun afterTextChanged(p0: Editable?) {
                 if (Pattern.matches("^(?=.*\\d)(?=.*[~`!@#$%\\^&*()-])(?=.*[a-zA-Z]).{8,20}$", inputMakePwEditText.text.toString())) {
-                    if(inputCheckPwEditText.text.toString() == inputMakePwEditText.text.toString())
+                    if(inputCheckPwEditText.text.toString() == inputMakePwEditText.text.toString() && isChecked)
                         goToSecondSignUpButton.isEnabled = true
                 }
             }
@@ -182,6 +183,7 @@ class SignUpFirstFragment : Fragment() {
                     if(response.isSuccessful){
                         val data = response.body()?.code
                         if(data==1000){
+                            isChecked = true
                             doNotUseThisIdTextView.isVisible = false
                             inputMakeIdEdittext.setBackgroundResource(R.drawable.can_use_this_id_background)
                             mBinding?.canUseIconImageView?.isVisible = true
@@ -201,9 +203,6 @@ class SignUpFirstFragment : Fragment() {
                 }
             })
         }
-
-
-
     }
 
     override fun onDestroyView() {
