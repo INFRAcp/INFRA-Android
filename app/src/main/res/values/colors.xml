@@ -52,5 +52,6 @@
     <color name="infra_purple_a">#9277F8</color>
 
     <color name="infra_red_a">#FF3D00</color>
+    <color name="infra_red_b">#FF4D00</color>
 
 </resources>

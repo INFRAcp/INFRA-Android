@@ -46,8 +46,8 @@
             android:id="@+id/action_login_fragment_to_home_fragment"
             app:destination="@id/home_fragment" />
         <action
-            android:id="@+id/action_login_fragment_to_sign_in_first_fragment"
-            app:destination="@id/sign_in_first_fragment" />
+            android:id="@+id/action_login_fragment_to_sign_up_first_fragment"
+            app:destination="@id/sign_up_first_fragment" />
     </fragment>
     <fragment
         android:id="@+id/chatting_room_list_fragment"
@@ -68,13 +68,13 @@
             app:destination="@id/category_team_idea_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/sign_in_first_fragment"
+        android:id="@+id/sign_up_first_fragment"
         android:name="com.example.infraandroid.id.SignUpFirstFragment"
         android:label="fragment_sign_up_first"
         tools:layout="@layout/fragment_sign_up_first">
-          <action
-            android:id="@+id/action_sign_in_first_fragment_to_sign_up_second_fragment"
-            app:destination="@id/sign_up_second_fragment" />
+        <action
+            android:id="@+id/action_sign_up_first_fragment_to_sign_up_second_fragment"
+            app:destination="@id/sign_up_second_fragment"/>
     </fragment>
     <fragment
         android:id="@+id/sign_up_second_fragment"
@@ -84,12 +84,18 @@
         <action
             android:id="@+id/action_sign_up_second_fragment_to_sign_up_third_fragment"
             app:destination="@id/sign_up_third_fragment" />
+
     </fragment>
     <fragment
         android:id="@+id/sign_up_fourth_fragment"
         android:name="com.example.infraandroid.id.SignUpFourthFragment"
         android:label="fragment_sign_up_fourth"
-        tools:layout="@layout/fragment_sign_up_fourth" />
+        tools:layout="@layout/fragment_sign_up_fourth" >
+        <action
+            android:id="@+id/action_sign_up_fourth_fragment_to_login_fragment"
+            app:destination="@id/login_fragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/sign_up_third_fragment"
         android:name="com.example.infraandroid.id.SignUpThirdFragment"
@@ -139,9 +145,4 @@
         android:name="com.example.infraandroid.category.CategoryInformationFragment"
         android:label="CategoryInformationFragment"
         tools:layout="@layout/category_information"/>
-
-
 </navigation>
-
-      
-

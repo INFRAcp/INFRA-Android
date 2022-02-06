@@ -38,7 +38,7 @@
         android:id="@+id/complete_sign_up_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/infra_sign_up_complete"
+        android:src="@drawable/ic_infra_sign_up_compelete"
         app:layout_constraintTop_toBottomOf="@id/sign_up_fourth_comment_text_view"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -46,6 +46,7 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/go_to_login_page_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/check_same_id_button_enable_true_background"
@@ -59,8 +60,7 @@
         app:layout_constraintTop_toBottomOf="@id/complete_sign_up_image_view"
         android:fontFamily="@font/noto_sans_kr_bold"
         android:textSize="16sp"
-        android:paddingVertical="4dp"
-        android:enabled="false"/>
+        android:paddingVertical="4dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

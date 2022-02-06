@@ -10,7 +10,7 @@ import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.infraandroid.R
-//import com.example.infraandroid.UserId
+import com.example.infraandroid.InfraApplication
 import com.example.infraandroid.databinding.ItemCategoryFindTeamRecyclerviewBinding
 
 class CategoryFindTeamMemberAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
