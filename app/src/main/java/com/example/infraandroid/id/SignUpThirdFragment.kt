@@ -35,16 +35,21 @@ import retrofit2.Response
 class SignUpThirdFragment : Fragment(){
     private  var mBinding : FragmentSignUpThirdBinding? = null
     private val sharedViewModel : SharedIdViewModel by activityViewModels()
+    lateinit var name : String
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         val binding = FragmentSignUpThirdBinding.inflate(inflater, container, false)
 
         mBinding = binding
+
+
+        sharedViewModel.currentInputName.observe(viewLifecycleOwner, { currentInputName ->
+            name = currentInputName
+        })
 
         return mBinding?.root
     }
@@ -55,6 +60,9 @@ class SignUpThirdFragment : Fragment(){
         val nickName = mBinding?.inputNickNameEditText as EditText
         val email = mBinding?.inputEmailEditText as EditText
         val nextButton = mBinding?.goToLastSignUpButton as AppCompatButton
+        var text = getString(R.string.sign_up_nickname_comment, name)
+
+        mBinding?.signUpThirdCommentTextView?.text = text
 
         // 이메일 입력 유효성 검사 및 정규식 검사, 닉네임 입력 안하면 안넘어가도록 설정
         email.addTextChangedListener(object:TextWatcher{
@@ -87,7 +95,7 @@ class SignUpThirdFragment : Fragment(){
                 userNickname = nickName.text.toString(),
                 userPhone = "",
                 userEmail = email.text.toString(),
-                userName = ""
+                userName = name
             )
 
             sharedViewModel.currentInputId.observe(viewLifecycleOwner, { currentInputId ->
@@ -98,9 +106,6 @@ class SignUpThirdFragment : Fragment(){
             })
             sharedViewModel.currentInputPhone.observe(viewLifecycleOwner, { currentInputPhone ->
                 requestUserData.userPhone = currentInputPhone
-            })
-            sharedViewModel.currentInputName.observe(viewLifecycleOwner, { currentInputName ->
-                requestUserData.userName = currentInputName
             })
 
             val call: Call<ResponseUserData> = ServiceCreator.signUpService

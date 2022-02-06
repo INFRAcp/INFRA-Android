@@ -17,7 +17,7 @@
     <string name="input_phone_hint">하이픈(-)포함해서 입력해주세요</string>
     <string name="certification_number_hint">인증번호 5자리 입력</string>
     <string name="input_again">인증번호를 다시 입력해주세요.</string>
-    <string name="sign_up_nickname_comment">인프라에서 김프라님을\n어떻게 부를까요?</string>
+    <string name="sign_up_nickname_comment">인프라에서 %s님을\n어떻게 부를까요?</string>
     <string name="email_hint">example123@gmail.com</string>
     <string name="sign_up_complete_comment">가입완료!\n인프라를 구축해볼까요?</string>
 </resources>
