@@ -5,7 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentIdeaListBinding
+
+// Update
+// 2022-02-07 뒤로가기버튼 누르면 이전 페이지로 이동 (작성자 : 신승민)
 
 class IdeaListFragment : Fragment() {
     private  var mBinding : FragmentIdeaListBinding? = null
@@ -33,6 +38,10 @@ class IdeaListFragment : Fragment() {
             )
         )
         ideaListAdapter.notifyDataSetChanged()
+
+        mBinding?.ideaListBackButton?.setOnClickListener {
+            it.findNavController().navigate(R.id.action_idea_list_fragment_to_category_fragment)
+        }
     }
 
     override fun onDestroyView() {

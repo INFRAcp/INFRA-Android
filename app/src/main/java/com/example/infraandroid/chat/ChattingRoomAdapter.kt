@@ -13,6 +13,7 @@ import java.util.*
 
 class ChattingRoomAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     val chattingList = mutableListOf<ChattingRoomInfo>()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding = ItemChattingRoomListRecyclerviewBinding.inflate(
             LayoutInflater.from(parent.context),

@@ -23,8 +23,9 @@
         android:src="@drawable/ic_go_back_icon"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="18dp"
-        android:layout_marginLeft="16dp"/>
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="6dp"
+        android:padding="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,7 +38,7 @@
         app:layout_constraintTop_toTopOf="@id/idea_list_back_button"
         app:layout_constraintLeft_toRightOf="@id/idea_list_back_button"
         app:layout_constraintBottom_toBottomOf="@id/idea_list_back_button"
-        android:layout_marginLeft="14dp"/>
+        android:layout_marginLeft="4dp"/>
     
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/idea_list_recycler_view"

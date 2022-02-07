@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.example.infraandroid.InfraApplication
 import com.example.infraandroid.databinding.FragmentChatBinding
+import com.example.infraandroid.id.data.SharedIdViewModel
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -26,7 +28,7 @@ class ChatFragment : Fragment() {
     private val chatAdapter = ChatMultiViewAdapter()
     private val database = Firebase.database
     val chatList = mutableListOf<MessageInfo>()
-    private var opponentId = ""
+    lateinit var opponentId : String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,7 +50,6 @@ class ChatFragment : Fragment() {
 
         // 리사이클러뷰
         mBinding?.chatRecyclerview?.adapter = chatAdapter
-
 
         // 채팅 데이터의 변화를 감지
         val childEventListener = object : ChildEventListener {
@@ -144,7 +145,7 @@ class ChatFragment : Fragment() {
             val userRef = database.getReference("chatting").child(chatRoomIndexString).child("users")
             val lastMessageRef = database.getReference("chatting").child(chatRoomIndexString).child("lastMessage")
             val userHashMap = HashMap<String, String>()
-            userHashMap["user1"] = InfraApplication.userId
+            userHashMap["user1"] = InfraApplication.prefs.getString("userNickName", "null")
             // 상대방의 아이디 가져와서 user2에 저장
             userHashMap["user2"] = opponentId
             userHashMap["user1ProfileImg"] = "user1의 프로필 이미지 url"
@@ -159,11 +160,11 @@ class ChatFragment : Fragment() {
                     val hashMap = HashMap<String, String>()
                     val lastMessageHashMap = HashMap<String, String>()
 
-                    hashMap["senderId"] = InfraApplication.userId
+                    hashMap["senderId"] = InfraApplication.prefs.getString("userNickName", "null")
                     hashMap["message"] = messageToSend.toString()
                     hashMap["sendTime"] = dateTime
                     // 가장 최근 메시지 데이터 저장
-                    lastMessageHashMap["senderId"]=InfraApplication.userId
+                    lastMessageHashMap["senderId"]= InfraApplication.prefs.getString("userNickName", "null")
                     lastMessageHashMap["lastMessage"]=messageToSend.toString()
                     lastMessageHashMap["lastTime"]=dateTime
 

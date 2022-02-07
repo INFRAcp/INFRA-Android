@@ -5,7 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import com.example.infraandroid.InfraApplication
+import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentHomeBinding
+import com.example.infraandroid.id.data.SharedIdViewModel
 
 class HomeFragment : Fragment() {
     private var mBinding : FragmentHomeBinding? = null
@@ -15,6 +19,7 @@ class HomeFragment : Fragment() {
     private val recomprojectList = mutableListOf<RecommedProject>()
     private val hotpjectList = mutableListOf<HotProject>()
     private val selfdevList = mutableListOf<SelfDevelope>()
+    private val sharedViewModel : SharedIdViewModel by activityViewModels()
 
 
     override fun onCreateView(
@@ -22,9 +27,9 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         val binding = FragmentHomeBinding.inflate(inflater, container, false)
         mBinding = binding
+        mBinding?.homeUserHiTv?.text = getString(R.string.home_user_hi).format(InfraApplication.prefs.getString("userNickName", "null"))
 
         return mBinding?.root
     }

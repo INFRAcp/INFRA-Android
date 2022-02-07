@@ -1,4 +1,4 @@
-package com.example.infraandroid.id
+package com.example.infraandroid.id.data
 
 import android.util.Log
 import androidx.lifecycle.LiveData
