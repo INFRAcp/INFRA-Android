@@ -52,9 +52,8 @@ class CategoryFindTeamMemberAdapter():RecyclerView.Adapter<RecyclerView.ViewHold
 //            작성자 : 이은진
 //            작성일 : 2022.02.01
             itemView.setOnClickListener {
-                it.findNavController().navigate(R.id.action_category_team_fragment_to_category_information_fragment)
+                it.findNavController().navigate(R.id.action_category_fragment_to_category_information_fragment)
             }
-
         }
     }
 }

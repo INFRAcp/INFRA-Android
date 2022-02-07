@@ -35,7 +35,6 @@ import retrofit2.Response
 
 class LoginFragment : Fragment() {
     private var mBinding : FragmentLoginBinding? = null
-    private lateinit var auth: FirebaseAuth
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -43,7 +42,6 @@ class LoginFragment : Fragment() {
     ): View? {
 
         val binding = FragmentLoginBinding.inflate(inflater, container, false)
-        auth = FirebaseAuth.getInstance()
         mBinding = binding
 
         return mBinding?.root
@@ -54,38 +52,15 @@ class LoginFragment : Fragment() {
 
         // 로그인 버튼을 눌렀을 때
         mBinding!!.loginButton.setOnClickListener {
-            // 로그인할 때 유저 id를 전역변수에 저장
             val inputId = mBinding!!.idEdittext.text.toString()
             val inputPw = mBinding!!.pwEdittext.text.toString()
-
-            //삭제 예정
-            if(mBinding!!.idEdittext.text.isEmpty()|| mBinding!!.pwEdittext.text.isEmpty()) {
-                Toast.makeText(activity, "아이디와 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
-                mBinding!!.idEdittext.setText("")
-                mBinding!!.pwEdittext.setText("")
-            }
-            else{
-                auth.signInWithEmailAndPassword(inputId, inputPw)
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            val user = auth.currentUser
-                            updateUI(user)
-                            InfraApplication.setUserId(inputId)
-                            // 로그인 버튼을 누르면 home_fragment로 이동
-                            it.findNavController().navigate(R.id.action_login_fragment_to_home_fragment)
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(activity, "정확한 아이디와 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
-                        }
-                    }
-            }
 
             //작성자 : 이은진
             //작성일 : 2022.02.06
             //Login api 연결
             val requestLoginData = RequestLoginData(
-                userId = "",
-                userPw = "",
+                userId = inputId,
+                userPw = inputPw,
             )
             val call: Call<ResponseLoginData> = ServiceCreator.loginService
                 .postLogin(requestLoginData)
@@ -100,9 +75,6 @@ class LoginFragment : Fragment() {
                         when(code){
                             1000 -> {
                                 Toast.makeText(requireActivity(),"요청에 성공하셨습니다.", Toast.LENGTH_SHORT).show()
-                                val user = auth.currentUser
-                                updateUI(user)
-                                InfraApplication.setUserId(inputId)
                                 // 로그인 버튼을 누르면 home_fragment로 이동
                                 it.findNavController().navigate(R.id.action_login_fragment_to_home_fragment)
                             }
@@ -159,31 +131,6 @@ class LoginFragment : Fragment() {
 //            }
 //        }
     }
-
-    private fun createUser(email: String, password: String) {
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Toast.makeText(activity, "회원가입 성공", Toast.LENGTH_SHORT).show()
-                    val user = auth.currentUser
-                    updateUI(user)
-                } else {
-                    Toast.makeText(activity, "회원가입 실패", Toast.LENGTH_SHORT).show()
-                    updateUI(null)
-                }
-            }
-            .addOnFailureListener {
-                Log.d(TAG, "createUser: ")
-                Toast.makeText(activity, "회원가입 실패", Toast.LENGTH_SHORT).show()
-            }
-    }
-
-    private fun updateUI(user: FirebaseUser?) {
-        user?.let {
-            Log.d(TAG, "Email: ${user.email}\nUid: ${user.uid}")
-        }
-    }
-
 
     override fun onDestroyView() {
         mBinding = null

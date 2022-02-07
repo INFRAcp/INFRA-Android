@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_category_fragment_to_idea_list_fragment"
             app:destination="@id/idea_list_fragment" />
+        <action
+            android:id="@+id/action_category_fragment_to_category_information_fragment"
+            app:destination="@id/category_information_fragment" />
     </fragment>
     <fragment
         android:id="@+id/chat_fragment"
@@ -28,7 +31,8 @@
         android:id="@+id/my_info_fragment"
         android:name="com.example.infraandroid.myinfo.MyInfoFragment"
         android:label="fragment_my_info"
-        tools:layout="@layout/fragment_my_info" >
+        tools:layout="@layout/fragment_my_info"
+        tools:ignore="ExtraText">
         <action
             android:id="@+id/action_my_info_fragment_to_my_info_modify_fragment"
             app:destination="@id/my_info_modify_fragment" />
