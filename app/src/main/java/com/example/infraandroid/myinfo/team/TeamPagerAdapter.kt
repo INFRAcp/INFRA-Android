@@ -1,4 +1,4 @@
-package com.example.infraandroid.category
+package com.example.infraandroid.myinfo.team
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

@@ -12,7 +12,43 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
-            android:id="@+id/category_info_user_profile_iv"
+            android:id="@+id/my_info_info_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/ic_go_back_icon"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/my_info_info_modify_tv"
+            app:layout_constraintBottom_toBottomOf="@+id/my_info_info_modify_tv"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:fontFamily="@font/noto_sans_kr_medium"
+            android:includeFontPadding="false"
+            android:text="소개페이지"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/my_info_info_back_button"
+            app:layout_constraintLeft_toRightOf="@id/my_info_info_back_button"
+            app:layout_constraintTop_toTopOf="@id/my_info_info_back_button" />
+
+        <TextView
+            android:id="@+id/my_info_info_modify_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="수정"
+            android:textSize="15sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/noto_sans_kr_medium"
+            android:includeFontPadding="false"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="33dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="22dp"/>
+        <ImageView
+            android:id="@+id/my_info_info_user_profile_iv"
             android:layout_width="71dp"
             android:layout_height="71dp"
             android:src="@drawable/user_profile"
@@ -21,35 +57,35 @@
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="64dp" />
         <ImageView
-            android:id="@+id/category_info_bubble_one_iv"
+            android:id="@+id/my_info_info_bubble_one_iv"
             android:layout_width="10dp"
             android:layout_height="10dp"
             android:src="@drawable/bubble_one"
-            app:layout_constraintStart_toEndOf="@id/category_info_user_profile_iv"
+            app:layout_constraintStart_toEndOf="@id/my_info_info_user_profile_iv"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="92dp"
             android:layout_marginStart="88dp"/>
         <ImageView
-            android:id="@+id/category_info_bubble_two_iv"
+            android:id="@+id/my_info_info_bubble_two_iv"
             android:layout_width="11dp"
             android:layout_height="11dp"
             android:src="@drawable/bubble_two"
-            app:layout_constraintStart_toEndOf="@id/category_info_user_profile_iv"
+            app:layout_constraintStart_toEndOf="@id/my_info_info_user_profile_iv"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="60dp"
             android:layout_marginStart="36dp"/>
         <ImageView
-            android:id="@+id/category_info_bubble_three_iv"
+            android:id="@+id/my_info_info_bubble_three_iv"
             android:layout_width="6dp"
             android:layout_height="6dp"
             android:src="@drawable/bubble_three"
-            app:layout_constraintEnd_toStartOf="@id/category_info_user_profile_iv"
+            app:layout_constraintEnd_toStartOf="@id/my_info_info_user_profile_iv"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="102dp"
             android:layout_marginEnd="100dp"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/category_info_constraint_layout"
+            android:id="@+id/my_info_info_constraint_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="184dp"
@@ -59,7 +95,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/category_info_name_textview"
+                android:id="@+id/my_info_info_name_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
@@ -70,10 +106,10 @@
                 android:textColor="@color/black"
                 android:textSize="26sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/category_info_constraint_layout" />
+                app:layout_constraintTop_toTopOf="@id/my_info_info_constraint_layout" />
 
             <TextView
-                android:id="@+id/category_info_depart_textview"
+                android:id="@+id/my_info_info_depart_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -83,20 +119,20 @@
                 android:text="기계공학과"
                 android:textColor="@color/infra_gray_i"
                 android:textSize="13sp"
-                app:layout_constraintStart_toEndOf="@id/category_info_name_textview"
-                app:layout_constraintTop_toTopOf="@id/category_info_constraint_layout" />
+                app:layout_constraintStart_toEndOf="@id/my_info_info_name_textview"
+                app:layout_constraintTop_toTopOf="@id/my_info_info_constraint_layout" />
 
             <ImageView
-                android:id="@+id/category_info_yellow_star_iv"
+                android:id="@+id/my_info_info_yellow_star_iv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_yellow_star"
-                app:layout_constraintEnd_toStartOf="@id/category_info_star_point_textview"
-                app:layout_constraintTop_toTopOf="@id/category_info_star_point_textview"
-                app:layout_constraintBottom_toBottomOf="@id/category_info_star_point_textview"
+                app:layout_constraintEnd_toStartOf="@id/my_info_info_star_point_textview"
+                app:layout_constraintTop_toTopOf="@id/my_info_info_star_point_textview"
+                app:layout_constraintBottom_toBottomOf="@id/my_info_info_star_point_textview"
                 android:layout_marginEnd="3dp"/>
             <TextView
-                android:id="@+id/category_info_star_point_textview"
+                android:id="@+id/my_info_info_star_point_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="42dp"
@@ -105,11 +141,11 @@
                 android:text="4"
                 android:textColor="@color/black"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toStartOf="@id/category_info_num_of_eval_textview"
-                app:layout_constraintTop_toTopOf="@id/category_info_constraint_layout" />
+                app:layout_constraintEnd_toStartOf="@id/my_info_info_num_of_eval_textview"
+                app:layout_constraintTop_toTopOf="@id/my_info_info_constraint_layout" />
 
             <TextView
-                android:id="@+id/category_info_num_of_eval_textview"
+                android:id="@+id/my_info_info_num_of_eval_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="46dp"
@@ -120,10 +156,10 @@
                 android:textColor="@color/infra_gray_i"
                 android:textSize="10sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/category_info_constraint_layout" />
+                app:layout_constraintTop_toTopOf="@id/my_info_info_constraint_layout" />
 
             <LinearLayout
-                android:id="@+id/category_info_linearlayout"
+                android:id="@+id/my_info_info_linearlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
@@ -131,10 +167,10 @@
                 android:layout_marginEnd="30dp"
                 android:orientation="vertical"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/category_info_constraint_layout">
+                app:layout_constraintTop_toTopOf="@id/my_info_info_constraint_layout">
                 <!--                textview사이에 이미지 넣는 코드 수정-->
                 <TextView
-                    android:id="@+id/category_info_text_textview"
+                    android:id="@+id/my_info_info_text_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_kr_light"
@@ -146,7 +182,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/category_info_user_photo2_imageview"
+                    android:id="@+id/my_info_info_user_photo2_imageview"
                     android:layout_width="380dp"
                     android:layout_height="190dp"
                     android:layout_marginTop="75dp"
@@ -155,7 +191,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/category_info_text2_textview"
+                    android:id="@+id/my_info_info_text2_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
@@ -191,7 +227,7 @@
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/category_info_linearlayout" />
+                app:layout_constraintTop_toBottomOf="@id/my_info_info_linearlayout" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/category_finished_pr_constraintlayout"
@@ -431,7 +467,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginBottom="50dp">
                 <TextView
-                    android:id="@+id/category_info_hash_tag_one"
+                    android:id="@+id/my_info_info_hash_tag_one"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="대학원"
@@ -443,7 +479,7 @@
                     android:textColor="@color/infra_skyblue_a"
                     android:includeFontPadding="false"/>
                 <TextView
-                    android:id="@+id/category_info_hash_tag_two"
+                    android:id="@+id/my_info_info_hash_tag_two"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="오토바이"
@@ -456,7 +492,7 @@
                     android:textColor="@color/infra_skyblue_a"
                     android:includeFontPadding="false"/>
                 <TextView
-                    android:id="@+id/category_info_hash_tag_three"
+                    android:id="@+id/my_info_info_hash_tag_three"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="CAD"
@@ -469,7 +505,7 @@
                     android:textColor="@color/infra_skyblue_a"
                     android:includeFontPadding="false"/>
                 <TextView
-                    android:id="@+id/category_info_hash_tag_four"
+                    android:id="@+id/my_info_info_hash_tag_four"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="스터디"
