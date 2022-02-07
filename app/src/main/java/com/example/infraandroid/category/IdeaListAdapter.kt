@@ -2,7 +2,9 @@ package com.example.infraandroid.category
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.infraandroid.R
 import com.example.infraandroid.databinding.ItemIdeaListRecyclerviewBinding
 
 class IdeaListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -31,6 +33,10 @@ class IdeaListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             binding.projectCategoryTextView.text = ideaListInfo.projectCategory
             binding.hashTagOne.text = ideaListInfo.hashTagOne
             binding.hashTagTwo.text = ideaListInfo.hashTagTwo
+
+            itemView.setOnClickListener {
+                it.findNavController().navigate(R.id.action_idea_list_fragment_to_categoryTeamIdeaFragment)
+            }
         }
     }
 }

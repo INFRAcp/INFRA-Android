@@ -3,55 +3,48 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.infraandroid.category.IdeaListFragment">
-    
+    xmlns:tools="http://schemas.android.com/tools">
     <View
-        android:id="@+id/idea_list_title_view"
+        android:id="@+id/my_idea_list_title_view"
         android:layout_width="match_parent"
         android:layout_height="57dp"
         android:background="@color/infra_blue_c"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent">
-    </View>
-
+        app:layout_constraintRight_toRightOf="parent"/>
     <ImageView
-        android:id="@+id/idea_list_back_button"
+        android:id="@+id/my_idea_list_back_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_go_back_icon"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="6dp"
-        android:padding="10dp"/>
-
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="16dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="전체보기"
+        android:text="내 아이디어 관리"
         android:textSize="20sp"
         android:fontFamily="@font/noto_sans_kr_medium"
         android:includeFontPadding="false"
         android:textColor="@color/white"
-        app:layout_constraintTop_toTopOf="@id/idea_list_back_button"
-        app:layout_constraintLeft_toRightOf="@id/idea_list_back_button"
-        app:layout_constraintBottom_toBottomOf="@id/idea_list_back_button"
-        android:layout_marginLeft="4dp"/>
-    
+        app:layout_constraintTop_toTopOf="@id/my_idea_list_back_button"
+        app:layout_constraintLeft_toRightOf="@id/my_idea_list_back_button"
+        app:layout_constraintBottom_toBottomOf="@id/my_idea_list_back_button"
+        android:layout_marginLeft="14dp"/>
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/idea_list_recycler_view"
+        android:id="@+id/my_idea_list_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/idea_list_title_view"
+        app:layout_constraintTop_toBottomOf="@id/my_idea_list_title_view"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="10dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_idea_list_recyclerview"
-        />
+        tools:listitem="@layout/item_my_idea_list_recyclerview"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

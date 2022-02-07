@@ -228,6 +228,7 @@
             android:layout_marginTop="34dp"
             android:orientation="vertical">
             <LinearLayout
+                android:id="@+id/my_info_my_idea_linearlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
@@ -247,6 +248,7 @@
                     android:layout_marginStart="28dp"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/my_info_open_log_linearlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="31dp">
@@ -267,6 +269,7 @@
                     android:layout_marginStart="28dp"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/my_info_activity_log_linearlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="31dp">
@@ -287,6 +290,7 @@
                     android:layout_marginStart="28dp"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/my_info_application_status_linearlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="31dp">
