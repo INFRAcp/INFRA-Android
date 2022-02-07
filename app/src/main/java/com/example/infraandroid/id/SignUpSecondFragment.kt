@@ -131,7 +131,7 @@ class SignUpSecondFragment : Fragment(){
 
         getCertificationButton.setOnClickListener {
             val requestSMSData = RequestSMSData(
-                recipientPhoneNumber = inputCertificationNumberEditText.text.toString(),
+                recipientPhoneNumber = inputPhoneNumberEditText.text.toString(),
                 title = "본인인증",
                 content = "인증번호",
             )
