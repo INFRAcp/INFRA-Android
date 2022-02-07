@@ -3,27 +3,50 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginHorizontal="31dp"
+    android:layout_marginStart="31dp"
+    android:layout_marginEnd="17dp"
     android:layout_marginBottom="27dp">
-    <ImageView
-        android:id="@+id/team_member_profile_iv"
-        android:layout_width="49dp"
-        android:layout_height="49dp"
-        android:src="@drawable/team_user_profile_example"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-    <TextView
-        android:id="@+id/team_member_name_tv"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/team_member_info_constraintlayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="던킨도넛"
-        android:fontFamily="@font/noto_sans_kr_regular"
-        android:textSize="15sp"
-        android:textColor="@color/black"
-        android:layout_marginStart="13dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <ImageView
+            android:id="@+id/team_member_profile_iv"
+            android:layout_width="49dp"
+            android:layout_height="49dp"
+            android:src="@drawable/team_user_profile_example"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <TextView
+            android:id="@+id/team_member_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="던킨도넛"
+            android:fontFamily="@font/noto_sans_kr_regular"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="13dp"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toEndOf="@+id/team_member_profile_iv"
+            app:layout_constraintTop_toTopOf="@+id/team_member_profile_iv"
+            app:layout_constraintBottom_toBottomOf="@+id/team_member_profile_iv"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/team_member_kick_out_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="강퇴하기"
+        android:textColor="@color/white"
+        android:fontFamily="@font/noto_sans_kr_bold"
         android:includeFontPadding="false"
-        app:layout_constraintStart_toEndOf="@+id/team_member_profile_iv"
-        app:layout_constraintTop_toTopOf="@+id/team_member_profile_iv"
-        app:layout_constraintBottom_toBottomOf="@+id/team_member_profile_iv"/>
+        android:textSize="12sp"
+        android:background="@drawable/team_member_modify_background"
+        android:paddingVertical="7dp"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

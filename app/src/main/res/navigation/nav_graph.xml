@@ -37,12 +37,11 @@
             android:id="@+id/action_my_info_fragment_to_my_info_modify_fragment"
             app:destination="@id/my_info_modify_fragment" />
         <action
-            android:id="@+id/action_my_info_fragment_to_category_information_fragment"
-            app:destination="@id/category_information_fragment" />
-        //이거 연습하고 지우기
+            android:id="@+id/action_my_info_fragment_to_myInfoMyIdeaFragment"
+            app:destination="@id/myInfoMyIdeaFragment" />
         <action
-            android:id="@+id/action_my_info_fragment_to_category_team_idea_fragment"
-            app:destination="@id/category_team_idea_fragment" />
+            android:id="@+id/action_my_info_fragment_to_myInfoInformationFragment"
+            app:destination="@id/myInfoInformationFragment" />
     </fragment>
 
     <fragment
@@ -72,8 +71,8 @@
         android:label="idea_list_fragment"
         tools:layout="@layout/fragment_idea_list">
         <action
-            android:id="@+id/action_idea_list_fragment_to_category_team_idea_fragment"
-            app:destination="@id/category_team_idea_fragment" />
+            android:id="@+id/action_idea_list_fragment_to_categoryTeamIdeaFragment"
+            app:destination="@id/categoryTeamIdeaFragment" />
     </fragment>
     <fragment
         android:id="@+id/sign_up_first_fragment"
@@ -117,15 +116,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/category_team_fragment"
-        android:name="com.example.infraandroid.category.CategoryTeamFragment"
-        android:label="category_team_fragment"
-        tools:layout="@layout/fragment_category_team">
-        <action
-            android:id="@+id/action_category_team_fragment_to_category_information_fragment"
-            app:destination="@id/category_information_fragment" />
-    </fragment>
-    <fragment
         android:id="@+id/category_information_fragment"
         android:name="com.example.infraandroid.category.CategoryInformationFragment"
         android:label="category_information_fragment"
@@ -135,11 +125,6 @@
         android:name="com.example.infraandroid.myinfo.MyInfoModifyFragment"
         android:label="my_info_modify_fragment"
         tools:layout="@layout/fragment_my_info_modify"/>
-    <fragment
-        android:id="@+id/category_team_idea_fragment"
-        android:name="com.example.infraandroid.category.CategoryTeamIdeaFragment"
-        android:label="category_team_idea_fragment"
-        tools:layout="@layout/category_team_idea"/>
 
     <fragment
         android:id="@+id/categoryTeamFragment"
@@ -155,6 +140,30 @@
         android:name="com.example.infraandroid.category.CategoryInformationFragment"
         android:label="CategoryInformationFragment"
         tools:layout="@layout/category_information"/>
+    <fragment
+        android:id="@+id/myInfoMyIdeaFragment"
+        android:name="com.example.infraandroid.myinfo.MyInfoMyIdeaFragment"
+        android:label="MyInfoMyIdeaFragment"
+        tools:layout="@layout/fragment_my_info_my_idea">
+        <action
+            android:id="@+id/action_myInfoMyIdeaFragment_to_myInfoTeamIdeaFragment"
+            app:destination="@id/myInfoTeamIdeaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myInfoTeamIdeaFragment"
+        android:name="com.example.infraandroid.myinfo.MyInfoTeamIdeaFragment"
+        android:label="MyInfoTeamIdeaFragment"
+        tools:layout="@layout/my_info_team_idea"/>
+    <fragment
+        android:id="@+id/categoryTeamIdeaFragment"
+        android:name="com.example.infraandroid.category.CategoryTeamIdeaFragment"
+        android:label="CategoryTeamIdeaFragment"
+        tools:layout="@layout/category_team_idea"/>
+    <fragment
+        android:id="@+id/myInfoInformationFragment"
+        android:name="com.example.infraandroid.myinfo.MyInfoInformationFragment"
+        android:label="MyInfoInformationFragment"
+        tools:layout="@layout/my_info_information"/>
 
 </navigation>
 

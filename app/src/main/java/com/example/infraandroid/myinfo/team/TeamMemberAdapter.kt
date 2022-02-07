@@ -1,4 +1,4 @@
-package com.example.infraandroid.category
+package com.example.infraandroid.myinfo.team
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
