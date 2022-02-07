@@ -1,7 +1,6 @@
 package com.example.infraandroid.id
 
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
@@ -13,11 +12,12 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentSignUpThirdBinding
-import com.example.infraandroid.id.IdViewModel.Companion.TAG
+import com.example.infraandroid.id.SharedIdViewModel.Companion.TAG
 import com.example.infraandroid.id.api.RequestUserData
 import com.example.infraandroid.id.api.ResponseUserData
 import com.example.infraandroid.id.api.ServiceCreator
@@ -30,20 +30,26 @@ import retrofit2.Response
 // 작성자 : 신승민
 // 작성일 : 2022-02-02
 // Update
-// 2022-02-06 회원가입 첫 페이지와 두번째 페이지에서 SafeArgs로 정보 받아서 서버에 넘겨주는 작업 (작성자 : 신승민)
+// 2022-02-06 회원가입 첫 페이지와 두번째 페이지에서 Shared Live Data로 정보 받아서 서버에 넘겨주는 작업 (작성자 : 신승민)
 
 class SignUpThirdFragment : Fragment(){
     private  var mBinding : FragmentSignUpThirdBinding? = null
+    private val sharedViewModel : SharedIdViewModel by activityViewModels()
+    lateinit var name : String
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         val binding = FragmentSignUpThirdBinding.inflate(inflater, container, false)
 
         mBinding = binding
+
+
+        sharedViewModel.currentInputName.observe(viewLifecycleOwner, { currentInputName ->
+            name = currentInputName
+        })
 
         return mBinding?.root
     }
@@ -54,6 +60,9 @@ class SignUpThirdFragment : Fragment(){
         val nickName = mBinding?.inputNickNameEditText as EditText
         val email = mBinding?.inputEmailEditText as EditText
         val nextButton = mBinding?.goToLastSignUpButton as AppCompatButton
+        var text = getString(R.string.sign_up_nickname_comment, name)
+
+        mBinding?.signUpThirdCommentTextView?.text = text
 
         // 이메일 입력 유효성 검사 및 정규식 검사, 닉네임 입력 안하면 안넘어가도록 설정
         email.addTextChangedListener(object:TextWatcher{
@@ -83,11 +92,21 @@ class SignUpThirdFragment : Fragment(){
             val requestUserData = RequestUserData(
                 userId = "",
                 userPw = "",
-                userNickname = "",
+                userNickname = nickName.text.toString(),
                 userPhone = "",
-                userEmail = "",
-                userName = ""
+                userEmail = email.text.toString(),
+                userName = name
             )
+
+            sharedViewModel.currentInputId.observe(viewLifecycleOwner, { currentInputId ->
+                requestUserData.userId = currentInputId
+            })
+            sharedViewModel.currentInputPw.observe(viewLifecycleOwner, { currentInputPw ->
+                requestUserData.userPw = currentInputPw
+            })
+            sharedViewModel.currentInputPhone.observe(viewLifecycleOwner, { currentInputPhone ->
+                requestUserData.userPhone = currentInputPhone
+            })
 
             val call: Call<ResponseUserData> = ServiceCreator.signUpService
                 .postSignUp(requestUserData)
@@ -100,13 +119,17 @@ class SignUpThirdFragment : Fragment(){
                     if(response.isSuccessful){
                         when (response.body()?.code) {
                             1000 -> {
+                                Log.d(TAG, "onResponse: 회원가입 성공!")
                                 it.findNavController().navigate(R.id.action_sign_up_third_fragment_to_sign_up_fourth_fragment)
                             }
                             2021 -> {
-                                Toast.makeText(requireActivity(),"중복된 이메일입니다.", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(requireActivity(),"중복된 핸드폰 번호입니다.", Toast.LENGTH_SHORT).show()
                             }
                             2016 -> {
                                 Toast.makeText(requireActivity(),"이메일 형식을 확인해주세요.", Toast.LENGTH_SHORT).show()
+                            }
+                            2017 -> {
+                                Toast.makeText(requireActivity(),"중복된 이메일입니다.", Toast.LENGTH_SHORT).show()
                             }
                             2018 -> {
                                 Toast.makeText(requireActivity(),"필수 정보가 비어있습니다.", Toast.LENGTH_SHORT).show()
@@ -127,7 +150,9 @@ class SignUpThirdFragment : Fragment(){
                                 Toast.makeText(requireActivity(),"데이터베이스 연결에 실패하였습니다.", Toast.LENGTH_SHORT).show()
                             }
                         }
-
+                    }
+                    else{
+                        Log.d(TAG, "onResponse: 연결 실패..")
                     }
                 }
 
