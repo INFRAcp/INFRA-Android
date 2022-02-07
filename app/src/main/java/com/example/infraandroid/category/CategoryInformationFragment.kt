@@ -29,8 +29,14 @@ class CategoryInformationFragment: Fragment() {
 
         val bottomSheetDialogFragment = MyInfoModifyMenuBottomSheetFragment()
         mBinding!!.categoryInformationModifyTv.setOnClickListener{
+//            val bottomSheet = MyInfoModifyMenuBottomSheetFragment()
+//            bottomSheet.show(parentFragmentManager, bottomSheet.tag)
             activity?.supportFragmentManager?.let { it1 -> bottomSheetDialogFragment.show(it1, bottomSheetDialogFragment.tag) }
         }
+
+
+
+
     }
 
     override fun onDestroyView() {

@@ -35,6 +35,10 @@
         <action
             android:id="@+id/action_my_info_fragment_to_category_information_fragment"
             app:destination="@id/category_information_fragment" />
+        //이거 연습하고 지우기
+        <action
+            android:id="@+id/action_my_info_fragment_to_category_team_idea_fragment"
+            app:destination="@id/category_team_idea_fragment" />
     </fragment>
 
     <fragment
@@ -75,6 +79,9 @@
         <action
             android:id="@+id/action_sign_up_first_fragment_to_sign_up_second_fragment"
             app:destination="@id/sign_up_second_fragment"/>
+        <action
+            android:id="@+id/action_sign_in_first_fragment_to_sign_up_second_fragment"
+            app:destination="@id/sign_up_second_fragment" />
     </fragment>
     <fragment
         android:id="@+id/sign_up_second_fragment"
@@ -84,7 +91,6 @@
         <action
             android:id="@+id/action_sign_up_second_fragment_to_sign_up_third_fragment"
             app:destination="@id/sign_up_third_fragment" />
-
     </fragment>
     <fragment
         android:id="@+id/sign_up_fourth_fragment"
@@ -145,4 +151,7 @@
         android:name="com.example.infraandroid.category.CategoryInformationFragment"
         android:label="CategoryInformationFragment"
         tools:layout="@layout/category_information"/>
+
 </navigation>
+
+

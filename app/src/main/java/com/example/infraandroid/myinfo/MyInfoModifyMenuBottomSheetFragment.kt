@@ -7,19 +7,47 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.example.infraandroid.R
+import com.example.infraandroid.databinding.CategoryInformationBinding
+import com.example.infraandroid.databinding.MyInfoModifyMenuBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 //작성자 : 이은진
 //작성일 : 2022.02.05
+
 class MyInfoModifyMenuBottomSheetFragment : BottomSheetDialogFragment() {
+    private  var mBinding : MyInfoModifyMenuBinding? = null
+
+//    override fun onCreateView(
+//        inflater: LayoutInflater,
+//        container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View? {
+//        return super.onCreateView(inflater, container, savedInstanceState)
+//        return inflater.inflate(R.layout.my_info_modify_menu, container, false)
+//    }
+
     override fun setupDialog(dialog: Dialog, style: Int) {
         val contentView = View.inflate(context, R.layout.my_info_modify_menu, null)
         dialog?.setContentView(contentView)
+
     }
 
+
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+//        mBinding!!.myInfoCancelButton.setOnClickListener {
+//            dismiss()
+//        }
+//        mBinding!!.myInfoSaveButton.setOnClickListener {
+//            dismiss()
+//        }
+//    }
+
+    //bottomsheet size 90/100으로 설정해주는 코드
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog: Dialog = super.onCreateDialog(savedInstanceState)
         dialog.setOnShowListener {
@@ -28,7 +56,6 @@ class MyInfoModifyMenuBottomSheetFragment : BottomSheetDialogFragment() {
         }
         return dialog
     }
-
     private fun setupRatio(bottomSheetDialog: BottomSheetDialog) {
         //id = com.google.android.material.R.id.design_bottom_sheet for Material Components
         //id = android.support.design.R.id.design_bottom_sheet for support librares

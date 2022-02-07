@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/team_member_management_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="내 팀원관리"
+        android:fontFamily="@font/noto_sans_kr_medium"
+        android:includeFontPadding="false"
+        android:textColor="@color/black"
+        android:layout_marginTop="18dp"
+        android:layout_marginStart="31dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/team_member__management_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:scrollbarFadeDuration="0"
+        android:layout_marginTop="18dp"
+        tools:listitem="@layout/item_team_member_recyclerview"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/team_member_management_tv"
+        app:layout_constraintStart_toStartOf="parent">
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/application_management_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="신청관리"
+        android:fontFamily="@font/noto_sans_kr_medium"
+        android:includeFontPadding="false"
+        android:textColor="@color/black"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="31dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/team_member__management_recyclerview"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/application_management_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:scrollbarFadeDuration="0"
+        android:layout_marginTop="18dp"
+        tools:listitem="@layout/item_team_member_application_recyclerview"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/application_management_tv"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,10 +32,12 @@
     <color name="infra_gray_s">#9C9DA1</color>
     <color name="infra_gray_t">#E2E2E2</color>
     <color name="infra_gray_u">#DCE1E4</color>
+    <color name="infra_gray_v">#8F8F8F</color>
 
     <color name="infra_light_gray_a">#ededed</color>
     <color name="infra_light_gray_b">#A8A8A8</color>
     <color name="infra_light_gray_c">#E3E3E3</color>
+    <color name="infra_light_gray_d">#B7B7B7</color>
 
     <color name="infra_blue_a">#1843A1</color>
     <color name="infra_blue_b">#4052e8</color>
@@ -46,6 +48,7 @@
 
 
     <color name="infra_skyblue_a">#4B8EFF</color>
+    <color name="infra_skyblue_b">#E9F1FF</color>
 
     <color name="infra_orange_a">#FFDF6F</color>
 
