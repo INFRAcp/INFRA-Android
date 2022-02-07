@@ -1,6 +1,5 @@
 package com.example.infraandroid.id
 
-import android.media.Image
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -16,19 +15,17 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentSignUpSecondBinding
-import com.example.infraandroid.id.SharedIdViewModel.Companion.TAG
+import com.example.infraandroid.id.data.SharedIdViewModel.Companion.TAG
 import com.example.infraandroid.id.api.RequestSMSData
 import com.example.infraandroid.id.api.ResponseSMSData
 import com.example.infraandroid.id.api.ServiceCreator
+import com.example.infraandroid.id.data.SharedIdViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.net.ResponseCache
 import java.util.regex.Pattern
 
 

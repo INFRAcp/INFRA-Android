@@ -14,13 +14,13 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.navArgs
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentSignUpThirdBinding
-import com.example.infraandroid.id.SharedIdViewModel.Companion.TAG
+import com.example.infraandroid.id.data.SharedIdViewModel.Companion.TAG
 import com.example.infraandroid.id.api.RequestUserData
 import com.example.infraandroid.id.api.ResponseUserData
 import com.example.infraandroid.id.api.ServiceCreator
+import com.example.infraandroid.id.data.SharedIdViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

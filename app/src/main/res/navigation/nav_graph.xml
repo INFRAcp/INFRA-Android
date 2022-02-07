@@ -74,6 +74,9 @@
         <action
             android:id="@+id/action_idea_list_fragment_to_category_team_idea_fragment"
             app:destination="@id/category_team_idea_fragment" />
+        <action
+            android:id="@+id/action_idea_list_fragment_to_category_fragment"
+            app:destination="@id/category_fragment" />
     </fragment>
     <fragment
         android:id="@+id/sign_up_first_fragment"
@@ -155,6 +158,11 @@
         android:name="com.example.infraandroid.category.CategoryInformationFragment"
         android:label="CategoryInformationFragment"
         tools:layout="@layout/category_information"/>
+    <fragment
+        android:id="@+id/myInfoProjectModifyFragment"
+        android:name="com.example.infraandroid.myinfo.MyInfoProjectModifyFragment"
+        android:label="fragment_my_info_project_modify"
+        tools:layout="@layout/fragment_my_info_project_modify" />
 
 </navigation>
 

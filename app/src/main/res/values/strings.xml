@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">InfraAndroid</string>
-    <string name="home_user_hi">안녕하세요! 김프라님</string>
+    <string name="home_user_hi">안녕하세요! %s님</string>
     <string name="home_make_new_proj">프로젝트 생성</string>
     <string name="home_recommend_proj">이런 프로젝트는 어떠세요?</string>
     <string name="home_hot_proj">지금 핫한 프로젝트!</string>
@@ -20,4 +20,5 @@
     <string name="sign_up_nickname_comment">인프라에서 %s님을\n어떻게 부를까요?</string>
     <string name="email_hint">example123@gmail.com</string>
     <string name="sign_up_complete_comment">가입완료!\n인프라를 구축해볼까요?</string>
+    <string name="my_info_name">%s</string>
 </resources>

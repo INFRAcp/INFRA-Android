@@ -38,13 +38,13 @@ class ChatMultiViewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     override fun getItemCount(): Int = messageList.size
 
     override fun getItemViewType(position: Int): Int {
-        if(messageList[position].senderId == InfraApplication.userId)
+        if(messageList[position].senderId == InfraApplication.prefs.getString("userNickName", "null"))
             return 1
         Log.d(TAG, "getItemViewType: "+messageList[position])
         return 2
     }
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if(messageList[position].senderId==InfraApplication.userId){
+        if(messageList[position].senderId==InfraApplication.prefs.getString("userNickName", "null")){
             (holder as MyChatViewHolder).onBind(messageList[position])
             holder.setIsRecyclable(false)
         }

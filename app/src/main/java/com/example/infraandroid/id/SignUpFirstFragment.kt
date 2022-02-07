@@ -16,18 +16,17 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentSignUpFirstBinding
-import com.example.infraandroid.id.SharedIdViewModel.Companion.TAG
+import com.example.infraandroid.id.data.SharedIdViewModel.Companion.TAG
 import com.example.infraandroid.id.api.ResponseCheckUserIdData
 import com.example.infraandroid.id.api.ServiceCreator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.regex.Pattern
-import androidx.lifecycle.ViewModelProvider
+import com.example.infraandroid.id.data.SharedIdViewModel
 
 
 // 회원가입 first depth 페이지

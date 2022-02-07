@@ -8,9 +8,8 @@ import androidx.navigation.ui.NavigationUI
 import com.example.infraandroid.databinding.ActivityMainBinding
 
 import android.view.View
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.infraandroid.id.SharedIdViewModel
+import com.example.infraandroid.id.data.SharedIdViewModel
 import com.kakao.sdk.common.util.Utility
 
 class MainActivity : AppCompatActivity() {

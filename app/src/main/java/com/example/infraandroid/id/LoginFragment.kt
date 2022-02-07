@@ -74,6 +74,9 @@ class LoginFragment : Fragment() {
                         val code = response.body()?.code
                         when(code){
                             1000 -> {
+                                InfraApplication.prefs.setString("jwt", response?.body()?.result?.jwt.toString())
+                                InfraApplication.prefs.setString("userId", response?.body()?.result?.userId.toString())
+                                InfraApplication.prefs.setString("userNickName", response?.body()?.result?.userNickName.toString())
                                 Toast.makeText(requireActivity(),"요청에 성공하셨습니다.", Toast.LENGTH_SHORT).show()
                                 // 로그인 버튼을 누르면 home_fragment로 이동
                                 it.findNavController().navigate(R.id.action_login_fragment_to_home_fragment)
