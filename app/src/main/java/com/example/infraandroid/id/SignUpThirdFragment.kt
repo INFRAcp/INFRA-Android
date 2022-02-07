@@ -51,7 +51,6 @@ class SignUpThirdFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val args by navArgs<SignUpThirdFragmentArgs>()
         val nickName = mBinding?.inputNickNameEditText as EditText
         val email = mBinding?.inputEmailEditText as EditText
         val nextButton = mBinding?.goToLastSignUpButton as AppCompatButton
@@ -82,12 +81,12 @@ class SignUpThirdFragment : Fragment(){
         // 다음 버튼 누르면 다음 페이지로 넘어감
         nextButton.setOnClickListener{
             val requestUserData = RequestUserData(
-                userId = args.newUserId,
-                userPw = args.newUserPw,
-                userNickname = nickName.text.toString(),
-                userPhone = args.newUserPhone,
-                userEmail = email.text.toString(),
-                userName = args.newUserName
+                userId = "",
+                userPw = "",
+                userNickname = "",
+                userPhone = "",
+                userEmail = "",
+                userName = ""
             )
 
             val call: Call<ResponseUserData> = ServiceCreator.signUpService

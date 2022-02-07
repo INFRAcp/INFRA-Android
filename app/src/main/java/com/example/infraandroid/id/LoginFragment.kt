@@ -12,12 +12,19 @@ import androidx.navigation.findNavController
 import com.example.infraandroid.InfraApplication
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentLoginBinding
+import com.example.infraandroid.id.api.RequestLoginData
+import com.example.infraandroid.id.api.RequestUserData
+import com.example.infraandroid.id.api.ResponseLoginData
+import com.example.infraandroid.id.api.ServiceCreator
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.kakao.sdk.auth.model.OAuthToken
 import com.kakao.sdk.common.model.ClientError
 import com.kakao.sdk.common.model.ClientErrorCause
 import com.kakao.sdk.user.UserApiClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 // 로그인 페이지
 // 작성자 : 신승민
@@ -50,6 +57,8 @@ class LoginFragment : Fragment() {
             // 로그인할 때 유저 id를 전역변수에 저장
             val inputId = mBinding!!.idEdittext.text.toString()
             val inputPw = mBinding!!.pwEdittext.text.toString()
+
+            //삭제 예정
             if(mBinding!!.idEdittext.text.isEmpty()|| mBinding!!.pwEdittext.text.isEmpty()) {
                 Toast.makeText(activity, "아이디와 비밀번호를 입력해주세요.", Toast.LENGTH_SHORT).show()
                 mBinding!!.idEdittext.setText("")
@@ -70,6 +79,44 @@ class LoginFragment : Fragment() {
                         }
                     }
             }
+
+            //작성자 : 이은진
+            //작성일 : 2022.02.06
+            //Login api 연결
+            val requestLoginData = RequestLoginData(
+                userId = "",
+                userPw = "",
+            )
+            val call: Call<ResponseLoginData> = ServiceCreator.loginService
+                .postLogin(requestLoginData)
+
+            call.enqueue(object : Callback<ResponseLoginData>{
+                override fun onResponse(
+                    call: Call<ResponseLoginData>,
+                    response: Response<ResponseLoginData>
+                ) {
+                    if(response.isSuccessful){
+                        val code = response.body()?.code
+                        when(code){
+                            1000 -> {
+                                Toast.makeText(requireActivity(),"요청에 성공하셨습니다.", Toast.LENGTH_SHORT).show()
+                                val user = auth.currentUser
+                                updateUI(user)
+                                InfraApplication.setUserId(inputId)
+                                // 로그인 버튼을 누르면 home_fragment로 이동
+                                it.findNavController().navigate(R.id.action_login_fragment_to_home_fragment)
+                            }
+                            2001 -> {Toast.makeText(requireActivity(),"id가 비어있습니다.", Toast.LENGTH_SHORT).show()}
+                            3014 -> {Toast.makeText(requireActivity(),"없는 아이디거나 비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show()}
+                            4000 -> {Toast.makeText(requireActivity(),"데이터베이스 연결에 실패하였습니다.", Toast.LENGTH_SHORT).show()}
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseLoginData>, t: Throwable) {
+                    Log.e("login_server_test", "fail")
+                }
+            })
         }
 
         // 회원가입 버튼을 눌렀을 때

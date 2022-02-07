@@ -44,6 +44,10 @@ class MyInfoFragment : Fragment() {
         mBinding!!.myInfoIntroPageLayout.setOnClickListener {
             it.findNavController().navigate(R.id.action_my_info_fragment_to_category_information_fragment)
         }
+        //내 정보에 임시로 넣어둠(팀 아이디어 프래그먼트) 수정 필요
+        mBinding!!.myInfoBookmarkLayout.setOnClickListener {
+            it.findNavController().navigate(R.id.action_my_info_fragment_to_category_team_idea_fragment)
+        }
     }
 
     override fun onDestroyView() {

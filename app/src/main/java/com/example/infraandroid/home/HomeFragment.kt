@@ -16,6 +16,7 @@ class HomeFragment : Fragment() {
     private val hotpjectList = mutableListOf<HotProject>()
     private val selfdevList = mutableListOf<SelfDevelope>()
 
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

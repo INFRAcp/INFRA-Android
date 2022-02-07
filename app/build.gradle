@@ -62,6 +62,12 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.9'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
+    //뷰페이저 2
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
+
+    //bottomsheet
+    implementation 'com.google.android.material:material:1.6.0-alpha02'
+
     //리사이클러뷰
     implementation "androidx.recyclerview:recyclerview:1.2.1"
 
