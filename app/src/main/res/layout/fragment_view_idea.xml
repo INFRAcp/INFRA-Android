@@ -2,7 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.infraandroid.category.CategoryViewIdeaFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -353,21 +355,19 @@
 
     </ScrollView>
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/team_idea_modify_btn_tv"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="수정하기"
+        android:text="신청하기"
         android:textColor="@color/white"
-        android:fontFamily="@font/noto_sans_kr_bold"
+        android:fontFamily="@font/noto_sans_kr_regular"
         android:includeFontPadding="false"
-        android:textSize="16sp"
-        android:background="@drawable/team_idea_modify_background"
-        android:paddingVertical="14dp"
-        android:paddingHorizontal="40dp"
+        android:textSize="20sp"
+        android:background="@color/infra_blue_c"
+        android:paddingVertical="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="14dp" />
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

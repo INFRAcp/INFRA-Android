@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentMyInfoMyIdeaBinding
 
 class MyInfoMyIdeaFragment : Fragment() {
@@ -30,6 +32,10 @@ class MyInfoMyIdeaFragment : Fragment() {
             )
         )
         myIdeaListAdapter.notifyDataSetChanged()
+
+        mBinding?.myIdeaListBackButton?.setOnClickListener {
+            it.findNavController().navigate(R.id.action_myInfoMyIdeaFragment_to_my_info_fragment)
+        }
     }
 
     override fun onDestroyView() {

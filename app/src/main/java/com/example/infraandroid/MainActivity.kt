@@ -10,6 +10,8 @@ import com.example.infraandroid.databinding.ActivityMainBinding
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.example.infraandroid.id.data.SharedIdViewModel
+import com.google.android.material.shape.CornerFamily
+import com.google.android.material.shape.MaterialShapeDrawable
 import com.kakao.sdk.common.util.Utility
 
 class MainActivity : AppCompatActivity() {
@@ -32,7 +34,9 @@ class MainActivity : AppCompatActivity() {
         // 바텀 네비게이션 뷰 출력하는 곳과 출력하지 않는 곳 구분
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if(destination.id == R.id.login_fragment || destination.id == R.id.chat_fragment || destination.id == R.id.sign_up_first_fragment||
-            destination.id==R.id.sign_up_second_fragment || destination.id==R.id.sign_up_third_fragment || destination.id==R.id.sign_up_fourth_fragment)
+            destination.id==R.id.sign_up_second_fragment || destination.id==R.id.sign_up_third_fragment || destination.id==R.id.sign_up_fourth_fragment
+                ||destination.id == R.id.categoryViewIdeaFragment || destination.id == R.id.myInfoTeamIdeaFragment || destination.id == R.id.myInfoProjectModifyFragment
+                ||destination.id == R.id.createProjectFragment || destination.id == R.id.my_info_modify_fragment)
                 mBinding.myBottomNav.visibility = View.GONE
             else
                 mBinding.myBottomNav.visibility = View.VISIBLE
@@ -43,10 +47,6 @@ class MainActivity : AppCompatActivity() {
 
         val keyHash = Utility.getKeyHash(this)
         Log.d("해시키", keyHash)
-
-        // 회원가입 ViewModel
-        val signUpViewModel = ViewModelProvider(this).get(SharedIdViewModel::class.java)
-
     }
 
 

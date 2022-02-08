@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/idea_list_constraint_layout_background"
     android:layout_marginLeft="21dp"
-    android:elevation="10dp">
+    android:elevation="4dp">
 
     <ImageView
         android:id="@+id/item_recommed_project_photo_iv"

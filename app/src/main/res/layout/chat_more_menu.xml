@@ -18,7 +18,7 @@
         android:id="@+id/chat_more_menu_opponent_name_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="김프라"
+        android:text="서버팀"
         android:textSize="20sp"
         android:textColor="@color/black"
         android:fontFamily="@font/noto_sans_kr_bold"
@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="33dp"
-            android:src="@drawable/ic_userpage_icon"
+            android:src="@drawable/ic_look_user"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"/>
         <TextView
@@ -176,7 +176,7 @@
             android:id="@+id/leave_chat_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="차단하기"
+            android:text="채팅방 나가기"
             android:layout_marginLeft="27dp"
             android:textColor="@color/black"
             android:fontFamily="@font/noto_sans_kr_regular"
