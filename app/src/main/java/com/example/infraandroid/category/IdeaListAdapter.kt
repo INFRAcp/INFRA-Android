@@ -33,9 +33,8 @@ class IdeaListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             binding.projectCategoryTextView.text = ideaListInfo.projectCategory
             binding.hashTagOne.text = ideaListInfo.hashTagOne
             binding.hashTagTwo.text = ideaListInfo.hashTagTwo
-
             itemView.setOnClickListener {
-                it.findNavController().navigate(R.id.action_idea_list_fragment_to_categoryTeamIdeaFragment)
+                it.findNavController().navigate(R.id.action_idea_list_fragment_to_categoryViewIdeaFragment)
             }
         }
     }

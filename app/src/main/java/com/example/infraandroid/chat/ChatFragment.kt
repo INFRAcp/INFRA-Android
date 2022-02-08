@@ -9,7 +9,9 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import com.example.infraandroid.InfraApplication
+import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentChatBinding
 import com.example.infraandroid.id.data.SharedIdViewModel
 import com.google.firebase.database.ChildEventListener
@@ -178,6 +180,10 @@ class ChatFragment : Fragment() {
         val bottomSheetDialogFragment = ChatMoreMenuBottomSheetFragment()
         mBinding!!.chatMoreMenuOpenButton.setOnClickListener {
             activity?.supportFragmentManager?.let { it1 -> bottomSheetDialogFragment.show(it1, bottomSheetDialogFragment.tag) }
+        }
+
+        mBinding?.backToChatListButton?.setOnClickListener {
+            it.findNavController().navigate(R.id.action_chat_fragment_to_chatting_room_list_fragment)
         }
     }
 

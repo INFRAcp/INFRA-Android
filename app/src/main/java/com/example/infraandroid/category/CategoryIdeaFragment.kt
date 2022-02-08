@@ -31,6 +31,10 @@ class CategoryIdeaFragment : Fragment() {
         mBinding?.ideaListLookAllButton?.setOnClickListener {
             it.findNavController().navigate(R.id.action_category_fragment_to_idea_list_fragment)
         }
+
+        mBinding?.lookMyIdeaButton?.setOnClickListener {
+            it.findNavController().navigate(R.id.action_category_fragment_to_myInfoMyIdeaFragment)
+        }
     }
 
     override fun onDestroyView() {
