@@ -5,10 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.example.infraandroid.databinding.FragmentTeamMemberBinding
+import com.example.infraandroid.myinfo.MyInfoPhotoMoreMenuBottomSheetFragment
 
 class TeamMemberFragment : Fragment() {
     private var mBinding : FragmentTeamMemberBinding? = null
+    //private lateinit var mFragmentManager: FragmentManager
     private val TeamMemberAdapter = TeamMemberAdapter()
     private val TeamMemberAppliAdapter = TeamMemberAppliAdapter()
     private val teamMemberInfo = mutableListOf<TeamMemberInfo>()

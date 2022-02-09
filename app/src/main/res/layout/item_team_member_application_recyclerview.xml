@@ -6,29 +6,37 @@
     android:layout_marginStart="31dp"
     android:layout_marginEnd="18dp"
     android:layout_marginBottom="27dp">
-    <ImageView
-        android:id="@+id/team_member_profile_iv"
-        android:layout_width="49dp"
-        android:layout_height="49dp"
-        android:src="@drawable/team_user_profile_example"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-    <TextView
-        android:id="@+id/team_member_name_tv"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/team_member_profile_constraint_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="던킨도넛"
-        android:fontFamily="@font/noto_sans_kr_regular"
-        android:textSize="15sp"
-        android:textColor="@color/black"
-        android:layout_marginStart="13dp"
-        android:includeFontPadding="false"
-        app:layout_constraintStart_toEndOf="@+id/team_member_profile_iv"
-        app:layout_constraintTop_toTopOf="@+id/team_member_profile_iv"
-        app:layout_constraintBottom_toBottomOf="@+id/team_member_profile_iv"/>
-    <ImageView
-        android:id="@+id/team_member_application_reject_box_iv"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <ImageView
+            android:id="@+id/team_member_profile_iv"
+            android:layout_width="49dp"
+            android:layout_height="49dp"
+            android:src="@drawable/team_user_profile_example"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+        <TextView
+            android:id="@+id/team_member_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="던킨도넛"
+            android:fontFamily="@font/noto_sans_kr_regular"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="13dp"
+            android:includeFontPadding="false"
+            app:layout_constraintStart_toEndOf="@+id/team_member_profile_iv"
+            app:layout_constraintTop_toTopOf="@+id/team_member_profile_iv"
+            app:layout_constraintBottom_toBottomOf="@+id/team_member_profile_iv"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+   <ImageView
+        android:id="@+id/team_member_application_accept_box_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_team_member_rectangle"
@@ -36,31 +44,31 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
     <ImageView
-        android:id="@+id/team_member_reject_iv"
+        android:id="@+id/team_member_accept_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_accept"
-        app:layout_constraintEnd_toEndOf="@+id/team_member_application_reject_box_iv"
-        app:layout_constraintStart_toStartOf="@+id/team_member_application_reject_box_iv"
+        app:layout_constraintEnd_toEndOf="@+id/team_member_application_accept_box_iv"
+        app:layout_constraintStart_toStartOf="@+id/team_member_application_accept_box_iv"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
     <ImageView
-        android:id="@+id/team_member_application_accept_box_iv"
+        android:id="@+id/team_member_application_reject_box_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_team_member_rectangle"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/team_member_application_reject_box_iv"
+        app:layout_constraintEnd_toStartOf="@id/team_member_application_accept_box_iv"
         android:layout_marginEnd="7dp"/>
     <ImageView
-        android:id="@+id/team_member_accept_iv"
+        android:id="@+id/team_member_reject_iv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_refusal"
-        app:layout_constraintEnd_toEndOf="@+id/team_member_application_accept_box_iv"
-        app:layout_constraintStart_toStartOf="@+id/team_member_application_accept_box_iv"
+        app:layout_constraintEnd_toEndOf="@+id/team_member_application_reject_box_iv"
+        app:layout_constraintStart_toStartOf="@+id/team_member_application_reject_box_iv"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 

@@ -1,51 +1,23 @@
-package com.example.infraandroid.myinfo
+package com.example.infraandroid.myinfo.team
 
 import android.app.Activity
 import android.app.Dialog
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
 import com.example.infraandroid.R
-import com.example.infraandroid.databinding.CategoryInformationBinding
-import com.example.infraandroid.databinding.MyInfoModifyMenuBinding
+import com.example.infraandroid.databinding.MyInfoTeamInfoBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-//작성자 : 이은진
-//작성일 : 2022.02.05
-
-class MyInfoModifyMenuBottomSheetFragment : BottomSheetDialogFragment() {
-    private  var mBinding : MyInfoModifyMenuBinding? = null
-
-//    override fun onCreateView(
-//        inflater: LayoutInflater,
-//        container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//        return super.onCreateView(inflater, container, savedInstanceState)
-//        return inflater.inflate(R.layout.my_info_modify_menu, container, false)
-//    }
+class TeamMemberInfoBottomSheetFragment:BottomSheetDialogFragment() {
+    private  var mBinding : MyInfoTeamInfoBinding? = null
 
     override fun setupDialog(dialog: Dialog, style: Int) {
-        val contentView = View.inflate(context, R.layout.my_info_modify_menu, null)
+        val contentView = View.inflate(context, R.layout.my_info_team_info, null)
         dialog?.setContentView(contentView)
-
     }
-
-//    override fun onActivityCreated(savedInstanceState: Bundle?) {
-//        super.onActivityCreated(savedInstanceState)
-//        mBinding!!.myInfoCancelButton.setOnClickListener {
-//            dismiss()
-//        }
-//        mBinding!!.myInfoSaveButton.setOnClickListener {
-//            dismiss()
-//        }
-//    }
-
     //bottomsheet size 90/100으로 설정해주는 코드
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog: Dialog = super.onCreateDialog(savedInstanceState)

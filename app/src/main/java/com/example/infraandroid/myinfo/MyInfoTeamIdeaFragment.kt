@@ -42,6 +42,7 @@ class MyInfoTeamIdeaFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         val teamIdeaAdapter = TeamPagerAdapter(requireActivity())
+        //val teamMemberAdapter = TeamPagerAdapter(requireActivity())
 
         teamIdeaAdapter.addFragment(TeamIdeaFragment())
         teamIdeaAdapter.addFragment(TeamMemberFragment())

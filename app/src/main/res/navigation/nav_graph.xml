@@ -71,11 +71,11 @@
         android:label="idea_list_fragment"
         tools:layout="@layout/fragment_idea_list">
         <action
-            android:id="@+id/action_idea_list_fragment_to_category_team_idea_fragment"
-            app:destination="@id/category_team_idea_fragment" />
-        <action
             android:id="@+id/action_idea_list_fragment_to_category_fragment"
             app:destination="@id/category_fragment" />
+        <action
+            android:id="@+id/action_idea_list_fragment_to_categoryTeamIdeaFragment"
+            app:destination="@id/categoryTeamIdeaFragment" />
     </fragment>
     <fragment
         android:id="@+id/sign_up_first_fragment"
