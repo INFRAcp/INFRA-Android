@@ -2,7 +2,9 @@ package com.example.infraandroid.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.infraandroid.R
 import com.example.infraandroid.databinding.ItemProjectBinding
 
 class RecomProjectRVAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
@@ -35,6 +37,9 @@ class RecomProjectRVAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             binding.itemProjectStateTv.text = recomproject.state
             binding.itemHashTagOne.text = recomproject.keyword1
             binding.itemHashTagTwo.text = recomproject.keyword2
+            itemView.setOnClickListener {
+                it.findNavController().navigate(R.id.action_home_fragment_to_categoryViewIdeaFragment)
+            }
         }
     }
 }

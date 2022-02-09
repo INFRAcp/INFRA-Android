@@ -9,7 +9,14 @@
         android:id="@+id/home_fragment"
         android:name="com.example.infraandroid.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home_fragment_to_createProjectFragment"
+            app:destination="@id/createProjectFragment" />
+        <action
+            android:id="@+id/action_home_fragment_to_categoryViewIdeaFragment"
+            app:destination="@id/categoryViewIdeaFragment" />
+    </fragment>
     <fragment
         android:id="@+id/category_fragment"
         android:name="com.example.infraandroid.category.CategoryFragment"
@@ -21,12 +28,19 @@
         <action
             android:id="@+id/action_category_fragment_to_category_information_fragment"
             app:destination="@id/category_information_fragment" />
+        <action
+            android:id="@+id/action_category_fragment_to_myInfoMyIdeaFragment"
+            app:destination="@id/myInfoMyIdeaFragment" />
     </fragment>
     <fragment
         android:id="@+id/chat_fragment"
         android:name="com.example.infraandroid.chat.ChatFragment"
         android:label="fragment_chat"
-        tools:layout="@layout/fragment_chat" />
+        tools:layout="@layout/fragment_chat" >
+        <action
+            android:id="@+id/action_chat_fragment_to_chatting_room_list_fragment"
+            app:destination="@id/chatting_room_list_fragment" />
+    </fragment>
     <fragment
         android:id="@+id/my_info_fragment"
         android:name="com.example.infraandroid.myinfo.MyInfoFragment"
@@ -71,11 +85,14 @@
         android:label="idea_list_fragment"
         tools:layout="@layout/fragment_idea_list">
         <action
+            android:id="@+id/action_idea_list_fragment_to_category_team_idea_fragment"
+            app:destination="@id/categoryTeamIdeaFragment" />
+        <action
             android:id="@+id/action_idea_list_fragment_to_category_fragment"
             app:destination="@id/category_fragment" />
         <action
-            android:id="@+id/action_idea_list_fragment_to_categoryTeamIdeaFragment"
-            app:destination="@id/categoryTeamIdeaFragment" />
+            android:id="@+id/action_idea_list_fragment_to_categoryViewIdeaFragment"
+            app:destination="@id/categoryViewIdeaFragment" />
     </fragment>
     <fragment
         android:id="@+id/sign_up_first_fragment"
@@ -122,12 +139,20 @@
         android:id="@+id/category_information_fragment"
         android:name="com.example.infraandroid.category.CategoryInformationFragment"
         android:label="category_information_fragment"
-        tools:layout="@layout/category_information"/>
+        tools:layout="@layout/category_information">
+        <action
+            android:id="@+id/action_category_information_fragment_to_myInfoProjectModifyFragment"
+            app:destination="@id/myInfoProjectModifyFragment" />
+    </fragment>
     <fragment
         android:id="@+id/my_info_modify_fragment"
         android:name="com.example.infraandroid.myinfo.MyInfoModifyFragment"
         android:label="my_info_modify_fragment"
-        tools:layout="@layout/fragment_my_info_modify"/>
+        tools:layout="@layout/fragment_my_info_modify">
+        <action
+            android:id="@+id/action_my_info_modify_fragment_to_my_info_fragment"
+            app:destination="@id/my_info_fragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/categoryTeamFragment"
@@ -156,12 +181,20 @@
         <action
             android:id="@+id/action_myInfoMyIdeaFragment_to_myInfoTeamIdeaFragment"
             app:destination="@id/myInfoTeamIdeaFragment" />
+        <action
+            android:id="@+id/action_myInfoMyIdeaFragment_to_my_info_fragment"
+            app:destination="@id/my_info_fragment" />
     </fragment>
     <fragment
         android:id="@+id/myInfoTeamIdeaFragment"
         android:name="com.example.infraandroid.myinfo.MyInfoTeamIdeaFragment"
         android:label="MyInfoTeamIdeaFragment"
-        tools:layout="@layout/my_info_team_idea"/>
+        tools:layout="@layout/my_info_team_idea">
+        <action
+            android:id="@+id/action_myInfoTeamIdeaFragment_to_myInfoProjectModifyFragment"
+            app:destination="@id/myInfoProjectModifyFragment"
+            app:enterAnim="@anim/slide_in_bottom" />
+    </fragment>
     <fragment
         android:id="@+id/categoryTeamIdeaFragment"
         android:name="com.example.infraandroid.category.CategoryTeamIdeaFragment"
@@ -171,6 +204,24 @@
         android:id="@+id/myInfoInformationFragment"
         android:name="com.example.infraandroid.myinfo.MyInfoInformationFragment"
         android:label="MyInfoInformationFragment"
-        tools:layout="@layout/my_info_information"/>
+        tools:layout="@layout/my_info_information">
+        <action
+            android:id="@+id/action_myInfoInformationFragment_to_my_info_fragment"
+            app:destination="@id/my_info_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createProjectFragment"
+        android:name="com.example.infraandroid.home.CreateProjectFragment"
+        android:label="fragment_create_project"
+        tools:layout="@layout/fragment_create_project" >
+        <action
+            android:id="@+id/action_createProjectFragment_to_home_fragment"
+            app:destination="@id/home_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryViewIdeaFragment"
+        android:name="com.example.infraandroid.category.CategoryViewIdeaFragment"
+        android:label="fragment_view_idea"
+        tools:layout="@layout/fragment_view_idea" />
 
 </navigation>
