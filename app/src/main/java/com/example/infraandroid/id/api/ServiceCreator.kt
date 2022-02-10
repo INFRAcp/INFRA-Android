@@ -1,5 +1,6 @@
 package com.example.infraandroid.id.api
 
+import com.example.infraandroid.myinfo.api.ProfileViewService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
@@ -16,4 +17,5 @@ object ServiceCreator {
     val signUpService : SignUpService = retrofit.create(SignUpService::class.java)
     val loginService : LoginService = retrofit.create(LoginService::class.java)
     val sendSMSService : SMSService = retrofit.create(SMSService::class.java)
+    val profileViewService : ProfileViewService = retrofit.create(ProfileViewService::class.java)
 }

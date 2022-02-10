@@ -85,6 +85,7 @@ class SignUpThirdFragment : Fragment(){
 
         // 다음 버튼 누르면 다음 페이지로 넘어감
         nextButton.setOnClickListener{
+
             val requestUserData = RequestUserData(
                 userId = "",
                 userPw = "",
@@ -93,7 +94,6 @@ class SignUpThirdFragment : Fragment(){
                 userEmail = email.text.toString(),
                 userName = name
             )
-
             sharedViewModel.currentInputId.observe(viewLifecycleOwner, { currentInputId ->
                 requestUserData.userId = currentInputId
             })
