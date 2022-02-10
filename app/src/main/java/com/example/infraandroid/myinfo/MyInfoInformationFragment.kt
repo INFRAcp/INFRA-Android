@@ -10,10 +10,10 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.infraandroid.R
+import com.example.infraandroid.ServiceCreator
 import com.example.infraandroid.databinding.MyInfoInformationBinding
 import com.example.infraandroid.id.api.RequestUserData
 import com.example.infraandroid.id.api.ResponseUserData
-import com.example.infraandroid.id.api.ServiceCreator
 import com.example.infraandroid.id.data.SharedIdViewModel
 import com.example.infraandroid.myinfo.api.ResponseProfileViewData
 import retrofit2.Call
@@ -72,54 +72,43 @@ class MyInfoInformationFragment: Fragment() {
 
 
         //소개 페이지 내용 조회 서버 연결
-        val call: Call<ResponseProfileViewData> = ServiceCreator.profileViewService
-            .getProfile("1")
-
-        call.enqueue(
-            object: Callback<ResponseProfileViewData> {
-            override fun onResponse(
-                call: Call<ResponseProfileViewData>,
-                response: Response<ResponseProfileViewData>
-            ) {
-                if(response.isSuccessful){
-                    when (response.body()?.code) {
-                        1000 -> {
-                            Toast.makeText(requireActivity(),"요청에 성공하셨습니다.", Toast.LENGTH_SHORT).show()
-                            //Log.d(SharedIdViewModel.TAG, "요청에 성공하셨습니다.")
-
-                            //inforNameTextView.text =
-                        }
-                        3101 -> {
-                            Toast.makeText(requireActivity(),"해당하는 아이디가 없습니다.", Toast.LENGTH_SHORT).show()
-                        }
-                        4000 -> {
-                            Toast.makeText(requireActivity(),"데이터베이스 연결에 실패하였습니다.", Toast.LENGTH_SHORT).show()
-                        }
-//                        if(data==1000){
-//                            isChecked = true
-//                            doNotUseThisIdTextView.isVisible = false
-//                            inputMakeIdEdittext.setBackgroundResource(R.drawable.can_use_this_id_background)
-//                            mBinding?.canUseIconImageView?.isVisible = true
+//        val call: Call<ResponseProfileViewData> = ServiceCreator.profileViewService
+//            .getProfile("1")
+//
+//        call.enqueue(
+//            object: Callback<ResponseProfileViewData> {
+//            override fun onResponse(
+//                call: Call<ResponseProfileViewData>,
+//                response: Response<ResponseProfileViewData>
+//            ) {
+//                if(response.isSuccessful){
+//                    when (response.body()?.code) {
+//                        1000 -> {
+//                            Toast.makeText(requireActivity(),"요청에 성공하셨습니다.", Toast.LENGTH_SHORT).show()
+//                            //Log.d(SharedIdViewModel.TAG, "요청에 성공하셨습니다.")
+//
+//                            //inforNameTextView.text =
 //                        }
-//                            if(data==2020){
-//                            doNotUseThisIdTextView.isVisible = true
-//                            inputMakeIdEdittext.setBackgroundResource(com.example.infraandroid.R.drawable.double_check_id_background)
-//                            mBinding?.canUseIconImageView?.isVisible = false
+//                        3101 -> {
+//                            Toast.makeText(requireActivity(),"해당하는 아이디가 없습니다.", Toast.LENGTH_SHORT).show()
 //                        }
-
-                    }
-                }
-                else{
-                    Log.d(SharedIdViewModel.TAG, "onResponse: 연결 실패..")
-                }
-            }
-
-
-                override fun onFailure(call: Call<ResponseProfileViewData>, t: Throwable) {
-                    TODO("Not yet implemented")
-                }
-
-            })
+//                        4000 -> {
+//                            Toast.makeText(requireActivity(),"데이터베이스 연결에 실패하였습니다.", Toast.LENGTH_SHORT).show()
+//                        }
+//
+//                    }
+//                }
+//                else{
+//                    Log.d(SharedIdViewModel.TAG, "onResponse: 연결 실패..")
+//                }
+//            }
+//
+//
+//                override fun onFailure(call: Call<ResponseProfileViewData>, t: Throwable) {
+//                    TODO("Not yet implemented")
+//                }
+//
+//            })
     }
 
     override fun onDestroyView() {

@@ -21,7 +21,7 @@ import com.example.infraandroid.databinding.FragmentSignUpSecondBinding
 import com.example.infraandroid.id.data.SharedIdViewModel.Companion.TAG
 import com.example.infraandroid.id.api.RequestSMSData
 import com.example.infraandroid.id.api.ResponseSMSData
-import com.example.infraandroid.id.api.ServiceCreator
+import com.example.infraandroid.ServiceCreator
 import com.example.infraandroid.id.data.SharedIdViewModel
 import retrofit2.Call
 import retrofit2.Callback

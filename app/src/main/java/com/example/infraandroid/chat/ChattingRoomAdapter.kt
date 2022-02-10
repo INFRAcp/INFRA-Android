@@ -48,7 +48,7 @@ class ChattingRoomAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             val dateTime = dataFormat.format(date)
 
             if(chattingRoomInfo.lastTime.substring(0..9)!=dateTime.substring(0..9)){
-                val printTime = chattingRoomInfo.lastTime.substring(5..6) + "월 "+chattingRoomInfo.lastTime.substring(8..9)
+                val printTime = chattingRoomInfo.lastTime.substring(5..6) + "월 "+chattingRoomInfo.lastTime.substring(8..9) + "일"
                 binding.lastChatTimeTextview.text = printTime
             }
             else{

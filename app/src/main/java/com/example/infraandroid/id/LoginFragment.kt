@@ -1,6 +1,5 @@
 package com.example.infraandroid.id
 
-import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,15 +12,8 @@ import com.example.infraandroid.InfraApplication
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentLoginBinding
 import com.example.infraandroid.id.api.RequestLoginData
-import com.example.infraandroid.id.api.RequestUserData
 import com.example.infraandroid.id.api.ResponseLoginData
-import com.example.infraandroid.id.api.ServiceCreator
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.kakao.sdk.auth.model.OAuthToken
-import com.kakao.sdk.common.model.ClientError
-import com.kakao.sdk.common.model.ClientErrorCause
-import com.kakao.sdk.user.UserApiClient
+import com.example.infraandroid.ServiceCreator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
