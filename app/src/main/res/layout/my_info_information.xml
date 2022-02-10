@@ -158,51 +158,30 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/my_info_info_constraint_layout" />
 
-            <LinearLayout
-                android:id="@+id/my_info_info_linearlayout"
+            <TextView
+                android:id="@+id/my_info_info_text_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
                 android:layout_marginTop="100dp"
-                android:layout_marginEnd="30dp"
-                android:orientation="vertical"
+                android:layout_marginEnd="40dp"
+                android:fontFamily="@font/noto_sans_kr_light"
+                android:includeFontPadding="false"
+                android:text="안녕하세요! 한국대학교 3학년
+키가 매우 큰 기리니입니다
+
+저는 가족과 함께 초원을 여행하는 것을
+정말 좋아하는데요, 저와 팀원이 되는
+분들은 제가 저희 집 근처에 초원에 있는
+맛있는 나무들을 소개해드리겠습니다!!
+
+열정있고 키가 큰 나! 바로 기리니
+같이 작업하실 분들은 연락주세요^^"
+                android:textColor="@color/black"
+                android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@id/my_info_info_constraint_layout">
-                <!--                textview사이에 이미지 넣는 코드 수정-->
-                <TextView
-                    android:id="@+id/my_info_info_text_textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/noto_sans_kr_light"
-                    android:includeFontPadding="false"
-                    android:text="안녕하세요! 저를 소개합니다"
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/my_info_info_user_photo2_imageview"
-                    android:layout_width="380dp"
-                    android:layout_height="190dp"
-                    android:layout_marginTop="75dp"
-                    android:src="@drawable/category_user_photo_two"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/my_info_info_text2_textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:fontFamily="@font/noto_sans_kr_light"
-                    android:includeFontPadding="false"
-                    android:text="블라블라블라 제 가족들과 찍은 사진입니다."
-                    android:textColor="@color/black"
-                    android:textSize="16sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/category_info_user_photo2_imageview" />
-            </LinearLayout>
+                app:layout_constraintTop_toTopOf="@id/my_info_info_constraint_layout"
+                app:layout_constraintTop_toBottomOf="@id/my_info_info_text_textview" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/category_finished_pr_background"
@@ -227,7 +206,7 @@
                 android:textColor="@color/black"
                 android:textSize="15sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/my_info_info_linearlayout" />
+                app:layout_constraintTop_toBottomOf="@id/my_info_info_text_textview" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/category_finished_pr_constraintlayout"
@@ -307,7 +286,8 @@
                 <LinearLayout
                     android:id="@+id/category_instagram_linearlayout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
                     <ImageView
                         android:id="@+id/category_icon_instagram_iv"
                         android:layout_width="wrap_content"
@@ -329,7 +309,8 @@
                     android:id="@+id/category_github_linearlayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp">
+                    android:layout_marginTop="18dp"
+                    android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/category_icon_github_iv"
@@ -353,7 +334,8 @@
                     android:id="@+id/category_behance_linearlayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp">
+                    android:layout_marginTop="18dp"
+                    android:visibility="gone">
                     <ImageView
                         android:id="@+id/category_icon_behance_iv"
                         android:layout_width="wrap_content"
@@ -374,7 +356,8 @@
                     android:id="@+id/category_google_drive_linearlayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp">
+                    android:layout_marginTop="18dp"
+                    android:visibility="gone">
                     <ImageView
                         android:id="@+id/category_icon_google_drive_iv"
                         android:layout_width="wrap_content"
@@ -395,7 +378,8 @@
                     android:id="@+id/category_youtube_linearlayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp">
+                    android:layout_marginTop="18dp"
+                    android:visibility="gone">
                     <ImageView
                         android:id="@+id/category_icon_youtube_iv"
                         android:layout_width="wrap_content"
@@ -416,7 +400,8 @@
                     android:id="@+id/category_notion_linearlayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp">
+                    android:layout_marginTop="18dp"
+                    android:visibility="gone">
                     <ImageView
                         android:id="@+id/category_icon_notion_iv"
                         android:layout_width="wrap_content"
@@ -437,7 +422,8 @@
                     android:id="@+id/category_link_linearlayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp">
+                    android:layout_marginTop="18dp"
+                    android:visibility="gone">
                     <ImageView
                         android:id="@+id/category_icon_link_iv"
                         android:layout_width="wrap_content"
@@ -471,6 +457,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="앱개발"
+                    android:visibility="visible"
                     android:background="@drawable/hash_tag_keyword_skyblue_background"
                     android:paddingVertical="5dp"
                     android:paddingHorizontal="14dp"
@@ -509,6 +496,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="스터디"
+                    android:visibility="gone"
                     android:layout_marginStart="6dp"
                     android:background="@drawable/hash_tag_main_keyword_background"
                     android:paddingVertical="5dp"
