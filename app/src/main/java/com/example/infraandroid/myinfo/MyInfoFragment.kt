@@ -47,6 +47,9 @@ class MyInfoFragment : Fragment() {
         mBinding!!.myInfoMyIdeaLinearlayout.setOnClickListener {
             it.findNavController().navigate(R.id.action_my_info_fragment_to_myInfoMyIdeaFragment)
         }
+        mBinding!!.myInfoEvaluationLinearlayout.setOnClickListener {
+            it.findNavController().navigate(R.id.action_my_info_fragment_to_myInfoTeamMemberEvaluationFragment)
+        }
     }
 
     override fun onDestroyView() {

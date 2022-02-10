@@ -56,6 +56,9 @@
         <action
             android:id="@+id/action_my_info_fragment_to_myInfoInformationFragment"
             app:destination="@id/myInfoInformationFragment" />
+        <action
+            android:id="@+id/action_my_info_fragment_to_myInfoTeamMemberEvaluationFragment"
+            app:destination="@id/myInfoTeamMemberEvaluationFragment" />
     </fragment>
 
     <fragment
@@ -227,6 +230,11 @@
         android:label="fragment_view_idea"
         tools:layout="@layout/fragment_view_idea" />
     <fragment
+        android:id="@+id/myInfoTeamMemberEvaluationFragment"
+        android:name="com.example.infraandroid.myinfo.MyInfoTeamMemberEvaluationFragment"
+        android:label="MyInfoTeamMemberEvaluationFragment"
+        tools:layout="@layout/my_info_team_member_evaluation"/>
+    <fragment
         android:id="@+id/createProjectSelectCategory"
         android:name="com.example.infraandroid.home.CreateProjectSelectCategory"
         android:label="fragment_create_project_select_category"
@@ -235,5 +243,6 @@
             android:id="@+id/action_createProjectSelectCategory_to_createProjectFragment"
             app:destination="@id/createProjectFragment" />
     </fragment>
+
 
 </navigation>

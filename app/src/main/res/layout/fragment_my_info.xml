@@ -310,6 +310,27 @@
                     android:includeFontPadding="false"
                     android:layout_marginStart="28dp"/>
             </LinearLayout>
+            <LinearLayout
+                android:id="@+id/my_info_evaluation_linearlayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="31dp">
+                <ImageView
+                    android:id="@+id/my_info_evaluation_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_evaluation" />
+                <TextView
+                    android:id="@+id/my_info_evaluation_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="팀원 평가 관리"
+                    android:textColor="@color/infra_black_b"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/noto_sans_kr_regular"
+                    android:includeFontPadding="false"
+                    android:layout_marginStart="28dp"/>
+            </LinearLayout>
         </LinearLayout>
         <View
             android:id="@+id/my_info_line_one_view"

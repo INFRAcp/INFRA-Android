@@ -1,5 +1,6 @@
 package com.example.infraandroid
 
+import com.example.infraandroid.myinfo.api.ProfileViewService
 import com.example.infraandroid.id.api.LoginService
 import com.example.infraandroid.id.api.SMSService
 import com.example.infraandroid.id.api.SignUpService
@@ -19,4 +20,5 @@ object ServiceCreator {
     val signUpService : SignUpService = retrofit.create(SignUpService::class.java)
     val loginService : LoginService = retrofit.create(LoginService::class.java)
     val sendSMSService : SMSService = retrofit.create(SMSService::class.java)
+    val profileViewService : ProfileViewService = retrofit.create(ProfileViewService::class.java)
 }
