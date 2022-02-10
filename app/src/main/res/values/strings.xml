@@ -21,4 +21,5 @@
     <string name="email_hint">example123@gmail.com</string>
     <string name="sign_up_complete_comment">가입완료!\n인프라를 구축해볼까요?</string>
     <string name="my_info_name">%s</string>
+    <string name="today_date">%s년 %s월 %s일</string>
 </resources>

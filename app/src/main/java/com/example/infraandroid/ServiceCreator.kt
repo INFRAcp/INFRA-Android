@@ -1,8 +1,11 @@
-package com.example.infraandroid.id.api
+package com.example.infraandroid
 
+import com.example.infraandroid.id.api.LoginService
+import com.example.infraandroid.id.api.SMSService
+import com.example.infraandroid.id.api.SignUpService
+import com.example.infraandroid.id.api.UserDoubleCheckService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 object ServiceCreator {
     private const val BASE_URL = "https://qbeom.shop"

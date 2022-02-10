@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="category_array">
+        <item>분야</item>
+        <item>개발</item>
+        <item>스터디</item>
+        <item>대외활동</item>
+        <item>기타</item>
+    </string-array>
+
+    <string-array name="category_detail_array">
+        <item>세부 분야</item>
+        <item>토익</item>
+        <item>토스</item>
+        <item>국어</item>
+    </string-array>
+</resources>
