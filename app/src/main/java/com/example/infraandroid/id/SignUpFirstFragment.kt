@@ -21,7 +21,7 @@ import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentSignUpFirstBinding
 import com.example.infraandroid.id.data.SharedIdViewModel.Companion.TAG
 import com.example.infraandroid.id.api.ResponseCheckUserIdData
-import com.example.infraandroid.id.api.ServiceCreator
+import com.example.infraandroid.ServiceCreator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

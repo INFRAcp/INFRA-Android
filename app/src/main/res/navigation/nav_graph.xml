@@ -217,11 +217,23 @@
         <action
             android:id="@+id/action_createProjectFragment_to_home_fragment"
             app:destination="@id/home_fragment" />
+        <action
+            android:id="@+id/action_createProjectFragment_to_createProjectSelectCategory"
+            app:destination="@id/createProjectSelectCategory" />
     </fragment>
     <fragment
         android:id="@+id/categoryViewIdeaFragment"
         android:name="com.example.infraandroid.category.CategoryViewIdeaFragment"
         android:label="fragment_view_idea"
         tools:layout="@layout/fragment_view_idea" />
+    <fragment
+        android:id="@+id/createProjectSelectCategory"
+        android:name="com.example.infraandroid.home.CreateProjectSelectCategory"
+        android:label="fragment_create_project_select_category"
+        tools:layout="@layout/fragment_create_project_select_category" >
+        <action
+            android:id="@+id/action_createProjectSelectCategory_to_createProjectFragment"
+            app:destination="@id/createProjectFragment" />
+    </fragment>
 
 </navigation>
