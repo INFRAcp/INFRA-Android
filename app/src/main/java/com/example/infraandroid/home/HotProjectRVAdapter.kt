@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.ItemProjectBinding
 
@@ -31,6 +32,10 @@ class HotProjectRVAdapter (): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             binding.itemProjectStateTv.text = hotproject.state
             binding.itemHashTagOne.text = hotproject.keyword1
             binding.itemHashTagTwo.text = hotproject.keyword2
+            Glide.with(itemView)
+                .load(hotproject.photo)
+                .into(binding.itemRecommedProjectPhotoIv)
+
             itemView.setOnClickListener {
                 it.findNavController().navigate(R.id.action_home_fragment_to_categoryViewIdeaFragment)
             }

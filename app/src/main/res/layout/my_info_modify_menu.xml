@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_box_background"
-            android:hint="자기소개말"
+            android:text="안녕하세요! 저를 소개합니다"
             android:textColorHint="@color/infra_gray_t"
             android:includeFontPadding="false"
             android:fontFamily="@font/noto_sans_kr_regular"
@@ -109,7 +109,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_kr_regular"
                     android:includeFontPadding="false"
-                    android:text="없음"
+                    android:text="인프라"
                     android:textColor="@color/infra_light_gray_d"
                     android:textSize="14sp" />
                 <ImageView

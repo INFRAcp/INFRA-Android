@@ -12,7 +12,8 @@
         android:layout_height="100dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:src="@drawable/ic_idea_list_img"/>
+        android:src="@drawable/ic_idea_list_img"
+        android:scaleType="centerCrop"/>
 
     <TextView
         android:id="@+id/project_category_text_view"
