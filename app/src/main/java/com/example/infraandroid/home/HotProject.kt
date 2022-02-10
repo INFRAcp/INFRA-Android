@@ -7,6 +7,6 @@ data class HotProject(
     var state: String? = "",
     var keyword1: String? = "",
     var keyword2: String? = "",
-    var photo: Int,
+    var photo: String,
     //var photo: String? = null
 )

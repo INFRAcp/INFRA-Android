@@ -26,9 +26,10 @@ class MyInfoMyIdeaFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mBinding?.myIdeaListRecyclerView?.adapter = myIdeaListAdapter
+        myIdeaListAdapter.myideaList.clear()
         myIdeaListAdapter.myideaList.addAll(
             listOf(
-                MyIdeaListInfo("","식물나라", "동아리","10/20", "식물", "조경학과","모집중!")
+                MyIdeaListInfo("https://img.insight.co.kr/static/2019/11/06/700/kzbv1474r107jj01027m.jpg","멸종위기 동물", "공모전","6/8", "동물", "웹디자인","마감임박!")
             )
         )
         myIdeaListAdapter.notifyDataSetChanged()

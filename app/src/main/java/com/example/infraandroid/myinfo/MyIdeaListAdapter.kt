@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.ItemMyIdeaListRecyclerviewBinding
 
@@ -32,6 +33,10 @@ class MyIdeaListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             binding.projectCategoryTextView.text = myIdeaListInfo.projectCategory
             binding.hashTagOne.text = myIdeaListInfo.hashTagOne
             binding.hashTagTwo.text = myIdeaListInfo.hashTagTwo
+
+            Glide.with(itemView)
+                .load(myIdeaListInfo.projectImg)
+                .into(binding.projectImageView)
 
             //내 아이디어 관리 클릭 이벤트
             itemView.setOnClickListener {
