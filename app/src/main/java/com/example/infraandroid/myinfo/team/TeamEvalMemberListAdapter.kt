@@ -8,8 +8,8 @@ import com.example.infraandroid.databinding.ItemEvalTeamListRecyclerviewBinding
 import com.example.infraandroid.databinding.ItemEvalTeamMemberListRecyclerviewBinding
 
 //context: Context, val teamEvalMemberList: MutableList<TeamEvalMemberList>
-class TeamEvalMemberListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-   val teamEvalMemberList = mutableListOf<TeamEvalMemberList>()
+class TeamEvalMemberListAdapter(private val itemList : MutableList<TeamEvalMemberList>): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+   private val teamEvalMemberList = itemList
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding: ItemEvalTeamMemberListRecyclerviewBinding = ItemEvalTeamMemberListRecyclerviewBinding.inflate(
             LayoutInflater.from(parent.context),parent,false)

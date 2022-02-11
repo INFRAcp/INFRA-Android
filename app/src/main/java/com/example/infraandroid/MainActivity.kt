@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             destination.id==R.id.sign_up_second_fragment || destination.id==R.id.sign_up_third_fragment || destination.id==R.id.sign_up_fourth_fragment
                 ||destination.id == R.id.categoryViewIdeaFragment || destination.id == R.id.myInfoTeamIdeaFragment || destination.id == R.id.myInfoProjectModifyFragment
                 ||destination.id == R.id.createProjectFragment || destination.id == R.id.my_info_modify_fragment || destination.id==R.id.createProjectSelectCategory
-                ||destination.id == R.id.category_information || destination.id == R.id.myInfoInformationFragment)
+                ||destination.id == R.id.category_information || destination.id == R.id.myInfoInformationFragment || destination.id==R.id.myInfoTeamMemberEvaluationFragment)
                 mBinding.myBottomNav.visibility = View.GONE
             else
                 mBinding.myBottomNav.visibility = View.VISIBLE
