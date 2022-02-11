@@ -31,7 +31,7 @@ class TeamEvalTeamListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>()
             binding.teamEvalTitleTv.text = teamEvalTeamList.title
             binding.teamEvalDateTv.text = teamEvalTeamList.date
             binding.teamEvalProjectCategoryTv.text = teamEvalTeamList.category
-            binding.teamEvalMemberListRecyclerview.adapter = TeamEvalMemberListAdapter()
+            binding.teamEvalMemberListRecyclerview.adapter = TeamEvalMemberListAdapter(teamEvalTeamList.innerlist)
             //binding.teamEvalMemberListRecyclerview.layoutManager = LinearLayoutManager
 
 //            binding.teamEvalMemberListRecyclerview.adapter = TeamEvalMemberListAdapter(context,teamEvalTeamList.innerlist)

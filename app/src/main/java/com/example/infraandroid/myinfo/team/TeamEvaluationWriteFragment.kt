@@ -32,12 +32,12 @@ class TeamEvaluationWriteFragment :Fragment() {
         teamEvalTeamListAdapter.teamEvalTeamList.addAll(
             mutableListOf(
                 TeamEvalTeamList("어플제작","건축모드","2021.10.1 - 2022.1.30", mutableListOf(
-                    TeamEvalMemberList(3,"외국인인척하는 사람")
-                ))
-            )
-        )
-
-        TeamEvalMemberListAdapter().notifyDataSetChanged()
+                    TeamEvalMemberList(3,"외국인인척하는 사람"), TeamEvalMemberList(3, "덩킹도너츠"),
+                    TeamEvalMemberList(3, "회의 러버")
+                )),
+                TeamEvalTeamList("어플제작","인프라","2022.1.10 - 2022.2.11", mutableListOf(
+                    TeamEvalMemberList(3,"최웅"))
+        )))
     }
 
     override fun onDestroyView() {
