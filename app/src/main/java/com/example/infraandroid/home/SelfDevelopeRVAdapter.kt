@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.infraandroid.ImageRound
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.ItemProjectBinding
 
@@ -32,6 +33,10 @@ class SelfDevelopeRVAdapter (): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             binding.itemProjectStateTv.text = selfDevelope.state
             binding.itemHashTagOne.text = selfDevelope.keyword1
             binding.itemHashTagTwo.text = selfDevelope.keyword2
+
+            // 이미지 뷰 둥글게
+            ImageRound.roundTop(binding.itemRecommedProjectPhotoIv, 36f)
+
             Glide.with(itemView)
                 .load(selfDevelope.photo)
                 .into(binding.itemRecommedProjectPhotoIv)
