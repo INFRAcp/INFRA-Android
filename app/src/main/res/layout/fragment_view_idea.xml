@@ -16,7 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/category_info_background"
-            android:fillViewport="true">
+            android:fillViewport="true"
+            android:paddingBottom="30dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/category_team_idea_state_constraintlayout"

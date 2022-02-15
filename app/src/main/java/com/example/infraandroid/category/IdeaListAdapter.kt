@@ -4,6 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.infraandroid.ImageRound
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.ItemIdeaListRecyclerviewBinding
 
@@ -33,6 +35,12 @@ class IdeaListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             binding.projectCategoryTextView.text = ideaListInfo.projectCategory
             binding.hashTagOne.text = ideaListInfo.hashTagOne
             binding.hashTagTwo.text = ideaListInfo.hashTagTwo
+
+            ImageRound.roundAll(binding.projectImageView, 36f)
+
+            Glide.with(itemView)
+                .load(ideaListInfo.projectImg)
+                .into(binding.projectImageView)
             itemView.setOnClickListener {
                 it.findNavController().navigate(R.id.action_idea_list_fragment_to_categoryViewIdeaFragment)
             }

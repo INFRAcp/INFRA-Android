@@ -94,4 +94,7 @@ dependencies {
 
     // Kakao SDK 모듈 설정
     implementation "com.kakao.sdk:v2-user:2.8.5"
+
+    // Switch Custom Library
+    implementation 'com.kyleduo.switchbutton:library:2.1.0'
 }

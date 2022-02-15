@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.infraandroid.ImageRound
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.ItemProjectBinding
 
@@ -38,12 +39,17 @@ class RecomProjectRVAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             binding.itemProjectStateTv.text = recomproject.state
             binding.itemHashTagOne.text = recomproject.keyword1
             binding.itemHashTagTwo.text = recomproject.keyword2
+
+            // 이미지 뷰 둥글게
+            ImageRound.roundTop(binding.itemRecommedProjectPhotoIv, 36f)
+
             Glide.with(itemView)
                 .load(recomproject.photo)
                 .into(binding.itemRecommedProjectPhotoIv)
             itemView.setOnClickListener {
                 it.findNavController().navigate(R.id.action_home_fragment_to_categoryViewIdeaFragment)
             }
+            binding.itemRecommedProjectPhotoIv.clipToOutline = true
         }
     }
 }
