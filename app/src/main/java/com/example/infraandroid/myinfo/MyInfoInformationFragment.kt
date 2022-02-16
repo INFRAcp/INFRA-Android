@@ -1,24 +1,12 @@
 package com.example.infraandroid.myinfo
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
-import com.example.infraandroid.R
-import com.example.infraandroid.ServiceCreator
 import com.example.infraandroid.databinding.MyInfoInformationBinding
-import com.example.infraandroid.id.api.RequestUserData
-import com.example.infraandroid.id.api.ResponseUserData
-import com.example.infraandroid.id.data.SharedIdViewModel
-import com.example.infraandroid.myinfo.api.ResponseProfileViewData
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MyInfoInformationFragment: Fragment() {
     private var mBinding: MyInfoInformationBinding? = null

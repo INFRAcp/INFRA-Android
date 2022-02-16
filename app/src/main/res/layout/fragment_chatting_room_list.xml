@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/infra_blue_b"
-    tools:context="com.example.infraandroid.chat.ChattingRoomListFragment">
+    tools:context="com.example.infraandroid.chat.view.ChattingRoomListFragment">
 
     <TextView
         android:id="@+id/chatting_room_title_textview"

@@ -8,10 +8,6 @@ import androidx.navigation.ui.NavigationUI
 import com.example.infraandroid.databinding.ActivityMainBinding
 
 import android.view.View
-import androidx.lifecycle.ViewModelProvider
-import com.example.infraandroid.id.data.SharedIdViewModel
-import com.google.android.material.shape.CornerFamily
-import com.google.android.material.shape.MaterialShapeDrawable
 import com.kakao.sdk.common.util.Utility
 
 class MainActivity : AppCompatActivity() {
@@ -37,11 +33,15 @@ class MainActivity : AppCompatActivity() {
             destination.id==R.id.sign_up_second_fragment || destination.id==R.id.sign_up_third_fragment || destination.id==R.id.sign_up_fourth_fragment
                 ||destination.id == R.id.categoryViewIdeaFragment || destination.id == R.id.myInfoTeamIdeaFragment || destination.id == R.id.myInfoProjectModifyFragment
                 ||destination.id == R.id.createProjectFragment || destination.id == R.id.my_info_modify_fragment || destination.id==R.id.createProjectSelectCategory
-                ||destination.id == R.id.category_information || destination.id == R.id.myInfoInformationFragment || destination.id==R.id.myInfoTeamMemberEvaluationFragment)
+                ||destination.id == R.id.category_information || destination.id == R.id.myInfoInformationFragment || destination.id==R.id.myInfoTeamMemberEvaluationFragment) {
                 mBinding.myBottomNav.visibility = View.GONE
-            else
+                mBinding.myNavHost.setPadding(0,0,0,0)}
+            else {
                 mBinding.myBottomNav.visibility = View.VISIBLE
+                mBinding.myNavHost.setPadding(0,0,0,changeDP(50))
+            }
         }
+
 
         // 바텀 네비게이션 뷰와 네비게이션을 묶어준다
         NavigationUI.setupWithNavController(mBinding.myBottomNav, navController)
@@ -50,5 +50,8 @@ class MainActivity : AppCompatActivity() {
         Log.d("해시키", keyHash)
     }
 
-
+    private fun changeDP(value: Int): Int {
+        var displayMetrics = resources.displayMetrics
+        return Math.round(value * displayMetrics.density)
+    }
 }

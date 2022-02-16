@@ -4,21 +4,21 @@
     <item
         android:id="@+id/home_fragment"
         android:title="홈"
-        android:icon="@drawable/ic_home"
+        android:icon="@drawable/bottom_nav_home_selector"
         />
     <item
         android:id="@+id/category_fragment"
         android:title="목록"
-        android:icon="@drawable/ic_category"
+        android:icon="@drawable/bottom_nav_category_selector"
         />
     <item
         android:id="@+id/chatting_room_list_fragment"
         android:title="채팅"
-        android:icon="@drawable/ic_chat"
+        android:icon="@drawable/bottom_nav_chat_selector"
         />
     <item
         android:id="@+id/my_info_fragment"
         android:title="내 정보"
-        android:icon="@drawable/ic_my_info"
+        android:icon="@drawable/bottom_nav_my_info_selector"
         />
 </menu>
