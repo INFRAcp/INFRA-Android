@@ -5,7 +5,7 @@
     android:background="@color/infra_gray_c"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.infraandroid.id.SignUpFourthFragment">
+    tools:context="com.example.infraandroid.id.view.SignUpFourthFragment">
 
     <TextView
         android:id="@+id/sign_up_page_three_text_view"

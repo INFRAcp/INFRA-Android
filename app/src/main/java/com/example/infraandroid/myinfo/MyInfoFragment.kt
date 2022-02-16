@@ -5,14 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import com.example.infraandroid.InfraApplication
+import com.example.infraandroid.util.InfraApplication
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentMyInfoBinding
-import com.example.infraandroid.id.data.SharedIdViewModel
 
 //작성자 : 이은진
 //작성일 : 2022.02.03

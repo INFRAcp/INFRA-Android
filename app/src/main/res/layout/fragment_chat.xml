@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/infra_skyblue_b"
-    tools:context="com.example.infraandroid.chat.ChatFragment">
+    tools:context="com.example.infraandroid.chat.view.ChatFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/chat_info_constraint_layout"

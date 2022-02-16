@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/home_fragment"
-        android:name="com.example.infraandroid.home.HomeFragment"
+        android:name="com.example.infraandroid.home.view.fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/category_fragment"
-        android:name="com.example.infraandroid.category.CategoryFragment"
+        android:name="com.example.infraandroid.category.view.fragment.CategoryFragment"
         android:label="fragment_category"
         tools:layout="@layout/fragment_category" >
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/chat_fragment"
-        android:name="com.example.infraandroid.chat.ChatFragment"
+        android:name="com.example.infraandroid.chat.view.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" >
         <action
@@ -63,7 +63,7 @@
 
     <fragment
         android:id="@+id/login_fragment"
-        android:name="com.example.infraandroid.id.LoginFragment"
+        android:name="com.example.infraandroid.id.view.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -75,7 +75,7 @@
     </fragment>
     <fragment
         android:id="@+id/chatting_room_list_fragment"
-        android:name="com.example.infraandroid.chat.ChattingRoomListFragment"
+        android:name="com.example.infraandroid.chat.view.ChattingRoomListFragment"
         android:label="fragment_chatting_room_list"
         tools:layout="@layout/fragment_chatting_room_list" >
         <action
@@ -84,12 +84,9 @@
     </fragment>
     <fragment
         android:id="@+id/idea_list_fragment"
-        android:name="com.example.infraandroid.category.IdeaListFragment"
+        android:name="com.example.infraandroid.category.view.fragment.IdeaListFragment"
         android:label="idea_list_fragment"
         tools:layout="@layout/fragment_idea_list">
-        <action
-            android:id="@+id/action_idea_list_fragment_to_category_team_idea_fragment"
-            app:destination="@id/categoryTeamIdeaFragment" />
         <action
             android:id="@+id/action_idea_list_fragment_to_category_fragment"
             app:destination="@id/category_fragment" />
@@ -99,7 +96,7 @@
     </fragment>
     <fragment
         android:id="@+id/sign_up_first_fragment"
-        android:name="com.example.infraandroid.id.SignUpFirstFragment"
+        android:name="com.example.infraandroid.id.view.SignUpFirstFragment"
         android:label="fragment_sign_up_first"
         tools:layout="@layout/fragment_sign_up_first">
         <action
@@ -111,7 +108,7 @@
     </fragment>
     <fragment
         android:id="@+id/sign_up_second_fragment"
-        android:name="com.example.infraandroid.id.SignUpSecondFragment"
+        android:name="com.example.infraandroid.id.view.SignUpSecondFragment"
         android:label="fragment_sign_up_second"
         tools:layout="@layout/fragment_sign_up_second" >
         <action
@@ -120,7 +117,7 @@
     </fragment>
     <fragment
         android:id="@+id/sign_up_fourth_fragment"
-        android:name="com.example.infraandroid.id.SignUpFourthFragment"
+        android:name="com.example.infraandroid.id.view.SignUpFourthFragment"
         android:label="fragment_sign_up_fourth"
         tools:layout="@layout/fragment_sign_up_fourth" >
         <action
@@ -130,7 +127,7 @@
 
     <fragment
         android:id="@+id/sign_up_third_fragment"
-        android:name="com.example.infraandroid.id.SignUpThirdFragment"
+        android:name="com.example.infraandroid.id.view.SignUpThirdFragment"
         android:label="fragment_sign_up_third"
         tools:layout="@layout/fragment_sign_up_third" >
         <action
@@ -140,7 +137,7 @@
 
     <fragment
         android:id="@+id/category_information_fragment"
-        android:name="com.example.infraandroid.category.CategoryInformationFragment"
+        android:name="com.example.infraandroid.category.view.fragment.CategoryInformationFragment"
         android:label="category_information_fragment"
         tools:layout="@layout/category_information">
         <action
@@ -159,7 +156,7 @@
 
     <fragment
         android:id="@+id/categoryTeamFragment"
-        android:name="com.example.infraandroid.category.CategoryTeamFragment"
+        android:name="com.example.infraandroid.category.view.fragment.CategoryTeamFragment"
         android:label="CategoryTeamFragment"
         tools:layout="@layout/fragment_category_team">
         <action
@@ -168,7 +165,7 @@
     </fragment>
     <fragment
         android:id="@+id/categoryInformationFragment"
-        android:name="com.example.infraandroid.category.CategoryInformationFragment"
+        android:name="com.example.infraandroid.category.view.fragment.CategoryInformationFragment"
         android:label="CategoryInformationFragment"
         tools:layout="@layout/category_information"/>
     <fragment
@@ -198,11 +195,7 @@
             app:destination="@id/myInfoProjectModifyFragment"
             app:enterAnim="@anim/slide_in_bottom" />
     </fragment>
-    <fragment
-        android:id="@+id/categoryTeamIdeaFragment"
-        android:name="com.example.infraandroid.category.CategoryTeamIdeaFragment"
-        android:label="CategoryTeamIdeaFragment"
-        tools:layout="@layout/category_team_idea"/>
+
     <fragment
         android:id="@+id/myInfoInformationFragment"
         android:name="com.example.infraandroid.myinfo.MyInfoInformationFragment"
@@ -214,7 +207,7 @@
     </fragment>
     <fragment
         android:id="@+id/createProjectFragment"
-        android:name="com.example.infraandroid.home.CreateProjectFragment"
+        android:name="com.example.infraandroid.home.view.fragment.CreateProjectFragment"
         android:label="fragment_create_project"
         tools:layout="@layout/fragment_create_project" >
         <action
@@ -226,7 +219,7 @@
     </fragment>
     <fragment
         android:id="@+id/categoryViewIdeaFragment"
-        android:name="com.example.infraandroid.category.CategoryViewIdeaFragment"
+        android:name="com.example.infraandroid.category.view.fragment.CategoryViewIdeaFragment"
         android:label="fragment_view_idea"
         tools:layout="@layout/fragment_view_idea" />
     <fragment
@@ -236,7 +229,7 @@
         tools:layout="@layout/my_info_team_member_evaluation"/>
     <fragment
         android:id="@+id/createProjectSelectCategory"
-        android:name="com.example.infraandroid.home.CreateProjectSelectCategory"
+        android:name="com.example.infraandroid.home.view.fragment.CreateProjectSelectCategoryFragment"
         android:label="fragment_create_project_select_category"
         tools:layout="@layout/fragment_create_project_select_category" >
         <action
