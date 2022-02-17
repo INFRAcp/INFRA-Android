@@ -1,6 +1,6 @@
 package com.example.infraandroid.util
 
-import com.example.infraandroid.myinfo.api.ProfileViewService
+import com.example.infraandroid.myinfo.myintroductionpage.model.ProfileViewService
 import com.example.infraandroid.id.model.LoginService
 import com.example.infraandroid.id.model.SMSService
 import com.example.infraandroid.id.model.SignUpService

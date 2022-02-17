@@ -146,7 +146,7 @@
     </fragment>
     <fragment
         android:id="@+id/my_info_modify_fragment"
-        android:name="com.example.infraandroid.myinfo.MyInfoModifyFragment"
+        android:name="com.example.infraandroid.myinfo.myinfomodify.view.MyInfoModifyFragment"
         android:label="my_info_modify_fragment"
         tools:layout="@layout/fragment_my_info_modify">
         <action
@@ -170,12 +170,12 @@
         tools:layout="@layout/category_information"/>
     <fragment
         android:id="@+id/myInfoProjectModifyFragment"
-        android:name="com.example.infraandroid.myinfo.MyInfoProjectModifyFragment"
+        android:name="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaModifyPageFragment"
         android:label="fragment_my_info_project_modify"
         tools:layout="@layout/fragment_my_info_project_modify" />
     <fragment
         android:id="@+id/myInfoMyIdeaFragment"
-        android:name="com.example.infraandroid.myinfo.MyInfoMyIdeaFragment"
+        android:name="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaManageFragment"
         android:label="MyInfoMyIdeaFragment"
         tools:layout="@layout/fragment_my_info_my_idea">
         <action
@@ -187,7 +187,7 @@
     </fragment>
     <fragment
         android:id="@+id/myInfoTeamIdeaFragment"
-        android:name="com.example.infraandroid.myinfo.MyInfoTeamIdeaFragment"
+        android:name="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaFragment"
         android:label="MyInfoTeamIdeaFragment"
         tools:layout="@layout/my_info_team_idea">
         <action
@@ -198,7 +198,7 @@
 
     <fragment
         android:id="@+id/myInfoInformationFragment"
-        android:name="com.example.infraandroid.myinfo.MyInfoInformationFragment"
+        android:name="com.example.infraandroid.myinfo.myintroductionpage.view.MyIntroductionPageFragment"
         android:label="MyInfoInformationFragment"
         tools:layout="@layout/my_info_information">
         <action
@@ -224,7 +224,7 @@
         tools:layout="@layout/fragment_view_idea" />
     <fragment
         android:id="@+id/myInfoTeamMemberEvaluationFragment"
-        android:name="com.example.infraandroid.myinfo.MyInfoTeamMemberEvaluationFragment"
+        android:name="com.example.infraandroid.myinfo.teammembereval.view.fragment.TeamMemberEvalFragment"
         android:label="MyInfoTeamMemberEvaluationFragment"
         tools:layout="@layout/my_info_team_member_evaluation"/>
     <fragment
