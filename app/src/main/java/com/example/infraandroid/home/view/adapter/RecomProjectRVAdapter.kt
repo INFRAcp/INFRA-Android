@@ -52,5 +52,6 @@ class RecomProjectRVAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             }
             binding.itemRecommedProjectPhotoIv.clipToOutline = true
         }
+        
     }
 }
