@@ -7,12 +7,8 @@ data class RequestUserData(
     var userId : String,
     @SerializedName("user_pw")
     var userPw : String,
-    @SerializedName("user_nickname")
-    val userNickname : String,
     @SerializedName("user_phone")
     var userPhone : String,
     @SerializedName("user_email")
-    val userEmail : String,
-    @SerializedName("user_name")
-    var userName : String,
+    var userEmail : String
 )

@@ -18,11 +18,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentSignUpSecondBinding
-import com.example.infraandroid.id.viewmodel.SharedIdViewModel.Companion.TAG
+import com.example.infraandroid.id.viewmodel.SignUpViewModel.Companion.TAG
 import com.example.infraandroid.id.model.RequestSMSData
 import com.example.infraandroid.id.model.ResponseSMSData
 import com.example.infraandroid.util.ServiceCreator
-import com.example.infraandroid.id.viewmodel.SharedIdViewModel
+import com.example.infraandroid.id.viewmodel.SignUpViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,7 +37,7 @@ import java.util.regex.Pattern
 
 class SignUpSecondFragment : Fragment(){
     private var mBinding : FragmentSignUpSecondBinding? = null
-    private val sharedViewModel : SharedIdViewModel by activityViewModels()
+    private val sharedViewModel : SignUpViewModel by activityViewModels()
     lateinit var certificationCode: String
 
     override fun onCreateView(
@@ -56,7 +56,6 @@ class SignUpSecondFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val inputNameEditText = mBinding?.inputNameEditText as EditText
         val getCertificationButton = mBinding?.receiveMessageButton as AppCompatButton
         val inputPhoneNumberEditText = mBinding?.inputPhoneEditText as EditText
         val inputCertificationNumberEditText = mBinding?.inputCertificationNumberEditText as EditText
@@ -121,7 +120,6 @@ class SignUpSecondFragment : Fragment(){
 
         // 다음 버튼 눌렀을 때 다음 페이지로 넘아감
         nextButton.setOnClickListener{
-            sharedViewModel.updateInputName(inputNameEditText.text.toString())
             sharedViewModel.updateInputPhone(inputPhoneNumberEditText.text.toString())
             it.findNavController().navigate(R.id.action_sign_up_second_fragment_to_sign_up_third_fragment)
         }

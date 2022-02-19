@@ -70,8 +70,7 @@
                 android:textSize="15sp"
                 android:fontFamily="@font/noto_sans_kr_bold"
                 android:includeFontPadding="false"
-                android:textColor="@color/infra_skyblue_a"
-                android:onClick="@{()->fragment.onClickCompeleteButton()}"/>
+                android:textColor="@color/infra_skyblue_a" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/set_title_constraint_layout"

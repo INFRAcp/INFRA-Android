@@ -357,7 +357,7 @@
     </ScrollView>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/team_idea_modify_btn_tv"
+        android:id="@+id/team_idea_apply_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="신청하기"
