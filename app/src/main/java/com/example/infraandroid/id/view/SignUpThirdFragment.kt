@@ -16,11 +16,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentSignUpThirdBinding
-import com.example.infraandroid.id.viewmodel.SharedIdViewModel.Companion.TAG
+import com.example.infraandroid.id.viewmodel.SignUpViewModel.Companion.TAG
 import com.example.infraandroid.id.model.RequestUserData
 import com.example.infraandroid.id.model.ResponseUserData
 import com.example.infraandroid.util.ServiceCreator
-import com.example.infraandroid.id.viewmodel.SharedIdViewModel
+import com.example.infraandroid.id.viewmodel.SignUpViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,8 +34,7 @@ import retrofit2.Response
 
 class SignUpThirdFragment : Fragment(){
     private  var mBinding : FragmentSignUpThirdBinding? = null
-    private val sharedViewModel : SharedIdViewModel by activityViewModels()
-    var name = ""
+    private val sharedViewModel : SignUpViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,18 +44,12 @@ class SignUpThirdFragment : Fragment(){
         val binding = FragmentSignUpThirdBinding.inflate(inflater, container, false)
 
         mBinding = binding
-        sharedViewModel.currentInputName.observe(viewLifecycleOwner) { currentInputName ->
-            name = currentInputName
-            mBinding?.signUpThirdCommentTextView?.text =
-                getString(R.string.sign_up_nickname_comment).format(currentInputName)
-        }
         return mBinding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val nickName = mBinding?.inputNickNameEditText as EditText
         val email = mBinding?.inputEmailEditText as EditText
         val nextButton = mBinding?.goToLastSignUpButton as AppCompatButton
 
@@ -68,17 +61,13 @@ class SignUpThirdFragment : Fragment(){
             }
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                if (Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches()
-                    && nickName.text.toString().isNotEmpty()
-                ) {
+                if (Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches()) {
                     nextButton.isEnabled = true
                 }
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                if (Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches()
-                    && nickName.text.toString().isNotEmpty()
-                ) {
+                if (Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches()) {
                     nextButton.isEnabled = true
                 }
             }
@@ -86,14 +75,12 @@ class SignUpThirdFragment : Fragment(){
 
         // 다음 버튼 누르면 다음 페이지로 넘어감
         nextButton.setOnClickListener{
-
+            sharedViewModel.updateInputEmail(email.text.toString())
             val requestUserData = RequestUserData(
                 userId = "",
                 userPw = "",
-                userNickname = nickName.text.toString(),
                 userPhone = "",
-                userEmail = email.text.toString(),
-                userName = name
+                userEmail = ""
             )
             sharedViewModel.currentInputId.observe(viewLifecycleOwner) { currentInputId ->
                 requestUserData.userId = currentInputId
@@ -103,6 +90,9 @@ class SignUpThirdFragment : Fragment(){
             }
             sharedViewModel.currentInputPhone.observe(viewLifecycleOwner) { currentInputPhone ->
                 requestUserData.userPhone = currentInputPhone
+            }
+            sharedViewModel.currentInputEmail.observe(viewLifecycleOwner) { currentInputEmail ->
+                requestUserData.userEmail = currentInputEmail
             }
 
             val call: Call<ResponseUserData> = ServiceCreator.signUpService

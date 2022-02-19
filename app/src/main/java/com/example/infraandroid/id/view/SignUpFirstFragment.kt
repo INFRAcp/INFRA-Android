@@ -19,14 +19,14 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentSignUpFirstBinding
-import com.example.infraandroid.id.viewmodel.SharedIdViewModel.Companion.TAG
+import com.example.infraandroid.id.viewmodel.SignUpViewModel.Companion.TAG
 import com.example.infraandroid.id.model.ResponseCheckUserIdData
 import com.example.infraandroid.util.ServiceCreator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.regex.Pattern
-import com.example.infraandroid.id.viewmodel.SharedIdViewModel
+import com.example.infraandroid.id.viewmodel.SignUpViewModel
 
 
 // 회원가입 first depth 페이지
@@ -38,7 +38,7 @@ import com.example.infraandroid.id.viewmodel.SharedIdViewModel
 
 class SignUpFirstFragment : Fragment() {
     private  var mBinding : FragmentSignUpFirstBinding? = null
-    private val sharedViewModel : SharedIdViewModel by activityViewModels()
+    private val sharedViewModel : SignUpViewModel by activityViewModels()
     private var isChecked = false
 
     override fun onCreateView(
@@ -54,8 +54,6 @@ class SignUpFirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
 
         val checkButton = mBinding?.checkButton as AppCompatButton
         val inputMakeIdEdittext = mBinding?.inputMakeIdEditText as EditText

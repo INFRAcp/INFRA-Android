@@ -74,7 +74,7 @@ class MyIntroductionPageFragment: Fragment() {
 //                    when (response.body()?.code) {
 //                        1000 -> {
 //                            Toast.makeText(requireActivity(),"요청에 성공하셨습니다.", Toast.LENGTH_SHORT).show()
-//                            //Log.d(SharedIdViewModel.TAG, "요청에 성공하셨습니다.")
+//                            //Log.d(SignUpViewModel.TAG, "요청에 성공하셨습니다.")
 //
 //                            //inforNameTextView.text =
 //                        }
@@ -88,7 +88,7 @@ class MyIntroductionPageFragment: Fragment() {
 //                    }
 //                }
 //                else{
-//                    Log.d(SharedIdViewModel.TAG, "onResponse: 연결 실패..")
+//                    Log.d(SignUpViewModel.TAG, "onResponse: 연결 실패..")
 //                }
 //            }
 //

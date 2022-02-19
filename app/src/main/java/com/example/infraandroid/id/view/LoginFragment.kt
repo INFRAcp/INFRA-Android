@@ -13,6 +13,7 @@ import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentLoginBinding
 import com.example.infraandroid.id.model.RequestLoginData
 import com.example.infraandroid.id.model.ResponseLoginData
+import com.example.infraandroid.util.BaseFragment
 import com.example.infraandroid.util.ServiceCreator
 import retrofit2.Call
 import retrofit2.Callback
@@ -25,27 +26,15 @@ import retrofit2.Response
 // 2022-02-01 : 회원 가입 버튼 누르면 회원 가입 페이지로 이동하도록 수정
 // 2022-02-03 : 카카오 로그인 연결
 
-class LoginFragment : Fragment() {
-    private var mBinding : FragmentLoginBinding? = null
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-        val binding = FragmentLoginBinding.inflate(inflater, container, false)
-        mBinding = binding
-
-        return mBinding?.root
+class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login){
+    override fun FragmentLoginBinding.onCreateView(){
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+    override fun FragmentLoginBinding.onViewCreated(){
         // 로그인 버튼을 눌렀을 때
-        mBinding!!.loginButton.setOnClickListener {
-            val inputId = mBinding!!.idEdittext.text.toString()
-            val inputPw = mBinding!!.pwEdittext.text.toString()
+        binding.loginButton.setOnClickListener {
+            val inputId = binding.idEdittext.text.toString()
+            val inputPw = binding.pwEdittext.text.toString()
 
             //작성자 : 이은진
             //작성일 : 2022.02.06
@@ -66,9 +55,9 @@ class LoginFragment : Fragment() {
                         val code = response.body()?.code
                         when(code){
                             1000 -> {
-                                InfraApplication.prefs.setString("jwt", response?.body()?.result?.jwt.toString())
-                                InfraApplication.prefs.setString("userId", response?.body()?.result?.userId.toString())
-                                InfraApplication.prefs.setString("userNickName", response?.body()?.result?.userNickName.toString())
+                                InfraApplication.prefs.setString("jwt", response.body()?.result?.jwt.toString())
+                                InfraApplication.prefs.setString("userId", response.body()?.result?.userId.toString())
+                                InfraApplication.prefs.setString("userNickName", response.body()?.result?.userNickName.toString())
                                 Toast.makeText(requireActivity(),"요청에 성공하셨습니다.", Toast.LENGTH_SHORT).show()
                                 // 로그인 버튼을 누르면 home_fragment로 이동
                                 it.findNavController().navigate(R.id.action_login_fragment_to_home_fragment)
@@ -87,13 +76,13 @@ class LoginFragment : Fragment() {
         }
 
         // 회원가입 버튼을 눌렀을 때
-        mBinding!!.loginRegisterTv.setOnClickListener {
+        binding.loginRegisterTv.setOnClickListener {
             it.findNavController().navigate(R.id.action_login_fragment_to_sign_up_first_fragment)
         }
 
 
 
-//        mBinding!!.loginKakaotalkIv.setOnClickListener{
+//        binding!!.loginKakaotalkIv.setOnClickListener{
 //            val callback: (OAuthToken?, Throwable?) -> Unit = { token, error ->
 //                if (error != null) {
 //                    Log.e(TAG, "카카오계정으로 로그인 실패", error)
@@ -125,11 +114,6 @@ class LoginFragment : Fragment() {
 //                UserApiClient.instance.loginWithKakaoAccount(requireActivity(), callback = callback)
 //            }
 //        }
-    }
-
-    override fun onDestroyView() {
-        mBinding = null
-        super.onDestroyView()
     }
 }
 

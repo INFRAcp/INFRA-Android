@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.example.infraandroid.util.ImageRound
 import com.example.infraandroid.R
 import com.example.infraandroid.category.model.IdeaListInfo
+import com.example.infraandroid.category.model.Result
 import com.example.infraandroid.databinding.ItemIdeaListRecyclerviewBinding
 
 class IdeaListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
