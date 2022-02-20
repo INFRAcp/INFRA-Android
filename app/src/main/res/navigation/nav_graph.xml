@@ -68,6 +68,9 @@
         <action
             android:id="@+id/action_my_info_fragment_to_scrapFragment"
             app:destination="@id/scrapFragment" />
+        <action
+            android:id="@+id/action_my_info_fragment_to_myInfoInterestFragment"
+            app:destination="@id/myInfoInterestFragment" />
     </fragment>
 
     <fragment
@@ -265,6 +268,16 @@
         android:id="@+id/teamMemeberEvalEditFragment2"
         android:name="com.example.infraandroid.myinfo.teammembereval.view.fragment.TeamMemeberEvalEditFragment"
         android:label="TeamMemeberEvalEditFragment" />
+    <fragment
+        android:id="@+id/myInfoInterestFragment"
+        android:name="com.example.infraandroid.myinfo.myinfointerest.MyInfoInterestFragment"
+        android:label="fragment_my_info_interest"
+        tools:layout="@layout/fragment_my_info_interest" >
+        <action
+            android:id="@+id/action_myInfoInterestFragment_to_my_info_fragment"
+            app:destination="@id/my_info_fragment" />
+    </fragment>
+
 
 
 </navigation>

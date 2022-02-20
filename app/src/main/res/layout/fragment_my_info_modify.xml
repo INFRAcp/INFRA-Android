@@ -38,123 +38,126 @@
         app:layout_constraintLeft_toRightOf="@id/my_info_modify_back_button"
         app:layout_constraintBottom_toBottomOf="@id/my_info_modify_back_button"
         android:layout_marginLeft="14dp"/>
-    <TextView
-        android:id="@+id/my_info_modify_button"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/my_info_modify_user_profile_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="수정"
-        android:textSize="15sp"
-        android:textColor="@color/white"
-        android:fontFamily="@font/noto_sans_kr_medium"
-        android:includeFontPadding="false"
-        app:layout_constraintTop_toTopOf="@id/my_info_modify_back_button"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/my_info_modify_back_button"
-        android:layout_marginRight="22dp"/>
-
-    <ImageView
-        android:id="@+id/my_info_modify_user_profile_iv"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:src="@drawable/user_photo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/my_info_modify_title_view"
-        android:layout_marginTop="60dp" />
-    <ImageView
-        android:id="@+id/my_info_modify_photo_more_iv"
+        android:layout_marginTop="80dp" >
+        <ImageView
+            android:id="@+id/my_info_modify_user_profile_iv"
+            android:layout_width="91dp"
+            android:layout_height="91dp"
+            android:src="@drawable/user_photo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <ImageView
+            android:id="@+id/my_info_modify_photo_more_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_more_photo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="65dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/my_info_modify_background"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/my_info_modify_nickname_hint_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_more_photo"
-        app:layout_constraintEnd_toEndOf="@id/my_info_modify_user_profile_iv"
-        app:layout_constraintTop_toTopOf="@id/my_info_modify_user_profile_iv"
-        android:layout_marginTop="110dp"
-        android:background="@drawable/my_info_modify_background"/>
+        app:layout_constraintTop_toTopOf="@id/input_nickname_edit_text"
+        app:layout_constraintStart_toStartOf="@+id/input_nickname_edit_text"
+        android:text="닉네임"
+        android:textSize="11sp"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:textColor="@color/infra_gray_q"
+        android:includeFontPadding="false"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:translationZ="90dp"/>
+    <EditText
+        android:id="@+id/input_nickname_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_background"
+        android:paddingStart="17dp"
+        android:paddingTop="28dp"
+        android:paddingBottom="14dp"
+        app:layout_constraintTop_toBottomOf="@id/my_info_modify_user_profile_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/overlap_check_button"
+        android:layout_marginTop="70dp"
+        android:layout_marginStart="20dp"
+        android:hint="@string/make_nickname_hint"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:includeFontPadding="false"
+        android:textSize="14sp"
+        android:textColorHint="@color/infra_gray_t"/>
+    <TextView
+        android:id="@+id/do_not_use_this_nickname_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/same_nickname_warning"
+        android:textSize="12sp"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:textColor="@color/infra_red_a"
+        android:includeFontPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/input_nickname_edit_text"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="30dp"
+        android:visibility="invisible" />
+    <ImageView
+        android:id="@+id/can_use_icon_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_accept"
+        app:layout_constraintTop_toTopOf="@id/input_nickname_edit_text"
+        app:layout_constraintRight_toRightOf="@id/input_nickname_edit_text"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="22dp"
+        android:visibility="invisible"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/overlap_check_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sign_in_button_selector"
+        android:text="중복 확인"
+        app:layout_constraintLeft_toRightOf="@id/input_nickname_edit_text"
+        app:layout_constraintTop_toTopOf="@id/input_nickname_edit_text"
+        app:layout_constraintBottom_toBottomOf="@id/input_nickname_edit_text"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/noto_sans_kr_regular"
+        android:textSize="14sp"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="18dp"
+        style="?android:borderlessButtonStyle"
+        android:enabled="false"/>
 
-    <LinearLayout
-        android:id="@+id/my_info_modify_linearlayout"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/modify_completed_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/my_info_modify_user_profile_iv"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="250dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
-        android:orientation="vertical">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/my_info_modify_title_name_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="이름"
-                android:textColor="@color/infra_black_b"
-                android:textSize="15sp"
-                android:fontFamily="@font/noto_sans_kr_bold"
-                android:includeFontPadding="false" />
-            <EditText
-                android:id="@+id/my_info_modify_name_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="승민"
-                android:textColor="@color/infra_black_b"
-                android:textSize="15sp"
-                android:fontFamily="@font/noto_sans_kr_medium"
-                android:includeFontPadding="false"
-                android:layout_alignParentRight="true"
-                android:background="@android:color/transparent"/>
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp">
-            <TextView
-                android:id="@+id/my_info_modify_title_nickname_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="닉네임"
-                android:textColor="@color/infra_black_b"
-                android:textSize="15sp"
-                android:fontFamily="@font/noto_sans_kr_bold"
-                android:includeFontPadding="false" />
-            <EditText
-                android:id="@+id/my_info_modify_nickname_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="안드팀"
-                android:textColor="@color/infra_black_b"
-                android:textSize="15sp"
-                android:fontFamily="@font/noto_sans_kr_medium"
-                android:includeFontPadding="false"
-                android:layout_alignParentRight="true"
-                android:background="@android:color/transparent"/>
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp">
-            <TextView
-                android:id="@+id/my_info_modify_title_ability_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="어빌리티"
-                android:textColor="@color/infra_black_b"
-                android:textSize="15sp"
-                android:fontFamily="@font/noto_sans_kr_bold"
-                android:includeFontPadding="false" />
-            <EditText
-                android:id="@+id/my_info_modify_ability_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="개발자"
-                android:textColor="@color/infra_black_b"
-                android:textSize="15sp"
-                android:fontFamily="@font/noto_sans_kr_medium"
-                android:includeFontPadding="false"
-                android:layout_alignParentRight="true"
-                android:background="@android:color/transparent"/>
-        </RelativeLayout>
-    </LinearLayout>
+        android:background="@drawable/sign_in_button_selector"
+        android:textColor="@color/white"
+        android:text="수정 완료"
+        style="?android:borderlessButtonStyle"
+        android:layout_marginTop="170dp"
+        android:layout_marginBottom="22dp"
+        android:layout_marginHorizontal="26dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:fontFamily="@font/noto_sans_kr_bold"
+        android:textSize="16sp"
+        android:paddingVertical="4dp"
+        android:enabled="false"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
