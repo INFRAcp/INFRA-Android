@@ -59,6 +59,15 @@
         <action
             android:id="@+id/action_my_info_fragment_to_myInfoTeamMemberEvaluationFragment"
             app:destination="@id/myInfoTeamMemberEvaluationFragment" />
+        <action
+            android:id="@+id/action_my_info_fragment_to_applicationStatusFragment"
+            app:destination="@id/applicationStatusFragment" />
+        <action
+            android:id="@+id/action_my_info_fragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+        <action
+            android:id="@+id/action_my_info_fragment_to_scrapFragment"
+            app:destination="@id/scrapFragment" />
     </fragment>
 
     <fragment
@@ -226,7 +235,11 @@
         android:id="@+id/myInfoTeamMemberEvaluationFragment"
         android:name="com.example.infraandroid.myinfo.teammembereval.view.fragment.TeamMemberEvalFragment"
         android:label="MyInfoTeamMemberEvaluationFragment"
-        tools:layout="@layout/my_info_team_member_evaluation"/>
+        tools:layout="@layout/my_info_team_member_evaluation">
+        <action
+            android:id="@+id/action_myInfoTeamMemberEvaluationFragment_to_teamMemeberEvalEditFragment2"
+            app:destination="@id/teamMemeberEvalEditFragment2" />
+    </fragment>
     <fragment
         android:id="@+id/createProjectSelectCategory"
         android:name="com.example.infraandroid.home.view.fragment.CreateProjectSelectCategoryFragment"
@@ -236,6 +249,22 @@
             android:id="@+id/action_createProjectSelectCategory_to_createProjectFragment"
             app:destination="@id/createProjectFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/applicationStatusFragment"
+        android:name="com.example.infraandroid.myinfo.applicationstatus.view.ApplicationStatusFragment"
+        android:label="ApplicationStatusFragment" />
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.infraandroid.myinfo.history.view.HistoryFragment"
+        android:label="HistoryFragment" />
+    <fragment
+        android:id="@+id/scrapFragment"
+        android:name="com.example.infraandroid.myinfo.scrap.view.ScrapFragment"
+        android:label="ScrapFragment" />
+    <fragment
+        android:id="@+id/teamMemeberEvalEditFragment2"
+        android:name="com.example.infraandroid.myinfo.teammembereval.view.fragment.TeamMemeberEvalEditFragment"
+        android:label="TeamMemeberEvalEditFragment" />
 
 
 </navigation>

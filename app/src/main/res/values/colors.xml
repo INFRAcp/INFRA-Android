@@ -33,6 +33,8 @@
     <color name="infra_gray_t">#E2E2E2</color>
     <color name="infra_gray_u">#DCE1E4</color>
     <color name="infra_gray_v">#8F8F8F</color>
+    <color name="infra_gray_w">#949494</color>
+
 
     <color name="infra_light_gray_a">#ededed</color>
     <color name="infra_light_gray_b">#A8A8A8</color>
@@ -58,6 +60,7 @@
     <color name="infra_red_a">#FF3D00</color>
     <color name="infra_red_b">#FF4D00</color>
     <color name="infra_red_c">#ffe4d9</color>
+    <color name="infra_red_d">#FF4C00</color>
 
 
 </resources>

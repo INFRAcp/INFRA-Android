@@ -99,12 +99,14 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="마감임박!"
-        android:textColor="@color/infra_purple_a"
-        android:textSize="10sp"
+        android:text="대기중"
+        android:textColor="@color/infra_gray_w"
+        android:textSize="14sp"
         android:fontFamily="@font/noto_sans_kr_bold"
+        app:layout_constraintTop_toTopOf="@id/hash_tag_two"
         app:layout_constraintBottom_toBottomOf="@id/hash_tag_two"
         app:layout_constraintRight_toRightOf="parent"
+        android:includeFontPadding="false"
         />
 
     <ImageView
@@ -112,6 +114,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:src="@drawable/ic_bookmark_yellow"/>
+        android:src="@drawable/ic_gray_close"
+        android:paddingLeft="10dp"
+        android:paddingBottom="10dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
