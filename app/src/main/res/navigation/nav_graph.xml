@@ -71,6 +71,9 @@
         <action
             android:id="@+id/action_my_info_fragment_to_myInfoInterestFragment"
             app:destination="@id/myInfoInterestFragment" />
+        <action
+            android:id="@+id/action_my_info_fragment_to_hashTagAlarmFragment"
+            app:destination="@id/hashTagAlarmFragment" />
     </fragment>
 
     <fragment
@@ -255,15 +258,27 @@
     <fragment
         android:id="@+id/applicationStatusFragment"
         android:name="com.example.infraandroid.myinfo.applicationstatus.view.ApplicationStatusFragment"
-        android:label="ApplicationStatusFragment" />
+        android:label="ApplicationStatusFragment" >
+        <action
+            android:id="@+id/action_applicationStatusFragment_to_my_info_fragment"
+            app:destination="@id/my_info_fragment" />
+    </fragment>
     <fragment
         android:id="@+id/historyFragment"
         android:name="com.example.infraandroid.myinfo.history.view.HistoryFragment"
-        android:label="HistoryFragment" />
+        android:label="HistoryFragment" >
+        <action
+            android:id="@+id/action_historyFragment_to_my_info_fragment"
+            app:destination="@id/my_info_fragment" />
+    </fragment>
     <fragment
         android:id="@+id/scrapFragment"
         android:name="com.example.infraandroid.myinfo.scrap.view.ScrapFragment"
-        android:label="ScrapFragment" />
+        android:label="ScrapFragment" >
+        <action
+            android:id="@+id/action_scrapFragment_to_my_info_fragment"
+            app:destination="@id/my_info_fragment" />
+    </fragment>
     <fragment
         android:id="@+id/teamMemeberEvalEditFragment2"
         android:name="com.example.infraandroid.myinfo.teammembereval.view.fragment.TeamMemeberEvalEditFragment"
@@ -277,7 +292,14 @@
             android:id="@+id/action_myInfoInterestFragment_to_my_info_fragment"
             app:destination="@id/my_info_fragment" />
     </fragment>
-
+    <fragment
+        android:id="@+id/hashTagAlarmFragment"
+        android:name="com.example.infraandroid.myinfo.hashtagalarm.view.HashTagAlarmFragment"
+        android:label="HashTagAlarmFragment" >
+        <action
+            android:id="@+id/action_hashTagAlarmFragment_to_my_info_fragment"
+            app:destination="@id/my_info_fragment" />
+    </fragment>
 
 
 </navigation>

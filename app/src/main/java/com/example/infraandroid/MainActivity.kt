@@ -1,5 +1,6 @@
 package com.example.infraandroid
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -29,16 +30,13 @@ class MainActivity : AppCompatActivity() {
 
         // 바텀 네비게이션 뷰 출력하는 곳과 출력하지 않는 곳 구분
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            if(destination.id == R.id.login_fragment || destination.id == R.id.chat_fragment || destination.id == R.id.sign_up_first_fragment||
-            destination.id==R.id.sign_up_second_fragment || destination.id==R.id.sign_up_third_fragment || destination.id==R.id.sign_up_fourth_fragment
-                ||destination.id == R.id.categoryViewIdeaFragment || destination.id == R.id.myInfoTeamIdeaFragment || destination.id == R.id.myInfoProjectModifyFragment
-                ||destination.id == R.id.createProjectFragment || destination.id == R.id.my_info_modify_fragment || destination.id==R.id.createProjectSelectCategory
-                ||destination.id == R.id.category_information || destination.id == R.id.myInfoInformationFragment || destination.id==R.id.myInfoTeamMemberEvaluationFragment) {
-                mBinding.myBottomNav.visibility = View.GONE
-                mBinding.myNavHost.setPadding(0,0,0,0)}
-            else {
+            if(destination.id == R.id.home_fragment || destination.id == R.id.category_fragment || destination.id == R.id.chatting_room_list_fragment
+                || destination.id == R.id.my_info_fragment) {
                 mBinding.myBottomNav.visibility = View.VISIBLE
-                mBinding.myNavHost.setPadding(0,0,0,changeDP(50))
+                mBinding.myNavHost.setPadding(0,0,0,changeDP(50)) }
+            else {
+                mBinding.myBottomNav.visibility = View.GONE
+                mBinding.myNavHost.setPadding(0,0,0,0)
             }
         }
 
@@ -48,6 +46,10 @@ class MainActivity : AppCompatActivity() {
 
         val keyHash = Utility.getKeyHash(this)
         Log.d("해시키", keyHash)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
     private fun changeDP(value: Int): Int {

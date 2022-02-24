@@ -24,11 +24,10 @@
         <item name="android:fontFamily">@font/noto_sans_kr_regular</item>
         <item name="android:textStyle">italic|bold</item>
     </style>
-    <style name="chipTextAppearance2" parent="TextAppearance.MaterialComponents.Chip">
-        <item name="android:textSize">10dp</item>
+    <style name="CustomChipStyle" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="android:textSize">11sp</item>
         <item name="android:textColor">@color/infra_skyblue_a</item>
         <item name="android:fontFamily">@font/noto_sans_kr_regular</item>
-        <item name="android:textStyle">italic|bold</item>
     </style>
     
     <style name="EditTextGreyStyle" parent="Widget.Design.TextInputLayout">
