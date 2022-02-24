@@ -15,7 +15,7 @@ android {
         targetSdk 31
         versionCode 1
         versionName "1.0"
-
+        buildConfigField("String", "WEB_CLIENT_ID", '"953936170275-n0h7o7932npcdaa9n0e97ihuruugspeg.apps.googleusercontent.com"')
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 
@@ -49,6 +49,8 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+
 }
 
 dependencies {
@@ -97,4 +99,7 @@ dependencies {
 
     // Switch Custom Library
     implementation 'com.kyleduo.switchbutton:library:2.1.0'
+
+    // 구글 소셜 로그인
+    implementation 'com.google.android.gms:play-services-auth:20.1.0'
 }

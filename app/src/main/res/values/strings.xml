@@ -25,4 +25,5 @@
     <string name="sign_up_complete_comment">가입완료!\n인프라를 구축해볼까요?</string>
     <string name="my_info_name">%s</string>
     <string name="today_date">%s년 %s월 %s일</string>
+    <string name="hash_tag_alarm_comment">인프라가 키워드를 통해서\n알맞은 프로젝트를 알려드립니다.</string>
 </resources>
