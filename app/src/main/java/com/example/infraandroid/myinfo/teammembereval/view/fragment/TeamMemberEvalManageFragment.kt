@@ -9,7 +9,7 @@ import com.example.infraandroid.databinding.FragmentTeamEvaluationManagementBind
 import com.example.infraandroid.myinfo.teammembereval.model.TeamEvalManagementList
 import com.example.infraandroid.myinfo.teammembereval.view.adapter.TeamEvalManagementAdapter
 
-//내 정보 > 팀원 평가 관리 > 평과 관리 탭
+//내 정보 > 팀원 평가 관리 > 평가 관리 탭
 class TeamMemberEvalManageFragment: Fragment() {
     private var mBinding: FragmentTeamEvaluationManagementBinding? = null
     private val teamEvalManagementAdapter = TeamEvalManagementAdapter()

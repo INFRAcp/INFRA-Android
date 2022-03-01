@@ -11,6 +11,7 @@ data class ResponseLoginData(
     data class LoginData(
         @SerializedName("user_id")
         val userId : String,
+        @SerializedName("jwtAccess")
         val jwt : String,
         @SerializedName("user_name")
         val userName : String,

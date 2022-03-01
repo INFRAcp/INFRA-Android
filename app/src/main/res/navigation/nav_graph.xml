@@ -243,8 +243,8 @@
         android:label="MyInfoTeamMemberEvaluationFragment"
         tools:layout="@layout/my_info_team_member_evaluation">
         <action
-            android:id="@+id/action_myInfoTeamMemberEvaluationFragment_to_teamMemeberEvalEditFragment2"
-            app:destination="@id/teamMemeberEvalEditFragment2" />
+            android:id="@+id/action_myInfoTeamMemberEvaluationFragment_to_teamMemberEvalEditFragment"
+            app:destination="@id/teamMemberEvalEditFragment" />
     </fragment>
     <fragment
         android:id="@+id/createProjectSelectCategory"
@@ -280,10 +280,6 @@
             app:destination="@id/my_info_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/teamMemeberEvalEditFragment2"
-        android:name="com.example.infraandroid.myinfo.teammembereval.view.fragment.TeamMemeberEvalEditFragment"
-        android:label="TeamMemeberEvalEditFragment" />
-    <fragment
         android:id="@+id/myInfoInterestFragment"
         android:name="com.example.infraandroid.myinfo.myinfointerest.MyInfoInterestFragment"
         android:label="fragment_my_info_interest"
@@ -300,6 +296,10 @@
             android:id="@+id/action_hashTagAlarmFragment_to_my_info_fragment"
             app:destination="@id/my_info_fragment" />
     </fragment>
+    <fragment
+        android:id="@+id/teamMemberEvalEditFragment"
+        android:name="com.example.infraandroid.myinfo.teammembereval.view.fragment.TeamMemberEvalEditFragment"
+        android:label="TeamMemberEvalEditFragment" />
 
 
 </navigation>

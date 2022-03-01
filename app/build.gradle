@@ -102,4 +102,7 @@ dependencies {
 
     // 구글 소셜 로그인
     implementation 'com.google.android.gms:play-services-auth:20.1.0'
+
+    // http 로그 확인
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
 }

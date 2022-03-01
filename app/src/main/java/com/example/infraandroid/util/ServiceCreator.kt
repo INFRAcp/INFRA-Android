@@ -9,15 +9,24 @@ import com.example.infraandroid.id.model.LoginService
 import com.example.infraandroid.id.model.SMSService
 import com.example.infraandroid.id.model.SignUpService
 import com.example.infraandroid.id.model.UserDoubleCheckService
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ServiceCreator {
     private const val BASE_URL = "https://qbeom.shop"
 
+    private val interceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+
+    private val client = OkHttpClient.Builder()
+        .addInterceptor(interceptor)
+        .build()
+
     private val retrofit: Retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
+        .client(client)
         .build()
 
     val userDoubleCheckService : UserDoubleCheckService = retrofit.create(UserDoubleCheckService::class.java)

@@ -154,6 +154,7 @@
                     android:id="@+id/number_of_team_edit_text"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:hint="필요한 팀원 인원 수"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/number_of_team_text_view"
@@ -301,7 +302,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    android:text="예상 제작 기간 설정"
+                    android:text="예상 제작 기간"
                     android:includeFontPadding="false"
                     android:fontFamily="@font/noto_sans_kr_regular"
                     android:textColor="@color/black"
@@ -309,16 +310,6 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="12dp"
                     android:layout_marginLeft="15dp"/>
-
-                <com.kyleduo.switchbutton.SwitchButton
-                    android:id="@+id/set_date_switch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/project_making_start_date_text_view"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:kswThumbColor="@color/white"
-                    app:kswBackColor="@color/infra_skyblue_a"
-                    android:layout_marginRight="18dp"/>
 
                 <View
                     android:id="@+id/start_making_date_line_view"
@@ -358,7 +349,7 @@
                     android:textSize="14sp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="12dp"
-                    android:layout_marginRight="20dp"/>
+                    android:layout_marginRight="20dp" />
 
                 <View
                     android:id="@+id/end_making_line_view"
@@ -384,7 +375,7 @@
                     android:textSize="14sp"
                     android:layout_marginTop="8dp"
                     android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="15dp"/>
+                    android:layout_marginLeft="15dp" />
 
                 <TextView
                     android:id="@+id/project_end_making_date_edit_text_view"
