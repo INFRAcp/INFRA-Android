@@ -3,16 +3,23 @@ package com.example.infraandroid.home.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import java.time.LocalDate
+import java.lang.reflect.Array.get
 
 class CreateProjectViewModel : ViewModel() {
     private val hashTagArrayList = ArrayList<String>()
 
-    private val _currentProjectTitle = MutableLiveData<String>()
+    private val _currentProjectTitle = MutableLiveData<String>("제목")
     val projectTitle: LiveData<String> = _currentProjectTitle
 
     fun updateProjectTitle(input: String){
         _currentProjectTitle.value = input
+    }
+
+    private val _currentProjectName = MutableLiveData<String>("이름")
+    val projectName: LiveData<String> = _currentProjectName
+
+    fun updateProjectName(input: String){
+        _currentProjectName.value = input
     }
 
     private val _currentProjectCategory = MutableLiveData<String>("스터디")
@@ -29,49 +36,49 @@ class CreateProjectViewModel : ViewModel() {
         _currentProjectDetailCategory.value = input
     }
 
-    private val _currentNumberOfTeam = MutableLiveData<Int>(0)
-    val numberOfTeam: LiveData<Int> = _currentNumberOfTeam
+    private val _currentNumberOfTeam = MutableLiveData<String>("0")
+    val numberOfTeam: LiveData<String> = _currentNumberOfTeam
 
-    fun updateNumberOfTeam(input: Int){
+    fun updateNumberOfTeam(input: String){
         _currentNumberOfTeam.value = input
     }
 
-    private val _currentStartRecruit = MutableLiveData<LocalDate>()
-    val startRecruit: LiveData<LocalDate> = _currentStartRecruit
+    private val _currentStartRecruit = MutableLiveData<String>()
+    val startRecruit: LiveData<String> = _currentStartRecruit
 
-    fun updateStartRecruit(input: LocalDate){
+    fun updateStartRecruit(input: String){
         _currentStartRecruit.value = input
     }
 
-    private val _currentEndRecruit = MutableLiveData<LocalDate>()
-    val endRecruit: LiveData<LocalDate> = _currentEndRecruit
+    private val _currentEndRecruit = MutableLiveData<String>()
+    val endRecruit: LiveData<String> = _currentEndRecruit
 
-    fun updateEndRecruit(input: LocalDate){
+    fun updateEndRecruit(input: String){
         _currentEndRecruit.value = input
     }
 
-    private val _currentProjectContent = MutableLiveData<String>()
+    private val _currentProjectContent = MutableLiveData<String>("내용")
     val projectContent: LiveData<String> = _currentProjectContent
 
     fun updateProjectContent(input: String){
         _currentProjectContent.value = input
     }
 
-    private val _currentStartMaking = MutableLiveData<LocalDate>()
-    val startMaking: LiveData<LocalDate> = _currentStartMaking
+    private val _currentStartMaking = MutableLiveData<String>()
+    val startMaking: LiveData<String> = _currentStartMaking
 
-    fun updateStartMaking(input: LocalDate){
+    fun updateStartMaking(input: String){
         _currentStartMaking.value = input
     }
 
-    private val _currentEndMaking = MutableLiveData<LocalDate>()
-    val endMaking: LiveData<LocalDate> = _currentEndMaking
+    private val _currentEndMaking = MutableLiveData<String>()
+    val endMaking: LiveData<String> = _currentEndMaking
 
-    fun updateEndMaking(input: LocalDate){
+    fun updateEndMaking(input: String){
         _currentEndMaking.value = input
     }
 
-    private val _currentProgress = MutableLiveData<String>()
+    private val _currentProgress = MutableLiveData<String>("진행사항")
     val progress: LiveData<String> = _currentProgress
 
     fun updateProgress(input: String){

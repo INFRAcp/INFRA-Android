@@ -1,10 +1,13 @@
 package com.example.infraandroid.home.model
 
 import com.google.gson.annotations.SerializedName
+import okhttp3.MediaType
+import okhttp3.RequestBody
 import java.lang.reflect.Array
 import java.time.LocalDate
 
 data class RequestCreateProjectData(
+
     @SerializedName("user_id")
     val userId : String,
     @SerializedName("pj_header")
@@ -19,14 +22,15 @@ data class RequestCreateProjectData(
     val projectCategoryDetail : String,
     @SerializedName("pj_progress")
     val projectProgress : String,
-    @SerializedName("pj_startTerm")
+    @SerializedName("pj_start_term")
     val projectStartMaking : String,
-    @SerializedName("pj_endTerm")
+    @SerializedName("pj_end_term")
     val projectEndMaking : String,
     @SerializedName("pj_deadline")
     val projectEndRecruit : String,
-    @SerializedName("pj_totalPerson")
+    @SerializedName("pj_total_person")
     val numberOfTeam : Int,
     @SerializedName("hashtag")
     val hashTags : ArrayList<String>,
+
     )
