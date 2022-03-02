@@ -1,5 +1,6 @@
 package com.example.infraandroid.id.view
 
+import android.content.Context
 import android.content.Intent
 import android.content.IntentSender
 import android.util.Log
@@ -31,6 +32,8 @@ import retrofit2.Response
 // 2022-02-03 : 카카오 로그인 연결
 
 class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login){
+//    lateinit var mOAuthLoginInstance : OAuthLogin
+    lateinit var mContext: Context
     private lateinit var oneTapClient: SignInClient
     private lateinit var signInRequest: BeginSignInRequest
     private val REQ_ONE_TAP = 100
@@ -123,6 +126,15 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
                 }
         }
 
+        //  네이버 아이디로 로그인
+//        val naver_client_id = "WWSmSMIYeWU77c_0uql8"
+//        val naver_client_secret = "QNsQFfwiiQ"
+//        val naver_client_name = "infra"
+//
+//        mOAuthLoginInstance = OAuthLogin.getInstance()
+//        mOAuthLoginInstance.init(mContext, naver_client_id, naver_client_secret, naver_client_name)
+//
+//        buttonOAuthLoginImg.setOAuthLoginHandler(mOAuthLoginHandler)
 
 
 //        binding!!.loginKakaotalkIv.setOnClickListener{
@@ -158,6 +170,22 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
 //            }
 //        }
     }
+
+    //네이버 로그인
+//    val  mOAuthLoginHandler: OAuthLoginHandler = object : OAuthLoginHandler() {
+//        override fun run(success: Boolean) {
+//            if (success) {
+//            } else {
+//                val errorCode: String = mOAuthLoginInstance.getLastErrorCode(mContext).code
+//                val errorDesc = mOAuthLoginInstance.getLastErrorDesc(mContext)
+//
+//                Toast.makeText(
+//                    baseContext, "errorCode:" + errorCode
+//                            + ", errorDesc:" + errorDesc, Toast.LENGTH_SHORT
+//                ).show()
+//            }
+//        }
+//    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

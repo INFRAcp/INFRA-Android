@@ -74,6 +74,9 @@
         <action
             android:id="@+id/action_my_info_fragment_to_hashTagAlarmFragment"
             app:destination="@id/hashTagAlarmFragment" />
+        <action
+            android:id="@+id/action_my_info_fragment_to_userGuideFragment"
+            app:destination="@id/userGuideFragment" />
     </fragment>
 
     <fragment
@@ -300,6 +303,15 @@
         android:id="@+id/teamMemberEvalEditFragment"
         android:name="com.example.infraandroid.myinfo.teammembereval.view.fragment.TeamMemberEvalEditFragment"
         android:label="TeamMemberEvalEditFragment" />
+    <fragment
+        android:id="@+id/userGuideFragment"
+        android:name="com.example.infraandroid.myinfo.userguide.view.UserGuideFragment"
+        android:label="fragment_user_guide"
+        tools:layout="@layout/fragment_user_guide" >
+        <action
+            android:id="@+id/action_userGuideFragment_to_my_info_fragment"
+            app:destination="@id/my_info_fragment" />
+    </fragment>
 
 
 </navigation>
