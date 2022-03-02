@@ -63,6 +63,9 @@ class MyInfoFragment : Fragment() {
         mBinding!!.myInfoHashtagAlarmLinearlayout.setOnClickListener {
             it.findNavController().navigate(R.id.action_my_info_fragment_to_hashTagAlarmFragment)
         }
+        mBinding!!.myInfoUserGuideLinearlayout.setOnClickListener {
+            it.findNavController().navigate(R.id.action_my_info_fragment_to_userGuideFragment)
+        }
     }
 
     override fun onDestroyView() {
