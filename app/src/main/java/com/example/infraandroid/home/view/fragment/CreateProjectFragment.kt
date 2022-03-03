@@ -84,7 +84,7 @@ class CreateProjectFragment : Fragment() {
         val year = today.year
         val month = today.monthValue
         val day = today.dayOfMonth
-        todayString = "{$year}-{$month}-{$day}"
+        todayString = "${year}-${month}-${day}"
         startTermString = todayString
         endTermString = todayString
         deadlineString = todayString
@@ -155,12 +155,10 @@ class CreateProjectFragment : Fragment() {
                 null
             }
 
-
             val jsonString = "{\"user_id\" : \""+ InfraApplication.prefs.getString("userId", "null")+"\"," +
-                    "\"pj_header\" : \"썸네일 제목\"," +
+                    "\"pj_header\" : \"" + mBinding?.titleEditText?.text.toString() + "\"," +
                     "\"pj_categoryName\" : \"개발\"," +
                     "\"pj_content\" : \""+ mBinding?.projectContentEditText?.text.toString() +"\"," +
-                    "\"pj_name\" : \""+ mBinding?.titleEditText?.text.toString() +"\"," +
                     "\"pj_subCategoryName\" : \"APP\"," +
                     "\"pj_progress\" : \""+ mBinding?.descriptionEditText?.text.toString() +"\"," +
                     "\"pj_startTerm\" : "+ startTermString +"," +

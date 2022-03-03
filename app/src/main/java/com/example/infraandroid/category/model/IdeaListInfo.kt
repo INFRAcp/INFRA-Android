@@ -8,4 +8,4 @@ data class IdeaListInfo (
     var hashTagOne : String,
     var hashTagTwo : String,
     var projectStatus : String,
-        )
+)
