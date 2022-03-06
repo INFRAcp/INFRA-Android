@@ -4,10 +4,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.infraandroid.util.ImageRound
 import com.example.infraandroid.R
-import com.example.infraandroid.category.model.IdeaListInfo
 import com.example.infraandroid.category.model.ResponseLookUpAllProjectData
 import com.example.infraandroid.databinding.ItemIdeaListRecyclerviewBinding
 
@@ -33,16 +31,9 @@ class IdeaListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private val binding:ItemIdeaListRecyclerviewBinding
     ): RecyclerView.ViewHolder(binding.root){
         fun onBind(ideaListInfo: ResponseLookUpAllProjectData.Result){
-//            binding.projectCategoryTitle.text = ideaListInfo.
-//            binding.projectCategoryTextView.text = ideaListInfo.projectCategory
-//            binding.hashTagOne.text = ideaListInfo.hashTagOne
-//            binding.hashTagTwo.text = ideaListInfo.hashTagTwo
-
             ImageRound.roundAll(binding.projectImageView, 36f)
             binding.projectList  = ideaListInfo
-//            Glide.with(itemView)
-//                .load(ideaListInfo.projectImg)
-//                .into(binding.projectImageView)
+
             itemView.setOnClickListener {
                 it.findNavController().navigate(R.id.action_idea_list_fragment_to_categoryViewIdeaFragment)
             }
