@@ -1,14 +1,8 @@
 package com.example.infraandroid.category.view.fragment
 
-import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.infraandroid.R
-import com.example.infraandroid.category.model.IdeaListInfo
 import com.example.infraandroid.category.model.ResponseLookUpAllProjectData
 import com.example.infraandroid.category.view.adapter.IdeaListAdapter
 import com.example.infraandroid.databinding.FragmentIdeaListBinding

@@ -108,23 +108,23 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
             it.findNavController().navigate(R.id.action_login_fragment_to_sign_up_first_fragment)
         }
 
-        binding.loginGoogleIv.setOnClickListener {
-            oneTapClient.beginSignIn(signInRequest)
-                .addOnSuccessListener(requireActivity()) { result ->
-                    try {
-                        startIntentSenderForResult(
-                            result.pendingIntent.intentSender, REQ_ONE_TAP,
-                            null, 0, 0, 0, null)
-                    } catch (e: IntentSender.SendIntentException) {
-                        Log.e(TAG, "Couldn't start One Tap UI: ${e.localizedMessage}")
-                    }
-                }
-                .addOnFailureListener(requireActivity()) { e ->
-                    // No saved credentials found. Launch the One Tap sign-up flow, or
-                    // do nothing and continue presenting the signed-out UI.
-                    Log.d(TAG, e.localizedMessage)
-                }
-        }
+//        binding.loginGoogleIv.setOnClickListener {
+//            oneTapClient.beginSignIn(signInRequest)
+//                .addOnSuccessListener(requireActivity()) { result ->
+//                    try {
+//                        startIntentSenderForResult(
+//                            result.pendingIntent.intentSender, REQ_ONE_TAP,
+//                            null, 0, 0, 0, null)
+//                    } catch (e: IntentSender.SendIntentException) {
+//                        Log.e(TAG, "Couldn't start One Tap UI: ${e.localizedMessage}")
+//                    }
+//                }
+//                .addOnFailureListener(requireActivity()) { e ->
+//                    // No saved credentials found. Launch the One Tap sign-up flow, or
+//                    // do nothing and continue presenting the signed-out UI.
+//                    Log.d(TAG, e.localizedMessage)
+//                }
+//        }
 
         //  네이버 아이디로 로그인
 //        val naver_client_id = "WWSmSMIYeWU77c_0uql8"
@@ -187,51 +187,51 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
 //        }
 //    }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        when (requestCode) {
-            REQ_ONE_TAP -> {
-                try {
-                    val credential = oneTapClient.getSignInCredentialFromIntent(data)
-                    val idToken = credential.googleIdToken
-                    val username = credential.id
-                    val password = credential.password
-                    when {
-                        idToken != null -> {
-                            // Got an ID token from Google. Use it to authenticate
-                            // with your backend.
-                            Log.d(TAG, "Got ID token.")
-                        }
-                        password != null -> {
-                            // Got a saved username and password. Use them to authenticate
-                            // with your backend.
-                            Log.d(TAG, "Got password.")
-                        }
-                        else -> {
-                            // Shouldn't happen.
-                            Log.d(TAG, "No ID token or password!")
-                        }
-                    }
-                } catch (e: ApiException) {
-                    when (e.statusCode) {
-                        CommonStatusCodes.CANCELED -> {
-                            Log.d(TAG, "One-tap dialog was closed.")
-                            // Don't re-prompt the user.
-                            showOneTapUI = false
-                        }
-                        CommonStatusCodes.NETWORK_ERROR -> {
-                            Log.d(TAG, "One-tap encountered a network error.")
-                            // Try again or just ignore.
-                        }
-                        else -> {
-                            Log.d(TAG, "Couldn't get credential from result." +
-                                    " (${e.localizedMessage})")
-                        }
-                    }
-                }
-            }
-        }
-    }
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//
+//        when (requestCode) {
+//            REQ_ONE_TAP -> {
+//                try {
+//                    val credential = oneTapClient.getSignInCredentialFromIntent(data)
+//                    val idToken = credential.googleIdToken
+//                    val username = credential.id
+//                    val password = credential.password
+//                    when {
+//                        idToken != null -> {
+//                            // Got an ID token from Google. Use it to authenticate
+//                            // with your backend.
+//                            Log.d(TAG, "Got ID token.")
+//                        }
+//                        password != null -> {
+//                            // Got a saved username and password. Use them to authenticate
+//                            // with your backend.
+//                            Log.d(TAG, "Got password.")
+//                        }
+//                        else -> {
+//                            // Shouldn't happen.
+//                            Log.d(TAG, "No ID token or password!")
+//                        }
+//                    }
+//                } catch (e: ApiException) {
+//                    when (e.statusCode) {
+//                        CommonStatusCodes.CANCELED -> {
+//                            Log.d(TAG, "One-tap dialog was closed.")
+//                            // Don't re-prompt the user.
+//                            showOneTapUI = false
+//                        }
+//                        CommonStatusCodes.NETWORK_ERROR -> {
+//                            Log.d(TAG, "One-tap encountered a network error.")
+//                            // Try again or just ignore.
+//                        }
+//                        else -> {
+//                            Log.d(TAG, "Couldn't get credential from result." +
+//                                    " (${e.localizedMessage})")
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
 }
 

@@ -1,6 +1,8 @@
 package com.example.infraandroid.util
 
 import android.annotation.SuppressLint
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.isGone
@@ -43,15 +45,14 @@ object BindingConversions {
         }
     }
 
-    @SuppressLint("ResourceAsColor")
     @JvmStatic
     @BindingAdapter("deadline")
     fun setDeadlineText(textView: TextView, comment: String){
         textView.text = comment
         when(comment){
-            "마감" -> textView.setTextColor(R.color.infra_gray_v)
-            "마감임박!" -> textView.setTextColor(R.color.infra_purple_a)
-            "모집중!" -> textView.setTextColor(R.color.infra_skyblue_a)
+            "마감" -> textView.setTextColor(Color.parseColor("#8F8F8F"))
+            "마감임박" -> textView.setTextColor(Color.parseColor("#9277F8"))
+            "모집중" -> textView.setTextColor(Color.parseColor("#4B8EFF"))
         }
     }
 }
