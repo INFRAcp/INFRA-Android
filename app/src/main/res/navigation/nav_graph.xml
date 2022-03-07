@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_category_fragment_to_myInfoMyIdeaFragment"
             app:destination="@id/myInfoMyIdeaFragment" />
+        <action
+            android:id="@+id/action_category_fragment_to_createProjectFragment"
+            app:destination="@id/createProjectFragment" />
     </fragment>
     <fragment
         android:id="@+id/chat_fragment"
@@ -312,6 +315,15 @@
             android:id="@+id/action_userGuideFragment_to_my_info_fragment"
             app:destination="@id/my_info_fragment" />
     </fragment>
+    <dialog
+        android:id="@+id/myProjectMoreMenuBottomSheetFragment"
+        android:name="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyProjectMoreMenuBottomSheetFragment"
+        android:label="my_project_more_menu"
+        tools:layout="@layout/my_project_more_menu" >
+        <action
+            android:id="@+id/action_myProjectMoreMenuBottomSheetFragment_to_myInfoProjectModifyFragment"
+            app:destination="@id/myInfoProjectModifyFragment" />
+    </dialog>
 
 
 </navigation>

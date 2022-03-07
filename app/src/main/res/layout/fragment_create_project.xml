@@ -274,6 +274,7 @@
                 app:layout_constraintTop_toBottomOf="@id/set_date_constraint_layout"
                 android:background="@drawable/login_background"
                 android:layout_marginTop="20dp"
+                android:paddingTop="10dp"
                 android:textSize="15sp"
                 android:fontFamily="@font/noto_sans_kr_regular"
                 android:textColor="@color/black"
@@ -282,7 +283,7 @@
                 android:layout_marginHorizontal="20dp"
                 android:paddingHorizontal="14dp"
                 android:lineSpacingExtra="4sp"
-                />
+                android:includeFontPadding="false" />
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -455,7 +456,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/set_hash_tag_constraint_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="80dp"
                 android:background="@drawable/login_background"
                 app:layout_constraintTop_toBottomOf="@id/set_description_constraint_layout"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -479,8 +480,7 @@
                     android:textSize="14sp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="15dp"
-                    app:layout_constraintBottom_toTopOf="@id/hash_tag_one_text_view"/>
+                    android:layout_marginLeft="15dp"/>
 
                 <EditText
                     android:id="@+id/hash_tag_edit_text"
@@ -512,74 +512,161 @@
                     android:layout_marginRight="8dp"
                     android:onClick="@{()->fragment.onClickAddHashTagButton()}"/>
 
-                <TextView
-                    android:id="@+id/hash_tag_one_text_view"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/hash_tag_one_constraint_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/hash_tag_sub_keyword_background"
+                    android:background="@drawable/hash_tag_keyword_skyblue_background"
                     app:layout_constraintTop_toBottomOf="@id/hash_tag_edit_text"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/infra_skyblue_a"
-                    android:textSize="11sp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="14dp"
                     android:layout_marginLeft="15dp"
-                    android:paddingVertical="6dp"
-                    android:paddingHorizontal="16dp"
-                    android:visibility="invisible"/>
+                    android:layout_marginTop="12dp"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="12dp"
+                    android:visibility="invisible">
 
-                <TextView
-                    android:id="@+id/hash_tag_two_text_view"
+                    <TextView
+                        android:id="@+id/hash_tag_one_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/infra_skyblue_a"
+                        android:textSize="11sp"
+                        android:paddingVertical="6dp"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_delete_hashtag"
+                        android:layout_marginLeft="6dp"
+                        app:layout_constraintTop_toTopOf="@id/hash_tag_one_text_view"
+                        app:layout_constraintBottom_toBottomOf="@id/hash_tag_one_text_view"
+                        app:layout_constraintLeft_toRightOf="@id/hash_tag_one_text_view"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/hash_tag_two_constraint_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/hash_tag_sub_keyword_background"
-                    app:layout_constraintTop_toTopOf="@id/hash_tag_one_text_view"
-                    app:layout_constraintLeft_toRightOf="@id/hash_tag_one_text_view"
-                    app:layout_constraintBottom_toBottomOf="@id/hash_tag_one_text_view"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/infra_skyblue_a"
-                    android:textSize="11sp"
+                    android:background="@drawable/hash_tag_keyword_skyblue_background"
+                    app:layout_constraintTop_toTopOf="@id/hash_tag_one_constraint_layout"
+                    app:layout_constraintLeft_toRightOf="@id/hash_tag_one_constraint_layout"
+                    app:layout_constraintBottom_toBottomOf="@id/hash_tag_one_constraint_layout"
                     android:layout_marginLeft="6dp"
-                    android:paddingVertical="6dp"
-                    android:paddingHorizontal="16dp"
-                    android:visibility="invisible"/>
+                    android:paddingRight="10dp"
+                    android:paddingLeft="12dp"
+                    android:visibility="invisible">
 
-                <TextView
-                    android:id="@+id/hash_tag_three_text_view"
+                    <TextView
+                        android:id="@+id/hash_tag_two_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/infra_skyblue_a"
+                        android:textSize="11sp"
+                        android:paddingVertical="6dp"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_delete_hashtag"
+                        android:layout_marginLeft="6dp"
+                        app:layout_constraintTop_toTopOf="@id/hash_tag_two_text_view"
+                        app:layout_constraintBottom_toBottomOf="@id/hash_tag_two_text_view"
+                        app:layout_constraintLeft_toRightOf="@id/hash_tag_two_text_view"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/hash_tag_three_constraint_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/hash_tag_sub_keyword_background"
-                    app:layout_constraintTop_toTopOf="@id/hash_tag_two_text_view"
-                    app:layout_constraintLeft_toRightOf="@id/hash_tag_two_text_view"
-                    app:layout_constraintBottom_toBottomOf="@id/hash_tag_two_text_view"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/infra_skyblue_a"
-                    android:textSize="11sp"
+                    android:background="@drawable/hash_tag_keyword_skyblue_background"
+                    app:layout_constraintTop_toTopOf="@id/hash_tag_two_constraint_layout"
+                    app:layout_constraintLeft_toRightOf="@id/hash_tag_two_constraint_layout"
+                    app:layout_constraintBottom_toBottomOf="@id/hash_tag_two_constraint_layout"
                     android:layout_marginLeft="6dp"
-                    android:paddingVertical="6dp"
-                    android:paddingHorizontal="16dp"
-                    android:visibility="invisible"/>
+                    android:paddingRight="10dp"
+                    android:paddingLeft="12dp"
+                    android:visibility="invisible">
 
-                <TextView
-                    android:id="@+id/hash_tag_four_text_view"
+                    <TextView
+                        android:id="@+id/hash_tag_three_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/infra_skyblue_a"
+                        android:textSize="11sp"
+                        android:paddingVertical="6dp"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_delete_hashtag"
+                        android:layout_marginLeft="6dp"
+                        app:layout_constraintTop_toTopOf="@id/hash_tag_three_text_view"
+                        app:layout_constraintBottom_toBottomOf="@id/hash_tag_three_text_view"
+                        app:layout_constraintLeft_toRightOf="@id/hash_tag_three_text_view"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/hash_tag_four_constraint_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/hash_tag_sub_keyword_background"
-                    app:layout_constraintTop_toTopOf="@id/hash_tag_three_text_view"
-                    app:layout_constraintLeft_toRightOf="@id/hash_tag_three_text_view"
-                    app:layout_constraintBottom_toBottomOf="@id/hash_tag_three_text_view"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/infra_skyblue_a"
-                    android:textSize="11sp"
+                    android:background="@drawable/hash_tag_keyword_skyblue_background"
+                    app:layout_constraintTop_toTopOf="@id/hash_tag_three_constraint_layout"
+                    app:layout_constraintLeft_toRightOf="@id/hash_tag_three_constraint_layout"
+                    app:layout_constraintBottom_toBottomOf="@id/hash_tag_three_constraint_layout"
                     android:layout_marginLeft="6dp"
-                    android:paddingVertical="6dp"
-                    android:paddingHorizontal="16dp"
-                    android:visibility="invisible"/>
+                    android:paddingRight="10dp"
+                    android:paddingLeft="12dp"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:id="@+id/hash_tag_four_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/infra_skyblue_a"
+                        android:textSize="11sp"
+                        android:paddingVertical="6dp"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_delete_hashtag"
+                        android:layout_marginLeft="6dp"
+                        app:layout_constraintTop_toTopOf="@id/hash_tag_four_text_view"
+                        app:layout_constraintBottom_toBottomOf="@id/hash_tag_four_text_view"
+                        app:layout_constraintLeft_toRightOf="@id/hash_tag_four_text_view"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>

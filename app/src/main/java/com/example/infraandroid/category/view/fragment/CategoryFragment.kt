@@ -7,7 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.viewpager2.widget.ViewPager2
+import com.example.infraandroid.R
 import com.example.infraandroid.category.view.adapter.CategoryPagerAdapter
 import com.example.infraandroid.databinding.FragmentCategoryBinding
 import com.google.android.material.tabs.TabLayout
@@ -37,6 +39,11 @@ class CategoryFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        mBinding?.createProjectConstraintLayout?.setOnClickListener {
+            it.findNavController().navigate(R.id.action_category_fragment_to_createProjectFragment)
+        }
+
         super.onViewCreated(view, savedInstanceState)
     }
 
@@ -58,10 +65,8 @@ class CategoryFragment : Fragment() {
 
         TabLayoutMediator(tabLayout, viewPager){tab, position ->
             when(position){
-                0->{
-                    tab.text = "아이디어"
-                }
-                1->tab.text = "팀원"
+                0-> tab.text = "아이디어"
+                1-> tab.text = "팀원"
             }
         }.attach()
 

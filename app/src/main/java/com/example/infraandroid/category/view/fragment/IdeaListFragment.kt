@@ -28,7 +28,7 @@ class IdeaListFragment : BaseFragment<FragmentIdeaListBinding>(R.layout.fragment
    override fun FragmentIdeaListBinding.onViewCreated(){
         binding.ideaListRecyclerView.adapter = ideaListAdapter
 
-        val call: Call<ResponseLookUpAllProjectData> = ServiceCreator.lookUpAllProjectService
+        val call: Call<ResponseLookUpAllProjectData> = ServiceCreator.projectService
             .getLookUpAllProject(InfraApplication.prefs.getString("jwt","null"), InfraApplication.prefs.getString("userId", "null"))
 
         call.enqueue(object : Callback<ResponseLookUpAllProjectData>{
