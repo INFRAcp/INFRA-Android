@@ -11,7 +11,7 @@
         android:id="@+id/team_member_evaluation_title_view"
         android:layout_width="match_parent"
         android:layout_height="57dp"
-        android:background="@color/infra_blue_c"
+        android:background="@color/infra_blue_b"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>

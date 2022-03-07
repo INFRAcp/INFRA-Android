@@ -43,7 +43,7 @@ class CategoryViewIdeaFragment : Fragment(){
                 userId = InfraApplication.prefs.getString("userId", "null")
             )
 
-            val call: Call<ResponseApplyProjectData> = ServiceCreator.applyProjectService
+            val call: Call<ResponseApplyProjectData> = ServiceCreator.projectService
                 .postApplyProject(requestApplyProjectData)
             call.enqueue(object:Callback<ResponseApplyProjectData>{
                 override fun onResponse(

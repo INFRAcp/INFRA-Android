@@ -36,6 +36,7 @@ class IdeaListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
             itemView.setOnClickListener {
                 it.findNavController().navigate(R.id.action_idea_list_fragment_to_categoryViewIdeaFragment)
+
             }
         }
     }

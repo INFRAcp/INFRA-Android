@@ -35,6 +35,12 @@ class MyIdeaFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val bottomSheetDialogFragment = MyProjectMoreMenuBottomSheetFragment()
+
+        mBinding?.moreImageButton?.setOnClickListener {
+            activity?.supportFragmentManager?.let { it1 -> bottomSheetDialogFragment.show(it1, bottomSheetDialogFragment.tag) }
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -53,6 +59,7 @@ class MyIdeaFragment : Fragment() {
                 Log.d(ContentValues.TAG, "onPageSelected: " + (position+1))
             }
         })
+
 
         TabLayoutMediator(tabLayout, viewPager){tab, position ->
             when(position){

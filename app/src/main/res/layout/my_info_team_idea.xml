@@ -11,7 +11,7 @@
         android:id="@+id/category_team_title_view"
         android:layout_width="match_parent"
         android:layout_height="57dp"
-        android:background="@color/infra_blue_c"
+        android:background="@color/infra_blue_b"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -31,9 +31,9 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/title_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="23dp"
             android:fontFamily="@font/noto_sans_kr_medium"
             android:includeFontPadding="false"
             android:text="멸종위기 동물이 내 방에? 축제"
@@ -41,7 +41,20 @@
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="@id/category_team_back_button"
             app:layout_constraintLeft_toRightOf="@id/category_team_back_button"
-            app:layout_constraintTop_toTopOf="@id/category_team_back_button" />
+            app:layout_constraintTop_toTopOf="@id/category_team_back_button"
+            app:layout_constraintRight_toLeftOf="@id/more_image_button"/>
+
+        <ImageButton
+            android:id="@+id/more_image_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="14dp"
+            android:padding="10dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_more_menu_icon"
+            app:layout_constraintBottom_toBottomOf="@id/title_text_view"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/title_text_view" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

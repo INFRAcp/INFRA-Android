@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -8,350 +10,442 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/category_team_idea_constraint_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/category_info_background"
-            android:fillViewport="true"
-            android:paddingBottom="30dp">
+            android:layout_height="wrap_content">
+            <!--        근데 이미지 동그랗게 들어오는거는 crop으로 가능-->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:src="@drawable/project_photo_back"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/category_team_idea_state_constraintlayout"
+                android:id="@+id/category_team_idea_constraint_layout"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="23dp"
-                android:layout_marginHorizontal="20dp"
-                android:background="@drawable/rounded_edittext_gray"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="184dp"
+                android:background="@drawable/category_info_background"
+                android:fillViewport="true"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
+
                 <TextView
-                    android:id="@+id/category_team_idea_state_textview"
+                    android:id="@+id/category_team_idea_category_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="28dp"
                     android:fontFamily="@font/noto_sans_kr_bold"
                     android:includeFontPadding="false"
-                    android:text="마감임박!"
-                    android:textColor="@color/infra_purple_a"
-                    android:textSize="13sp"
+                    android:text="대외활동"
+                    android:textColor="@color/infra_gray_i"
+                    android:textSize="14sp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginStart="20dp"/>
+                    app:layout_constraintTop_toTopOf="@id/category_team_idea_constraint_layout" />
+
                 <TextView
-                    android:id="@+id/category_team_idea_deadline_textview"
+                    android:id="@+id/category_team_idea_category_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/noto_sans_kr_bold"
                     android:includeFontPadding="false"
-                    android:text="2022년 1월 25일까지 모집"
-                    android:textColor="@color/infra_purple_a"
-                    android:textSize="12sp"
-                    app:layout_constraintStart_toEndOf="@id/category_team_idea_state_textview"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginStart="10dp"/>
-                <ImageView
-                    android:id="@+id/people_icon"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:src="@drawable/ic_uil_users_number"
-                    app:layout_constraintEnd_toStartOf="@id/category_team_idea_member_textview"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginEnd="4dp"/>
+                    android:layout_marginLeft="4dp"
+                    android:text=">"
+                    android:textColor="@color/infra_gray_i"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/category_team_idea_category_textview"
+                    app:layout_constraintLeft_toRightOf="@id/category_team_idea_category_textview"
+                    app:layout_constraintTop_toTopOf="@id/category_team_idea_category_textview" />
+
                 <TextView
-                    android:id="@+id/category_team_idea_member_textview"
+                    android:id="@+id/category_team_idea_category_detail_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="6/8명"
-                    android:textSize="12sp"
+                    android:fontFamily="@font/noto_sans_kr_bold"
                     android:includeFontPadding="false"
+                    android:layout_marginLeft="4dp"
+                    android:text="공모전"
+                    android:textColor="@color/infra_gray_i"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@id/category_team_idea_category_detail"
+                    app:layout_constraintLeft_toRightOf="@id/category_team_idea_category_detail"
+                    app:layout_constraintTop_toTopOf="@id/category_team_idea_category_detail" />
+
+                <TextView
+                    android:id="@+id/category_team_idea_title_textview"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/noto_sans_kr_bold"
+                    android:includeFontPadding="false"
+                    android:text="멸종 위기 동물이 내 방에? 축제"
+                    android:textColor="@color/black"
+                    android:textSize="23sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/category_team_idea_category_textview" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:layout_marginEnd="20dp"
-                    android:fontFamily="@font/noto_sans_kr_bold"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginTop="24dp">
+                    <ImageView
+                        android:id="@+id/category_team_idea_like_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_bookmark_yellow"
+                        android:visibility="gone"/>
+                    <ImageView
+                        android:id="@+id/category_team_idea_unlike_iv"
+                        android:layout_width="26dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_bookmark" />
+                </LinearLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="104dp"
-                android:layout_height="8dp"
-                android:background="@color/infra_orange_a"
-                android:fillViewport="true"
-                app:layout_constraintBottom_toBottomOf="@id/category_team_idea_textview"
-                app:layout_constraintEnd_toEndOf="@id/category_team_idea_textview"
-                app:layout_constraintStart_toStartOf="@id/category_team_idea_textview"
-                app:layout_constraintTop_toTopOf="@id/category_team_idea_textview" />
-            <TextView
-                android:id="@+id/category_team_idea_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="42dp"
-                android:fontFamily="@font/noto_sans_kr_medium"
-                android:includeFontPadding="false"
-                android:text="아이디어 내용"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/category_team_idea_state_constraintlayout" />
-            <LinearLayout
-                android:id="@+id/category_team_idea_idea_linearlayout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
-                android:layout_marginHorizontal="40dp"
-                android:orientation="vertical"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/category_team_idea_textview">
-                <TextView
-                    android:id="@+id/category_team_idea_text_textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/noto_sans_kr_light"
-                    android:includeFontPadding="false"
-                    android:text="멸종 위기 동물에 대한 심각성을 자연스럽게 인지하는 동시에 잘못된 인식을 바꾼다. 기부에 대한 부정적인 인식을 바꾸고 멸종 위기 동물 보존을 위한 기부금을 모은다."
-                    android:textColor="@color/black"
-                    android:textSize="15sp" />
-                <ImageView
-                    android:id="@+id/category_info_user_photo2_imageview"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/category_team_idea_state_constraintlayout"
                     android:layout_width="match_parent"
-                    android:layout_height="380dp"
-                    android:src="@drawable/poster_example"
-                    android:layout_marginTop="22dp"/>
-            </LinearLayout>
+                    android:layout_height="40dp"
+                    android:layout_marginTop="23dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:background="@drawable/rounded_edittext_gray"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/category_team_idea_title_textview">
+                    <TextView
+                        android:id="@+id/category_team_idea_state_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:includeFontPadding="false"
+                        android:text="마감임박!"
+                        android:textColor="@color/infra_purple_a"
+                        android:textSize="13sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="20dp"/>
+                    <TextView
+                        android:id="@+id/category_team_idea_deadline_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:includeFontPadding="false"
+                        android:text="2022년 1월 25일까지 모집"
+                        android:textColor="@color/infra_purple_a"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/category_team_idea_state_textview"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="10dp"/>
+                    <ImageView
+                        android:id="@+id/people_icon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_uil_users_number"
+                        app:layout_constraintEnd_toStartOf="@id/category_team_idea_member_textview"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginEnd="4dp"/>
+                    <TextView
+                        android:id="@+id/category_team_idea_member_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="6/8명"
+                        android:textSize="12sp"
+                        android:includeFontPadding="false"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginEnd="20dp"
+                        android:fontFamily="@font/noto_sans_kr_regular"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="76dp"
-                android:layout_height="8dp"
-                android:background="@color/infra_orange_a"
-                android:fillViewport="true"
-                app:layout_constraintBottom_toBottomOf="@id/category_team_idea_period_textview"
-                app:layout_constraintEnd_toEndOf="@id/category_team_idea_period_textview"
-                app:layout_constraintStart_toStartOf="@id/category_team_idea_period_textview"
-                app:layout_constraintTop_toTopOf="@id/category_team_idea_period_textview" />
-            <TextView
-                android:id="@+id/category_team_idea_period_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="68dp"
-                android:fontFamily="@font/noto_sans_kr_medium"
-                android:includeFontPadding="false"
-                android:text="제작 기간"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/category_team_idea_idea_linearlayout" />
-            <TextView
-                android:id="@+id/category_team_idea_period_text_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/noto_sans_kr_medium"
-                android:includeFontPadding="false"
-                android:text="2022년 1월 25일 - 2022년 2월 15일"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/category_team_idea_period_textview"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="40dp" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="76dp"
-                android:layout_height="8dp"
-                android:background="@color/infra_orange_a"
-                android:fillViewport="true"
-                app:layout_constraintBottom_toBottomOf="@id/category_team_idea_progress_textview"
-                app:layout_constraintEnd_toEndOf="@id/category_team_idea_progress_textview"
-                app:layout_constraintStart_toStartOf="@id/category_team_idea_progress_textview"
-                app:layout_constraintTop_toTopOf="@id/category_team_idea_progress_textview" />
-            <TextView
-                android:id="@+id/category_team_idea_progress_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="68dp"
-                android:fontFamily="@font/noto_sans_kr_medium"
-                android:includeFontPadding="false"
-                android:text="진행 상황"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/category_team_idea_period_text_textview" />
-            <TextView
-                android:id="@+id/category_team_idea_progress_text_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/noto_sans_kr_regular"
-                android:includeFontPadding="false"
-                android:text="보시다시피 포스터작업은 끝났습니다."
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/category_team_idea_progress_textview"
-                android:layout_marginTop="12dp"
-                android:layout_marginStart="40dp" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="40dp"
-                android:layout_height="8dp"
-                android:background="@color/infra_orange_a"
-                android:fillViewport="true"
-                app:layout_constraintBottom_toBottomOf="@id/category_team_idea_leader_textview"
-                app:layout_constraintEnd_toEndOf="@id/category_team_idea_leader_textview"
-                app:layout_constraintStart_toStartOf="@id/category_team_idea_leader_textview"
-                app:layout_constraintTop_toTopOf="@id/category_team_idea_leader_textview" />
-            <TextView
-                android:id="@+id/category_team_idea_leader_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="36dp"
-                android:layout_marginTop="68dp"
-                android:fontFamily="@font/noto_sans_kr_medium"
-                android:includeFontPadding="false"
-                android:text="팀장"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/category_team_idea_progress_text_textview" />
-            <ImageView
-                android:id="@+id/category_team_idea_leader_profile_iv"
-                android:layout_width="71dp"
-                android:layout_height="71dp"
-                android:src="@drawable/user_profile"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/category_team_idea_leader_textview"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="35dp"/>
-            <TextView
-                android:id="@+id/category_team_idea_leader_name_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/noto_sans_kr_medium"
-                android:includeFontPadding="false"
-                android:text="회의 러버"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@id/category_team_idea_leader_profile_iv"
-                app:layout_constraintTop_toTopOf="@id/category_team_idea_leader_profile_iv"
-                app:layout_constraintBottom_toBottomOf="@id/category_team_idea_leader_profile_iv"
-                android:layout_marginStart="16dp"/>
-
-            <LinearLayout
-                android:id="@+id/hash_tag_team_idea"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="40dp"
-                app:layout_constraintTop_toBottomOf="@id/category_team_idea_leader_profile_iv"
-                android:layout_marginTop="62dp">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="104dp"
+                    android:layout_height="8dp"
+                    android:background="@color/infra_orange_a"
+                    android:fillViewport="true"
+                    app:layout_constraintBottom_toBottomOf="@id/category_team_idea_textview"
+                    app:layout_constraintEnd_toEndOf="@id/category_team_idea_textview"
+                    app:layout_constraintStart_toStartOf="@id/category_team_idea_textview"
+                    app:layout_constraintTop_toTopOf="@id/category_team_idea_textview" />
                 <TextView
-                    android:id="@+id/category_info_hash_tag_one"
+                    android:id="@+id/category_team_idea_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="동물"
-                    android:background="@drawable/hash_tag_keyword_skyblue_background"
-                    android:paddingVertical="5dp"
-                    android:paddingHorizontal="14dp"
-                    android:textSize="11sp"
-                    android:fontFamily="@font/noto_sans_kr_medium"
-                    android:textColor="@color/infra_skyblue_a"
-                    android:includeFontPadding="false"/>
-                <TextView
-                    android:id="@+id/category_info_hash_tag_two"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="웹디자인"
-                    android:layout_marginStart="6dp"
-                    android:background="@drawable/hash_tag_keyword_skyblue_background"
-                    android:paddingVertical="5dp"
-                    android:paddingHorizontal="14dp"
-                    android:textSize="11sp"
-                    android:fontFamily="@font/noto_sans_kr_medium"
-                    android:textColor="@color/infra_skyblue_a"
-                    android:includeFontPadding="false"/>
-                <TextView
-                    android:id="@+id/category_info_hash_tag_three"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="CAD"
-                    android:layout_marginStart="6dp"
-                    android:background="@drawable/hash_tag_keyword_skyblue_background"
-                    android:paddingVertical="5dp"
-                    android:paddingHorizontal="14dp"
-                    android:textSize="11sp"
-                    android:fontFamily="@font/noto_sans_kr_medium"
-                    android:textColor="@color/infra_skyblue_a"
-                    android:includeFontPadding="false"/>
-                <TextView
-                    android:id="@+id/category_info_hash_tag_four"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="스터디"
-                    android:layout_marginStart="6dp"
-                    android:background="@drawable/hash_tag_main_keyword_background"
-                    android:paddingVertical="5dp"
-                    android:paddingHorizontal="14dp"
-                    android:textSize="11sp"
-                    android:fontFamily="@font/noto_sans_kr_medium"
-                    android:textColor="@color/infra_blue_c"
-                    android:includeFontPadding="false"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="40dp"
-                app:layout_constraintTop_toBottomOf="@id/hash_tag_team_idea"
-                android:layout_marginTop="26dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="50dp">
-                <ImageView
-                    android:id="@+id/category_team_idea_see_iv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_see"
-                    android:layout_marginTop="3dp"/>
-                <TextView
-                    android:id="@+id/category_team_idea_see_textview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="42dp"
                     android:fontFamily="@font/noto_sans_kr_medium"
                     android:includeFontPadding="false"
-                    android:text="130"
-                    android:textColor="@color/infra_light_gray_b"
-                    android:textSize="12sp" />
+                    android:text="아이디어 내용"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/category_team_idea_state_constraintlayout" />
+                <LinearLayout
+                    android:id="@+id/category_team_idea_idea_linearlayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="22dp"
+                    android:layout_marginHorizontal="40dp"
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/category_team_idea_textview">
+                    <TextView
+                        android:id="@+id/category_team_idea_text_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/noto_sans_kr_light"
+                        android:includeFontPadding="false"
+                        android:text="멸종 위기 동물에 대한 심각성을 자연스럽게 인지하는 동시에 잘못된 인식을 바꾼다. 기부에 대한 부정적인 인식을 바꾸고 멸종 위기 동물 보존을 위한 기부금을 모은다."
+                        android:textColor="@color/black"
+                        android:textSize="15sp" />
+                    <ImageView
+                        android:id="@+id/category_info_user_photo2_imageview"
+                        android:layout_width="match_parent"
+                        android:layout_height="380dp"
+                        android:src="@drawable/poster_example"
+                        android:layout_marginTop="22dp"/>
+                </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/category_team_idea_bookmark_iv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_bookmark_gray"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginStart="15dp"/>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="76dp"
+                    android:layout_height="8dp"
+                    android:background="@color/infra_orange_a"
+                    android:fillViewport="true"
+                    app:layout_constraintBottom_toBottomOf="@id/category_team_idea_period_textview"
+                    app:layout_constraintEnd_toEndOf="@id/category_team_idea_period_textview"
+                    app:layout_constraintStart_toStartOf="@id/category_team_idea_period_textview"
+                    app:layout_constraintTop_toTopOf="@id/category_team_idea_period_textview" />
                 <TextView
-                    android:id="@+id/category_team_idea_bookmark_textview"
+                    android:id="@+id/category_team_idea_period_textview"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="68dp"
                     android:fontFamily="@font/noto_sans_kr_medium"
                     android:includeFontPadding="false"
-                    android:text="7"
-                    android:textColor="@color/infra_light_gray_b"
-                    android:textSize="12sp" />
-            </LinearLayout>
+                    android:text="제작 기간"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/category_team_idea_idea_linearlayout" />
+                <TextView
+                    android:id="@+id/category_team_idea_period_text_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:includeFontPadding="false"
+                    android:text="2022년 1월 25일 - 2022년 2월 15일"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/category_team_idea_period_textview"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="40dp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="76dp"
+                    android:layout_height="8dp"
+                    android:background="@color/infra_orange_a"
+                    android:fillViewport="true"
+                    app:layout_constraintBottom_toBottomOf="@id/category_team_idea_progress_textview"
+                    app:layout_constraintEnd_toEndOf="@id/category_team_idea_progress_textview"
+                    app:layout_constraintStart_toStartOf="@id/category_team_idea_progress_textview"
+                    app:layout_constraintTop_toTopOf="@id/category_team_idea_progress_textview" />
+                <TextView
+                    android:id="@+id/category_team_idea_progress_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="68dp"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:includeFontPadding="false"
+                    android:text="진행 상황"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/category_team_idea_period_text_textview" />
+                <TextView
+                    android:id="@+id/category_team_idea_progress_text_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_kr_regular"
+                    android:includeFontPadding="false"
+                    android:text="보시다시피 포스터작업은 끝났습니다."
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/category_team_idea_progress_textview"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginStart="40dp" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="40dp"
+                    android:layout_height="8dp"
+                    android:background="@color/infra_orange_a"
+                    android:fillViewport="true"
+                    app:layout_constraintBottom_toBottomOf="@id/category_team_idea_leader_textview"
+                    app:layout_constraintEnd_toEndOf="@id/category_team_idea_leader_textview"
+                    app:layout_constraintStart_toStartOf="@id/category_team_idea_leader_textview"
+                    app:layout_constraintTop_toTopOf="@id/category_team_idea_leader_textview" />
+                <TextView
+                    android:id="@+id/category_team_idea_leader_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="36dp"
+                    android:layout_marginTop="68dp"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:includeFontPadding="false"
+                    android:text="팀장"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/category_team_idea_progress_text_textview" />
+                <ImageView
+                    android:id="@+id/category_team_idea_leader_profile_iv"
+                    android:layout_width="71dp"
+                    android:layout_height="71dp"
+                    android:src="@drawable/user_profile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/category_team_idea_leader_textview"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginStart="35dp"/>
+                <TextView
+                    android:id="@+id/category_team_idea_leader_name_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_kr_medium"
+                    android:includeFontPadding="false"
+                    android:text="회의 러버"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toEndOf="@id/category_team_idea_leader_profile_iv"
+                    app:layout_constraintTop_toTopOf="@id/category_team_idea_leader_profile_iv"
+                    app:layout_constraintBottom_toBottomOf="@id/category_team_idea_leader_profile_iv"
+                    android:layout_marginStart="16dp"/>
+
+                <LinearLayout
+                    android:id="@+id/hash_tag_team_idea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="40dp"
+                    app:layout_constraintTop_toBottomOf="@id/category_team_idea_leader_profile_iv"
+                    android:layout_marginTop="62dp">
+                    <TextView
+                        android:id="@+id/category_info_hash_tag_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="동물"
+                        android:background="@drawable/hash_tag_keyword_skyblue_background"
+                        android:paddingVertical="5dp"
+                        android:paddingHorizontal="14dp"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:textColor="@color/infra_skyblue_a"
+                        android:includeFontPadding="false"/>
+                    <TextView
+                        android:id="@+id/category_info_hash_tag_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="웹디자인"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/hash_tag_keyword_skyblue_background"
+                        android:paddingVertical="5dp"
+                        android:paddingHorizontal="14dp"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:textColor="@color/infra_skyblue_a"
+                        android:includeFontPadding="false"/>
+                    <TextView
+                        android:id="@+id/category_info_hash_tag_three"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="CAD"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/hash_tag_keyword_skyblue_background"
+                        android:paddingVertical="5dp"
+                        android:paddingHorizontal="14dp"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:textColor="@color/infra_skyblue_a"
+                        android:includeFontPadding="false"/>
+                    <TextView
+                        android:id="@+id/category_info_hash_tag_four"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="스터디"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/hash_tag_main_keyword_background"
+                        android:paddingVertical="5dp"
+                        android:paddingHorizontal="14dp"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:textColor="@color/infra_blue_c"
+                        android:includeFontPadding="false"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginStart="40dp"
+                    app:layout_constraintTop_toBottomOf="@id/hash_tag_team_idea"
+                    android:layout_marginTop="26dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="50dp">
+                    <ImageView
+                        android:id="@+id/category_team_idea_see_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_see"
+                        android:layout_marginTop="3dp"/>
+                    <TextView
+                        android:id="@+id/category_team_idea_see_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:includeFontPadding="false"
+                        android:text="130"
+                        android:textColor="@color/infra_light_gray_b"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:id="@+id/category_team_idea_bookmark_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_bookmark_gray"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginStart="15dp"/>
+                    <TextView
+                        android:id="@+id/category_team_idea_bookmark_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:fontFamily="@font/noto_sans_kr_medium"
+                        android:includeFontPadding="false"
+                        android:text="7"
+                        android:textColor="@color/infra_light_gray_b"
+                        android:textSize="12sp" />
+                </LinearLayout>
 
 
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
