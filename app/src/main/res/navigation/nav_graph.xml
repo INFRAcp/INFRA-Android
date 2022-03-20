@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_home_fragment_to_categoryViewIdeaFragment"
             app:destination="@id/categoryViewIdeaFragment" />
+        <action
+            android:id="@+id/action_home_fragment_to_idea_list_fragment"
+            app:destination="@id/idea_list_fragment" />
     </fragment>
     <fragment
         android:id="@+id/category_fragment"
@@ -114,6 +117,11 @@
         <action
             android:id="@+id/action_idea_list_fragment_to_categoryViewIdeaFragment"
             app:destination="@id/categoryViewIdeaFragment" />
+        <argument
+            android:name="searchKeyword"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
     </fragment>
     <fragment
         android:id="@+id/sign_up_first_fragment"
@@ -242,7 +250,11 @@
         android:id="@+id/categoryViewIdeaFragment"
         android:name="com.example.infraandroid.category.view.fragment.CategoryViewIdeaFragment"
         android:label="fragment_view_idea"
-        tools:layout="@layout/fragment_view_idea" />
+        tools:layout="@layout/fragment_view_idea" >
+        <argument
+            android:name="projectNum"
+            app:argType="integer" />
+    </fragment>
     <fragment
         android:id="@+id/myInfoTeamMemberEvaluationFragment"
         android:name="com.example.infraandroid.myinfo.teammembereval.view.fragment.TeamMemberEvalFragment"

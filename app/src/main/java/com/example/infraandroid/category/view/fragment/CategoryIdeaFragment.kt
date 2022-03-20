@@ -4,10 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentCategoryIdeaBinding
+import com.example.infraandroid.home.view.fragment.HomeFragmentDirections
 
 // 카테고리의 아이디어 탭
 
@@ -36,6 +38,16 @@ class CategoryIdeaFragment : Fragment() {
 
         mBinding?.lookMyIdeaButton?.setOnClickListener {
             it.findNavController().navigate(R.id.action_category_fragment_to_myInfoMyIdeaFragment)
+        }
+
+        mBinding?.categorySearchImageView?.setOnClickListener {
+            if(mBinding?.categoryIdeaSearchEditText?.text.toString().length>=2){
+                val action = CategoryFragmentDirections.actionCategoryFragmentToIdeaListFragment(mBinding?.categoryIdeaSearchEditText?.text.toString())
+                it.findNavController().navigate(action)
+            }
+            else{
+                Toast.makeText(requireActivity(), "검색어 2글자 이상 입력해주세요", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 

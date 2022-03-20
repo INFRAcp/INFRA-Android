@@ -33,7 +33,6 @@ class IdeaListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun onBind(ideaListInfo: ResponseLookUpAllProjectData.Result){
             ImageRound.roundAll(binding.projectImageView, 36f)
             binding.projectList  = ideaListInfo
-
             itemView.setOnClickListener {
                 it.findNavController().navigate(R.id.action_idea_list_fragment_to_categoryViewIdeaFragment)
 
