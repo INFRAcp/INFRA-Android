@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.infraandroid.util.InfraApplication
@@ -77,6 +78,16 @@ class HomeFragment : Fragment() {
 
         mBinding?.homeBtnMakeNewProj?.setOnClickListener {
             it.findNavController().navigate(R.id.action_home_fragment_to_createProjectFragment)
+        }
+
+        mBinding?.homeKeywordSearchIv?.setOnClickListener{
+            if(mBinding?.homeSearchEt?.text.toString().length>=2){
+                val action = HomeFragmentDirections.actionHomeFragmentToIdeaListFragment(mBinding?.homeSearchEt?.text.toString())
+                it.findNavController().navigate(action)
+            }
+            else{
+                Toast.makeText(requireActivity(), "검색어 2글자 이상 입력해주세요", Toast.LENGTH_SHORT).show()
+            }
         }
     }
     override fun onDestroyView() {

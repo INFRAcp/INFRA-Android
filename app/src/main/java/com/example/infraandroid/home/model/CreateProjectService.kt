@@ -1,5 +1,6 @@
 package com.example.infraandroid.home.model
 
+import com.example.infraandroid.category.model.ResponseLookUpAllProjectData
 import com.example.infraandroid.id.model.RequestLoginData
 import com.example.infraandroid.id.model.ResponseLoginData
 import okhttp3.MultipartBody
@@ -15,4 +16,11 @@ interface CreateProjectService {
         @Part ("jsonList") jsonList: RequestBody,
         @Part images: MultipartBody.Part?,
     ): Call<ResponseCreateProjectData>
+
+    @GET("/project/inquiry?")
+    fun searchProject(
+        @Header("X-ACCESS-TOKEN") jwt: String,
+        @Query("search") searchKeyword : String,
+        @Query("user_id") userId : String
+    ): Call<ResponseLookUpAllProjectData>
 }
