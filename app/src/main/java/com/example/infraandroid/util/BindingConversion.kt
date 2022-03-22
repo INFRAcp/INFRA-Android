@@ -11,12 +11,46 @@ import androidx.core.view.isVisible
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.example.infraandroid.R
+import org.w3c.dom.Text
 
 object BindingConversions {
     @JvmStatic
     @BindingAdapter("loadImg")
-    fun loadImage(imageView: ImageView, url: String){
+    fun loadImage(imageView: ImageView, url: String?){
         Glide.with(imageView.context).load(url)
+            .error(R.drawable.ic_infra_logo)
+            .into(imageView)
+    }
+
+    @JvmStatic
+    @BindingAdapter("projectImg")
+    fun projectImg(imageView: ImageView, url: String?){
+        if(url==null){
+            imageView.isGone = true
+        }
+        else{
+            Glide.with(imageView.context).load(url)
+                .into(imageView)
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter("makingTerm")
+    fun makingTerm(textView: TextView, startDate: String, endDate: String){
+        val startYear = startDate.substring(0 until 5).toInt()
+        val startMonth = startDate.substring(5 until 7).toInt()
+        val startDay = startDate.substring(9 until 11).toInt()
+        val endYear = startDate.substring(0 until 5).toInt()
+        val endMonth = startDate.substring(5 until 7).toInt()
+        val endDay = startDate.substring(9 until 11).toInt()
+        textView.text = "${startYear}년 ${startMonth}월 ${startDay}일-${endYear}년 ${endMonth}월 ${endDay}일"
+    }
+
+    @JvmStatic
+    @BindingAdapter("loadCircleImg")
+    fun loadCircleImg(imageView: ImageView, url: String?){
+        Glide.with(imageView.context).load(url)
+            .circleCrop()
             .error(R.drawable.ic_infra_logo)
             .into(imageView)
     }
@@ -48,12 +82,32 @@ object BindingConversions {
 
     @JvmStatic
     @BindingAdapter("deadline")
-    fun setDeadlineText(textView: TextView, comment: String){
+    fun setDeadlineText(textView: TextView, comment: String?){
         textView.text = comment
         when(comment){
             "마감" -> textView.setTextColor(Color.parseColor("#8F8F8F"))
             "마감임박" -> textView.setTextColor(Color.parseColor("#9277F8"))
             "모집중" -> textView.setTextColor(Color.parseColor("#4B8EFF"))
         }
+    }
+
+    @JvmStatic
+    @BindingAdapter(value = ["endRecruitDate", "status"], requireAll = true)
+    fun setEndRecruitText(textView: TextView, endRecruitDate: String, status: String){
+        val year = endRecruitDate.substring(0 until 5).toInt()
+        val month = endRecruitDate.substring(5 until 7).toInt()
+        val day = endRecruitDate.substring(9 until 11).toInt()
+        textView.text = "{$year}년 {$month}월 {$day}일까지 모집"
+        when(status){
+            "마감" -> textView.setTextColor(Color.parseColor("#8F8F8F"))
+            "마감임박" -> textView.setTextColor(Color.parseColor("#9277F8"))
+            "모집중" -> textView.setTextColor(Color.parseColor("#4B8EFF"))
+        }
+    }
+
+    @JvmStatic
+    @BindingAdapter("intToString")
+    fun intToString(textView: TextView, number: Int){
+        textView.text = number.toString()
     }
 }

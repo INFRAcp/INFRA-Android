@@ -1,14 +1,12 @@
 package com.example.infraandroid.category.model
 
-import org.w3c.dom.Comment
-
 data class ResponseApplyProjectData(
     val isSuccess: Boolean,
     val code: Int,
     val message: String,
-    val result: Comment?
+    val result: Result?
 ){
-    data class Comment(
+    data class Result(
         val comment: String,
     )
 }
