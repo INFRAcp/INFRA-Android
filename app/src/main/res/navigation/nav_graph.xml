@@ -46,6 +46,11 @@
         <action
             android:id="@+id/action_chat_fragment_to_chatting_room_list_fragment"
             app:destination="@id/chatting_room_list_fragment" />
+        <argument
+            android:name="writerId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
     </fragment>
     <fragment
         android:id="@+id/my_info_fragment"
@@ -254,6 +259,9 @@
         <argument
             android:name="projectNum"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_categoryViewIdeaFragment_to_chat_fragment"
+            app:destination="@id/chat_fragment" />
     </fragment>
     <fragment
         android:id="@+id/myInfoTeamMemberEvaluationFragment"

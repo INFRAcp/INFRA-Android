@@ -23,4 +23,11 @@ interface CreateProjectService {
         @Query("search") searchKeyword : String,
         @Query("user_id") userId : String
     ): Call<ResponseLookUpAllProjectData>
+
+    @GET("/project/hot?")
+    fun hotProject(
+        @Header("X-ACCESS-TOKEN") jwt: String,
+        @Header("X-REFRESH-TOKEN") refreshToken: Int,
+        @Query("user_id") userId : String
+    )
 }

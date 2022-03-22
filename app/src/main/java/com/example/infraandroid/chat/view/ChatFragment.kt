@@ -9,6 +9,7 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.infraandroid.util.InfraApplication
 import com.example.infraandroid.R
 import com.example.infraandroid.chat.model.MessageInfo
@@ -28,8 +29,9 @@ class ChatFragment : Fragment() {
     private  var mBinding : FragmentChatBinding? = null
     private val chatAdapter = ChatMultiViewAdapter()
     private val database = Firebase.database
+    private val args: ChatFragmentArgs by navArgs()
     val chatList = mutableListOf<MessageInfo>()
-    lateinit var opponentId : String
+    private val opponentId = args.writerId
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -78,9 +80,9 @@ class ChatFragment : Fragment() {
                             date = thisMessageTime
                         }
                     }
-                    if(snapshot.key=="user1") {
-                        opponentId = snapshot.value.toString()
-                    }
+//                    if(snapshot.key=="user1") {
+//                        opponentId = snapshot.value.toString()
+//                    }
                 }
                 if(tempMessage.senderId!="" && tempMessage.message!="" && tempMessage.sendTime!="")
                     chatList.add(tempMessage)
@@ -148,7 +150,7 @@ class ChatFragment : Fragment() {
             val userHashMap = HashMap<String, String>()
             userHashMap["user1"] = InfraApplication.prefs.getString("userNickName", "null")
             // 상대방의 아이디 가져와서 user2에 저장
-            userHashMap["user2"] = opponentId
+            userHashMap["user2"] = opponentId.toString()
             userHashMap["user1ProfileImg"] = "user1의 프로필 이미지 url"
             userHashMap["user2ProfileImg"] = "user2의 프로필 이미지 url"
             userRef.setValue(userHashMap)

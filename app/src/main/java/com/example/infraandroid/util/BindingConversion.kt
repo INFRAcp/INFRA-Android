@@ -25,24 +25,25 @@ object BindingConversions {
     @JvmStatic
     @BindingAdapter("projectImg")
     fun projectImg(imageView: ImageView, url: String?){
-        if(url==null){
+        if(url=="https://infra-infra-bucket.s3.ap-northeast-2.amazonaws.com/pjphoto/infra_project.png"){
             imageView.isGone = true
         }
         else{
+            imageView.isVisible = true
             Glide.with(imageView.context).load(url)
                 .into(imageView)
         }
     }
 
     @JvmStatic
-    @BindingAdapter("makingTerm")
-    fun makingTerm(textView: TextView, startDate: String, endDate: String){
-        val startYear = startDate.substring(0 until 5).toInt()
-        val startMonth = startDate.substring(5 until 7).toInt()
-        val startDay = startDate.substring(9 until 11).toInt()
-        val endYear = startDate.substring(0 until 5).toInt()
-        val endMonth = startDate.substring(5 until 7).toInt()
-        val endDay = startDate.substring(9 until 11).toInt()
+    @BindingAdapter("startDate", "endDate")
+    fun makingTerm(textView: TextView, startDate: String?, endDate: String?){
+        val startYear = startDate?.substring(0 until 4)?.toInt()
+        val startMonth = startDate?.substring(5 until 7)?.toInt()
+        val startDay = startDate?.substring(8 until 10)?.toInt()
+        val endYear = endDate?.substring(0 until 4)?.toInt()
+        val endMonth = endDate?.substring(5 until 7)?.toInt()
+        val endDay = endDate?.substring(8 until 10)?.toInt()
         textView.text = "${startYear}년 ${startMonth}월 ${startDay}일-${endYear}년 ${endMonth}월 ${endDay}일"
     }
 
@@ -92,12 +93,12 @@ object BindingConversions {
     }
 
     @JvmStatic
-    @BindingAdapter(value = ["endRecruitDate", "status"], requireAll = true)
-    fun setEndRecruitText(textView: TextView, endRecruitDate: String, status: String){
-        val year = endRecruitDate.substring(0 until 5).toInt()
-        val month = endRecruitDate.substring(5 until 7).toInt()
-        val day = endRecruitDate.substring(9 until 11).toInt()
-        textView.text = "{$year}년 {$month}월 {$day}일까지 모집"
+    @BindingAdapter("endRecruitDate", "status")
+    fun setEndRecruitText(textView: TextView, endRecruitDate: String?, status: String?){
+        val year = endRecruitDate?.substring(0,4)?.toInt()
+        val month = endRecruitDate?.substring(5,7)?.toInt()
+        val day = endRecruitDate?.substring(8,10)?.toInt()
+        textView.text = "${year}년 ${month}월 ${day}일까지 모집"
         when(status){
             "마감" -> textView.setTextColor(Color.parseColor("#8F8F8F"))
             "마감임박" -> textView.setTextColor(Color.parseColor("#9277F8"))

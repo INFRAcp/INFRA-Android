@@ -33,12 +33,12 @@ class MyIdeaMemberFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //팀원 관리 어뎁터 연결
-        mBinding?.teamMemberManagementRecyclerview?.adapter = TeamMemberAdapter
-        val tempDataMember = MyIdeaMemberManageInfo(3,"김프라")
-        teamMemberInfo.add(tempDataMember)
-        TeamMemberAdapter.teamMemderlist.addAll(teamMemberInfo)
-        TeamMemberAdapter.notifyDataSetChanged()
+//        //팀원 관리 어뎁터 연결
+//        mBinding?.teamMemberManagementRecyclerview?.adapter = TeamMemberAdapter
+//        val tempDataMember = MyIdeaMemberManageInfo(3,"김프라")
+//        teamMemberInfo.add(tempDataMember)
+//        TeamMemberAdapter.teamMemderlist.addAll(teamMemberInfo)
+//        TeamMemberAdapter.notifyDataSetChanged()
 
         //신청 관리 어뎁터 연결
         mBinding?.applicationManagementRecyclerview?.adapter = TeamMemberAppliAdapter

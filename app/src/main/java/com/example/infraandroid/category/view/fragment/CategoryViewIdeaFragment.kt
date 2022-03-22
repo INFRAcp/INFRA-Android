@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.infraandroid.R
 import com.example.infraandroid.category.model.RequestApplyProjectData
@@ -25,6 +26,7 @@ import retrofit2.Response
 // 다른 사람의 아이디어를 눌렀을 때 볼 수 있는 자세히 보기 뷰
 
 class CategoryViewIdeaFragment : BaseFragment<FragmentViewIdeaBinding>(R.layout.fragment_view_idea){
+    private var writerId : String ?= null
 
     override fun FragmentViewIdeaBinding.onCreateView(){
 
@@ -49,9 +51,8 @@ class CategoryViewIdeaFragment : BaseFragment<FragmentViewIdeaBinding>(R.layout.
             ) {
                 if(response.isSuccessful){
                     when(response.body()?.code){
-                        1000 -> {
-                            Log.d(TAG, "onResponse: "+"접속연결성공!")
-                            binding.viewIdea = response.body()?.result }
+                        1000 -> { binding.viewIdea = response.body()?.result
+                        writerId = response.body()?.result?.user_id }
                     }
                 }
             }
@@ -59,11 +60,15 @@ class CategoryViewIdeaFragment : BaseFragment<FragmentViewIdeaBinding>(R.layout.
             override fun onFailure(call: Call<ResponseViewIdeaData>, t: Throwable) {
                 Log.d(TAG, "onFailure: $t")
             }
-
         })
 
+        binding.startChattingImageButton.setOnClickListener {
+            val action = CategoryViewIdeaFragmentDirections.actionCategoryViewIdeaFragmentToChatFragment(writerId = writerId)
+            it.findNavController().navigate(action)
+        }
 
-        val applyButton = binding.teamIdeaApplyButton as AppCompatButton
+
+        val applyButton = binding.teamIdeaApplyButton
         applyButton.setOnClickListener {
             val requestApplyProjectData = RequestApplyProjectData(
                 projectNum = projectNum,
