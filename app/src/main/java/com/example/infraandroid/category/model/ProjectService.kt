@@ -12,13 +12,15 @@ interface ProjectService {
 
     @POST("/project/apply")
     fun postApplyProject(
+        @Header("X-ACCESS-TOKEN") jwt: String,
+        @Header("X-REFRESH-TOKEN") refreshToken: Int,
         @Body body : RequestApplyProjectData
     ): Call<ResponseApplyProjectData>
 
     @GET("/project/contact")
     fun viewProject(
         @Header("X-ACCESS-TOKEN") jwt: String,
-        @Header("X-REFRESH-TOKEN") refreshToken: String,
+        @Header("X-REFRESH-TOKEN") refreshToken: Int,
         @Query("pj_num") projectNum : Int,
         @Query("user_id") userId : String
     ): Call<ResponseViewIdeaData>

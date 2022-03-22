@@ -8,10 +8,14 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
+import com.example.infraandroid.R
 import com.example.infraandroid.category.model.RequestApplyProjectData
 import com.example.infraandroid.category.model.ResponseApplyProjectData
+import com.example.infraandroid.category.model.ResponseViewIdeaData
 import com.example.infraandroid.databinding.FragmentViewIdeaBinding
 import com.example.infraandroid.id.viewmodel.SignUpViewModel.Companion.TAG
+import com.example.infraandroid.util.BaseFragment
 import com.example.infraandroid.util.InfraApplication
 import com.example.infraandroid.util.ServiceCreator
 import retrofit2.Call
@@ -20,31 +24,54 @@ import retrofit2.Response
 
 // 다른 사람의 아이디어를 눌렀을 때 볼 수 있는 자세히 보기 뷰
 
-class CategoryViewIdeaFragment : Fragment(){
-    private var mBinding : FragmentViewIdeaBinding? = null
+class CategoryViewIdeaFragment : BaseFragment<FragmentViewIdeaBinding>(R.layout.fragment_view_idea){
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val binding = FragmentViewIdeaBinding.inflate(inflater, container, false)
-        mBinding = binding
-        return mBinding?.root
+    override fun FragmentViewIdeaBinding.onCreateView(){
+
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun FragmentViewIdeaBinding.onViewCreated() {
+        val args: CategoryViewIdeaFragmentArgs by navArgs()
+        val projectNum = args.projectNum
+        Log.d(TAG, "onViewCreated: $projectNum")
 
-        val applyButton = mBinding?.teamIdeaApplyButton as AppCompatButton
+        val call: Call<ResponseViewIdeaData> = ServiceCreator.projectService
+            .viewProject(InfraApplication.prefs.getString("jwt", "null"),
+                InfraApplication.prefs.getString("refreshToken", "null").toInt(),
+                projectNum,
+                InfraApplication.prefs.getString("userId", "null")
+            )
+
+        call.enqueue(object:Callback<ResponseViewIdeaData>{
+            override fun onResponse(
+                call: Call<ResponseViewIdeaData>,
+                response: Response<ResponseViewIdeaData>
+            ) {
+                if(response.isSuccessful){
+                    when(response.body()?.code){
+                        1000 -> {
+                            Log.d(TAG, "onResponse: "+"접속연결성공!")
+                            binding.viewIdea = response.body()?.result }
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseViewIdeaData>, t: Throwable) {
+                Log.d(TAG, "onFailure: $t")
+            }
+
+        })
+
+
+        val applyButton = binding.teamIdeaApplyButton as AppCompatButton
         applyButton.setOnClickListener {
             val requestApplyProjectData = RequestApplyProjectData(
-                projectNum = 1,
+                projectNum = projectNum,
                 userId = InfraApplication.prefs.getString("userId", "null")
             )
 
             val call: Call<ResponseApplyProjectData> = ServiceCreator.projectService
-                .postApplyProject(requestApplyProjectData)
+                .postApplyProject(InfraApplication.prefs.getString("jwt","null"), InfraApplication.prefs.getString("refreshToken", "null").toInt(), requestApplyProjectData)
             call.enqueue(object:Callback<ResponseApplyProjectData>{
                 override fun onResponse(
                     call: Call<ResponseApplyProjectData>,
@@ -64,10 +91,5 @@ class CategoryViewIdeaFragment : Fragment(){
                 }
             })
         }
-    }
-
-    override fun onDestroyView() {
-        mBinding = null
-        super.onDestroyView()
     }
 }

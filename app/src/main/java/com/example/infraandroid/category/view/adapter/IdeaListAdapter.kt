@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.infraandroid.util.ImageRound
 import com.example.infraandroid.R
 import com.example.infraandroid.category.model.ResponseLookUpAllProjectData
+import com.example.infraandroid.category.view.fragment.IdeaListFragmentDirections
 import com.example.infraandroid.databinding.ItemIdeaListRecyclerviewBinding
 
 class IdeaListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -34,8 +35,8 @@ class IdeaListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             ImageRound.roundAll(binding.projectImageView, 36f)
             binding.projectList  = ideaListInfo
             itemView.setOnClickListener {
-                it.findNavController().navigate(R.id.action_idea_list_fragment_to_categoryViewIdeaFragment)
-
+                val action = IdeaListFragmentDirections.actionIdeaListFragmentToCategoryViewIdeaFragment(ideaListInfo.pj_num)
+                it.findNavController().navigate(action)
             }
         }
     }

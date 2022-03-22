@@ -84,6 +84,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
                         when(code){
                             1000 -> {
                                 InfraApplication.prefs.setString("jwt", response.body()?.result?.jwt.toString())
+                                InfraApplication.prefs.setString("refreshToken", response.body()?.result?.refreshToken.toString())
                                 InfraApplication.prefs.setString("userId", response.body()?.result?.userId.toString())
                                 InfraApplication.prefs.setString("userNickName", response.body()?.result?.userNickName.toString())
                                 Toast.makeText(requireActivity(),"요청에 성공하셨습니다.", Toast.LENGTH_SHORT).show()
