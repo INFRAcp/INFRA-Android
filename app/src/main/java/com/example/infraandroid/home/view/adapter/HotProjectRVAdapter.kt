@@ -7,11 +7,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.infraandroid.util.ImageRound
 import com.example.infraandroid.R
+import com.example.infraandroid.category.view.fragment.IdeaListFragmentDirections
 import com.example.infraandroid.databinding.ItemProjectBinding
 import com.example.infraandroid.home.model.HotProject
+import com.example.infraandroid.home.model.ResponseHotProjectData
+import com.example.infraandroid.home.view.fragment.HomeFragmentDirections
 
 class HotProjectRVAdapter (): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
-    val hotprojectList = mutableListOf<HotProject>()
+
+    var hotprojectList = mutableListOf<ResponseHotProjectData.Result>()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding: ItemProjectBinding = ItemProjectBinding.inflate(LayoutInflater.from(parent.context),parent,false)
 
@@ -27,23 +32,13 @@ class HotProjectRVAdapter (): RecyclerView.Adapter<RecyclerView.ViewHolder>(){
     inner class ViewHolder(
         private val binding: ItemProjectBinding
     ): RecyclerView.ViewHolder(binding.root){
-        fun onBind(hotproject: HotProject){
-            binding.itemProjectGroupTv.text = hotproject.group
-            binding.itemProjectNameTv.text = hotproject.name
-            binding.itemProjectMemberNumTv.text = hotproject.member
-            binding.itemProjectStateTv.text = hotproject.state
-            binding.itemHashTagOne.text = hotproject.keyword1
-            binding.itemHashTagTwo.text = hotproject.keyword2
-
-            // 이미지 뷰 둥글게
+        fun onBind(hotproject: ResponseHotProjectData.Result){
             ImageRound.roundTop(binding.itemRecommedProjectPhotoIv, 36f)
-
-            Glide.with(itemView)
-                .load(hotproject.photo)
-                .into(binding.itemRecommedProjectPhotoIv)
+            binding.projectItem = hotproject
 
             itemView.setOnClickListener {
-                it.findNavController().navigate(R.id.action_home_fragment_to_categoryViewIdeaFragment)
+                val action = HomeFragmentDirections.actionHomeFragmentToCategoryViewIdeaFragment(hotproject.pj_num)
+                it.findNavController().navigate(action)
             }
         }
     }

@@ -105,4 +105,10 @@ dependencies {
 
     // http 로그 확인
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
+
+    // Room
+    def roomVersion = "2.4.2"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
 }

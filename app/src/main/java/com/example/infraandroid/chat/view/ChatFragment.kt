@@ -10,8 +10,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.room.Room
 import com.example.infraandroid.util.InfraApplication
 import com.example.infraandroid.R
+import com.example.infraandroid.chat.model.ChatRoomDB
+import com.example.infraandroid.chat.model.ChatRoomEntity
 import com.example.infraandroid.chat.model.MessageInfo
 import com.example.infraandroid.databinding.FragmentChatBinding
 import com.google.firebase.database.ChildEventListener
@@ -20,6 +23,9 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.HashMap
@@ -29,9 +35,9 @@ class ChatFragment : Fragment() {
     private  var mBinding : FragmentChatBinding? = null
     private val chatAdapter = ChatMultiViewAdapter()
     private val database = Firebase.database
-    private val args: ChatFragmentArgs by navArgs()
     val chatList = mutableListOf<MessageInfo>()
-    private val opponentId = args.writerId
+    private var chatRoomDB : ChatRoomDB? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,20 +47,21 @@ class ChatFragment : Fragment() {
 
         val binding = FragmentChatBinding.inflate(inflater, container, false)
         mBinding = binding
-
         return mBinding?.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val args: ChatFragmentArgs by navArgs()
+        val opponentNickName = args.writerId
         val buttonToSend = mBinding?.messageSendButton as ImageButton
-
+        mBinding?.chatOpponentNameTextview?.text = opponentNickName
 
         // 리사이클러뷰
         mBinding?.chatRecyclerview?.adapter = chatAdapter
 
-        // 채팅 데이터의 변화를 감지
+        // 채팅 데이터의 변화를 감지 파이어베이스 -> 화면
         val childEventListener = object : ChildEventListener {
             var date = ""
             override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
@@ -131,8 +138,23 @@ class ChatFragment : Fragment() {
             }
         }
 
-        val chatRoomIndexString = InfraApplication.chatRoomIndex.toString()
-        val databaseReference = database.getReference("chatting").child(chatRoomIndexString)
+        var chatRoomIndex : Int ?= null
+        chatRoomDB = ChatRoomDB.getInstance(context!!.applicationContext)
+        CoroutineScope(Dispatchers.IO).launch{
+            if (opponentNickName != null) {
+                if (chatRoomDB!!.chatRoomDAO().checkOpponent(opponentNickName).isEmpty()){
+                    var newChatRoomEntity : ChatRoomEntity ?= null
+                    newChatRoomEntity?.opponentNickName = opponentNickName
+                    if (newChatRoomEntity != null) {
+                        chatRoomDB!!.chatRoomDAO().insert(newChatRoomEntity)
+                    }
+                    chatRoomIndex = chatRoomDB!!.chatRoomDAO().checkOpponent(opponentNickName)[0].index
+                }
+            }
+        }
+
+
+        val databaseReference = database.getReference("chatting").child(chatRoomIndex.toString())
         databaseReference.addChildEventListener(childEventListener)
 
         // 보내기 버튼을 누르면 firebase realtime db에 저장
@@ -142,15 +164,15 @@ class ChatFragment : Fragment() {
             val date = Date(now)
             val dataFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
             val dateTime = dataFormat.format(date)
-            val myRef = database.getReference("chatting").child(chatRoomIndexString).child(dateTime)
+            val myRef = database.getReference("chatting").child(chatRoomIndex.toString()).child(dateTime)
 
             // 대화하는 두 사람의 Id값을 firebase realtime db에 저장
-            val userRef = database.getReference("chatting").child(chatRoomIndexString).child("users")
-            val lastMessageRef = database.getReference("chatting").child(chatRoomIndexString).child("lastMessage")
+            val userRef = database.getReference("chatting").child(chatRoomIndex.toString()).child("users")
+            val lastMessageRef = database.getReference("chatting").child(chatRoomIndex.toString()).child("lastMessage")
             val userHashMap = HashMap<String, String>()
             userHashMap["user1"] = InfraApplication.prefs.getString("userNickName", "null")
             // 상대방의 아이디 가져와서 user2에 저장
-            userHashMap["user2"] = opponentId.toString()
+            userHashMap["user2"] = opponentNickName.toString()
             userHashMap["user1ProfileImg"] = "user1의 프로필 이미지 url"
             userHashMap["user2ProfileImg"] = "user2의 프로필 이미지 url"
             userRef.setValue(userHashMap)

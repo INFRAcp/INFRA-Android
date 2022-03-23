@@ -29,5 +29,5 @@ interface CreateProjectService {
         @Header("X-ACCESS-TOKEN") jwt: String,
         @Header("X-REFRESH-TOKEN") refreshToken: Int,
         @Query("user_id") userId : String
-    )
+    ) : Call<ResponseHotProjectData>
 }

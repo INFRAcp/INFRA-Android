@@ -1,348 +1,367 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/home_fragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.infraandroid.home.view.fragment.HomeFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:id="@+id/home_fragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <View
-            android:id="@+id/user_profil_v"
-            android:layout_width="216dp"
-            android:layout_height="42dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="31dp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="20dp"
-            android:background="#00000000"/>
-        <ImageView
-            android:id="@+id/home_user_photo_iv"
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:src="@drawable/user_photo"
-            app:layout_constraintStart_toStartOf="@id/user_profil_v"
-            app:layout_constraintTop_toTopOf="@id/user_profil_v" />
-        <TextView
-            android:id="@+id/home_user_hi_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/home_user_hi"
-            android:textColor="@color/black"
-            android:fontFamily="@font/sans_pro_regular"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:layout_marginTop="2dp"
-            android:layout_marginStart="17dp"
-            app:layout_constraintStart_toEndOf="@id/home_user_photo_iv"
-            app:layout_constraintTop_toTopOf="@id/home_user_photo_iv"/>
-        <TextView
-            android:id="@+id/home_user_characteristic1_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="#산업디자이너"
-            android:fontFamily="@font/sans_pro_regular"
-            android:textColor="@color/infra_gray_a"
-            android:textSize="11sp"
-            app:layout_constraintStart_toStartOf="@id/home_user_hi_tv"
-            app:layout_constraintTop_toBottomOf="@id/home_user_hi_tv" />
-        <TextView
-            android:id="@+id/home_user_characteristic2_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="#3D모델링"
-            android:fontFamily="@font/sans_pro_regular"
-            android:textColor="@color/infra_gray_a"
-            android:textSize="11sp"
-            app:layout_constraintStart_toEndOf="@id/home_user_characteristic1_tv"
-            app:layout_constraintTop_toTopOf="@id/home_user_characteristic1_tv" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_postbox"
-            android:background="@android:color/transparent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="18dp"
-            android:layout_marginRight="20dp"
-            android:padding="10dp"/>
-
-        <!--        이미지 완료되면 텍스트 뷰 새로 만들기-->
-        <ImageView
-            android:id="@+id/home_new_project_iv"
-            android:layout_width="match_parent"
-            android:layout_height="190dp"
-            android:src="@drawable/not_finished"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_user_characteristic1_tv"
-            app:layout_constraintBottom_toTopOf="@id/home_search_constraintlayout"
-            android:layout_marginTop="17dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginHorizontal="30dp"/>
-
-        <android.widget.Button
-            android:id="@+id/home_btn_make_new_proj"
-            android:layout_width="wrap_content"
-            android:layout_height="26dp"
-            android:text="@string/home_make_new_proj"
-            android:textSize="10sp"
-            android:textColor="@color/white"
-            android:background="@drawable/botton_shape_home_new_proj"
-            app:layout_constraintBottom_toBottomOf="@id/home_new_project_iv"
-            app:layout_constraintEnd_toEndOf="@id/home_new_project_iv"
-            android:layout_marginBottom="11dp"
-            android:layout_marginEnd="13dp" />
+        android:layout_height="match_parent"
+        tools:context="com.example.infraandroid.home.view.fragment.HomeFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/home_search_constraintlayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/rounded_edittext"
-            android:layout_marginTop="290dp"
-            android:layout_marginHorizontal="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:elevation="10dp">
-            <EditText
-                android:id="@+id/home_search_et"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/user_profil_v"
+                android:layout_width="216dp"
+                android:layout_height="42dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="31dp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="20dp"
+                android:background="#00000000" />
+
+            <ImageView
+                android:id="@+id/home_user_photo_iv"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@drawable/user_photo"
+                app:layout_constraintStart_toStartOf="@id/user_profil_v"
+                app:layout_constraintTop_toTopOf="@id/user_profil_v" />
+
+            <TextView
+                android:id="@+id/home_user_hi_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/home_user_hi"
+                android:textColor="@color/black"
+                android:fontFamily="@font/sans_pro_regular"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginTop="2dp"
+                android:layout_marginStart="17dp"
+                app:layout_constraintStart_toEndOf="@id/home_user_photo_iv"
+                app:layout_constraintTop_toTopOf="@id/home_user_photo_iv" />
+
+            <TextView
+                android:id="@+id/home_user_characteristic1_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#산업디자이너"
+                android:fontFamily="@font/sans_pro_regular"
+                android:textColor="@color/infra_gray_a"
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="@id/home_user_hi_tv"
+                app:layout_constraintTop_toBottomOf="@id/home_user_hi_tv" />
+
+            <TextView
+                android:id="@+id/home_user_characteristic2_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#3D모델링"
+                android:fontFamily="@font/sans_pro_regular"
+                android:textColor="@color/infra_gray_a"
+                android:textSize="11sp"
+                app:layout_constraintStart_toEndOf="@id/home_user_characteristic1_tv"
+                app:layout_constraintTop_toTopOf="@id/home_user_characteristic1_tv" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_postbox"
+                android:background="@android:color/transparent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginTop="18dp"
+                android:layout_marginRight="20dp"
+                android:padding="10dp" />
+
+            <!--        이미지 완료되면 텍스트 뷰 새로 만들기-->
+            <ImageView
+                android:id="@+id/home_new_project_iv"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:src="@drawable/not_finished"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/home_user_characteristic1_tv"
+                app:layout_constraintBottom_toTopOf="@id/home_search_constraintlayout"
+                android:layout_marginTop="17dp"
+                android:layout_marginBottom="20dp"
+                android:layout_marginHorizontal="30dp" />
+
+            <android.widget.Button
+                android:id="@+id/home_btn_make_new_proj"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:text="@string/home_make_new_proj"
+                android:textSize="10sp"
+                android:textColor="@color/white"
+                android:background="@drawable/botton_shape_home_new_proj"
+                app:layout_constraintBottom_toBottomOf="@id/home_new_project_iv"
+                app:layout_constraintEnd_toEndOf="@id/home_new_project_iv"
+                android:layout_marginBottom="11dp"
+                android:layout_marginEnd="13dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/home_search_constraintlayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:background="@drawable/rounded_edittext"
-                android:hint="@string/category_search_hint"
-                android:fontFamily="@font/noto_sans_kr_bold"
-                android:inputType="text"
-                android:textSize="11sp"
-                android:paddingLeft="20dp"
-                android:paddingVertical="4dp"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginStart="20dp"/>
+                android:background="@drawable/rounded_edittext"
+                android:layout_marginTop="290dp"
+                android:layout_marginHorizontal="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:elevation="10dp">
+
+                <EditText
+                    android:id="@+id/home_search_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:background="@drawable/rounded_edittext"
+                    android:hint="@string/category_search_hint"
+                    android:fontFamily="@font/noto_sans_kr_bold"
+                    android:inputType="text"
+                    android:textSize="11sp"
+                    android:paddingLeft="20dp"
+                    android:paddingVertical="4dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginStart="20dp" />
+
+                <ImageView
+                    android:id="@+id/home_keyword_search_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_new_search_icon"
+                    android:padding="10dp"
+                    app:layout_constraintTop_toTopOf="@id/home_search_et"
+                    app:layout_constraintBottom_toBottomOf="@id/home_search_et"
+                    app:layout_constraintEnd_toEndOf="@id/home_search_et"
+                    android:layout_marginEnd="4dp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/home_search_constraintlayout">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/home_hash_tag_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="스터디"
+                        android:background="@drawable/hash_tag_main_keyword_blue_background"
+                        android:paddingVertical="5dp"
+                        android:paddingHorizontal="14dp"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/white"
+                        android:includeFontPadding="false" />
+
+                    <TextView
+                        android:id="@+id/home_hash_tag_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="비트코인"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/hash_tag_main_keyword_background"
+                        android:paddingVertical="5dp"
+                        android:paddingHorizontal="14dp"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/infra_blue_c"
+                        android:includeFontPadding="false" />
+
+                    <TextView
+                        android:id="@+id/home_hash_tag_three"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="IOS"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/hash_tag_main_keyword_background"
+                        android:paddingVertical="5dp"
+                        android:paddingHorizontal="14dp"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/infra_blue_c"
+                        android:includeFontPadding="false" />
+
+                    <TextView
+                        android:id="@+id/home_hash_tag_four"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="엔터테인먼트"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/hash_tag_main_keyword_background"
+                        android:paddingVertical="5dp"
+                        android:paddingHorizontal="14dp"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/infra_blue_c"
+                        android:includeFontPadding="false" />
+
+                    <TextView
+                        android:id="@+id/home_hash_tag_five"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="어플개발"
+                        android:layout_marginStart="6dp"
+                        android:background="@drawable/hash_tag_main_keyword_background"
+                        android:paddingVertical="5dp"
+                        android:paddingHorizontal="14dp"
+                        android:textSize="11sp"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/infra_blue_c"
+                        android:includeFontPadding="false" />
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
             <ImageView
-                android:id="@+id/home_keyword_search_iv"
+                android:id="@+id/home_background_iv"
+                android:layout_width="match_parent"
+                android:layout_height="310dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_recommed_project_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/home_search_constraintlayout"
+                android:layout_marginTop="70dp"
+                app:layout_constraintHorizontal_bias="1.0" />
+
+            <TextView
+                android:id="@+id/home_hot_project_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_new_search_icon"
-                android:padding="10dp"
-                app:layout_constraintTop_toTopOf="@id/home_search_et"
-                app:layout_constraintBottom_toBottomOf="@id/home_search_et"
-                app:layout_constraintEnd_toEndOf="@id/home_search_et"
-                android:layout_marginEnd="4dp"/>
+                android:text="@string/home_hot_proj"
+                android:textColor="@color/white"
+                android:fontFamily="@font/noto_sans_kr_bold"
+                android:includeFontPadding="false"
+                android:textSize="15sp"
+                app:layout_constraintTop_toTopOf="@id/home_background_iv"
+                android:layout_marginTop="26dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="30dp" />
+
+            <ImageView
+                android:id="@+id/home_btn_arrow1_iv"
+                android:layout_width="5dp"
+                android:layout_height="10dp"
+                android:src="@drawable/btn_arrow_more_white"
+                android:scaleType="centerCrop"
+                app:layout_constraintTop_toTopOf="@id/home_background_iv"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="31dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/home_hot_project_recycleview"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:layout_marginTop="18dp"
+                android:layout_marginStart="10dp"
+                tools:listitem="@layout/item_project"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/home_hot_project_tv"
+                android:paddingBottom="10dp"
+                android:clipToPadding="false" />
+
+            <!--        <TextView-->
+            <!--            android:id="@+id/home_hot_project_tv"-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="@string/home_hot_proj"-->
+            <!--            android:textColor="@color/black"-->
+            <!--            android:textSize="15sp"-->
+            <!--            android:fontFamily="@font/noto_sans_kr_bold"-->
+            <!--            android:includeFontPadding="false"-->
+            <!--            app:layout_constraintTop_toBottomOf="@id/home_background_iv"-->
+            <!--            android:layout_marginTop="40dp"-->
+            <!--            app:layout_constraintStart_toStartOf="parent"-->
+            <!--            android:layout_marginStart="30dp" />-->
+            <!--        <ImageView-->
+            <!--            android:id="@+id/home_btn_arrow2_iv"-->
+            <!--            android:layout_width="5dp"-->
+            <!--            android:layout_height="10dp"-->
+            <!--            android:src="@drawable/ic_btn_arrow_more_black"-->
+            <!--            android:scaleType="centerCrop"-->
+            <!--            app:layout_constraintTop_toTopOf="@id/home_hot_project_tv"-->
+            <!--            android:layout_marginTop="6dp"-->
+            <!--            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--            android:layout_marginEnd="31dp"/>-->
+            <!--        <androidx.recyclerview.widget.RecyclerView-->
+            <!--            android:id="@+id/home_hot_project_recycleview"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_marginTop="18dp"-->
+            <!--            android:layout_marginStart="10dp"-->
+            <!--            tools:listitem="@layout/item_project"-->
+            <!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+            <!--            android:orientation="horizontal"-->
+            <!--            app:layout_constraintStart_toStartOf="parent"-->
+            <!--            app:layout_constraintTop_toBottomOf="@id/home_hot_project_tv"-->
+            <!--            android:paddingBottom="10dp"-->
+            <!--            android:clipToPadding="false" />-->
+
+            <!--        <TextView-->
+            <!--            android:id="@+id/home_self_develope_tv"-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="@string/home_self_development"-->
+            <!--            android:textColor="@color/black"-->
+            <!--            android:textSize="15sp"-->
+            <!--            android:fontFamily="@font/noto_sans_kr_bold"-->
+            <!--            android:includeFontPadding="false"-->
+            <!--            app:layout_constraintTop_toBottomOf="@id/home_hot_project_recycleview"-->
+            <!--            android:layout_marginTop="40dp"-->
+            <!--            app:layout_constraintStart_toStartOf="parent"-->
+            <!--            android:layout_marginStart="30dp" />-->
+            <!--        <ImageView-->
+            <!--            android:id="@+id/home_btn_arrow3_iv"-->
+            <!--            android:layout_width="5dp"-->
+            <!--            android:layout_height="10dp"-->
+            <!--            android:src="@drawable/ic_btn_arrow_more_black"-->
+            <!--            android:scaleType="centerCrop"-->
+            <!--            app:layout_constraintTop_toTopOf="@id/home_self_develope_tv"-->
+            <!--            android:layout_marginTop="6dp"-->
+            <!--            app:layout_constraintEnd_toEndOf="parent"-->
+            <!--            android:layout_marginEnd="31dp"/>-->
+            <!--        <androidx.recyclerview.widget.RecyclerView-->
+            <!--            android:id="@+id/home_self_develope_recycleview"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="210dp"-->
+            <!--            android:layout_marginTop="18dp"-->
+            <!--            android:layout_marginStart="10dp"-->
+            <!--            tools:listitem="@layout/item_project"-->
+            <!--            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+            <!--            android:orientation="horizontal"-->
+            <!--            app:layout_constraintStart_toStartOf="parent"-->
+            <!--            app:layout_constraintTop_toBottomOf="@id/home_self_develope_tv"-->
+            <!--            android:paddingBottom="10dp"-->
+            <!--            android:clipToPadding="false"/>-->
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="none"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_search_constraintlayout">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:id="@+id/home_hash_tag_one"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="스터디"
-                    android:background="@drawable/hash_tag_main_keyword_blue_background"
-                    android:paddingVertical="5dp"
-                    android:paddingHorizontal="14dp"
-                    android:textSize="11sp"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/white"
-                    android:includeFontPadding="false"/>
-                <TextView
-                    android:id="@+id/home_hash_tag_two"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="비트코인"
-                    android:layout_marginStart="6dp"
-                    android:background="@drawable/hash_tag_main_keyword_background"
-                    android:paddingVertical="5dp"
-                    android:paddingHorizontal="14dp"
-                    android:textSize="11sp"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/infra_blue_c"
-                    android:includeFontPadding="false"/>
-                <TextView
-                    android:id="@+id/home_hash_tag_three"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="IOS"
-                    android:layout_marginStart="6dp"
-                    android:background="@drawable/hash_tag_main_keyword_background"
-                    android:paddingVertical="5dp"
-                    android:paddingHorizontal="14dp"
-                    android:textSize="11sp"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/infra_blue_c"
-                    android:includeFontPadding="false"/>
-                <TextView
-                    android:id="@+id/home_hash_tag_four"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="엔터테인먼트"
-                    android:layout_marginStart="6dp"
-                    android:background="@drawable/hash_tag_main_keyword_background"
-                    android:paddingVertical="5dp"
-                    android:paddingHorizontal="14dp"
-                    android:textSize="11sp"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/infra_blue_c"
-                    android:includeFontPadding="false"/>
-                <TextView
-                    android:id="@+id/home_hash_tag_five"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="어플개발"
-                    android:layout_marginStart="6dp"
-                    android:background="@drawable/hash_tag_main_keyword_background"
-                    android:paddingVertical="5dp"
-                    android:paddingHorizontal="14dp"
-                    android:textSize="11sp"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/infra_blue_c"
-                    android:includeFontPadding="false"/>
-            </LinearLayout>
-
-        </HorizontalScrollView>
-
-        <ImageView
-            android:id="@+id/home_background_iv"
-            android:layout_width="match_parent"
-            android:layout_height="310dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_recommed_project_back"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_search_constraintlayout"
-            android:layout_marginTop="70dp"
-            app:layout_constraintHorizontal_bias="1.0" />
-        <TextView
-            android:id="@+id/home_recommed_project_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/home_recommend_proj"
-            android:textColor="@color/white"
-            android:fontFamily="@font/noto_sans_kr_bold"
-            android:includeFontPadding="false"
-            android:textSize="15sp"
-            app:layout_constraintTop_toTopOf="@id/home_background_iv"
-            android:layout_marginTop="26dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="30dp" />
-        <ImageView
-            android:id="@+id/home_btn_arrow1_iv"
-            android:layout_width="5dp"
-            android:layout_height="10dp"
-            android:src="@drawable/btn_arrow_more_white"
-            android:scaleType="centerCrop"
-            app:layout_constraintTop_toTopOf="@id/home_background_iv"
-            android:layout_marginTop="32dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="31dp"/>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/home_recommed_project_recycleview"
-            android:layout_width="match_parent"
-            android:layout_height="210dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginStart="10dp"
-            tools:listitem="@layout/item_project"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_recommed_project_tv"
-            android:paddingBottom="10dp"
-            android:clipToPadding="false"/>
-
-        <TextView
-            android:id="@+id/home_hot_project_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/home_hot_proj"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:fontFamily="@font/noto_sans_kr_bold"
-            android:includeFontPadding="false"
-            app:layout_constraintTop_toBottomOf="@id/home_background_iv"
-            android:layout_marginTop="40dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="30dp" />
-        <ImageView
-            android:id="@+id/home_btn_arrow2_iv"
-            android:layout_width="5dp"
-            android:layout_height="10dp"
-            android:src="@drawable/ic_btn_arrow_more_black"
-            android:scaleType="centerCrop"
-            app:layout_constraintTop_toTopOf="@id/home_hot_project_tv"
-            android:layout_marginTop="6dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="31dp"/>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/home_hot_project_recycleview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:layout_marginStart="10dp"
-            tools:listitem="@layout/item_project"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_hot_project_tv"
-            android:paddingBottom="10dp"
-            android:clipToPadding="false" />
-
-        <TextView
-            android:id="@+id/home_self_develope_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/home_self_development"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:fontFamily="@font/noto_sans_kr_bold"
-            android:includeFontPadding="false"
-            app:layout_constraintTop_toBottomOf="@id/home_hot_project_recycleview"
-            android:layout_marginTop="40dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="30dp" />
-        <ImageView
-            android:id="@+id/home_btn_arrow3_iv"
-            android:layout_width="5dp"
-            android:layout_height="10dp"
-            android:src="@drawable/ic_btn_arrow_more_black"
-            android:scaleType="centerCrop"
-            app:layout_constraintTop_toTopOf="@id/home_self_develope_tv"
-            android:layout_marginTop="6dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="31dp"/>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/home_self_develope_recycleview"
-            android:layout_width="match_parent"
-            android:layout_height="210dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginStart="10dp"
-            tools:listitem="@layout/item_project"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:orientation="horizontal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/home_self_develope_tv"
-            android:paddingBottom="10dp"
-            android:clipToPadding="false"/>
-
-
-
-
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</ScrollView>
+    </ScrollView>
+</layout>

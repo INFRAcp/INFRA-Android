@@ -52,7 +52,7 @@ class CategoryViewIdeaFragment : BaseFragment<FragmentViewIdeaBinding>(R.layout.
                 if(response.isSuccessful){
                     when(response.body()?.code){
                         1000 -> { binding.viewIdea = response.body()?.result
-                        writerId = response.body()?.result?.user_id }
+                        writerId = response.body()?.result?.user_nickname }
                     }
                 }
             }
