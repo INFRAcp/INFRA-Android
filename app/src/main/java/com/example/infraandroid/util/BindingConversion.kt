@@ -111,4 +111,10 @@ object BindingConversions {
     fun intToString(textView: TextView, number: Int){
         textView.text = number.toString()
     }
+
+    @JvmStatic
+    @BindingAdapter("nowRecruit", "totalRecruit")
+    fun setRecruitText(textView: TextView, nowRecruit: Int, totalRecruit: Int){
+        textView.text = "${nowRecruit}/${totalRecruit}명"
+    }
 }
