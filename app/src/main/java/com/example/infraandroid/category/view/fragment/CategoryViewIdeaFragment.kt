@@ -27,6 +27,7 @@ import retrofit2.Response
 
 class CategoryViewIdeaFragment : BaseFragment<FragmentViewIdeaBinding>(R.layout.fragment_view_idea){
     private var writerId : String ?= null
+    private var opponentProfileImg : String ?= null
 
     override fun FragmentViewIdeaBinding.onCreateView(){
 
@@ -52,7 +53,9 @@ class CategoryViewIdeaFragment : BaseFragment<FragmentViewIdeaBinding>(R.layout.
                 if(response.isSuccessful){
                     when(response.body()?.code){
                         1000 -> { binding.viewIdea = response.body()?.result
-                        writerId = response.body()?.result?.user_nickname }
+                        writerId = response.body()?.result?.user_nickname
+                        opponentProfileImg = response.body()?.result?.user_prPhoto
+                        }
                     }
                 }
             }
@@ -63,7 +66,7 @@ class CategoryViewIdeaFragment : BaseFragment<FragmentViewIdeaBinding>(R.layout.
         })
 
         binding.startChattingImageButton.setOnClickListener {
-            val action = CategoryViewIdeaFragmentDirections.actionCategoryViewIdeaFragmentToChatFragment(writerId = writerId)
+            val action = CategoryViewIdeaFragmentDirections.actionCategoryViewIdeaFragmentToChatFragment(writerId = writerId, opponentProfileImg)
             it.findNavController().navigate(action)
         }
 

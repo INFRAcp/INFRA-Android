@@ -68,7 +68,9 @@ class ChatMultiViewAdapter() : RecyclerView.Adapter<RecyclerView.ViewHolder>(){
             }
 
             Glide.with(itemView)
-                .load(R.drawable.other_user_photo)
+                .load(messageInfo.profileImg)
+                .circleCrop()
+                .error(R.drawable.other_user_photo)
                 .into(binding.opponentProfileImageview)
 
             var hour = messageInfo.sendTime.substring(11..12)
