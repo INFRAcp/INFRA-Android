@@ -51,6 +51,11 @@
             app:argType="string"
             app:nullable="true"
             android:defaultValue="@null"/>
+        <argument
+            android:name="opponenetProfileImg"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
     </fragment>
     <fragment
         android:id="@+id/my_info_fragment"
