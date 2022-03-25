@@ -9,9 +9,11 @@ import com.example.infraandroid.util.ImageRound
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.ItemMyIdeaListRecyclerviewBinding
 import com.example.infraandroid.myinfo.myideamanage.model.MyIdeaListInfo
+import com.example.infraandroid.myinfo.myideamanage.model.ResponseMyProjectListData
+import com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaManageFragmentDirections
 
 class MyIdeaListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    val myideaList = mutableListOf<MyIdeaListInfo>()
+    var myideaList = mutableListOf<ResponseMyProjectListData.Result>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding = ItemMyIdeaListRecyclerviewBinding.inflate(
@@ -30,21 +32,12 @@ class MyIdeaListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     inner class MyIdeaListViewHolder(
         private val binding: ItemMyIdeaListRecyclerviewBinding
     ): RecyclerView.ViewHolder(binding.root){
-        fun onBind(myIdeaListInfo: MyIdeaListInfo){
-            binding.projectCategoryTitle.text = myIdeaListInfo.projectName
-            binding.projectCategoryTextView.text = myIdeaListInfo.projectCategory
-            binding.hashTagOne.text = myIdeaListInfo.hashTagOne
-            binding.hashTagTwo.text = myIdeaListInfo.hashTagTwo
-
-            ImageRound.roundAll(binding.projectImageView, 36f)
-
-            Glide.with(itemView)
-                .load(myIdeaListInfo.projectImg)
-                .into(binding.projectImageView)
-
+        fun onBind(myIdeaListInfo: ResponseMyProjectListData.Result){
+            binding.myProject = myIdeaListInfo
             //내 아이디어 관리 클릭 이벤트
             itemView.setOnClickListener {
-                it.findNavController().navigate(R.id.action_myInfoMyIdeaFragment_to_myInfoTeamIdeaFragment)
+                val action = MyIdeaManageFragmentDirections.actionMyInfoMyIdeaFragmentToMyInfoTeamIdeaFragment(myIdeaListInfo.pj_header, myIdeaListInfo.pj_num)
+                it.findNavController().navigate(action)
             }
         }
     }

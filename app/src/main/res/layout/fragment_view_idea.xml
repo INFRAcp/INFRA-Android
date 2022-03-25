@@ -341,7 +341,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/noto_sans_kr_regular"
                         android:includeFontPadding="false"
-                        android:text="@{viewIdea.pj_content}"
+                        android:text="@{viewIdea.pj_progress}"
                         android:textColor="@color/black"
                         android:textSize="15sp"
                         app:layout_constraintStart_toStartOf="parent"

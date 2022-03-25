@@ -7,6 +7,7 @@ import com.example.infraandroid.id.model.LoginService
 import com.example.infraandroid.id.model.SMSService
 import com.example.infraandroid.id.model.SignUpService
 import com.example.infraandroid.id.model.UserDoubleCheckService
+import com.example.infraandroid.myinfo.myideamanage.model.MyProjectService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -34,4 +35,5 @@ object ServiceCreator {
     val profileViewService : ProfileViewService = retrofit.create(ProfileViewService::class.java)
     val createProjectService : CreateProjectService = retrofit.create(CreateProjectService::class.java)
     val projectService : ProjectService = retrofit.create(ProjectService::class.java)
+    val myProjectService : MyProjectService = retrofit.create(MyProjectService::class.java)
 }

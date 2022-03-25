@@ -117,4 +117,10 @@ object BindingConversions {
     fun setRecruitText(textView: TextView, nowRecruit: Int, totalRecruit: Int){
         textView.text = "${nowRecruit}/${totalRecruit}명"
     }
+
+    @JvmStatic
+    @BindingAdapter("nowRecruitString", "totalRecruitString")
+    fun setRecruitTextString(textView: TextView, nowRecruit: String?, totalRecruit: String?){
+        textView.text = "${nowRecruit}/${totalRecruit}명"
+    }
 }

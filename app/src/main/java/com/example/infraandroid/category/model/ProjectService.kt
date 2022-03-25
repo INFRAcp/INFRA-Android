@@ -21,7 +21,7 @@ interface ProjectService {
     fun viewProject(
         @Header("X-ACCESS-TOKEN") jwt: String,
         @Header("X-REFRESH-TOKEN") refreshToken: Int,
-        @Query("pj_num") projectNum : Int,
+        @Query("pj_num") projectNum : Int?,
         @Query("user_id") userId : String
     ): Call<ResponseViewIdeaData>
 }
