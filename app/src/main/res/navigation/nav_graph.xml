@@ -233,6 +233,14 @@
             android:id="@+id/action_myInfoTeamIdeaFragment_to_myInfoProjectModifyFragment"
             app:destination="@id/myInfoProjectModifyFragment"
             app:enterAnim="@anim/slide_in_bottom" />
+        <argument
+            android:name="myIdeaTitle"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument
+            android:name="myProjectNum"
+            app:argType="integer" />
     </fragment>
 
     <fragment

@@ -9,7 +9,13 @@ import androidx.navigation.findNavController
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentMyInfoMyIdeaBinding
 import com.example.infraandroid.myinfo.myideamanage.model.MyIdeaListInfo
+import com.example.infraandroid.myinfo.myideamanage.model.ResponseMyProjectListData
 import com.example.infraandroid.myinfo.myideamanage.view.adapter.MyIdeaListAdapter
+import com.example.infraandroid.util.InfraApplication
+import com.example.infraandroid.util.ServiceCreator
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 //내 정보 > 내 아이디어 관리 파일.kt
 class MyIdeaManageFragment : Fragment() {
@@ -29,17 +35,40 @@ class MyIdeaManageFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         mBinding?.myIdeaListRecyclerView?.adapter = myIdeaListAdapter
-        myIdeaListAdapter.myideaList.clear()
-        myIdeaListAdapter.myideaList.addAll(
-            listOf(
-                MyIdeaListInfo("https://img.insight.co.kr/static/2019/11/06/700/kzbv1474r107jj01027m.jpg","멸종위기 동물", "공모전","6/8", "동물", "웹디자인","마감임박!")
-            )
-        )
-        myIdeaListAdapter.notifyDataSetChanged()
 
         mBinding?.myIdeaListBackButton?.setOnClickListener {
             it.findNavController().navigate(R.id.action_myInfoMyIdeaFragment_to_my_info_fragment)
         }
+
+        val call : Call<ResponseMyProjectListData> = ServiceCreator.myProjectService
+            .viewMyProject(InfraApplication.prefs.getString("jwt", "null"), InfraApplication.prefs.getString("refreshToken", "null").toInt(), InfraApplication.prefs.getString("userId","null"))
+
+        call.enqueue(object: Callback<ResponseMyProjectListData>{
+            override fun onResponse(
+                call: Call<ResponseMyProjectListData>,
+                response: Response<ResponseMyProjectListData>
+            ) {
+                if(response.isSuccessful){
+                    val body = response.body()
+                    if(body!=null){
+                        when(body.code){
+                            1000->{
+                                val data = body.result
+                                if(data!=null){
+                                    myIdeaListAdapter.myideaList = data
+                                }
+                                myIdeaListAdapter.notifyDataSetChanged()
+                            }
+                        }
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseMyProjectListData>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+        })
+
     }
 
     override fun onDestroyView() {
