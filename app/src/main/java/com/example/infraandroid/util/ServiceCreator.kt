@@ -1,15 +1,14 @@
 package com.example.infraandroid.util
 
-import com.example.infraandroid.category.model.ApplyProjectService
-import com.example.infraandroid.category.model.LookUpAllProjectService
+import com.example.infraandroid.category.model.ProjectService
 import com.example.infraandroid.home.model.CreateProjectService
-import com.example.infraandroid.home.viewmodel.CreateProjectViewModel
 import com.example.infraandroid.myinfo.myintroductionpage.model.ProfileViewService
 import com.example.infraandroid.id.model.LoginService
 import com.example.infraandroid.id.model.SMSService
 import com.example.infraandroid.id.model.SignUpService
 import com.example.infraandroid.id.model.UserDoubleCheckService
 import com.example.infraandroid.myinfo.myinfomodify.model.MyInfoService
+import com.example.infraandroid.myinfo.myideamanage.model.MyProjectService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -39,5 +38,6 @@ object ServiceCreator {
     val applyProjectService : ApplyProjectService = retrofit.create(ApplyProjectService::class.java)
     val lookUpAllProjectService : LookUpAllProjectService = retrofit.create(LookUpAllProjectService::class.java)
     val myinfoService : MyInfoService = retrofit.create(MyInfoService::class.java)
-
+    val projectService : ProjectService = retrofit.create(ProjectService::class.java)
+    val myProjectService : MyProjectService = retrofit.create(MyProjectService::class.java)
 }

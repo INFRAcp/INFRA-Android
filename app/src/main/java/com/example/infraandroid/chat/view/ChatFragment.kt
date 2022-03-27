@@ -9,13 +9,12 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.infraandroid.util.InfraApplication
 import com.example.infraandroid.R
 import com.example.infraandroid.chat.model.MessageInfo
 import com.example.infraandroid.databinding.FragmentChatBinding
-import com.google.firebase.database.ChildEventListener
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
@@ -29,7 +28,9 @@ class ChatFragment : Fragment() {
     private val chatAdapter = ChatMultiViewAdapter()
     private val database = Firebase.database
     val chatList = mutableListOf<MessageInfo>()
-    lateinit var opponentId : String
+    private var chatRoomIndex : Int? = null
+    private val mRef = database.getReference("chatting")
+    private val args: ChatFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,22 +47,25 @@ class ChatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val opponentNickName = args.writerId
+        val opponentProfileImg = args.opponenetProfileImg
+
         val buttonToSend = mBinding?.messageSendButton as ImageButton
+        mBinding?.chatOpponentNameTextview?.text = opponentNickName
 
 
         // 리사이클러뷰
         mBinding?.chatRecyclerview?.adapter = chatAdapter
 
-        // 채팅 데이터의 변화를 감지
+        // 채팅 데이터의 변화를 감지 파이어베이스 -> 화면
         val childEventListener = object : ChildEventListener {
             var date = ""
             override fun onChildAdded(dataSnapshot: DataSnapshot, previousChildName: String?) {
 
-                // A new comment has been added, add it to the displayed list
                 chatList.clear()
-                val tempMessage = MessageInfo("","","")
+                val tempMessage = MessageInfo("","","", opponentProfileImg)
                 for(snapshot in dataSnapshot.children){
-                    Log.d(TAG, "onChildAdded: "+ snapshot.key.toString())
+                    Log.d(TAG, "onChildAdded: ${snapshot.value.toString()}")
                     if(snapshot.key=="senderId"){
                         tempMessage.senderId=snapshot.value.toString()
                     }
@@ -78,12 +82,12 @@ class ChatFragment : Fragment() {
                             date = thisMessageTime
                         }
                     }
-                    if(snapshot.key=="user1") {
-                        opponentId = snapshot.value.toString()
-                    }
                 }
                 if(tempMessage.senderId!="" && tempMessage.message!="" && tempMessage.sendTime!="")
+                {
+                    Log.d(TAG, "onChildAdded: $tempMessage")
                     chatList.add(tempMessage)
+                }
                 chatAdapter.messageList.addAll(chatList)
                 chatAdapter.notifyDataSetChanged()
                 // ...
@@ -129,9 +133,39 @@ class ChatFragment : Fragment() {
             }
         }
 
-        val chatRoomIndexString = InfraApplication.chatRoomIndex.toString()
-        val databaseReference = database.getReference("chatting").child(chatRoomIndexString)
-        databaseReference.addChildEventListener(childEventListener)
+
+        mRef.addValueEventListener(object:ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                // 이미 파이어베이스에 존재하는 채팅방인지 검사
+                if(chatRoomIndex==null){
+                    var i = 0
+                    for(chatIndex in snapshot.children){
+                        i += 1
+                        if(chatIndex.child("users").child("user1").value.toString()==opponentNickName &&
+                            chatIndex.child("users").child("user2").value.toString()==InfraApplication.prefs.getString("userNickName", "null")){
+                            chatRoomIndex = i
+                            break
+                        }
+                        if(chatIndex.child("users").child("user2").value.toString()==opponentNickName &&
+                            chatIndex.child("users").child("user1").value.toString()==InfraApplication.prefs.getString("userNickName", "null")){
+                            chatRoomIndex = i
+                            break
+                        }
+                    }
+                    // 처음 시작하는 채팅이면
+                    if(chatRoomIndex==null){
+                        chatRoomIndex = snapshot.childrenCount.toInt()+1
+                    }
+                    mRef.child(chatRoomIndex.toString()).addChildEventListener(childEventListener)
+                    Log.d(TAG, "onDataChange: $chatRoomIndex")
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
 
         // 보내기 버튼을 누르면 firebase realtime db에 저장
         buttonToSend.setOnClickListener {
@@ -140,17 +174,18 @@ class ChatFragment : Fragment() {
             val date = Date(now)
             val dataFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
             val dateTime = dataFormat.format(date)
-            val myRef = database.getReference("chatting").child(chatRoomIndexString).child(dateTime)
+            Log.d(TAG, "왜 여기는 되냐 "+mRef.child(chatRoomIndex.toString()))
+            val myRef = mRef.child(chatRoomIndex.toString()).child(dateTime)
 
             // 대화하는 두 사람의 Id값을 firebase realtime db에 저장
-            val userRef = database.getReference("chatting").child(chatRoomIndexString).child("users")
-            val lastMessageRef = database.getReference("chatting").child(chatRoomIndexString).child("lastMessage")
+            val userRef = mRef.child(chatRoomIndex.toString()).child("users")
+            val lastMessageRef = mRef.child(chatRoomIndex.toString()).child("lastMessage")
             val userHashMap = HashMap<String, String>()
             userHashMap["user1"] = InfraApplication.prefs.getString("userNickName", "null")
             // 상대방의 아이디 가져와서 user2에 저장
-            userHashMap["user2"] = opponentId
+            userHashMap["user2"] = opponentNickName.toString()
             userHashMap["user1ProfileImg"] = "user1의 프로필 이미지 url"
-            userHashMap["user2ProfileImg"] = "user2의 프로필 이미지 url"
+            userHashMap["user2ProfileImg"] = opponentProfileImg.toString()
             userRef.setValue(userHashMap)
 
             if (messageToSend != null) {

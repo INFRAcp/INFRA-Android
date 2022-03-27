@@ -4,16 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.infraandroid.util.ImageRound
 import com.example.infraandroid.R
-import com.example.infraandroid.category.model.IdeaListInfo
-import com.example.infraandroid.category.model.Result
+import com.example.infraandroid.category.model.ResponseLookUpAllProjectData
+import com.example.infraandroid.category.view.fragment.IdeaListFragmentDirections
 import com.example.infraandroid.databinding.ItemIdeaListRecyclerviewBinding
 
 class IdeaListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    val ideaList = mutableListOf<IdeaListInfo>()
+    var ideaList = mutableListOf<ResponseLookUpAllProjectData.Result>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding = ItemIdeaListRecyclerviewBinding.inflate(
@@ -32,19 +31,12 @@ class IdeaListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     inner class IdeaListViewHolder(
         private val binding:ItemIdeaListRecyclerviewBinding
     ): RecyclerView.ViewHolder(binding.root){
-        fun onBind(ideaListInfo: IdeaListInfo){
-            binding.projectCategoryTitle.text = ideaListInfo.projectName
-            binding.projectCategoryTextView.text = ideaListInfo.projectCategory
-            binding.hashTagOne.text = ideaListInfo.hashTagOne
-            binding.hashTagTwo.text = ideaListInfo.hashTagTwo
-
+        fun onBind(ideaListInfo: ResponseLookUpAllProjectData.Result){
             ImageRound.roundAll(binding.projectImageView, 36f)
-
-            Glide.with(itemView)
-                .load(ideaListInfo.projectImg)
-                .into(binding.projectImageView)
+            binding.projectList  = ideaListInfo
             itemView.setOnClickListener {
-                it.findNavController().navigate(R.id.action_idea_list_fragment_to_categoryViewIdeaFragment)
+                val action = IdeaListFragmentDirections.actionIdeaListFragmentToCategoryViewIdeaFragment(ideaListInfo.pj_num)
+                it.findNavController().navigate(action)
             }
         }
     }

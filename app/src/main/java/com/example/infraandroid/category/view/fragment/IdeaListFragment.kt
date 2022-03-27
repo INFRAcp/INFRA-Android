@@ -1,18 +1,14 @@
 package com.example.infraandroid.category.view.fragment
 
-import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.infraandroid.R
-import com.example.infraandroid.category.model.IdeaListInfo
 import com.example.infraandroid.category.model.ResponseLookUpAllProjectData
 import com.example.infraandroid.category.view.adapter.IdeaListAdapter
 import com.example.infraandroid.databinding.FragmentIdeaListBinding
 import com.example.infraandroid.id.viewmodel.SignUpViewModel.Companion.TAG
+import com.example.infraandroid.util.BaseFragment
 import com.example.infraandroid.util.InfraApplication
 import com.example.infraandroid.util.ServiceCreator
 import retrofit2.Call
@@ -23,67 +19,78 @@ import retrofit2.Response
 // Update
 // 2022-02-07 뒤로가기버튼 누르면 이전 페이지로 이동 (작성자 : 신승민)
 
-class IdeaListFragment : Fragment() {
-    private  var mBinding : FragmentIdeaListBinding? = null
+class IdeaListFragment : BaseFragment<FragmentIdeaListBinding>(R.layout.fragment_idea_list) {
     private  val ideaListAdapter = IdeaListAdapter()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun FragmentIdeaListBinding.onCreateView(){
 
-        val binding = FragmentIdeaListBinding.inflate(inflater, container, false)
-
-        mBinding = binding
-
-        return mBinding?.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        mBinding?.ideaListRecyclerView?.adapter = ideaListAdapter
-        ideaListAdapter.ideaList.addAll(
-            listOf<IdeaListInfo>(
-                IdeaListInfo("https://img.insight.co.kr/static/2019/11/06/700/kzbv1474r107jj01027m.jpg","멸종 위기 동물", "공모전","1/2", "동물", "웹디자인","마감임박!"),
-                IdeaListInfo("https://image.shutterstock.com/image-photo/multiethnic-group-children-english-concept-260nw-197720093.jpg","작심 3일","스터디","1/4","영어","공부","모집중!"),
-                IdeaListInfo("https://cdn.imweb.me/upload/S2019102419e77585ab9fd/512cfc2adfd37.jpg","자바 정복하기","스터디","3/8","개발","초보스터디", "모집중!"),
-                IdeaListInfo("https://images.kbench.com/kbench/article/2018_03/k186172p1n1-s.jpg","안드로이드 스터디","스터디","3/5","앱개발","안드로이드", "마감임박!")
-            )
-        )
-        ideaListAdapter.notifyDataSetChanged()
+    override fun FragmentIdeaListBinding.onViewCreated(){
+        binding.ideaListRecyclerView.adapter = ideaListAdapter
+        val args: IdeaListFragmentArgs by navArgs()
+        val searchKeyword = args.searchKeyword
+        Log.d(TAG, "onViewCreated: $searchKeyword")
+        if(searchKeyword==null){
+            val call: Call<ResponseLookUpAllProjectData> = ServiceCreator.projectService
+                .getLookUpAllProject(InfraApplication.prefs.getString("jwt","null"), InfraApplication.prefs.getString("userId", "null"))
 
-
-
-        val call: Call<ResponseLookUpAllProjectData> = ServiceCreator.lookUpAllProjectService
-            .getLookUpAllProject(InfraApplication.prefs.getString("userId","null"))
-
-        call.enqueue(object : Callback<ResponseLookUpAllProjectData>{
-            override fun onResponse(
-                call: Call<ResponseLookUpAllProjectData>,
-                response: Response<ResponseLookUpAllProjectData>
-            ) {
-                if(response.isSuccessful){
-                    val body = response.body()
-
+            call.enqueue(object : Callback<ResponseLookUpAllProjectData>{
+                override fun onResponse(
+                    call: Call<ResponseLookUpAllProjectData>,
+                    response: Response<ResponseLookUpAllProjectData>
+                ) {
+                    if(response.isSuccessful){
+                        val body = response.body()
+                        if (body != null) {
+                            when(body.code){
+                                1000 -> {
+                                    val data = body.result
+                                    if (data != null) {
+                                        ideaListAdapter.ideaList = data
+                                    }
+                                    ideaListAdapter.notifyDataSetChanged()
+                                }
+                            }
+                        }
+                    }
                 }
-            }
-
-            override fun onFailure(call: Call<ResponseLookUpAllProjectData>, t: Throwable) {
-                Log.d(TAG, "onFailure: $t")
-            }
-
-        })
-
-
-
-        mBinding?.ideaListBackButton?.setOnClickListener {
-            it.findNavController().navigate(R.id.action_idea_list_fragment_to_category_fragment)
+                override fun onFailure(call: Call<ResponseLookUpAllProjectData>, t: Throwable) {
+                    Log.d(TAG, "onFailure: $t")
+                }
+            })
         }
-    }
+        else{
+            val call: Call<ResponseLookUpAllProjectData> = ServiceCreator.createProjectService
+                .searchProject(InfraApplication.prefs.getString("jwt","null"),searchKeyword,InfraApplication.prefs.getString("userId", "null"))
+            call.enqueue(object:Callback<ResponseLookUpAllProjectData>{
+                override fun onResponse(
+                    call: Call<ResponseLookUpAllProjectData>,
+                    response: Response<ResponseLookUpAllProjectData>
+                ) {
+                    if(response.isSuccessful){
+                        val body = response.body()
+                        if(body!=null){
+                            when(body.code){
+                                1000->{
+                                    val data = body.result
+                                    if(data!=null){
+                                        ideaListAdapter.ideaList = data
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
 
-    override fun onDestroyView() {
-        mBinding = null
-        super.onDestroyView()
+                override fun onFailure(call: Call<ResponseLookUpAllProjectData>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+            })
+        }
+
+       binding.ideaListBackButton.setOnClickListener {
+           it.findNavController().navigate(R.id.action_idea_list_fragment_to_category_fragment)
+       }
     }
 }

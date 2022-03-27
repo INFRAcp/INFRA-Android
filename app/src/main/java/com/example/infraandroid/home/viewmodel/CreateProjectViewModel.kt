@@ -94,4 +94,11 @@ class CreateProjectViewModel : ViewModel() {
             _currentHashTag.value = hashTagArrayList
         }
     }
+
+    fun deleteHashTag(index: Int){
+        if(hashTagArrayList.size>0) {
+            hashTagArrayList.removeAt(index)
+        _currentHashTag.value = hashTagArrayList
+        }
+    }
 }

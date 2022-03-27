@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_home_fragment_to_categoryViewIdeaFragment"
             app:destination="@id/categoryViewIdeaFragment" />
+        <action
+            android:id="@+id/action_home_fragment_to_idea_list_fragment"
+            app:destination="@id/idea_list_fragment" />
     </fragment>
     <fragment
         android:id="@+id/category_fragment"
@@ -31,6 +34,9 @@
         <action
             android:id="@+id/action_category_fragment_to_myInfoMyIdeaFragment"
             app:destination="@id/myInfoMyIdeaFragment" />
+        <action
+            android:id="@+id/action_category_fragment_to_createProjectFragment"
+            app:destination="@id/createProjectFragment" />
     </fragment>
     <fragment
         android:id="@+id/chat_fragment"
@@ -40,6 +46,16 @@
         <action
             android:id="@+id/action_chat_fragment_to_chatting_room_list_fragment"
             app:destination="@id/chatting_room_list_fragment" />
+        <argument
+            android:name="writerId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument
+            android:name="opponenetProfileImg"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
     </fragment>
     <fragment
         android:id="@+id/my_info_fragment"
@@ -111,6 +127,11 @@
         <action
             android:id="@+id/action_idea_list_fragment_to_categoryViewIdeaFragment"
             app:destination="@id/categoryViewIdeaFragment" />
+        <argument
+            android:name="searchKeyword"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
     </fragment>
     <fragment
         android:id="@+id/sign_up_first_fragment"
@@ -212,6 +233,14 @@
             android:id="@+id/action_myInfoTeamIdeaFragment_to_myInfoProjectModifyFragment"
             app:destination="@id/myInfoProjectModifyFragment"
             app:enterAnim="@anim/slide_in_bottom" />
+        <argument
+            android:name="myIdeaTitle"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument
+            android:name="myProjectNum"
+            app:argType="integer" />
     </fragment>
 
     <fragment
@@ -239,7 +268,14 @@
         android:id="@+id/categoryViewIdeaFragment"
         android:name="com.example.infraandroid.category.view.fragment.CategoryViewIdeaFragment"
         android:label="fragment_view_idea"
-        tools:layout="@layout/fragment_view_idea" />
+        tools:layout="@layout/fragment_view_idea" >
+        <argument
+            android:name="projectNum"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_categoryViewIdeaFragment_to_chat_fragment"
+            app:destination="@id/chat_fragment" />
+    </fragment>
     <fragment
         android:id="@+id/myInfoTeamMemberEvaluationFragment"
         android:name="com.example.infraandroid.myinfo.teammembereval.view.fragment.TeamMemberEvalFragment"
@@ -312,6 +348,15 @@
             android:id="@+id/action_userGuideFragment_to_my_info_fragment"
             app:destination="@id/my_info_fragment" />
     </fragment>
+    <dialog
+        android:id="@+id/myProjectMoreMenuBottomSheetFragment"
+        android:name="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyProjectMoreMenuBottomSheetFragment"
+        android:label="my_project_more_menu"
+        tools:layout="@layout/my_project_more_menu" >
+        <action
+            android:id="@+id/action_myProjectMoreMenuBottomSheetFragment_to_myInfoProjectModifyFragment"
+            app:destination="@id/myInfoProjectModifyFragment" />
+    </dialog>
 
 
 </navigation>

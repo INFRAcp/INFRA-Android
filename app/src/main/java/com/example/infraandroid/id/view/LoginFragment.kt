@@ -6,6 +6,7 @@ import android.content.IntentSender
 import android.util.Log
 import android.widget.Toast
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.infraandroid.BuildConfig
 import com.example.infraandroid.util.InfraApplication
 import com.example.infraandroid.R
@@ -40,22 +41,62 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
     private var showOneTapUI = true
 
     override fun FragmentLoginBinding.onCreateView(){
-        oneTapClient = Identity.getSignInClient(requireActivity())
-        signInRequest = BeginSignInRequest.builder()
-            .setPasswordRequestOptions(BeginSignInRequest.PasswordRequestOptions.builder()
-                .setSupported(true)
-                .build())
-            .setGoogleIdTokenRequestOptions(
-                BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
-                    .setSupported(true)
-                    // Your server's client ID, not your Android client ID.
-                    .setServerClientId(BuildConfig.WEB_CLIENT_ID)
-                    // Only show accounts previously used to sign in.
-                    .setFilterByAuthorizedAccounts(true)
-                    .build())
-            // Automatically sign in when exactly one credential is retrieved.
-            .setAutoSelectEnabled(true)
-            .build()
+//        oneTapClient = Identity.getSignInClient(requireActivity())
+//        signInRequest = BeginSignInRequest.builder()
+//            .setPasswordRequestOptions(BeginSignInRequest.PasswordRequestOptions.builder()
+//                .setSupported(true)
+//                .build())
+//            .setGoogleIdTokenRequestOptions(
+//                BeginSignInRequest.GoogleIdTokenRequestOptions.builder()
+//                    .setSupported(true)
+//                    // Your server's client ID, not your Android client ID.
+//                    .setServerClientId(BuildConfig.WEB_CLIENT_ID)
+//                    // Only show accounts previously used to sign in.
+//                    .setFilterByAuthorizedAccounts(true)
+//                    .build())
+//            // Automatically sign in when exactly one credential is retrieved.
+//            .setAutoSelectEnabled(true)
+//            .build()
+        if(InfraApplication.prefs.getUserId().isNotEmpty()
+        and InfraApplication.prefs.getUserPW().isNotEmpty()){
+
+            val requestLoginData = RequestLoginData(
+                userId = InfraApplication.prefs.getUserId(),
+                userPw = InfraApplication.prefs.getUserPW(),
+            )
+
+            val call: Call<ResponseLoginData> = ServiceCreator.loginService
+                .postLogin(requestLoginData)
+
+            call.enqueue(object : Callback<ResponseLoginData>{
+                override fun onResponse(
+                    call: Call<ResponseLoginData>,
+                    response: Response<ResponseLoginData>
+                ) {
+                    if(response.isSuccessful){
+                        val code = response.body()?.code
+                        when(code){
+                            1000 -> {
+                                InfraApplication.prefs.setString("jwt", response.body()?.result?.jwt.toString())
+                                InfraApplication.prefs.setString("refreshToken", response.body()?.result?.refreshToken.toString())
+                                InfraApplication.prefs.setString("userId", response.body()?.result?.userId.toString())
+                                InfraApplication.prefs.setString("userNickName", response.body()?.result?.userNickName.toString())
+                                Toast.makeText(requireActivity(),"요청에 성공하셨습니다.", Toast.LENGTH_SHORT).show()
+                                // 로그인 버튼을 누르면 home_fragment로 이동
+                                findNavController().navigate(R.id.action_login_fragment_to_home_fragment)
+                            }
+                            2001 -> {Toast.makeText(requireActivity(),"id가 비어있습니다.", Toast.LENGTH_SHORT).show()}
+                            3014 -> {Toast.makeText(requireActivity(),"없는 아이디거나 비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show()}
+                            4000 -> {Toast.makeText(requireActivity(),"데이터베이스 연결에 실패하였습니다.", Toast.LENGTH_SHORT).show()}
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseLoginData>, t: Throwable) {
+                    Log.e("login_server_test", "fail")
+                }
+            })
+        }
     }
 
     override fun FragmentLoginBinding.onViewCreated(){
@@ -84,8 +125,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
                         when(code){
                             1000 -> {
                                 InfraApplication.prefs.setString("jwt", response.body()?.result?.jwt.toString())
+                                InfraApplication.prefs.setString("refreshToken", response.body()?.result?.refreshToken.toString())
                                 InfraApplication.prefs.setString("userId", response.body()?.result?.userId.toString())
                                 InfraApplication.prefs.setString("userNickName", response.body()?.result?.userNickName.toString())
+                                InfraApplication.prefs.setUserId(response.body()?.result?.userId.toString())
+                                InfraApplication.prefs.setUserPW(inputPw)
                                 Toast.makeText(requireActivity(),"요청에 성공하셨습니다.", Toast.LENGTH_SHORT).show()
                                 // 로그인 버튼을 누르면 home_fragment로 이동
                                 it.findNavController().navigate(R.id.action_login_fragment_to_home_fragment)
@@ -108,23 +152,23 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
             it.findNavController().navigate(R.id.action_login_fragment_to_sign_up_first_fragment)
         }
 
-        binding.loginGoogleIv.setOnClickListener {
-            oneTapClient.beginSignIn(signInRequest)
-                .addOnSuccessListener(requireActivity()) { result ->
-                    try {
-                        startIntentSenderForResult(
-                            result.pendingIntent.intentSender, REQ_ONE_TAP,
-                            null, 0, 0, 0, null)
-                    } catch (e: IntentSender.SendIntentException) {
-                        Log.e(TAG, "Couldn't start One Tap UI: ${e.localizedMessage}")
-                    }
-                }
-                .addOnFailureListener(requireActivity()) { e ->
-                    // No saved credentials found. Launch the One Tap sign-up flow, or
-                    // do nothing and continue presenting the signed-out UI.
-                    Log.d(TAG, e.localizedMessage)
-                }
-        }
+//        binding.loginGoogleIv.setOnClickListener {
+//            oneTapClient.beginSignIn(signInRequest)
+//                .addOnSuccessListener(requireActivity()) { result ->
+//                    try {
+//                        startIntentSenderForResult(
+//                            result.pendingIntent.intentSender, REQ_ONE_TAP,
+//                            null, 0, 0, 0, null)
+//                    } catch (e: IntentSender.SendIntentException) {
+//                        Log.e(TAG, "Couldn't start One Tap UI: ${e.localizedMessage}")
+//                    }
+//                }
+//                .addOnFailureListener(requireActivity()) { e ->
+//                    // No saved credentials found. Launch the One Tap sign-up flow, or
+//                    // do nothing and continue presenting the signed-out UI.
+//                    Log.d(TAG, e.localizedMessage)
+//                }
+//        }
 
         //  네이버 아이디로 로그인
 //        val naver_client_id = "WWSmSMIYeWU77c_0uql8"
@@ -187,51 +231,51 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
 //        }
 //    }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        when (requestCode) {
-            REQ_ONE_TAP -> {
-                try {
-                    val credential = oneTapClient.getSignInCredentialFromIntent(data)
-                    val idToken = credential.googleIdToken
-                    val username = credential.id
-                    val password = credential.password
-                    when {
-                        idToken != null -> {
-                            // Got an ID token from Google. Use it to authenticate
-                            // with your backend.
-                            Log.d(TAG, "Got ID token.")
-                        }
-                        password != null -> {
-                            // Got a saved username and password. Use them to authenticate
-                            // with your backend.
-                            Log.d(TAG, "Got password.")
-                        }
-                        else -> {
-                            // Shouldn't happen.
-                            Log.d(TAG, "No ID token or password!")
-                        }
-                    }
-                } catch (e: ApiException) {
-                    when (e.statusCode) {
-                        CommonStatusCodes.CANCELED -> {
-                            Log.d(TAG, "One-tap dialog was closed.")
-                            // Don't re-prompt the user.
-                            showOneTapUI = false
-                        }
-                        CommonStatusCodes.NETWORK_ERROR -> {
-                            Log.d(TAG, "One-tap encountered a network error.")
-                            // Try again or just ignore.
-                        }
-                        else -> {
-                            Log.d(TAG, "Couldn't get credential from result." +
-                                    " (${e.localizedMessage})")
-                        }
-                    }
-                }
-            }
-        }
-    }
+//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+//        super.onActivityResult(requestCode, resultCode, data)
+//
+//        when (requestCode) {
+//            REQ_ONE_TAP -> {
+//                try {
+//                    val credential = oneTapClient.getSignInCredentialFromIntent(data)
+//                    val idToken = credential.googleIdToken
+//                    val username = credential.id
+//                    val password = credential.password
+//                    when {
+//                        idToken != null -> {
+//                            // Got an ID token from Google. Use it to authenticate
+//                            // with your backend.
+//                            Log.d(TAG, "Got ID token.")
+//                        }
+//                        password != null -> {
+//                            // Got a saved username and password. Use them to authenticate
+//                            // with your backend.
+//                            Log.d(TAG, "Got password.")
+//                        }
+//                        else -> {
+//                            // Shouldn't happen.
+//                            Log.d(TAG, "No ID token or password!")
+//                        }
+//                    }
+//                } catch (e: ApiException) {
+//                    when (e.statusCode) {
+//                        CommonStatusCodes.CANCELED -> {
+//                            Log.d(TAG, "One-tap dialog was closed.")
+//                            // Don't re-prompt the user.
+//                            showOneTapUI = false
+//                        }
+//                        CommonStatusCodes.NETWORK_ERROR -> {
+//                            Log.d(TAG, "One-tap encountered a network error.")
+//                            // Try again or just ignore.
+//                        }
+//                        else -> {
+//                            Log.d(TAG, "Couldn't get credential from result." +
+//                                    " (${e.localizedMessage})")
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    }
 }
 

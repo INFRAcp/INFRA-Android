@@ -7,17 +7,29 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
 import com.example.infraandroid.databinding.MyInfoTeamIdeaBinding
+import com.example.infraandroid.myinfo.myideamanage.model.MyProjectViewModel
 import com.example.infraandroid.myinfo.myideamanage.view.adapter.TeamPagerAdapter
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 // 내 정보 > 내 아이디어 관리 탭 레이아웃의 부모 레이아웃
 class MyIdeaFragment : Fragment() {
+    private lateinit var viewModel : MyProjectViewModel
     private  var mBinding : MyInfoTeamIdeaBinding? = null
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager: ViewPager2
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        activity?.run{
+            viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
+                .get(MyProjectViewModel::class.java)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,6 +47,16 @@ class MyIdeaFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val args: MyIdeaFragmentArgs by navArgs()
+        viewModel.updateObservingProjectNum(args.myProjectNum)
+        mBinding?.titleTextView?.text = args.myIdeaTitle
+
+        val bottomSheetDialogFragment = MyProjectMoreMenuBottomSheetFragment()
+
+        mBinding?.moreImageButton?.setOnClickListener {
+            activity?.supportFragmentManager?.let { it1 -> bottomSheetDialogFragment.show(it1, bottomSheetDialogFragment.tag) }
+        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -53,6 +75,7 @@ class MyIdeaFragment : Fragment() {
                 Log.d(ContentValues.TAG, "onPageSelected: " + (position+1))
             }
         })
+
 
         TabLayoutMediator(tabLayout, viewPager){tab, position ->
             when(position){

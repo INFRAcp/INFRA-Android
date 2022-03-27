@@ -84,7 +84,7 @@ class CreateProjectFragment : Fragment() {
         val year = today.year
         val month = today.monthValue
         val day = today.dayOfMonth
-        todayString = "{$year}-{$month}-{$day}"
+        todayString = "${year}-${month}-${day}"
         startTermString = todayString
         endTermString = todayString
         deadlineString = todayString
@@ -105,11 +105,70 @@ class CreateProjectFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val cal = Calendar.getInstance()
-        val projectRecruitStart = mBinding?.projectStartDateEditTextView
         val projectRecruitEnd = mBinding?.projectEndDateEditTextView
         val projectMakingStart = mBinding?.setProjectStartDateTextView
         val projectMakingEnd = mBinding?.projectEndMakingDateEditTextView
         val addFileButton = mBinding?.addFileTextView
+
+        viewModel?.hashTag?.observe(viewLifecycleOwner, Observer{
+            when(it.size){
+                0 -> {
+                    mBinding?.hashTagOneConstraintLayout?.isVisible = false
+                    mBinding?.hashTagTwoConstraintLayout?.isVisible = false
+                    mBinding?.hashTagThreeConstraintLayout?.isVisible = false
+                    mBinding?.hashTagFourConstraintLayout?.isVisible = false
+                    hashTagString = ""
+                }
+                1 -> {
+                    mBinding?.hashTagOneTextView?.text = it[0]
+                    mBinding?.hashTagOneConstraintLayout?.isVisible = true
+                    mBinding?.hashTagTwoConstraintLayout?.isVisible = false
+                    mBinding?.hashTagThreeConstraintLayout?.isVisible = false
+                    mBinding?.hashTagFourConstraintLayout?.isVisible = false
+                    hashTagString = "\"${it[0]}\""
+                }
+                2 -> {
+                    mBinding?.hashTagTwoTextView?.text = it[1]
+                    mBinding?.hashTagOneConstraintLayout?.isVisible = true
+                    mBinding?.hashTagTwoConstraintLayout?.isVisible = true
+                    mBinding?.hashTagThreeConstraintLayout?.isVisible = false
+                    mBinding?.hashTagFourConstraintLayout?.isVisible = false
+                    hashTagString = "\"${it[0]}\",\"${it[1]}\""
+                }
+                3 -> {
+                    mBinding?.hashTagThreeTextView?.text = it[2]
+                    mBinding?.hashTagOneConstraintLayout?.isVisible = true
+                    mBinding?.hashTagTwoConstraintLayout?.isVisible = true
+                    mBinding?.hashTagThreeConstraintLayout?.isVisible = true
+                    mBinding?.hashTagFourConstraintLayout?.isVisible = false
+                    hashTagString = "\"${it[0]}\",\"${it[1]}\",\"${it[2]}\""
+                }
+                4 -> {
+                    mBinding?.hashTagFourTextView?.text = it[3]
+                    mBinding?.hashTagOneConstraintLayout?.isVisible = true
+                    mBinding?.hashTagTwoConstraintLayout?.isVisible = true
+                    mBinding?.hashTagThreeConstraintLayout?.isVisible = true
+                    mBinding?.hashTagFourConstraintLayout?.isVisible = true
+                    hashTagString = "\"${it[0]}\",\"${it[1]}\",\"${it[2]}\",\"${it[3]}\""
+                }
+            }
+        })
+
+        mBinding?.hashTagOneConstraintLayout?.setOnClickListener {
+            viewModel?.deleteHashTag(0)
+        }
+
+        mBinding?.hashTagTwoConstraintLayout?.setOnClickListener {
+            viewModel?.deleteHashTag(1)
+        }
+
+        mBinding?.hashTagThreeConstraintLayout?.setOnClickListener {
+            viewModel?.deleteHashTag(2)
+        }
+
+        mBinding?.hashTagFourConstraintLayout?.setOnClickListener {
+            viewModel?.deleteHashTag(3)
+        }
 
         // 파일 첨부 버튼 눌렀을 때
         addFileButton?.setOnClickListener {
@@ -155,12 +214,10 @@ class CreateProjectFragment : Fragment() {
                 null
             }
 
-
             val jsonString = "{\"user_id\" : \""+ InfraApplication.prefs.getString("userId", "null")+"\"," +
-                    "\"pj_header\" : \"썸네일 제목\"," +
+                    "\"pj_header\" : \"" + mBinding?.titleEditText?.text.toString() + "\"," +
                     "\"pj_categoryName\" : \"개발\"," +
                     "\"pj_content\" : \""+ mBinding?.projectContentEditText?.text.toString() +"\"," +
-                    "\"pj_name\" : \""+ mBinding?.titleEditText?.text.toString() +"\"," +
                     "\"pj_subCategoryName\" : \"APP\"," +
                     "\"pj_progress\" : \""+ mBinding?.descriptionEditText?.text.toString() +"\"," +
                     "\"pj_startTerm\" : "+ startTermString +"," +
@@ -269,30 +326,6 @@ class CreateProjectFragment : Fragment() {
         if(mBinding?.hashTagEditText?.text.toString() != "")
             viewModel?.updateHashTag(mBinding?.hashTagEditText?.text.toString())
         mBinding?.hashTagEditText?.setText("")
-        viewModel?.hashTag?.observe(viewLifecycleOwner, Observer{
-            when(it.size){
-                1 -> {
-                    mBinding?.hashTagOneTextView?.text = it[0]
-                    mBinding?.hashTagOneTextView?.isVisible = true
-                    hashTagString = "\"${it[0]}\""
-                }
-                2 -> {
-                    mBinding?.hashTagTwoTextView?.text = it[1]
-                    mBinding?.hashTagTwoTextView?.isVisible = true
-                    hashTagString = "\"${it[0]}\",\"${it[1]}\""
-                }
-                3 -> {
-                    mBinding?.hashTagThreeTextView?.text = it[2]
-                    mBinding?.hashTagThreeTextView?.isVisible = true
-                    hashTagString = "\"${it[0]}\",\"${it[1]}\",\"${it[2]}\""
-                }
-                4 -> {
-                    mBinding?.hashTagFourTextView?.text = it[3]
-                    mBinding?.hashTagFourTextView?.isVisible = true
-                    hashTagString = "\"${it[0]}\",\"${it[1]}\",\"${it[2]}\",\"${it[3]}\""
-                }
-            }
-        })
     }
 
     // 날짜 선택하는 datepicker

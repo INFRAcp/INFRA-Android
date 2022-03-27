@@ -17,5 +17,7 @@ data class ResponseLoginData(
         val userName : String,
         @SerializedName("user_nickname")
         val userNickName : String,
+        @SerializedName("jwtRefreshIdx")
+        val refreshToken : Int
     )
 }

@@ -36,11 +36,13 @@ class ChattingRoomAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             binding.chattingRoomLastMessageTextview.text = chattingRoomInfo.lastMessage
             binding.chattingRoomListOpponentNameTextview.text = chattingRoomInfo.opponentName
             Glide.with(itemView)
-                .load(R.drawable.other_user_photo)
+                .load(chattingRoomInfo.opponentProfileImg)
+                .circleCrop()
+                .error(R.drawable.other_user_photo)
                 .into(binding.chattingRoomListImageview)
             itemView.setOnClickListener {
-                InfraApplication.chatRoomIndex = chattingRoomInfo.chattingRoomIndex
-                it.findNavController().navigate(R.id.action_chatting_room_list_fragment_to_chat_fragment)
+                val action = ChattingRoomListFragmentDirections.actionChattingRoomListFragmentToChatFragment(chattingRoomInfo.opponentName, chattingRoomInfo.opponentProfileImg)
+                it.findNavController().navigate(action)
             }
 
             val now: Long = System.currentTimeMillis()
