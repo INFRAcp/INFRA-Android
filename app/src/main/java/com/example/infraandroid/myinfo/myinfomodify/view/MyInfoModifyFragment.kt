@@ -3,6 +3,7 @@ package com.example.infraandroid.myinfo.myinfomodify.view
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +18,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentMyInfoModifyBinding
+import com.example.infraandroid.myinfo.myinfomodify.model.RequestModifyMyInfoData
+import com.example.infraandroid.myinfo.myinfomodify.model.ResponseViewMyInfoData
+import com.example.infraandroid.util.ServiceCreator
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 //내 정보 > 내 정보 .kt
 class MyInfoModifyFragment : Fragment() {
@@ -44,6 +51,49 @@ class MyInfoModifyFragment : Fragment() {
         val overlapCheckButton = mBinding?.overlapCheckButton as AppCompatButton
         val modifyCompletedButton = mBinding?.modifyCompletedButton as TextView
         val doNotUseThisNicknameTextView = mBinding?.doNotUseThisNicknameTextView as TextView
+
+        //내 정보 보기 서버 연결
+        val viewcall: Call<ResponseViewMyInfoData> = ServiceCreator.myinfoService
+            .viewMyInfo("jwt","userId")
+        /*.viewMyInfo(InfraApplication.prefs.getString("jwt","null"),InfraApplication.prefs.getString("userId","null"))*/
+        viewcall.enqueue(object : Callback<ResponseViewMyInfoData> {
+            override fun onResponse(
+                call: Call<ResponseViewMyInfoData>,
+                response: Response<ResponseViewMyInfoData>
+            ) {
+                val body = response.body()
+                if(response.isSuccessful){
+                    when(response.body()?.code){
+                    }
+                }
+
+            }
+
+            override fun onFailure(call: Call<ResponseViewMyInfoData>, t: Throwable) {
+                Log.d("TAG","Failed : $t")
+            }
+
+        } )
+
+        //내 정보 수정 서버 연결
+        val modifycall: Call<RequestModifyMyInfoData> = ServiceCreator.myinfoService
+            .ModifyMyInfo("jwt","userId")
+        modifycall.enqueue(object : Callback<RequestModifyMyInfoData> {
+            override fun onResponse(
+                call: Call<RequestModifyMyInfoData>,
+                response: Response<RequestModifyMyInfoData>
+            ) {
+                if(response.isSuccessful){
+                    when(response.body()?.code){
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<RequestModifyMyInfoData>, t: Throwable) {
+                Log.d("TAG","Failed : $t")
+            }
+
+        })
 
         //프로필 사진 추가 바텀싵
         val bottomSheetDialogFragment = MyInfoPhotoMoreMenuBottomSheetFragment()
@@ -101,8 +151,8 @@ class MyInfoModifyFragment : Fragment() {
                 inputNicknameEditText.setBackgroundResource(R.drawable.double_check_id_background)
                 mBinding?.canUseIconImageView?.isVisible = false
             }
-            }
         }
+    }
 
 
     override fun onDestroyView() {
