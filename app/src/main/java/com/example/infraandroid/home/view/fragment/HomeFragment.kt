@@ -1,11 +1,6 @@
 package com.example.infraandroid.home.view.fragment
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.infraandroid.util.InfraApplication
 import com.example.infraandroid.R
@@ -119,4 +114,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
             }
         }
     }
+
+
 }

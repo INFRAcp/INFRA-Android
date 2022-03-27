@@ -9,6 +9,8 @@ import androidx.navigation.ui.NavigationUI
 import com.example.infraandroid.databinding.ActivityMainBinding
 
 import android.view.View
+import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 import com.kakao.sdk.common.util.Utility
 
 class MainActivity : AppCompatActivity() {
