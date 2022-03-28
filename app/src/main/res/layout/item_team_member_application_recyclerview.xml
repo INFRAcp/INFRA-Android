@@ -1,75 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginStart="31dp"
-    android:layout_marginEnd="18dp"
-    android:layout_marginBottom="27dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="applyPerson"
+            type="com.example.infraandroid.myinfo.myideamanage.model.ResponseViewProjectApplyData.Result" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/team_member_profile_constraint_layout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-        <ImageView
-            android:id="@+id/team_member_profile_iv"
-            android:layout_width="49dp"
-            android:layout_height="49dp"
-            android:src="@drawable/team_user_profile_example"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-        <TextView
-            android:id="@+id/team_member_name_tv"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="27dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/team_member_profile_constraint_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="던킨도넛"
-            android:fontFamily="@font/noto_sans_kr_medium"
-            android:textSize="15sp"
-            android:textColor="@color/black"
-            android:layout_marginStart="13dp"
-            android:includeFontPadding="false"
-            app:layout_constraintStart_toEndOf="@+id/team_member_profile_iv"
-            app:layout_constraintTop_toTopOf="@+id/team_member_profile_iv"
-            app:layout_constraintBottom_toBottomOf="@+id/team_member_profile_iv"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <ImageView
+                android:id="@+id/team_member_profile_iv"
+                android:layout_width="49dp"
+                android:layout_height="49dp"
+                loadCircleImg="@{applyPerson.user_prphoto}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/team_member_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{applyPerson.user_nickname}"
+                android:fontFamily="@font/noto_sans_kr_medium"
+                android:textSize="15sp"
+                android:textColor="@color/black"
+                android:layout_marginStart="13dp"
+                android:includeFontPadding="false"
+                app:layout_constraintStart_toEndOf="@+id/team_member_profile_iv"
+                app:layout_constraintTop_toTopOf="@+id/team_member_profile_iv"
+                app:layout_constraintBottom_toBottomOf="@+id/team_member_profile_iv" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/team_member_application_accept_box_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_team_member_rectangle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ImageView
+            android:id="@+id/team_member_accept_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_accept"
+            app:layout_constraintEnd_toEndOf="@+id/team_member_application_accept_box_iv"
+            app:layout_constraintStart_toStartOf="@+id/team_member_application_accept_box_iv"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ImageView
+            android:id="@+id/team_member_application_reject_box_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_team_member_rectangle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/team_member_application_accept_box_iv"
+            android:layout_marginEnd="7dp" />
+
+        <ImageView
+            android:id="@+id/team_member_reject_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_refusal"
+            app:layout_constraintEnd_toEndOf="@+id/team_member_application_reject_box_iv"
+            app:layout_constraintStart_toStartOf="@+id/team_member_application_reject_box_iv"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-   <ImageView
-        android:id="@+id/team_member_application_accept_box_iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_team_member_rectangle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-    <ImageView
-        android:id="@+id/team_member_accept_iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_accept"
-        app:layout_constraintEnd_toEndOf="@+id/team_member_application_accept_box_iv"
-        app:layout_constraintStart_toStartOf="@+id/team_member_application_accept_box_iv"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
-    <ImageView
-        android:id="@+id/team_member_application_reject_box_iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_team_member_rectangle"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/team_member_application_accept_box_iv"
-        android:layout_marginEnd="7dp"/>
-    <ImageView
-        android:id="@+id/team_member_reject_iv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_refusal"
-        app:layout_constraintEnd_toEndOf="@+id/team_member_application_reject_box_iv"
-        app:layout_constraintStart_toStartOf="@+id/team_member_application_reject_box_iv"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
