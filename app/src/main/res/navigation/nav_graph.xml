@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/login_fragment">
+    app:startDestination="@id/splashFragment">
 
     <fragment
         android:id="@+id/home_fragment"
@@ -211,7 +211,17 @@
         android:id="@+id/myInfoProjectModifyFragment"
         android:name="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaModifyPageFragment"
         android:label="fragment_my_info_project_modify"
-        tools:layout="@layout/fragment_my_info_project_modify" />
+        tools:layout="@layout/fragment_my_info_project_modify" >
+        <argument
+            android:name="pjNum"
+            app:argType="integer" />
+        <argument
+            android:name="userId"
+            app:argType="string" />
+        <argument
+            android:name="pjTitle"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/myInfoMyIdeaFragment"
         android:name="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaManageFragment"
@@ -357,6 +367,18 @@
             android:id="@+id/action_myProjectMoreMenuBottomSheetFragment_to_myInfoProjectModifyFragment"
             app:destination="@id/myInfoProjectModifyFragment" />
     </dialog>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.infraandroid.util.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_login_fragment"
+            app:destination="@id/login_fragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_home_fragment"
+            app:destination="@id/home_fragment" />
+    </fragment>
 
 
 </navigation>

@@ -8,11 +8,12 @@ import com.example.infraandroid.databinding.ItemTeamMemberApplicationRecyclervie
 import com.example.infraandroid.myinfo.myideamanage.view.WarningAcceptDialog
 import com.example.infraandroid.myinfo.myideamanage.view.WarningRejectDialog
 import com.example.infraandroid.myinfo.myideamanage.model.MyIdeaMemberApplyManageInfo
+import com.example.infraandroid.myinfo.myideamanage.model.ResponseViewProjectApplyData
 import com.example.infraandroid.myinfo.myinfomodify.view.MyInfoPhotoMoreMenuBottomSheetFragment
 
 //fragmentManager: FragmentManager
 class MyIdeaMemberApplyAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    val teamMemberAppliList = mutableListOf<MyIdeaMemberApplyManageInfo>()
+    var teamMemberApplyList = mutableListOf<ResponseViewProjectApplyData.Result>()
     private lateinit var context: Context
     //private var mFragmentManager: FragmentManager
 
@@ -26,29 +27,28 @@ class MyIdeaMemberApplyAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(
             false
         )
         context = parent.context
-        return TeamMemberAppliViewHolder(binding)
+        return TeamMemberApplyViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as TeamMemberAppliViewHolder).onBind(teamMemberAppliList[position])
+        (holder as TeamMemberApplyViewHolder).onBind(teamMemberApplyList[position])
     }
 
-    override fun getItemCount(): Int = teamMemberAppliList.size
+    override fun getItemCount(): Int = teamMemberApplyList.size
 
-    inner class TeamMemberAppliViewHolder(
+    inner class TeamMemberApplyViewHolder(
         private val binding: ItemTeamMemberApplicationRecyclerviewBinding
     ): RecyclerView.ViewHolder(binding.root){
-        fun onBind(myIdeaMemberApplyManageInfo: MyIdeaMemberApplyManageInfo){
-            binding.teamMemberNameTv.text = myIdeaMemberApplyManageInfo.name
-            //binding.teamMemberProfileIv.setImageResource(teamMemberApplicationInfo.profileImg)
+        fun onBind(myIdeaMemberApplyManageInfo: ResponseViewProjectApplyData.Result){
 
-            //팀원 프로필 클릭시 팀원 소개 페이지 바텀싵
-            //bottom sheet layout 설정
-            val bottomSheetDialogFragment = MyInfoPhotoMoreMenuBottomSheetFragment()
-            binding.teamMemberProfileConstraintLayout.setOnClickListener {
-                //bottomSheetDialogFragment.show(getFragmentManager() , "TAG")
-                //bottomSheetDialogFragment.show(mFragmentManager, bottomSheetDialogFragment.tag)
-            }
+//            //bottom sheet layout 설정
+//            val bottomSheetDialogFragment = MyInfoPhotoMoreMenuBottomSheetFragment()
+//            binding.teamMemberProfileConstraintLayout.setOnClickListener {
+//                //bottomSheetDialogFragment.show(getFragmentManager() , "TAG")
+//                //bottomSheetDialogFragment.show(mFragmentManager, bottomSheetDialogFragment.tag)
+//            }
+
+            binding.applyPerson = myIdeaMemberApplyManageInfo
 
             //수락하기 버튼 클릭시
             binding.teamMemberApplicationAcceptBoxIv.setOnClickListener {

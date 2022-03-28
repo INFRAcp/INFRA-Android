@@ -57,46 +57,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
 //            // Automatically sign in when exactly one credential is retrieved.
 //            .setAutoSelectEnabled(true)
 //            .build()
-        if(InfraApplication.prefs.getUserId().isNotEmpty()
-        and InfraApplication.prefs.getUserPW().isNotEmpty()){
 
-            val requestLoginData = RequestLoginData(
-                userId = InfraApplication.prefs.getUserId(),
-                userPw = InfraApplication.prefs.getUserPW(),
-            )
-
-            val call: Call<ResponseLoginData> = ServiceCreator.loginService
-                .postLogin(requestLoginData)
-
-            call.enqueue(object : Callback<ResponseLoginData>{
-                override fun onResponse(
-                    call: Call<ResponseLoginData>,
-                    response: Response<ResponseLoginData>
-                ) {
-                    if(response.isSuccessful){
-                        val code = response.body()?.code
-                        when(code){
-                            1000 -> {
-                                InfraApplication.prefs.setString("jwt", response.body()?.result?.jwt.toString())
-                                InfraApplication.prefs.setString("refreshToken", response.body()?.result?.refreshToken.toString())
-                                InfraApplication.prefs.setString("userId", response.body()?.result?.userId.toString())
-                                InfraApplication.prefs.setString("userNickName", response.body()?.result?.userNickName.toString())
-                                Toast.makeText(requireActivity(),"요청에 성공하셨습니다.", Toast.LENGTH_SHORT).show()
-                                // 로그인 버튼을 누르면 home_fragment로 이동
-                                findNavController().navigate(R.id.action_login_fragment_to_home_fragment)
-                            }
-                            2001 -> {Toast.makeText(requireActivity(),"id가 비어있습니다.", Toast.LENGTH_SHORT).show()}
-                            3014 -> {Toast.makeText(requireActivity(),"없는 아이디거나 비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show()}
-                            4000 -> {Toast.makeText(requireActivity(),"데이터베이스 연결에 실패하였습니다.", Toast.LENGTH_SHORT).show()}
-                        }
-                    }
-                }
-
-                override fun onFailure(call: Call<ResponseLoginData>, t: Throwable) {
-                    Log.e("login_server_test", "fail")
-                }
-            })
-        }
     }
 
     override fun FragmentLoginBinding.onViewCreated(){
