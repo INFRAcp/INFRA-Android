@@ -38,8 +38,8 @@ class TeamMemberAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
             //강퇴하기 버튼 클릭시
             binding.teamMemberKickOutButton.setOnClickListener {
-                val warningKickOutDialog = WarningKickOutDialog(context)
-                warningKickOutDialog.show()
+//                val warningKickOutDialog = WarningKickOutDialog(context)
+//                warningKickOutDialog.show()
             }
 
 

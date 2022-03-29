@@ -8,8 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
+import com.example.infraandroid.R
 import com.example.infraandroid.databinding.MyInfoTeamIdeaBinding
 import com.example.infraandroid.myinfo.myideamanage.model.MyProjectViewModel
 import com.example.infraandroid.myinfo.myideamanage.view.adapter.TeamPagerAdapter
@@ -56,6 +58,10 @@ class MyIdeaFragment : Fragment() {
 
         mBinding?.moreImageButton?.setOnClickListener {
             activity?.supportFragmentManager?.let { it1 -> bottomSheetDialogFragment.show(it1, bottomSheetDialogFragment.tag) }
+        }
+
+        mBinding?.categoryTeamBackButton?.setOnClickListener {
+            it.findNavController().navigate(R.id.action_myInfoTeamIdeaFragment_to_myInfoMyIdeaFragment)
         }
     }
 

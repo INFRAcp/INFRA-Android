@@ -251,6 +251,12 @@
         <argument
             android:name="myProjectNum"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_myInfoTeamIdeaFragment_to_myInfoMyIdeaFragment"
+            app:destination="@id/myInfoMyIdeaFragment" />
+        <action
+            android:id="@+id/action_myInfoTeamIdeaFragment_to_warningRejectDialog"
+            app:destination="@id/warningRejectDialog" />
     </fragment>
 
     <fragment
@@ -379,6 +385,20 @@
             android:id="@+id/action_splashFragment_to_home_fragment"
             app:destination="@id/home_fragment" />
     </fragment>
+    <dialog
+        android:id="@+id/warningDeleteDialog"
+        android:name="com.example.infraandroid.myinfo.myideamanage.view.WarningDeleteDialog"
+        android:label="my_info_my_project_delete_warning"
+        tools:layout="@layout/my_info_my_project_delete_warning" >
+        <action
+            android:id="@+id/action_warningDeleteDialog_to_myInfoMyIdeaFragment"
+            app:destination="@id/myInfoMyIdeaFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/warningRejectDialog"
+        android:name="com.example.infraandroid.myinfo.myideamanage.view.WarningRejectDialog"
+        android:label="my_info_my_idea_reject_warning"
+        tools:layout="@layout/my_info_my_idea_reject_warning" />
 
 
 </navigation>

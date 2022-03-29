@@ -6,12 +6,35 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.MyInfoMyProjectDeleteWarningBinding
+import com.example.infraandroid.myinfo.myideamanage.model.MyProjectViewModel
+import com.example.infraandroid.myinfo.myideamanage.model.RequestDeleteProjectData
+import com.example.infraandroid.myinfo.myideamanage.model.ResponseDeleteProjectData
+import com.example.infraandroid.util.InfraApplication
+import com.example.infraandroid.util.ServiceCreator
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class WarningDeleteDialog: DialogFragment() {
-    private  var mBinding : MyInfoMyProjectDeleteWarningBinding? = null
+    private lateinit var viewModel : MyProjectViewModel
+    private var mBinding : MyInfoMyProjectDeleteWarningBinding? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        activity?.run{
+            viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())
+                .get(MyProjectViewModel::class.java)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,7 +51,35 @@ class WarningDeleteDialog: DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         mBinding?.warningOkayButton?.setOnClickListener {
-            // 삭제 버튼 눌렀을 때
+            val requestDeleteProjectData = RequestDeleteProjectData(
+                user_id = InfraApplication.prefs.getUserId(),
+                pj_num = viewModel.currentObservingProjectNum.value
+            )
+            val call : Call<ResponseDeleteProjectData> = ServiceCreator.myProjectService
+                .deleteProject(InfraApplication.prefs.getString("jwt", "null"),
+                InfraApplication.prefs.getString("refreshToken", "null").toInt(),
+                requestDeleteProjectData)
+
+            call.enqueue(object: Callback<ResponseDeleteProjectData> {
+                override fun onResponse(
+                    call: Call<ResponseDeleteProjectData>,
+                    response: Response<ResponseDeleteProjectData>
+                ) {
+                    if(response.isSuccessful){
+                        when(response.body()?.code){
+                            1000->{
+                                dismiss()
+                                findNavController().navigate(R.id.action_myInfoTeamIdeaFragment_to_myInfoMyIdeaFragment)
+                            }
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseDeleteProjectData>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+
+            })
         }
 
         mBinding?.warningCancelButton?.setOnClickListener {
