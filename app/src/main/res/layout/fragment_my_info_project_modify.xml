@@ -1,606 +1,709 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/infra_skyblue_b"
-    tools:context="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaModifyPageFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ScrollView
+    <data>
+        <variable
+            name="fragment"
+            type="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaModifyPageFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:background="@color/infra_skyblue_b"
+        tools:context="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaModifyPageFragment">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/cancel_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="취소"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:textColor="@color/infra_skyblue_a"
-                android:fontFamily="@font/noto_sans_kr_light"
-                android:textSize="15sp"
-                android:includeFontPadding="false"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="20dp"/>
-
-            <TextView
-                android:id="@+id/title_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="프로젝트 수정"
-                app:layout_constraintTop_toTopOf="@id/cancel_text_view"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/cancel_text_view"
-                android:fontFamily="@font/noto_sans_kr_medium"
-                android:includeFontPadding="false"
-                android:textSize="15sp"
-                android:textColor="@color/black"
-                />
-
-            <TextView
-                android:id="@+id/complete_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="완료"
-                app:layout_constraintTop_toTopOf="@id/title_text_view"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="@id/title_text_view"
-                android:layout_marginRight="20dp"
-                android:textSize="15sp"
-                android:fontFamily="@font/noto_sans_kr_bold"
-                android:includeFontPadding="false"
-                android:textColor="@color/infra_skyblue_a"/>
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@color/infra_skyblue_b">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/set_title_constraint_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/login_background"
-                app:layout_constraintTop_toBottomOf="@id/cancel_text_view"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="36dp">
-
-                <EditText
-                    android:id="@+id/title_edit_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="멸종 위기 동물이 내 방에? 축제"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/title_line_view"
-                    app:layout_constraintTop_toTopOf="@id/set_title_constraint_layout"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:includeFontPadding="false"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:background="@android:color/transparent"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"/>
-
-                <View
-                    android:id="@+id/title_line_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    app:layout_constraintTop_toBottomOf="@id/title_edit_text"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    android:background="@color/infra_gray_c"
-                    android:layout_marginTop="10dp"/>
+                android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/project_category_text_view"
+                    android:id="@+id/cancel_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/title_line_view"
+                    android:text="취소"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:text="공모전"
+                    android:textColor="@color/infra_skyblue_a"
+                    android:fontFamily="@font/noto_sans_kr_light"
+                    android:textSize="15sp"
                     android:includeFontPadding="false"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="20dp"/>
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="20dp" />
 
-                <ImageView
-                    android:id="@+id/edit_category_image_view"
+                <TextView
+                    android:id="@+id/title_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_change_content"
-                    app:layout_constraintTop_toTopOf="@id/project_category_text_view"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintBottom_toBottomOf="@id/project_category_text_view"
-                    android:layout_marginRight="16dp"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/set_date_constraint_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/login_background"
-                app:layout_constraintTop_toBottomOf="@id/set_title_constraint_layout"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="20dp">
-
-                <EditText
-                    android:id="@+id/number_of_team_edit_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="8 명"
+                    android:text="프로젝트 수정"
+                    app:layout_constraintTop_toTopOf="@id/cancel_text_view"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/start_date_line_view"
-                    app:layout_constraintTop_toTopOf="@id/set_date_constraint_layout"
-                    android:fontFamily="@font/noto_sans_kr_regular"
+                    app:layout_constraintBottom_toBottomOf="@id/cancel_text_view"
+                    android:fontFamily="@font/noto_sans_kr_medium"
                     android:includeFontPadding="false"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:background="@android:color/transparent"
+                    android:textSize="15sp"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/complete_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="완료"
+                    app:layout_constraintTop_toTopOf="@id/title_text_view"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="@id/title_text_view"
                     android:layout_marginRight="20dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="right"/>
+                    android:textSize="15sp"
+                    android:fontFamily="@font/noto_sans_kr_bold"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/infra_skyblue_a" />
 
-                <View
-                    android:id="@+id/start_date_line_view"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/set_title_constraint_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    app:layout_constraintTop_toBottomOf="@id/number_of_team_edit_text"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/login_background"
+                    app:layout_constraintTop_toBottomOf="@id/cancel_text_view"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    android:background="@color/infra_gray_c"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="36dp">
 
-                <TextView
-                    android:id="@+id/project_start_date_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/start_date_line_view"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    android:text="모집 시작"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="15dp"/>
+                    <EditText
+                        android:id="@+id/title_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="제목"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/title_line_view"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:background="@android:color/transparent"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="12dp" />
 
-                <TextView
-                    android:id="@+id/project_start_date_edit_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/start_date_line_view"
-                    app:layout_constraintRight_toRightOf="parent"
-                    android:text="2021년 12월 1일"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginRight="20dp"/>
+                    <View
+                        android:id="@+id/title_line_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        app:layout_constraintTop_toBottomOf="@id/project_category_text_view"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:background="@color/infra_gray_c"
+                        android:layout_marginTop="10dp" />
 
-                <View
-                    android:id="@+id/end_date_line_view"
+                    <TextView
+                        android:id="@+id/project_category_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toTopOf="@id/title_line_view"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/set_title_constraint_layout"
+                        android:text="분류"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="20dp" />
+
+                    <ImageButton
+                        android:padding="10dp"
+                        android:id="@+id/edit_category_image_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_change_content"
+                        android:background="@android:color/transparent"
+                        app:layout_constraintTop_toTopOf="@id/project_category_text_view"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@id/project_category_text_view"
+                        android:layout_marginRight="6dp" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/set_date_constraint_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    app:layout_constraintTop_toBottomOf="@id/project_start_date_text_view"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/login_background"
+                    app:layout_constraintTop_toBottomOf="@id/set_title_constraint_layout"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    android:background="@color/infra_gray_c"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="20dp">
 
-                <TextView
-                    android:id="@+id/project_end_date_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/end_date_line_view"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:text="모집 종료"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="15dp"/>
+                    <EditText
+                        android:id="@+id/number_of_team_edit_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:hint="필요한 팀원 인원 수"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toLeftOf="@id/number_of_team_text_view"
+                        app:layout_constraintBottom_toTopOf="@id/start_date_line_view"
+                        app:layout_constraintTop_toTopOf="@id/set_date_constraint_layout"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:background="@android:color/transparent"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="right" />
 
-                <TextView
-                    android:id="@+id/project_end_date_edit_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/end_date_line_view"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:text="2022년 1월 5일"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginRight="20dp"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/number_of_team_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="명"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textSize="14sp"
+                        app:layout_constraintTop_toTopOf="@id/number_of_team_edit_text"
+                        app:layout_constraintBottom_toBottomOf="@id/number_of_team_edit_text"
+                        app:layout_constraintLeft_toRightOf="@id/number_of_team_edit_text"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_marginRight="20dp" />
 
-        <EditText
-            android:id="@+id/project_content_edit_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="1. 목적\n
-멸종 위기 동물에 대한 심각성을 자연스럽게 인지하는 동시에 잘못된 인식을 바꾼다. 기부에 대한 부정적인 인식을 바꾸고 멸종 위기 동물 보존을 위한 기부금을 모은다.
-"
-            app:layout_constraintTop_toBottomOf="@id/set_date_constraint_layout"
-            android:background="@drawable/login_background"
-            android:layout_marginTop="20dp"
-            android:textSize="15sp"
-            android:fontFamily="@font/noto_sans_kr_regular"
-            android:textColor="@color/black"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginHorizontal="20dp"
-            android:paddingHorizontal="14dp"
-            android:lineSpacingExtra="4sp"
-            />
+                    <View
+                        android:id="@+id/start_date_line_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        app:layout_constraintTop_toBottomOf="@id/number_of_team_edit_text"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:background="@color/infra_gray_c"
+                        android:layout_marginTop="10dp" />
 
+                    <TextView
+                        android:id="@+id/project_start_date_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/start_date_line_view"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:text="모집 시작"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginLeft="15dp" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/set_making_date_constraint_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/login_background"
-            app:layout_constraintTop_toBottomOf="@id/project_content_edit_text"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginHorizontal="20dp"
-            android:layout_marginTop="20dp">
+                    <TextView
+                        android:id="@+id/project_start_date_edit_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/start_date_line_view"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:text="@string/today_date"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginRight="20dp" />
 
-            <TextView
-                android:id="@+id/project_making_start_date_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:text="예상 제작 기간 설정"
-                android:includeFontPadding="false"
-                android:fontFamily="@font/noto_sans_kr_regular"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="12dp"
-                android:layout_marginLeft="15dp"/>
+                    <View
+                        android:id="@+id/end_date_line_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        app:layout_constraintTop_toBottomOf="@id/project_start_date_text_view"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:background="@color/infra_gray_c"
+                        android:layout_marginTop="10dp" />
 
-            <Switch
-                android:id="@+id/set_date_switch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="@id/project_making_start_date_text_view"
-                app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginRight="18dp"/>
+                    <TextView
+                        android:id="@+id/project_end_date_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/end_date_line_view"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="모집 종료"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginLeft="15dp" />
 
-            <View
-                android:id="@+id/start_making_date_line_view"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                app:layout_constraintTop_toBottomOf="@id/project_making_start_date_text_view"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                android:background="@color/infra_gray_c"
-                android:layout_marginTop="10dp"/>
-
-            <TextView
-                android:id="@+id/project_date_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/start_making_date_line_view"
-                app:layout_constraintLeft_toLeftOf="parent"
-                android:text="제작 시작"
-                android:includeFontPadding="false"
-                android:fontFamily="@font/noto_sans_kr_regular"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="12dp"
-                android:layout_marginLeft="15dp"/>
-
-            <TextView
-                android:id="@+id/set_project_start_date_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/start_making_date_line_view"
-                app:layout_constraintRight_toRightOf="parent"
-                android:text="2022년 1월 5일"
-                android:includeFontPadding="false"
-                android:fontFamily="@font/noto_sans_kr_regular"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="12dp"
-                android:layout_marginRight="20dp"/>
-
-            <View
-                android:id="@+id/end_making_line_view"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                app:layout_constraintTop_toBottomOf="@id/project_date_text_view"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                android:background="@color/infra_gray_c"
-                android:layout_marginTop="10dp"/>
-
-            <TextView
-                android:id="@+id/end_making_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/end_making_line_view"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:text="모집 종료"
-                android:includeFontPadding="false"
-                android:fontFamily="@font/noto_sans_kr_regular"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="12dp"
-                android:layout_marginLeft="15dp"/>
-
-            <TextView
-                android:id="@+id/project_end_making_date_edit_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/end_making_line_view"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:text="2022년 2월 15일"
-                android:includeFontPadding="false"
-                android:fontFamily="@font/noto_sans_kr_regular"
-                android:textColor="@color/black"
-                android:textSize="14sp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="12dp"
-                android:layout_marginRight="20dp"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/set_description_constraint_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/login_background"
-                app:layout_constraintTop_toBottomOf="@id/set_making_date_constraint_layout"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="36dp">
+                    <TextView
+                        android:id="@+id/project_end_date_edit_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/end_date_line_view"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@string/today_date"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginRight="20dp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <EditText
-                    android:id="@+id/description_edit_text"
+                    android:id="@+id/project_content_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:hint="아이디어 내용"
+                    android:gravity="top"
+                    app:layout_constraintTop_toBottomOf="@id/set_date_constraint_layout"
+                    android:background="@drawable/login_background"
+                    android:layout_marginTop="20dp"
+                    android:paddingTop="10dp"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/noto_sans_kr_regular"
+                    android:textColor="@color/black"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginHorizontal="20dp"
+                    android:paddingHorizontal="14dp"
+                    android:lineSpacingExtra="4sp"
+                    android:includeFontPadding="false" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/set_making_date_constraint_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="기획단계 어쩌구 DB설계 어쩌구 \n플로우 차트 어쩌구 네."
+                    android:background="@drawable/login_background"
+                    app:layout_constraintTop_toBottomOf="@id/project_content_edit_text"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintBottom_toTopOf="@id/description_line_view"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:includeFontPadding="false"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:background="@android:color/transparent"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:lineSpacingExtra="4sp"/>
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="20dp">
 
-                <View
-                    android:id="@+id/description_line_view"
+                    <TextView
+                        android:id="@+id/project_making_start_date_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:text="예상 제작 기간"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginLeft="15dp" />
+
+                    <View
+                        android:id="@+id/start_making_date_line_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        app:layout_constraintTop_toBottomOf="@id/project_making_start_date_text_view"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:background="@color/infra_gray_c"
+                        android:layout_marginTop="10dp" />
+
+                    <TextView
+                        android:id="@+id/project_date_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/start_making_date_line_view"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:text="제작 시작"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginLeft="15dp" />
+
+                    <TextView
+                        android:id="@+id/set_project_start_date_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/start_making_date_line_view"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:text="@string/today_date"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginRight="20dp" />
+
+                    <View
+                        android:id="@+id/end_making_line_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        app:layout_constraintTop_toBottomOf="@id/project_date_text_view"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:background="@color/infra_gray_c"
+                        android:layout_marginTop="10dp" />
+
+                    <TextView
+                        android:id="@+id/end_making_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/end_making_line_view"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="제작 종료"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginLeft="15dp" />
+
+                    <TextView
+                        android:id="@+id/project_end_making_date_edit_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/end_making_line_view"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="@string/today_date"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginRight="20dp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/set_description_constraint_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    app:layout_constraintTop_toBottomOf="@id/description_edit_text"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/login_background"
+                    app:layout_constraintTop_toBottomOf="@id/set_making_date_constraint_layout"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    android:background="@color/infra_gray_c"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="36dp">
 
-                <TextView
-                    android:id="@+id/add_file_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@id/description_line_view"
+                    <EditText
+                        android:id="@+id/description_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:hint="진행 상황"
+                        android:gravity="top"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/description_line_view"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:background="@android:color/transparent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="10dp"
+                        android:lineSpacingExtra="4sp" />
+
+                    <View
+                        android:id="@+id/description_line_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        app:layout_constraintTop_toBottomOf="@id/description_edit_text"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:background="@color/infra_gray_c"
+                        android:layout_marginTop="10dp" />
+
+                    <TextView
+                        android:id="@+id/add_file_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/description_line_view"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="첨부 파일 추가..."
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="12dp"
+                        android:layout_marginLeft="15dp"
+                        android:visibility="visible" />
+
+                    <ImageView
+                        android:id="@+id/photo_image_view"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        app:layout_constraintTop_toBottomOf="@id/description_line_view"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginBottom="13dp"
+                        android:scaleType="centerCrop"
+                        android:visibility="gone" />
+
+                    <View
+                        android:id="@+id/photo_background_view"
+                        android:layout_width="62dp"
+                        android:layout_height="62dp"
+                        app:layout_constraintTop_toBottomOf="@id/description_line_view"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginBottom="12dp"
+                        android:background="@color/infra_light_gray_c"
+                        android:translationZ="-1dp"
+                        android:visibility="gone" />
+
+                    <ImageView
+                        android:id="@+id/delete_photo_image_view"
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:src="@drawable/close_photo"
+                        app:layout_constraintRight_toRightOf="@id/photo_image_view"
+                        app:layout_constraintTop_toTopOf="@id/photo_image_view"
+                        android:translationZ="1dp"
+                        android:visibility="gone" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/set_hash_tag_constraint_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="@drawable/login_background"
+                    app:layout_constraintTop_toBottomOf="@id/set_description_constraint_layout"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:text="첨부 파일 추가..."
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginLeft="15dp"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/set_hash_tag_constraint_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/login_background"
-                app:layout_constraintTop_toBottomOf="@id/set_description_constraint_layout"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="36dp"
-                android:layout_marginBottom="30dp">
-
-                <TextView
-                    android:id="@+id/add_hash_tag_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-
-                    android:text="해시태그:"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="15dp"
-                    app:layout_constraintBottom_toTopOf="@id/hash_tag_one_text_view"/>
-
-                <EditText
-                    android:id="@+id/hash_tag_edit_text"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/add_hash_tag_text_view"
-                    app:layout_constraintBottom_toBottomOf="@id/add_hash_tag_text_view"
-                    app:layout_constraintTop_toTopOf="@id/add_hash_tag_text_view"
-                    app:layout_constraintRight_toLeftOf="@id/add_hash_tag_image_view"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:includeFontPadding="false"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:background="@android:color/transparent"
-                    android:layout_marginLeft="2dp"
-                    android:lineSpacingExtra="4sp"/>
-
-                <ImageView
-                    android:id="@+id/add_hash_tag_image_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_add"
-                    app:layout_constraintTop_toTopOf="@id/hash_tag_edit_text"
-                    app:layout_constraintBottom_toBottomOf="@id/hash_tag_edit_text"
                     app:layout_constraintRight_toRightOf="parent"
-                    android:layout_marginRight="18dp"/>
-
-                <TextView
-                    android:id="@+id/hash_tag_one_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/hash_tag_sub_keyword_background"
-                    app:layout_constraintTop_toBottomOf="@id/hash_tag_edit_text"
-                    app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/infra_skyblue_a"
-                    android:textSize="11sp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_marginLeft="15dp"
-                    android:paddingVertical="6dp"
-                    android:paddingHorizontal="16dp"
-                    android:visibility="gone"/>
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginBottom="30dp">
 
-                <TextView
-                    android:id="@+id/hash_tag_two_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/hash_tag_sub_keyword_background"
-                    app:layout_constraintTop_toTopOf="@id/hash_tag_one_text_view"
-                    app:layout_constraintLeft_toRightOf="@id/hash_tag_one_text_view"
-                    app:layout_constraintBottom_toBottomOf="@id/hash_tag_one_text_view"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/infra_skyblue_a"
-                    android:textSize="11sp"
-                    android:layout_marginLeft="6dp"
-                    android:paddingVertical="6dp"
-                    android:paddingHorizontal="16dp"
-                    android:visibility="gone"/>
+                    <TextView
+                        android:id="@+id/add_hash_tag_text_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
 
-                <TextView
-                    android:id="@+id/hash_tag_three_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/hash_tag_sub_keyword_background"
-                    app:layout_constraintTop_toTopOf="@id/hash_tag_two_text_view"
-                    app:layout_constraintLeft_toRightOf="@id/hash_tag_two_text_view"
-                    app:layout_constraintBottom_toBottomOf="@id/hash_tag_two_text_view"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/infra_skyblue_a"
-                    android:textSize="11sp"
-                    android:layout_marginLeft="6dp"
-                    android:paddingVertical="6dp"
-                    android:paddingHorizontal="16dp"
-                    android:visibility="gone"/>
+                        android:text="해시태그:"
+                        android:includeFontPadding="false"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginLeft="15dp" />
 
-                <TextView
-                    android:id="@+id/hash_tag_four_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/hash_tag_sub_keyword_background"
-                    app:layout_constraintTop_toTopOf="@id/hash_tag_three_text_view"
-                    app:layout_constraintLeft_toRightOf="@id/hash_tag_three_text_view"
-                    app:layout_constraintBottom_toBottomOf="@id/hash_tag_three_text_view"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/infra_skyblue_a"
-                    android:textSize="11sp"
-                    android:layout_marginLeft="6dp"
-                    android:paddingVertical="6dp"
-                    android:paddingHorizontal="16dp"
-                    android:visibility="gone"/>
+                    <EditText
+                        android:id="@+id/hash_tag_edit_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:hint="(최대 4개까지)"
+                        app:layout_constraintLeft_toRightOf="@id/add_hash_tag_text_view"
+                        app:layout_constraintBottom_toBottomOf="@id/add_hash_tag_text_view"
+                        app:layout_constraintTop_toTopOf="@id/add_hash_tag_text_view"
+                        app:layout_constraintRight_toLeftOf="@id/add_hash_tag_image_view"
+                        android:fontFamily="@font/noto_sans_kr_regular"
+                        android:includeFontPadding="false"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:background="@android:color/transparent"
+                        android:layout_marginLeft="2dp"
+                        android:lineSpacingExtra="4sp" />
 
-                <TextView
-                    android:id="@+id/hash_tag_five_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/hash_tag_sub_keyword_background"
-                    app:layout_constraintTop_toTopOf="@id/hash_tag_four_text_view"
-                    app:layout_constraintLeft_toRightOf="@id/hash_tag_four_text_view"
-                    app:layout_constraintBottom_toBottomOf="@id/hash_tag_four_text_view"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/infra_skyblue_a"
-                    android:textSize="11sp"
-                    android:layout_marginLeft="6dp"
-                    android:paddingVertical="6dp"
-                    android:paddingHorizontal="16dp"
-                    android:visibility="gone"/>
+                    <ImageButton
+                        android:id="@+id/add_hash_tag_image_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_add"
+                        android:padding="10dp"
+                        android:background="@android:color/transparent"
+                        app:layout_constraintTop_toTopOf="@id/hash_tag_edit_text"
+                        app:layout_constraintBottom_toBottomOf="@id/hash_tag_edit_text"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_marginRight="8dp"/>
+<!--                        android:onClick="@{()->fragment.onClickAddHashTagButton()}" />-->
 
-                <TextView
-                    android:id="@+id/hash_tag_six_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/hash_tag_sub_keyword_background"
-                    app:layout_constraintTop_toTopOf="@id/hash_tag_five_text_view"
-                    app:layout_constraintLeft_toRightOf="@id/hash_tag_five_text_view"
-                    app:layout_constraintBottom_toBottomOf="@id/hash_tag_five_text_view"
-                    android:includeFontPadding="false"
-                    android:fontFamily="@font/noto_sans_kr_regular"
-                    android:textColor="@color/infra_skyblue_a"
-                    android:textSize="11sp"
-                    android:layout_marginLeft="6dp"
-                    android:paddingVertical="6dp"
-                    android:paddingHorizontal="16dp"
-                    android:visibility="gone"/>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/hash_tag_one_constraint_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/hash_tag_keyword_skyblue_background"
+                        app:layout_constraintTop_toBottomOf="@id/hash_tag_edit_text"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginBottom="14dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="12dp"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="12dp"
+                        android:visibility="invisible">
 
+                        <TextView
+                            android:id="@+id/hash_tag_one_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:includeFontPadding="false"
+                            android:fontFamily="@font/noto_sans_kr_regular"
+                            android:textColor="@color/infra_skyblue_a"
+                            android:textSize="11sp"
+                            android:paddingVertical="6dp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_delete_hashtag"
+                            android:layout_marginLeft="6dp"
+                            app:layout_constraintTop_toTopOf="@id/hash_tag_one_text_view"
+                            app:layout_constraintBottom_toBottomOf="@id/hash_tag_one_text_view"
+                            app:layout_constraintLeft_toRightOf="@id/hash_tag_one_text_view" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/hash_tag_two_constraint_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/hash_tag_keyword_skyblue_background"
+                        app:layout_constraintTop_toTopOf="@id/hash_tag_one_constraint_layout"
+                        app:layout_constraintLeft_toRightOf="@id/hash_tag_one_constraint_layout"
+                        app:layout_constraintBottom_toBottomOf="@id/hash_tag_one_constraint_layout"
+                        android:layout_marginLeft="6dp"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="12dp"
+                        android:visibility="invisible">
+
+                        <TextView
+                            android:id="@+id/hash_tag_two_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:includeFontPadding="false"
+                            android:fontFamily="@font/noto_sans_kr_regular"
+                            android:textColor="@color/infra_skyblue_a"
+                            android:textSize="11sp"
+                            android:paddingVertical="6dp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_delete_hashtag"
+                            android:layout_marginLeft="6dp"
+                            app:layout_constraintTop_toTopOf="@id/hash_tag_two_text_view"
+                            app:layout_constraintBottom_toBottomOf="@id/hash_tag_two_text_view"
+                            app:layout_constraintLeft_toRightOf="@id/hash_tag_two_text_view" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/hash_tag_three_constraint_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/hash_tag_keyword_skyblue_background"
+                        app:layout_constraintTop_toTopOf="@id/hash_tag_two_constraint_layout"
+                        app:layout_constraintLeft_toRightOf="@id/hash_tag_two_constraint_layout"
+                        app:layout_constraintBottom_toBottomOf="@id/hash_tag_two_constraint_layout"
+                        android:layout_marginLeft="6dp"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="12dp"
+                        android:visibility="invisible">
+
+                        <TextView
+                            android:id="@+id/hash_tag_three_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:includeFontPadding="false"
+                            android:fontFamily="@font/noto_sans_kr_regular"
+                            android:textColor="@color/infra_skyblue_a"
+                            android:textSize="11sp"
+                            android:paddingVertical="6dp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_delete_hashtag"
+                            android:layout_marginLeft="6dp"
+                            app:layout_constraintTop_toTopOf="@id/hash_tag_three_text_view"
+                            app:layout_constraintBottom_toBottomOf="@id/hash_tag_three_text_view"
+                            app:layout_constraintLeft_toRightOf="@id/hash_tag_three_text_view" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/hash_tag_four_constraint_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/hash_tag_keyword_skyblue_background"
+                        app:layout_constraintTop_toTopOf="@id/hash_tag_three_constraint_layout"
+                        app:layout_constraintLeft_toRightOf="@id/hash_tag_three_constraint_layout"
+                        app:layout_constraintBottom_toBottomOf="@id/hash_tag_three_constraint_layout"
+                        android:layout_marginLeft="6dp"
+                        android:paddingRight="10dp"
+                        android:paddingLeft="12dp"
+                        android:visibility="invisible">
+
+                        <TextView
+                            android:id="@+id/hash_tag_four_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:includeFontPadding="false"
+                            android:fontFamily="@font/noto_sans_kr_regular"
+                            android:textColor="@color/infra_skyblue_a"
+                            android:textSize="11sp"
+                            android:paddingVertical="6dp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_delete_hashtag"
+                            android:layout_marginLeft="6dp"
+                            app:layout_constraintTop_toTopOf="@id/hash_tag_four_text_view"
+                            app:layout_constraintBottom_toBottomOf="@id/hash_tag_four_text_view"
+                            app:layout_constraintLeft_toRightOf="@id/hash_tag_four_text_view" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

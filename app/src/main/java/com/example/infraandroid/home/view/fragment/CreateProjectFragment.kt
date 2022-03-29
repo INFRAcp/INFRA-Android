@@ -22,14 +22,18 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavArgs
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.infraandroid.R
+import com.example.infraandroid.category.view.fragment.CategoryViewIdeaFragmentArgs
 import com.example.infraandroid.databinding.FragmentCreateProjectBinding
 import com.example.infraandroid.home.model.ResponseCreateProjectData
 import com.example.infraandroid.home.viewmodel.CreateProjectViewModel
@@ -109,6 +113,7 @@ class CreateProjectFragment : Fragment() {
         val projectMakingStart = mBinding?.setProjectStartDateTextView
         val projectMakingEnd = mBinding?.projectEndMakingDateEditTextView
         val addFileButton = mBinding?.addFileTextView
+        val args: CreateProjectFragmentArgs by navArgs()
 
         viewModel?.hashTag?.observe(viewLifecycleOwner, Observer{
             when(it.size){
@@ -198,6 +203,15 @@ class CreateProjectFragment : Fragment() {
             it.findNavController().navigate(R.id.action_createProjectFragment_to_home_fragment)
         }
 
+        // 사진 지우기
+        mBinding?.photoImageView?.setOnClickListener {
+            mBinding?.addFileTextView?.isVisible = true
+            mBinding?.photoImageView?.isGone = true
+            mBinding?.photoBackgroundView?.isGone = true
+            mBinding?.deletePhotoImageView?.isGone = true
+            mediaPath = null
+        }
+
         // 완료 버튼 눌렀을 때 프로젝트 생성 완료
         mBinding?.completeTextView?.setOnClickListener {
 
@@ -216,9 +230,9 @@ class CreateProjectFragment : Fragment() {
 
             val jsonString = "{\"user_id\" : \""+ InfraApplication.prefs.getString("userId", "null")+"\"," +
                     "\"pj_header\" : \"" + mBinding?.titleEditText?.text.toString() + "\"," +
-                    "\"pj_categoryName\" : \"개발\"," +
+                    "\"pj_categoryName\" : \""+args.category+"\"," +
                     "\"pj_content\" : \""+ mBinding?.projectContentEditText?.text.toString() +"\"," +
-                    "\"pj_subCategoryName\" : \"APP\"," +
+                    "\"pj_subCategoryName\" : \""+args.categoryDetail+"\"," +
                     "\"pj_progress\" : \""+ mBinding?.descriptionEditText?.text.toString() +"\"," +
                     "\"pj_startTerm\" : "+ startTermString +"," +
                     "\"pj_endTerm\" : "+ endTermString +"," +
@@ -278,6 +292,11 @@ class CreateProjectFragment : Fragment() {
                         ImageDecoder.decodeBitmap(source)
                         //imageView.setImageBitmap(bitmap)
                     }
+                    mBinding?.photoImageView?.isVisible = true
+                    mBinding?.addFileTextView?.isGone = true
+                    mBinding?.photoBackgroundView?.isVisible = true
+                    mBinding?.deletePhotoImageView?.isVisible = true
+                    mBinding?.photoImageView?.setImageBitmap(bitmap)
                 }
             }
             catch (e: IOException) {

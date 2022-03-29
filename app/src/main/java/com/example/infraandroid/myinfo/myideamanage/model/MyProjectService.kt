@@ -39,4 +39,12 @@ interface MyProjectService {
         @Header("X-REFRESH-TOKEN") refreshToken: Int,
         @Body body: RequestDeleteProjectData
     ): Call<ResponseDeleteProjectData>
+
+    @POST("/project/team?")
+    fun viewProjectMember(
+        @Header("X-ACCESS-TOKEN") jwt: String,
+        @Header("X-REFRESH-TOKEN") refreshToken: Int,
+        @Query("user_id") userId:String,
+        @Body body: RequestTeamMemberData
+    ): Call<ResponseTeamMemberData>
 }
