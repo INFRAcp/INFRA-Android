@@ -155,13 +155,14 @@
             app:layout_constraintBottom_toBottomOf="@id/hash_tag_two"
             app:layout_constraintRight_toRightOf="parent" />
 
+        <!--스크랩
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             android:src="@drawable/ic_bookmark"
-            isScrap="@{projectList.pj_like}" />
+            isScrap="@{projectList.pj_like}" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
