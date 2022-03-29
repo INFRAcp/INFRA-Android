@@ -20,50 +20,49 @@ import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentMyInfoModifyBinding
 import com.example.infraandroid.myinfo.myinfomodify.model.RequestModifyMyInfoData
 import com.example.infraandroid.myinfo.myinfomodify.model.ResponseViewMyInfoData
+import com.example.infraandroid.util.BaseFragment
+import com.example.infraandroid.util.InfraApplication
 import com.example.infraandroid.util.ServiceCreator
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 //내 정보 > 내 정보 .kt
-class MyInfoModifyFragment : Fragment() {
-    private var mBinding : FragmentMyInfoModifyBinding? = null
+class MyInfoModifyFragment : BaseFragment<FragmentMyInfoModifyBinding>(R.layout.fragment_my_info_modify) {
+    /*private var mBinding : FragmentMyInfoModifyBinding? = null*/
     private var isChecked = false
+    private var userNickname : String ?= null
+    private var userPrPhoto : String ?= null
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        val binding = FragmentMyInfoModifyBinding.inflate(inflater, container, false)
-
-        mBinding = binding
-
-        return mBinding?.root
+    override fun FragmentMyInfoModifyBinding.onCreateView() {
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun FragmentMyInfoModifyBinding.onViewCreated() {
 
-        val inputNicknameEditText = mBinding?.inputNicknameEditText as EditText
-        val myInfoModifyBackButton = mBinding?.myInfoModifyBackButton as ImageView
-        val myInfoModifyUserProfileLayout = mBinding?.myInfoModifyUserProfileLayout as ConstraintLayout
-        val overlapCheckButton = mBinding?.overlapCheckButton as AppCompatButton
-        val modifyCompletedButton = mBinding?.modifyCompletedButton as TextView
-        val doNotUseThisNicknameTextView = mBinding?.doNotUseThisNicknameTextView as TextView
+        val inputNicknameEditText = binding.inputNicknameEditText as EditText
+        val myInfoModifyBackButton = binding.myInfoModifyBackButton as ImageView
+        val myInfoModifyUserProfileLayout = binding.myInfoModifyUserProfileLayout as ConstraintLayout
+        val overlapCheckButton = binding.overlapCheckButton as AppCompatButton
+        val modifyCompletedButton = binding.modifyCompletedButton as TextView
+        val doNotUseThisNicknameTextView = binding.doNotUseThisNicknameTextView as TextView
+
 
         //내 정보 보기 서버 연결
         val viewcall: Call<ResponseViewMyInfoData> = ServiceCreator.myinfoService
-            .viewMyInfo("jwt","userId")
-        /*.viewMyInfo(InfraApplication.prefs.getString("jwt","null"),InfraApplication.prefs.getString("userId","null"))*/
+            .viewMyInfo(InfraApplication.prefs.getString("jwt","null"),InfraApplication.prefs.getString("userId","null"))
+        /* .viewMyInfo("jwt","userId")*/
+
         viewcall.enqueue(object : Callback<ResponseViewMyInfoData> {
             override fun onResponse(
                 call: Call<ResponseViewMyInfoData>,
                 response: Response<ResponseViewMyInfoData>
             ) {
-                val body = response.body()
                 if(response.isSuccessful){
                     when(response.body()?.code){
+                        1000 -> { binding.myInfoModify = response.body()?.result
+                            userNickname = response.body()?.result?.user_nickname
+                            userPrPhoto = response.body()?.result?.user_prPhoto
+                        }
                     }
                 }
 
@@ -119,7 +118,7 @@ class MyInfoModifyFragment : Fragment() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                //얘네는 나중에 수정 필요
+                /*inputNicknameEditText.length() < 12 && inputNicknameEditText.length()>0*/
                 if (inputNicknameEditText.length() < 12) {
                     overlapCheckButton.isEnabled = true
                 } else {
@@ -137,6 +136,31 @@ class MyInfoModifyFragment : Fragment() {
             }
         })
 
+        //수정 완료 버튼 활성화 설정
+        inputNicknameEditText.addTextChangedListener(object: TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                modifyCompletedButton.isEnabled = false
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                /*inputNicknameEditText.length() < 12 && inputNicknameEditText.length()>0*/
+                if (inputNicknameEditText.length() < 12) {
+                    modifyCompletedButton.isEnabled = true
+                } else {
+                    Toast.makeText(requireActivity(), "12자 이하로 입력해주세요.", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                //얘네는 나중에 수정 필요
+                if (inputNicknameEditText.length() < 12) {
+                    modifyCompletedButton.isEnabled = true
+                } else {
+                    Toast.makeText(requireActivity(), "12자 이하로 입력해주세요.", Toast.LENGTH_SHORT).show()
+                }
+            }
+        })
+
         //닉네임 중복 서버 연결 필요
         //닉네임 중복 버튼 누르면
         overlapCheckButton.setOnClickListener {
@@ -145,18 +169,13 @@ class MyInfoModifyFragment : Fragment() {
                 isChecked = true
                 doNotUseThisNicknameTextView.isVisible = false
                 inputNicknameEditText.setBackgroundResource(R.drawable.can_use_this_id_background)
-                mBinding?.canUseIconImageView?.isVisible = true
+                binding.canUseIconImageView?.isVisible = true
             } else {
                 doNotUseThisNicknameTextView.isVisible = true
                 inputNicknameEditText.setBackgroundResource(R.drawable.double_check_id_background)
-                mBinding?.canUseIconImageView?.isVisible = false
+                binding.canUseIconImageView?.isVisible = false
             }
         }
     }
 
-
-    override fun onDestroyView() {
-        mBinding = null
-        super.onDestroyView()
-    }
 }

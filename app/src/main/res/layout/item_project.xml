@@ -131,6 +131,7 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp" />
 
+        <!--스크랩
         <ImageView
             android:id="@+id/item_bookmark_iv"
             android:layout_width="20dp"
@@ -140,7 +141,7 @@
             app:layout_constraintTop_toBottomOf="@id/item_recommed_project_photo_iv"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="12dp" />
+            android:layout_marginEnd="12dp" />-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -171,6 +171,7 @@
                     android:layout_marginTop="16dp"
                     android:gravity="left"/>
 
+                <!--아이디어 목록 개발, 공모전, 스터디, 기타
                 <Button
                     android:id="@+id/idea_list_develop_button"
                     android:layout_width="match_parent"
@@ -231,7 +232,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:includeFontPadding="false"
                     android:layout_marginBottom="12dp"
-                    android:gravity="left"/>
+                    android:gravity="left"/>-->
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

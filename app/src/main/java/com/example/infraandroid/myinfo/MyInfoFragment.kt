@@ -34,18 +34,16 @@ class MyInfoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //함수로 간단하게 묶기
-        // 어떻게 하면 더 깔끔하게 코드를 정리할 수 있을까..! 데이터 바인딩..?
-        mBinding!!.myInfoMyInfoLayout.setOnClickListener {
+        mBinding!!.myInfoMyInfoLinearlayout.setOnClickListener {
             it.findNavController().navigate(R.id.action_my_info_fragment_to_my_info_modify_fragment)
         }
-        mBinding!!.myInfoIntroPageLayout.setOnClickListener {
+       /* mBinding!!.myInfoIntroPageLayout.setOnClickListener {
             it.findNavController().navigate(R.id.action_my_info_fragment_to_myInfoInformationFragment)
-        }
+        }*/
         mBinding!!.myInfoMyIdeaLinearlayout.setOnClickListener {
             it.findNavController().navigate(R.id.action_my_info_fragment_to_myInfoMyIdeaFragment)
         }
-        mBinding!!.myInfoEvaluationLinearlayout.setOnClickListener {
+       /* mBinding!!.myInfoEvaluationLinearlayout.setOnClickListener {
             it.findNavController().navigate(R.id.action_my_info_fragment_to_myInfoTeamMemberEvaluationFragment)
         }
         mBinding!!.myInfoInterestLinearlayout.setOnClickListener {
@@ -62,7 +60,7 @@ class MyInfoFragment : Fragment() {
         }
         mBinding!!.myInfoHashtagAlarmLinearlayout.setOnClickListener {
             it.findNavController().navigate(R.id.action_my_info_fragment_to_hashTagAlarmFragment)
-        }
+        }*/
         mBinding!!.myInfoUserGuideLinearlayout.setOnClickListener {
             it.findNavController().navigate(R.id.action_my_info_fragment_to_userGuideFragment)
         }

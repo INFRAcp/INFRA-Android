@@ -8,7 +8,7 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.example.infraandroid.BuildConfig
+//import com.example.infraandroid.BuildConfig
 import com.example.infraandroid.util.InfraApplication
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentLoginBinding
