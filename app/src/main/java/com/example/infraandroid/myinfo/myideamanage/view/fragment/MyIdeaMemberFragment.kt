@@ -27,7 +27,6 @@ class MyIdeaMemberFragment : BaseFragment<FragmentTeamMemberBinding>(R.layout.fr
     private lateinit var viewModel : MyProjectViewModel
 
     private val teamMemberAdapter = TeamMemberAdapter()
-    private val teamMemberApplyAdapter = MyIdeaMemberApplyAdapter()
     private val teamMemberInfo = mutableListOf<MyIdeaMemberManageInfo>()
     private val teamMemberApplicationInfo = mutableListOf<MyIdeaMemberApplyManageInfo>()
 
@@ -45,7 +44,7 @@ class MyIdeaMemberFragment : BaseFragment<FragmentTeamMemberBinding>(R.layout.fr
     }
 
     override fun FragmentTeamMemberBinding.onViewCreated() {
-
+        val teamMemberApplyAdapter = MyIdeaMemberApplyAdapter(activity)
 //        //팀원 관리 어뎁터 연결
 //        mBinding?.teamMemberManagementRecyclerview?.adapter = TeamMemberAdapter
 //        val tempDataMember = MyIdeaMemberManageInfo(3,"김프라")

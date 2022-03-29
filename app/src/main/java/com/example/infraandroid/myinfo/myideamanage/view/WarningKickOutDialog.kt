@@ -2,19 +2,44 @@ package com.example.infraandroid.myinfo.myideamanage.view
 
 import android.app.Dialog
 import android.content.Context
+import android.content.res.Resources
 import android.graphics.Color
+import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.DialogFragment
 import com.example.infraandroid.R
+import com.example.infraandroid.databinding.MyInfoMyIdeaKickOutWarningBinding
 
-// 내 정보 > 내 아이디어 > 팀원 탭 > 신청관리 > 신청 거절 시 나오는 dialog
-class WarningKickOutDialog(context: Context): Dialog(context) {
+// 내 정보 > 내 아이디어 > 팀원 탭 > 신청관리 > 강퇴 시 나오는 dialog
+class WarningKickOutDialog : DialogFragment() {
+    private var mBinding : MyInfoMyIdeaKickOutWarningBinding?=null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.my_info_my_idea_kick_out_warning)
+    }
 
-        //배경을 투명하게 설정
-        window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        setWidthPercent(90)
+    }
+
+    fun DialogFragment.setWidthPercent(percentage: Int) {
+        val percent = percentage.toFloat() / 100
+        val dm = Resources.getSystem().displayMetrics
+        val rect = dm.run { Rect(0, 0, widthPixels, heightPixels) }
+        val percentWidth = rect.width() * percent
+        dialog?.window?.setLayout(percentWidth.toInt(), ViewGroup.LayoutParams.WRAP_CONTENT)
+        dialog?.window?.setBackgroundDrawableResource(R.drawable.warning_background)
     }
 }

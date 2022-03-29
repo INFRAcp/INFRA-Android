@@ -1,19 +1,25 @@
 package com.example.infraandroid.myinfo.myideamanage.view.adapter
 
+import android.app.Activity
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.infraandroid.R
 import com.example.infraandroid.databinding.ItemTeamMemberApplicationRecyclerviewBinding
 import com.example.infraandroid.myinfo.myideamanage.view.WarningAcceptDialog
 import com.example.infraandroid.myinfo.myideamanage.view.WarningRejectDialog
 import com.example.infraandroid.myinfo.myideamanage.model.MyIdeaMemberApplyManageInfo
+import com.example.infraandroid.myinfo.myideamanage.model.MyProjectViewModel
 import com.example.infraandroid.myinfo.myideamanage.model.ResponseViewProjectApplyData
 import com.example.infraandroid.myinfo.myinfomodify.view.MyInfoPhotoMoreMenuBottomSheetFragment
 
 //fragmentManager: FragmentManager
-class MyIdeaMemberApplyAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class MyIdeaMemberApplyAdapter(activity: FragmentActivity?): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     var teamMemberApplyList = mutableListOf<ResponseViewProjectApplyData.Result>()
+    val act = activity
     private lateinit var context: Context
     //private var mFragmentManager: FragmentManager
 
@@ -52,13 +58,13 @@ class MyIdeaMemberApplyAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>(
 
             //수락하기 버튼 클릭시
             binding.teamMemberApplicationAcceptBoxIv.setOnClickListener {
-                val warningAcceptDialog = WarningAcceptDialog(context)
-                warningAcceptDialog.show()
+                val warningAcceptDialog = WarningAcceptDialog(myIdeaMemberApplyManageInfo.user_id, myIdeaMemberApplyManageInfo.user_nickname)
+                act?.supportFragmentManager?.let{it1 -> warningAcceptDialog.show(it1, warningAcceptDialog.tag)}
             }
             //거절하기 버튼 클릭시
             binding.teamMemberApplicationRejectBoxIv.setOnClickListener {
-                val warningRejectDialog = WarningRejectDialog(context)
-                warningRejectDialog.show()
+                val warningRejectDialog = WarningRejectDialog(myIdeaMemberApplyManageInfo.user_id, myIdeaMemberApplyManageInfo.user_nickname)
+                act?.supportFragmentManager?.let{it1 -> warningRejectDialog.show(it1, warningRejectDialog.tag)}
             }
         }
     }
