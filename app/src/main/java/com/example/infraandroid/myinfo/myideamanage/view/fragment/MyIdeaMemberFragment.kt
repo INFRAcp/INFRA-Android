@@ -1,5 +1,6 @@
 package com.example.infraandroid.myinfo.myideamanage.view.fragment
 
+import android.app.Service
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,10 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentTeamMemberBinding
-import com.example.infraandroid.myinfo.myideamanage.model.MyIdeaMemberManageInfo
-import com.example.infraandroid.myinfo.myideamanage.model.MyIdeaMemberApplyManageInfo
-import com.example.infraandroid.myinfo.myideamanage.model.MyProjectViewModel
-import com.example.infraandroid.myinfo.myideamanage.model.ResponseViewProjectApplyData
+import com.example.infraandroid.myinfo.myideamanage.model.*
 import com.example.infraandroid.myinfo.myideamanage.view.adapter.MyIdeaMemberApplyAdapter
 import com.example.infraandroid.myinfo.teammembereval.view.adapter.TeamMemberAdapter
 import com.example.infraandroid.util.BaseFragment
@@ -54,6 +52,7 @@ class MyIdeaMemberFragment : BaseFragment<FragmentTeamMemberBinding>(R.layout.fr
 
         //신청 관리 어뎁터 연결
         binding.applicationManagementRecyclerview.adapter = teamMemberApplyAdapter
+        binding.teamMemberManagementRecyclerview.adapter = teamMemberAdapter
         val call : Call<ResponseViewProjectApplyData> = ServiceCreator.myProjectService
             .viewProjectApply(InfraApplication.prefs.getString("jwt", "null"), InfraApplication.prefs.getString("refreshToken", "null").toInt(),
             InfraApplication.prefs.getString("userId", "null"), viewModel.currentObservingProjectNum.value)
@@ -78,8 +77,39 @@ class MyIdeaMemberFragment : BaseFragment<FragmentTeamMemberBinding>(R.layout.fr
                     }
                 }
             }
-
             override fun onFailure(call: Call<ResponseViewProjectApplyData>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+        })
+
+        val requestTeamMemberData = RequestTeamMemberData(pj_num = viewModel.currentObservingProjectNum.value)
+        val projectMemberCall : Call<ResponseTeamMemberData> = ServiceCreator.myProjectService
+            .viewProjectMember(InfraApplication.prefs.getString("jwt", "null"), InfraApplication.prefs.getString("refreshToken", "null").toInt(),
+                InfraApplication.prefs.getString("userId", "null"), requestTeamMemberData)
+
+        projectMemberCall.enqueue(object: Callback<ResponseTeamMemberData>{
+            override fun onResponse(
+                call: Call<ResponseTeamMemberData>,
+                response: Response<ResponseTeamMemberData>
+            ) {
+                if(response.isSuccessful){
+                    val body = response.body()
+                    if(body!=null){
+                        when(body.code){
+                            1000->{
+                                val data = body.result
+                                if(data!=null){
+                                    teamMemberAdapter.teamMemberList = data
+                                }
+                                teamMemberAdapter.notifyDataSetChanged()
+                            }
+                        }
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseTeamMemberData>, t: Throwable) {
                 TODO("Not yet implemented")
             }
 

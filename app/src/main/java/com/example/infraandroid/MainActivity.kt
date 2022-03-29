@@ -10,6 +10,7 @@ import com.example.infraandroid.databinding.ActivityMainBinding
 
 import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.FragmentManager
 import com.google.android.material.snackbar.Snackbar
 import com.kakao.sdk.common.util.Utility
 
@@ -42,12 +43,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-
         // 바텀 네비게이션 뷰와 네비게이션을 묶어준다
         NavigationUI.setupWithNavController(mBinding.myBottomNav, navController)
-
-        val keyHash = Utility.getKeyHash(this)
-        Log.d("해시키", keyHash)
+        supportFragmentManager.popBackStack(R.id.splashFragment, FragmentManager.POP_BACK_STACK_INCLUSIVE)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -58,4 +56,6 @@ class MainActivity : AppCompatActivity() {
         var displayMetrics = resources.displayMetrics
         return Math.round(value * displayMetrics.density)
     }
+
+
 }

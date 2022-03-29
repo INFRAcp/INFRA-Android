@@ -221,6 +221,15 @@
         <argument
             android:name="pjTitle"
             app:argType="string" />
+        <argument
+            android:name="pjCategory"
+            app:argType="string" />
+        <argument
+            android:name="pjDetailCategory"
+            app:argType="string" />
+        <argument
+            android:name="pjContent"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/myInfoMyIdeaFragment"
@@ -279,6 +288,12 @@
         <action
             android:id="@+id/action_createProjectFragment_to_createProjectSelectCategory"
             app:destination="@id/createProjectSelectCategory" />
+        <argument
+            android:name="category"
+            app:argType="string" />
+        <argument
+            android:name="categoryDetail"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/categoryViewIdeaFragment"
@@ -380,10 +395,14 @@
         tools:layout="@layout/fragment_splash">
         <action
             android:id="@+id/action_splashFragment_to_login_fragment"
-            app:destination="@id/login_fragment" />
+            app:destination="@id/login_fragment"
+            app:popUpTo="@+id/splashFragment"
+            app:popUpToInclusive="true"/>
         <action
             android:id="@+id/action_splashFragment_to_home_fragment"
-            app:destination="@id/home_fragment" />
+            app:destination="@id/home_fragment"
+            app:popUpTo="@+id/splashFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <dialog
         android:id="@+id/warningDeleteDialog"

@@ -211,10 +211,10 @@ class ChatFragment : Fragment() {
             }
             mBinding!!.inputMessageEdittext.setText("")
         }
-        val bottomSheetDialogFragment = ChatMoreMenuBottomSheetFragment()
-        mBinding!!.chatMoreMenuOpenButton.setOnClickListener {
-            activity?.supportFragmentManager?.let { it1 -> bottomSheetDialogFragment.show(it1, bottomSheetDialogFragment.tag) }
-        }
+//        val bottomSheetDialogFragment = ChatMoreMenuBottomSheetFragment()
+//        mBinding!!.chatMoreMenuOpenButton.setOnClickListener {
+//            activity?.supportFragmentManager?.let { it1 -> bottomSheetDialogFragment.show(it1, bottomSheetDialogFragment.tag) }
+//        }
 
         mBinding?.backToChatListButton?.setOnClickListener {
             it.findNavController().navigate(R.id.action_chat_fragment_to_chatting_room_list_fragment)
