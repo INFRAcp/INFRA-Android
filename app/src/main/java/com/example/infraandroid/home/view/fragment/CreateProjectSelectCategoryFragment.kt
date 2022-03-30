@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentCreateProjectSelectCategoryBinding
+import com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaManageFragmentDirections
 
 // 프로젝트의 종류를 선택하는 spinner와 관련된 .kt파일
 // 작성자 : 신승민
@@ -32,19 +33,22 @@ class CreateProjectSelectCategoryFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
         val categoryItems = resources.getStringArray(R.array.category_array)
-        val categoryDetailItems = resources.getStringArray(R.array.category_detail_array)
+        val categoryDetailDevelopItems = resources.getStringArray(R.array.category_detail_develop_array)
+//        val categoryDetailStudyItems = resources.getStringArray(R.array.category_detail_study_array)
+//        val categoryDetailActivityItems = resources.getStringArray(R.array.category_detail_activity_array)
         val categoryAdapter = ArrayAdapter(requireActivity(), android.R.layout.simple_spinner_dropdown_item, categoryItems)
-        val categoryDetailAdapter = ArrayAdapter(requireActivity(), android.R.layout.simple_spinner_dropdown_item, categoryDetailItems)
+        var categoryDetailAdapter = ArrayAdapter(requireActivity(), android.R.layout.simple_spinner_dropdown_item, categoryDetailDevelopItems)
         val categorySpinner = mBinding?.categorySpinner
-        val categoryDetailSpinner = mBinding?.categoryDetailSpinner
+        var categoryDetailSpinner = mBinding?.categoryDetailSpinner
 
-        mBinding?.goBackImageButton?.setOnClickListener {
-            it.findNavController().navigate(R.id.action_createProjectSelectCategory_to_createProjectFragment)
-        }
 
         categorySpinner?.adapter = categoryAdapter
         categoryDetailSpinner?.adapter = categoryDetailAdapter
 
+        mBinding?.goBackImageButton?.setOnClickListener {
+            val action = CreateProjectSelectCategoryFragmentDirections.actionCreateProjectSelectCategoryToCreateProjectFragment(categorySpinner?.selectedItem.toString(), categoryDetailSpinner?.selectedItem.toString())
+            it.findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {
