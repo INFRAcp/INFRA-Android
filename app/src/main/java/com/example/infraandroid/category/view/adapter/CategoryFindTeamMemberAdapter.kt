@@ -8,15 +8,16 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.infraandroid.R
-import com.example.infraandroid.category.model.CategoryFindTeamMemberInfo
+import com.example.infraandroid.category.model.ResponseViewUserProfileData
 
 //import com.example.infraandroid.UserId
 
 import com.example.infraandroid.databinding.ItemCategoryFindTeamRecyclerviewBinding
+import com.example.infraandroid.util.ImageRound
 
 class CategoryFindTeamMemberAdapter():RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    val teamMemberList = mutableListOf<CategoryFindTeamMemberInfo>()
+    var teamMemberList = mutableListOf<ResponseViewUserProfileData.Result>()
 //    lateinit var navConstroller : NavController
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -36,22 +37,19 @@ class CategoryFindTeamMemberAdapter():RecyclerView.Adapter<RecyclerView.ViewHold
     inner class CategoryFindTeamMemberViewHolder(
         private val binding:ItemCategoryFindTeamRecyclerviewBinding
     ) : RecyclerView.ViewHolder(binding.root){
-        fun onBind(categoryFindTeamMemberInfo: CategoryFindTeamMemberInfo){
-            binding.findTeamItemNameTextView.text = categoryFindTeamMemberInfo.name
+        fun onBind(categoryFindTeamMemberInfo: ResponseViewUserProfileData.Result){
+
+            ImageRound.roundAll(binding.findTeamItemImageView, 36f)
+            binding.viewUserProfile  = categoryFindTeamMemberInfo
+
+            /*binding.findTeamItemNameTextView.text = categoryFindTeamMemberInfo.name
             binding.findTeamItemMajorTextView.text = categoryFindTeamMemberInfo.major
             Glide.with(itemView)
                 .load(categoryFindTeamMemberInfo.profileImg)
                 .circleCrop()
-                .into(binding.findTeamItemImageView)
+                .into(binding.findTeamItemImageView)*/
 
 
-//            navConstroller = Navigation.findNavController(itemView)
-//            itemView.setOnClickListener {
-//                navConstroller.navigate(R.id.action_categoryTeamFragment_to_categoryInformationFragment)
-//            }
-
-//            작성자 : 이은진
-//            작성일 : 2022.02.01
             itemView.setOnClickListener {
                 it.findNavController().navigate(R.id.action_category_fragment_to_category_information_fragment)
             }
