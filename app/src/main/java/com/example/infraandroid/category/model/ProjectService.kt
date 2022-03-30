@@ -25,4 +25,9 @@ interface ProjectService {
         @Query("pj_num") projectNum : Int?,
         @Query("user_id") userId : String
     ): Call<ResponseViewIdeaData>
+
+    @GET("/user/profile/all")
+    fun viewUserProfile(
+
+    ): Call<ResponseViewUserProfileData>
 }
