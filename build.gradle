@@ -6,15 +6,18 @@ buildscript {
         maven{url 'https://jitpack.io'}
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.2.0-beta02'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.21"
+        classpath 'com.android.tools.build:gradle:7.2.0-beta04'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10"
         classpath 'com.google.gms:google-services:4.3.10'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         // 네비게이션
-        def nav_version = "2.3.5"
+        def nav_version = "2.4.1"
         classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
+
+        // OSS License
+        classpath 'com.google.android.gms:oss-licenses-plugin:0.10.5'
     }
 }
 

@@ -23,7 +23,8 @@
             android:src="@drawable/other_user_photo"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginTop="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginVertical="20dp"
             android:layout_marginLeft="24dp"/>
 
         <TextView
@@ -31,28 +32,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toRightOf="@id/find_team_item_image_view"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@id/find_team_item_image_view"
+            app:layout_constraintBottom_toBottomOf="@id/find_team_item_image_view"
             android:text="@{viewUserProfile.user_nickname}"
             android:fontFamily="@font/noto_sans_kr_bold"
             android:textSize="15sp"
-            android:layout_marginTop="24dp"
             android:layout_marginLeft="16dp"
             android:includeFontPadding="false"
             android:textColor="@color/infra_black_a"/>
 
-        <TextView
-            android:id="@+id/find_team_item_major_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toRightOf="@id/find_team_item_image_view"
-            app:layout_constraintTop_toBottomOf="@id/find_team_item_name_text_view"
-            android:text="@{viewUserProfile.user_prAbility[0]}"
-            android:textSize="10sp"
-            android:fontFamily="@font/noto_sans_kr_bold"
-            android:includeFontPadding="false"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="4dp"
-            android:textColor="@color/infra_gray_i"/>
+<!--        <TextView-->
+<!--            android:id="@+id/find_team_item_major_text_view"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintLeft_toRightOf="@id/find_team_item_image_view"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/find_team_item_name_text_view"-->
+<!--            android:text="@{viewUserProfile.user_prAbility[0]}"-->
+<!--            android:textSize="10sp"-->
+<!--            android:fontFamily="@font/noto_sans_kr_bold"-->
+<!--            android:includeFontPadding="false"-->
+<!--            android:layout_marginLeft="16dp"-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:textColor="@color/infra_gray_i"/>-->
 
         <!--팀원 별, 평가
         <ImageView
@@ -94,58 +95,58 @@
             android:layout_marginLeft="4dp"
             android:textColor="@color/infra_gray_j"/>-->
 
-        <TextView
-            android:id="@+id/hash_tag_study"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{viewUserProfile.user_prKeyword[0]}"
-            android:background="@drawable/hash_tag_main_keyword_background"
-            app:layout_constraintTop_toBottomOf="@id/find_team_item_image_view"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            android:paddingVertical="4dp"
-            android:paddingHorizontal="12dp"
-            android:textSize="11sp"
-            android:fontFamily="@font/noto_sans_kr_thin"
-            android:textColor="@color/infra_blue_c"
-            android:includeFontPadding="false"/>
+<!--        <TextView-->
+<!--            android:id="@+id/hash_tag_study"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@{viewUserProfile.user_prKeyword[0]}"-->
+<!--            android:background="@drawable/hash_tag_main_keyword_background"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/find_team_item_image_view"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:paddingVertical="4dp"-->
+<!--            android:paddingHorizontal="12dp"-->
+<!--            android:textSize="11sp"-->
+<!--            android:fontFamily="@font/noto_sans_kr_thin"-->
+<!--            android:textColor="@color/infra_blue_c"-->
+<!--            android:includeFontPadding="false"/>-->
 
-        <TextView
-            android:id="@+id/hash_tag_android"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{viewUserProfile.user_prKeyword[1]}"
-            android:background="@drawable/hash_tag_sub_keyword_background"
-            app:layout_constraintTop_toTopOf="@id/hash_tag_study"
-            app:layout_constraintLeft_toRightOf="@+id/hash_tag_study"
-            app:layout_constraintBottom_toBottomOf="@id/hash_tag_study"
-            android:layout_marginLeft="6dp"
-            android:paddingVertical="4dp"
-            android:paddingHorizontal="12dp"
-            android:textSize="11sp"
-            android:fontFamily="@font/noto_sans_kr_thin"
-            android:textColor="@color/infra_skyblue_a"
-            android:includeFontPadding="false"/>
+<!--        <TextView-->
+<!--            android:id="@+id/hash_tag_android"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@{viewUserProfile.user_prKeyword[1]}"-->
+<!--            android:background="@drawable/hash_tag_sub_keyword_background"-->
+<!--            app:layout_constraintTop_toTopOf="@id/hash_tag_study"-->
+<!--            app:layout_constraintLeft_toRightOf="@+id/hash_tag_study"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/hash_tag_study"-->
+<!--            android:layout_marginLeft="6dp"-->
+<!--            android:paddingVertical="4dp"-->
+<!--            android:paddingHorizontal="12dp"-->
+<!--            android:textSize="11sp"-->
+<!--            android:fontFamily="@font/noto_sans_kr_thin"-->
+<!--            android:textColor="@color/infra_skyblue_a"-->
+<!--            android:includeFontPadding="false"/>-->
 
-        <TextView
-            android:id="@+id/hash_tag_bitcoin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{viewUserProfile.user_prKeyword[2]}"
-            android:background="@drawable/hash_tag_sub_keyword_background"
-            app:layout_constraintTop_toTopOf="@id/hash_tag_android"
-            app:layout_constraintLeft_toRightOf="@+id/hash_tag_android"
-            app:layout_constraintBottom_toBottomOf="@id/hash_tag_android"
-            android:layout_marginLeft="6dp"
-            android:paddingVertical="4dp"
-            android:paddingHorizontal="12dp"
-            android:textSize="11sp"
-            android:fontFamily="@font/noto_sans_kr_thin"
-            android:textColor="@color/infra_skyblue_a"
-            android:includeFontPadding="false"/>
+<!--        <TextView-->
+<!--            android:id="@+id/hash_tag_bitcoin"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@{viewUserProfile.user_prKeyword[2]}"-->
+<!--            android:background="@drawable/hash_tag_sub_keyword_background"-->
+<!--            app:layout_constraintTop_toTopOf="@id/hash_tag_android"-->
+<!--            app:layout_constraintLeft_toRightOf="@+id/hash_tag_android"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/hash_tag_android"-->
+<!--            android:layout_marginLeft="6dp"-->
+<!--            android:paddingVertical="4dp"-->
+<!--            android:paddingHorizontal="12dp"-->
+<!--            android:textSize="11sp"-->
+<!--            android:fontFamily="@font/noto_sans_kr_thin"-->
+<!--            android:textColor="@color/infra_skyblue_a"-->
+<!--            android:includeFontPadding="false"/>-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

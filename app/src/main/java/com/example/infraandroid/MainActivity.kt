@@ -11,6 +11,7 @@ import com.example.infraandroid.databinding.ActivityMainBinding
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.FragmentManager
+import com.example.infraandroid.myinfo.MyInfoFragment
 import com.google.android.material.snackbar.Snackbar
 import com.kakao.sdk.common.util.Utility
 
@@ -48,14 +49,8 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.popBackStack(R.id.splashFragment, FragmentManager.POP_BACK_STACK_INCLUSIVE)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-    }
-
     private fun changeDP(value: Int): Int {
         var displayMetrics = resources.displayMetrics
         return Math.round(value * displayMetrics.density)
     }
-
-
 }

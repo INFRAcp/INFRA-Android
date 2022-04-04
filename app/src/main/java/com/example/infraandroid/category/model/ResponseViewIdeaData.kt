@@ -25,6 +25,7 @@ data class ResponseViewIdeaData(
         val user_nickname: String,
         val user_prPhoto: String,
         val pj_photo: ArrayList<String>,
-        val pj_like: Int
+        val pj_like: Int,
+        val pj_num: Int
     )
 }

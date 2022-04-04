@@ -211,26 +211,7 @@
         android:id="@+id/myInfoProjectModifyFragment"
         android:name="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaModifyPageFragment"
         android:label="fragment_my_info_project_modify"
-        tools:layout="@layout/fragment_my_info_project_modify" >
-        <argument
-            android:name="pjNum"
-            app:argType="integer" />
-        <argument
-            android:name="userId"
-            app:argType="string" />
-        <argument
-            android:name="pjTitle"
-            app:argType="string" />
-        <argument
-            android:name="pjCategory"
-            app:argType="string" />
-        <argument
-            android:name="pjDetailCategory"
-            app:argType="string" />
-        <argument
-            android:name="pjContent"
-            app:argType="string" />
-    </fragment>
+        tools:layout="@layout/fragment_my_info_project_modify" />
     <fragment
         android:id="@+id/myInfoMyIdeaFragment"
         android:name="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaManageFragment"
