@@ -8,16 +8,13 @@ import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentSplashBinding
 import com.example.infraandroid.id.model.RequestLoginData
 import com.example.infraandroid.id.model.ResponseLoginData
+import com.example.infraandroid.id.viewmodel.SignUpViewModel.Companion.TAG
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class SplashFragment : BaseFragment<FragmentSplashBinding>(R.layout.fragment_splash){
     override fun FragmentSplashBinding.onCreateView() {
-
-    }
-
-    override fun FragmentSplashBinding.onViewCreated(){
         if(InfraApplication.prefs.getUserId().isNotEmpty()
             and InfraApplication.prefs.getUserPW().isNotEmpty()){
 
@@ -53,6 +50,9 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(R.layout.fragment_spl
                                 Toast.makeText(requireActivity(),"데이터베이스 연결에 실패하였습니다.", Toast.LENGTH_SHORT).show()}
                         }
                     }
+                    else{
+                        Log.d(TAG, "onResponse: ${InfraApplication.prefs.getUserId()}")
+                    }
                 }
 
                 override fun onFailure(call: Call<ResponseLoginData>, t: Throwable) {
@@ -64,5 +64,9 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(R.layout.fragment_spl
         else{
             findNavController().navigate(R.id.action_splashFragment_to_login_fragment)
         }
+    }
+
+    override fun FragmentSplashBinding.onViewCreated(){
+
     }
 }

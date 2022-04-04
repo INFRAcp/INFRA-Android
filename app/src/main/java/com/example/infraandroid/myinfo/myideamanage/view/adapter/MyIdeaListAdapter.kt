@@ -13,7 +13,7 @@ import com.example.infraandroid.myinfo.myideamanage.model.ResponseMyProjectListD
 import com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaManageFragmentDirections
 
 class MyIdeaListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    var myideaList = mutableListOf<ResponseMyProjectListData.Result>()
+    var myIdeaList = mutableListOf<ResponseMyProjectListData.Result>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val binding = ItemMyIdeaListRecyclerviewBinding.inflate(
@@ -24,10 +24,10 @@ class MyIdeaListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as MyIdeaListViewHolder).onBind(myideaList[position])
+        (holder as MyIdeaListViewHolder).onBind(myIdeaList[position])
     }
 
-    override fun getItemCount(): Int = myideaList.size
+    override fun getItemCount(): Int = myIdeaList.size
 
     inner class MyIdeaListViewHolder(
         private val binding: ItemMyIdeaListRecyclerviewBinding
@@ -36,7 +36,7 @@ class MyIdeaListAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             binding.myProject = myIdeaListInfo
             //내 아이디어 관리 클릭 이벤트
             itemView.setOnClickListener {
-                val action = MyIdeaManageFragmentDirections.actionMyInfoMyIdeaFragmentToMyInfoTeamIdeaFragment(myIdeaListInfo.pj_header, myIdeaListInfo.pj_num)
+                val action = MyIdeaManageFragmentDirections.actionMyInfoMyIdeaFragmentToMyInfoTeamIdeaFragment(myIdeaTitle = myIdeaListInfo.pj_header, myProjectNum = myIdeaListInfo.pj_num)
                 it.findNavController().navigate(action)
             }
         }

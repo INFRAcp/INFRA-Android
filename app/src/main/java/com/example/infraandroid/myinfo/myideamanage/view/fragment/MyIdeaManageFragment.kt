@@ -55,7 +55,7 @@ class MyIdeaManageFragment : Fragment() {
                             1000->{
                                 val data = body.result
                                 if(data!=null){
-                                    myIdeaListAdapter.myideaList = data
+                                    myIdeaListAdapter.myIdeaList = data
                                 }
                                 myIdeaListAdapter.notifyDataSetChanged()
                             }

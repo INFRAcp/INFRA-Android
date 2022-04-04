@@ -42,34 +42,35 @@
                 android:text="@string/home_user_hi"
                 android:textColor="@color/black"
                 android:fontFamily="@font/sans_pro_regular"
-                android:textSize="15sp"
+                android:textSize="17sp"
                 android:textStyle="bold"
                 android:layout_marginTop="2dp"
                 android:layout_marginStart="17dp"
                 app:layout_constraintStart_toEndOf="@id/home_user_photo_iv"
-                app:layout_constraintTop_toTopOf="@id/home_user_photo_iv" />
+                app:layout_constraintTop_toTopOf="@id/home_user_photo_iv"
+                app:layout_constraintBottom_toBottomOf="@id/user_profil_v"/>
 
-            <TextView
-                android:id="@+id/home_user_characteristic1_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="#산업디자이너"
-                android:fontFamily="@font/sans_pro_regular"
-                android:textColor="@color/infra_gray_a"
-                android:textSize="11sp"
-                app:layout_constraintStart_toStartOf="@id/home_user_hi_tv"
-                app:layout_constraintTop_toBottomOf="@id/home_user_hi_tv" />
+<!--            <TextView-->
+<!--                android:id="@+id/home_user_characteristic1_tv"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="#산업디자이너"-->
+<!--                android:fontFamily="@font/sans_pro_regular"-->
+<!--                android:textColor="@color/infra_gray_a"-->
+<!--                android:textSize="11sp"-->
+<!--                app:layout_constraintStart_toStartOf="@id/home_user_hi_tv"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/home_user_hi_tv" />-->
 
-            <TextView
-                android:id="@+id/home_user_characteristic2_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="#3D모델링"
-                android:fontFamily="@font/sans_pro_regular"
-                android:textColor="@color/infra_gray_a"
-                android:textSize="11sp"
-                app:layout_constraintStart_toEndOf="@id/home_user_characteristic1_tv"
-                app:layout_constraintTop_toTopOf="@id/home_user_characteristic1_tv" />
+<!--            <TextView-->
+<!--                android:id="@+id/home_user_characteristic2_tv"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="#3D모델링"-->
+<!--                android:fontFamily="@font/sans_pro_regular"-->
+<!--                android:textColor="@color/infra_gray_a"-->
+<!--                android:textSize="11sp"-->
+<!--                app:layout_constraintStart_toEndOf="@id/home_user_characteristic1_tv"-->
+<!--                app:layout_constraintTop_toTopOf="@id/home_user_characteristic1_tv" />-->
 
             <!--우체국 알람
             <ImageButton
@@ -91,7 +92,7 @@
                 android:src="@drawable/not_finished"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/home_user_characteristic1_tv"
+                app:layout_constraintTop_toBottomOf="@id/user_profil_v"
                 app:layout_constraintBottom_toTopOf="@id/home_search_constraintlayout"
                 android:layout_marginTop="17dp"
                 android:layout_marginBottom="20dp"

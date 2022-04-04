@@ -53,9 +53,22 @@ class MyIdeaModifyFragment : BaseFragment<FragmentTeamIdeaBinding>(R.layout.frag
                 response: Response<ResponseViewIdeaData>
             ) {
                 if(response.isSuccessful){
+                    val data = response.body()?.result
                     when(response.body()?.code){
                         1000->{
                             binding.myIdea = response.body()?.result
+                            viewModel.updateObservingProjectNum(data?.pj_num)
+                            viewModel.updateMyProjectHeader(data?.pj_header)
+                            viewModel.updateMyProjectCategory(data?.pj_categoryName)
+                            viewModel.updateMyProjectSubCategory(data?.pj_subCategoryName)
+                            viewModel.updateMyProjectContent(data?.pj_content)
+                            viewModel.updateMyProjectProgress(data?.pj_progress)
+                            viewModel.updateMyProjectStartTerm(data?.pj_startTerm)
+                            viewModel.updateMyProjectEndTerm(data?.pj_endTerm)
+                            viewModel.updateMyProjectDeadLine(data?.pj_deadline)
+                            viewModel.updateMyProjectTotalPerson(data?.pj_totalPerson?.toInt())
+                            viewModel.updateMyProjectHashTag(data?.hashtag)
+                            viewModel.updateMyProjectImg(data?.pj_photo?.get(0))
                         }
                     }
                 }
