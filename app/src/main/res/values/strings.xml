@@ -19,6 +19,7 @@
     <string name="certify_phone">휴대폰 본인인증</string>
     <string name="input_phone_hint">하이픈(-)포함해서 입력해주세요</string>
     <string name="certification_number_hint">인증번호 5자리 입력</string>
+    <string name="find_pw_finish">이메일로 새 비밀번호를 보냈습니다\n가입시 등록한 이메일을 확인해주세요</string>
     <string name="input_again">인증번호를 다시 입력해주세요.</string>
     <string name="sign_up_nickname_comment">인프라에서 %s님을\n어떻게 부를까요?</string>
     <string name="sign_up_third_comment">마지막으로\n입력하면 가입 완료!</string>

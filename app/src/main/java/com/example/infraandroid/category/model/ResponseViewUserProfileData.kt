@@ -11,7 +11,7 @@ data class ResponseViewUserProfileData(
         val user_prPhoto: String,
         val user_nickname: String,
         val user_prAbility: ArrayList<String>,
-        val user_grade: Int,
+        val user_grade: Float,
         val user_prKeyword: ArrayList<String>,
     )
 }

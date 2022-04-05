@@ -18,7 +18,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentMyInfoModifyBinding
+import com.example.infraandroid.id.viewmodel.SignUpViewModel
 import com.example.infraandroid.myinfo.myinfomodify.model.RequestModifyMyInfoData
+import com.example.infraandroid.myinfo.myinfomodify.model.RequestNicknameCheckData
+import com.example.infraandroid.myinfo.myinfomodify.model.ResponseNicknameCheckData
 import com.example.infraandroid.myinfo.myinfomodify.model.ResponseViewMyInfoData
 import com.example.infraandroid.util.BaseFragment
 import com.example.infraandroid.util.InfraApplication
@@ -45,12 +48,12 @@ class MyInfoModifyFragment : BaseFragment<FragmentMyInfoModifyBinding>(R.layout.
         val overlapCheckButton = binding.overlapCheckButton as AppCompatButton
         val modifyCompletedButton = binding.modifyCompletedButton as TextView
         val doNotUseThisNicknameTextView = binding.doNotUseThisNicknameTextView as TextView
-
+        val canUserIcon = binding.canUseIconImageView
 
         //내 정보 보기 서버 연결
         val viewcall: Call<ResponseViewMyInfoData> = ServiceCreator.myinfoService
-            .viewMyInfo(InfraApplication.prefs.getString("jwt","null"),InfraApplication.prefs.getString("userId","null"))
-        /* .viewMyInfo("jwt","userId")*/
+            .viewMyInfo(InfraApplication.prefs.getString("jwt","null"),
+                InfraApplication.prefs.getString("userId","null"))
 
         viewcall.enqueue(object : Callback<ResponseViewMyInfoData> {
             override fun onResponse(
@@ -59,9 +62,12 @@ class MyInfoModifyFragment : BaseFragment<FragmentMyInfoModifyBinding>(R.layout.
             ) {
                 if(response.isSuccessful){
                     when(response.body()?.code){
-                        1000 -> { binding.myInfoModify = response.body()?.result
-                            userNickname = response.body()?.result?.user_nickname
-                            userPrPhoto = response.body()?.result?.user_prPhoto
+                        1000 -> {
+                            binding.myInfoModify = response.body()?.result
+                            //userNickname = response.body()?.result?.user_nickname
+
+                            //userPrPhoto = response.body()?.result?.user_prPhoto
+
                         }
                     }
                 }
@@ -74,6 +80,43 @@ class MyInfoModifyFragment : BaseFragment<FragmentMyInfoModifyBinding>(R.layout.
 
         } )
 
+        //닉네임 중복 서버 연결
+        overlapCheckButton.setOnClickListener {
+            val requestNicknameCheckData = RequestNicknameCheckData(
+                userNickname = inputNicknameEditText.text.toString(),
+            )
+
+            val checkcall: Call<ResponseNicknameCheckData> = ServiceCreator.nicknameDoubleCheckService
+                .doublecheck(requestNicknameCheckData)
+            checkcall.enqueue(object : Callback<ResponseNicknameCheckData>{
+                override fun onResponse(
+                    call: Call<ResponseNicknameCheckData>,
+                    response: Response<ResponseNicknameCheckData>
+                ) {
+                    if(response.isSuccessful){
+                        val data = response.body()?.code
+                        if(data==1000) {
+                            isChecked = true
+                            doNotUseThisNicknameTextView.isVisible = false
+                            canUserIcon.isVisible = true
+                            inputNicknameEditText.setBackgroundResource(R.drawable.can_use_this_id_background)
+                        }
+                        if(data==3104){
+                            doNotUseThisNicknameTextView.isVisible = true
+                            canUserIcon.isVisible = false
+                            inputNicknameEditText.setBackgroundResource(R.drawable.double_check_id_background)
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseNicknameCheckData>, t: Throwable) {
+
+                }
+
+            })
+
+        }
+
         //내 정보 수정 서버 연결
         val modifycall: Call<RequestModifyMyInfoData> = ServiceCreator.myinfoService
             .ModifyMyInfo("jwt","userId")
@@ -84,6 +127,7 @@ class MyInfoModifyFragment : BaseFragment<FragmentMyInfoModifyBinding>(R.layout.
             ) {
                 if(response.isSuccessful){
                     when(response.body()?.code){
+
                     }
                 }
             }
@@ -144,7 +188,7 @@ class MyInfoModifyFragment : BaseFragment<FragmentMyInfoModifyBinding>(R.layout.
 
             override fun afterTextChanged(p0: Editable?) {
                 /*inputNicknameEditText.length() < 12 && inputNicknameEditText.length()>0*/
-                if (inputNicknameEditText.length() < 12) {
+                if (inputNicknameEditText.length() < 12 && isChecked) {
                     modifyCompletedButton.isEnabled = true
                 } else {
                     Toast.makeText(requireActivity(), "12자 이하로 입력해주세요.", Toast.LENGTH_SHORT).show()
@@ -153,7 +197,7 @@ class MyInfoModifyFragment : BaseFragment<FragmentMyInfoModifyBinding>(R.layout.
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 //얘네는 나중에 수정 필요
-                if (inputNicknameEditText.length() < 12) {
+                if (inputNicknameEditText.length() < 12 && isChecked) {
                     modifyCompletedButton.isEnabled = true
                 } else {
                     Toast.makeText(requireActivity(), "12자 이하로 입력해주세요.", Toast.LENGTH_SHORT).show()
@@ -161,21 +205,6 @@ class MyInfoModifyFragment : BaseFragment<FragmentMyInfoModifyBinding>(R.layout.
             }
         })
 
-        //닉네임 중복 서버 연결 필요
-        //닉네임 중복 버튼 누르면
-        overlapCheckButton.setOnClickListener {
-            //test용..
-            if(inputNicknameEditText.length() < 5){
-                isChecked = true
-                doNotUseThisNicknameTextView.isVisible = false
-                inputNicknameEditText.setBackgroundResource(R.drawable.can_use_this_id_background)
-                binding.canUseIconImageView?.isVisible = true
-            } else {
-                doNotUseThisNicknameTextView.isVisible = true
-                inputNicknameEditText.setBackgroundResource(R.drawable.double_check_id_background)
-                binding.canUseIconImageView?.isVisible = false
-            }
-        }
     }
 
 }
