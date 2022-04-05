@@ -114,6 +114,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
             it.findNavController().navigate(R.id.action_login_fragment_to_sign_up_first_fragment)
         }
 
+        //비밀번호 찾기 눌렀을 때
+        binding.loginFindIdPwTv.setOnClickListener{
+            it.findNavController().navigate(R.id.action_login_fragment_to_findPWFragment)
+        }
+
 //        binding.loginGoogleIv.setOnClickListener {
 //            oneTapClient.beginSignIn(signInRequest)
 //                .addOnSuccessListener(requireActivity()) { result ->

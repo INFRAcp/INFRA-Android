@@ -11,8 +11,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.infraandroid.util.InfraApplication
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentMyInfoBinding
-import com.google.android.gms.oss.licenses.OssLicensesActivity
-import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
+//import com.google.android.gms.oss.licenses.OssLicensesActivity
+//import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 
 //작성자 : 이은진
 //작성일 : 2022.02.03
@@ -70,8 +70,8 @@ class MyInfoFragment : Fragment() {
         }
 
         mBinding!!.ossLinearLayout.setOnClickListener{
-            val intent = Intent(this.context, OssLicensesMenuActivity::class.java)
-            startActivity(intent)
+            //val intent = Intent(this.context, OssLicensesMenuActivity::class.java)
+            //startActivity(intent)
         }
     }
 

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/infra_gray_c"
+        tools:context="com.example.infraandroid.id.view.FindPWFragment">
+        <View
+            android:id="@+id/find_pw_title_view"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:background="@color/infra_blue_b"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+        </View>
+
+        <ImageView
+            android:id="@+id/find_pw_back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_go_back_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="18dp"
+            android:layout_marginLeft="16dp"/>
+
+        <TextView
+            android:id="@+id/find_pw_guide_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="비밀번호 찾기"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/noto_sans_kr_medium"
+            android:includeFontPadding="false"
+            app:layout_constraintTop_toTopOf="@id/find_pw_back_button"
+            app:layout_constraintLeft_toRightOf="@id/find_pw_back_button"
+            app:layout_constraintBottom_toBottomOf="@id/find_pw_back_button"
+            android:layout_marginLeft="14dp"/>
+        <TextView
+            android:id="@+id/find_pw_page_one_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1/2"
+            android:textColor="@color/infra_gray_s"
+            app:layout_constraintTop_toBottomOf="@+id/find_pw_title_view"
+            app:layout_constraintRight_toRightOf="parent"
+            android:fontFamily="@font/noto_sans_kr_bold"
+            android:textSize="16sp"
+            android:includeFontPadding="false"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="18dp"/>
+
+        <TextView
+            android:id="@+id/find_pw_comment_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="확인을 위해 가입시"
+            android:textColor="@color/infra_blue_f"
+            android:fontFamily="@font/noto_sans_kr_bold"
+            android:includeFontPadding="false"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/find_pw_title_view"
+            android:layout_marginTop="144dp"
+            android:layout_marginLeft="24dp"/>
+        <TextView
+            android:id="@+id/find_pw_comment_sec_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="등록한 전화번호를 입력해주세요:)"
+            android:textColor="@color/infra_blue_f"
+            android:fontFamily="@font/noto_sans_kr_bold"
+            android:includeFontPadding="false"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/find_pw_comment_text_view"
+            android:layout_marginLeft="24dp"/>
+
+        <TextView
+            android:id="@+id/find_pw_phone_num_hint_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/input_num_edit_text"
+            app:layout_constraintLeft_toLeftOf="@id/input_num_edit_text"
+            android:text="전화번호"
+            android:textSize="11sp"
+            android:fontFamily="@font/noto_sans_kr_regular"
+            android:textColor="@color/infra_gray_q"
+            android:includeFontPadding="false"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="16dp"
+            android:translationZ="90dp"/>
+
+        <EditText
+            android:id="@+id/input_num_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_background"
+            android:paddingLeft="17dp"
+            android:paddingTop="28dp"
+            android:paddingBottom="14dp"
+            android:maxLength="20"
+            app:layout_constraintTop_toBottomOf="@id/find_pw_comment_sec_text_view"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginHorizontal="20dp"
+            android:hint="@string/input_phone_hint"
+            android:fontFamily="@font/noto_sans_kr_regular"
+            android:includeFontPadding="false"
+            android:textSize="14sp"
+            android:textColorHint="@color/infra_gray_t" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/go_to_second_pw_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sign_in_button_selector"
+            android:textColor="@color/white"
+            android:text="다음"
+            style="?android:borderlessButtonStyle"
+            android:layout_marginTop="254dp"
+            android:layout_marginHorizontal="26dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_num_edit_text"
+            android:fontFamily="@font/noto_sans_kr_bold"
+            android:textSize="16sp"
+            android:paddingVertical="4dp"
+            android:enabled="false"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

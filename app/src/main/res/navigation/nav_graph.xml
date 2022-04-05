@@ -106,6 +106,9 @@
         <action
             android:id="@+id/action_login_fragment_to_sign_up_first_fragment"
             app:destination="@id/sign_up_first_fragment" />
+        <action
+            android:id="@+id/action_login_fragment_to_findPWFragment"
+            app:destination="@id/findPWFragment" />
     </fragment>
     <fragment
         android:id="@+id/chatting_room_list_fragment"
@@ -399,6 +402,25 @@
         android:name="com.example.infraandroid.myinfo.myideamanage.view.WarningRejectDialog"
         android:label="my_info_my_idea_reject_warning"
         tools:layout="@layout/my_info_my_idea_reject_warning" />
+    <fragment
+        android:id="@+id/findPWFragment"
+        android:name="com.example.infraandroid.id.view.FindPWFragment"
+        android:label="FindPWFragment" >
+        <action
+            android:id="@+id/action_findPWFragment_to_findPWSecondFragment"
+            app:destination="@id/findPWSecondFragment" />
+        <action
+            android:id="@+id/action_findPWFragment_to_login_fragment"
+            app:destination="@id/login_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/findPWSecondFragment"
+        android:name="com.example.infraandroid.id.view.FindPWSecondFragment"
+        android:label="FindPWSecondFragment" >
+        <action
+            android:id="@+id/action_findPWSecondFragment_to_login_fragment"
+            app:destination="@id/login_fragment" />
+    </fragment>
 
 
 </navigation>
