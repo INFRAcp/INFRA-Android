@@ -166,7 +166,7 @@ class MyInfoModifyFragment : BaseFragment<FragmentMyInfoModifyBinding>(R.layout.
                 if (inputNicknameEditText.length() < 12) {
                     overlapCheckButton.isEnabled = true
                 } else {
-                    Toast.makeText(requireActivity(), "12자 이하로 입력해주세요.", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(requireActivity(), "12자 이하로 입력해주세요.", Toast.LENGTH_SHORT).show()
                 }
             }
 
