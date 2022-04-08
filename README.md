@@ -35,11 +35,10 @@ Users can chat one-on-one with the author of the post.
 ## 만든 사람(Contributor)
 <table align="center" style = "table-layout: auto; width: 100%; table-layout: fixed;">
   <colgroup>
-    <col style="width:33%"/>
-    <col style="width:34%"/>
+    <col style="width:33% height:33%"/>
   </colgroup>
   <th align="center">안드바보 <a href="https://github.com/Seungmin-develop">신승민<a></th>
-    <th align="center">안드천재 <a href="https://github.com/sodock00">이은진</a></th>
+  <th align="center">안드천재 <a href="https://github.com/sodock00">이은진</a></th>
   <tr>
     <td align="center"><img src="https://user-images.githubusercontent.com/39687846/162403487-fcc347c5-34f9-4788-9b73-2505a8fd9637.png"/></td>
     <td align="center"><img src="https://user-images.githubusercontent.com/39687846/162403529-e5c5f159-6ef1-4922-9e40-10af3edce766.png"/></td>
@@ -51,7 +50,8 @@ Users can chat one-on-one with the author of the post.
     로그인/자동로그인(Login/AutoLogin)<br>
     회원가입(SignUp)<br>
     채팅기능(Chatting)<br>
-    프로젝트 생성/수정/삭제(Create Project/Modify/Delete)<br>
+    프로젝트 생성/수정(Project Create/Modify)<br>
+    프로젝트 삭제(Project Delete)<br>
     내 정보 수정(My Profile Modify)<br>
     </td>
     <td><br>
