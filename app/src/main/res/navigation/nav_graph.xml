@@ -214,7 +214,17 @@
         android:id="@+id/myInfoProjectModifyFragment"
         android:name="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaModifyPageFragment"
         android:label="fragment_my_info_project_modify"
-        tools:layout="@layout/fragment_my_info_project_modify" />
+        tools:layout="@layout/fragment_my_info_project_modify" >
+        <action
+            android:id="@+id/action_myInfoProjectModifyFragment_to_myInfoTeamIdeaFragment"
+            app:destination="@id/myInfoTeamIdeaFragment" />
+        <action
+            android:id="@+id/action_myInfoProjectModifyFragment_to_myInfoMyIdeaFragment"
+            app:destination="@id/myInfoMyIdeaFragment" />
+        <action
+            android:id="@+id/action_myInfoProjectModifyFragment_to_myIdeaCategoryModifyFragment"
+            app:destination="@id/myIdeaCategoryModifyFragment" />
+    </fragment>
     <fragment
         android:id="@+id/myInfoMyIdeaFragment"
         android:name="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaManageFragment"
@@ -420,6 +430,15 @@
         <action
             android:id="@+id/action_findPWSecondFragment_to_login_fragment"
             app:destination="@id/login_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myIdeaCategoryModifyFragment"
+        android:name="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaCategoryModifyFragment"
+        android:label="fragment_modify_category"
+        tools:layout="@layout/fragment_modify_category" >
+        <action
+            android:id="@+id/action_myIdeaCategoryModifyFragment_to_myInfoProjectModifyFragment"
+            app:destination="@id/myInfoProjectModifyFragment" />
     </fragment>
 
 

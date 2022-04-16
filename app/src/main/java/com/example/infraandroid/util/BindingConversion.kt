@@ -69,6 +69,7 @@ object BindingConversions {
             textView.isGone = true
         }
         else{
+            textView.isVisible = true
             textView.text = hashtag
         }
     }

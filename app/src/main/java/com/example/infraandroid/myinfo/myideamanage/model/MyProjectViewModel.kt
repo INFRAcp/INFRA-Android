@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class MyProjectViewModel : ViewModel() {
+    private val hashTagArrayList = ArrayList<String>()
+
     private val _currentObservingProjectNum = MutableLiveData<Int>()
     val currentObservingProjectNum: LiveData<Int> = _currentObservingProjectNum
 
@@ -48,7 +50,7 @@ class MyProjectViewModel : ViewModel() {
     val currentDay: LiveData<String?> = _currentDay
 
     fun updateObservingProjectNum(projectNum: Int?){
-        _currentObservingProjectNum.value = projectNum
+        _currentObservingProjectNum.value = projectNum!!
     }
 
     fun updateCurrentApplyUserId(userId: String){
@@ -56,43 +58,58 @@ class MyProjectViewModel : ViewModel() {
     }
 
     fun updateMyProjectHeader(header: String?){
-        _currentMyProjectHeader.value = header
+        _currentMyProjectHeader.value = header!!
     }
 
     fun updateMyProjectCategory(category: String?){
-        _currentMyProjectCategory.value = category
+        _currentMyProjectCategory.value = category!!
     }
 
     fun updateMyProjectSubCategory(subCategory: String?){
-        _currentMyProjectSubCategory.value = subCategory
+        _currentMyProjectSubCategory.value = subCategory!!
     }
 
     fun updateMyProjectProgress(progress: String?){
-        _currentMyProjectProgress.value = progress
+        _currentMyProjectProgress.value = progress!!
     }
 
     fun updateMyProjectStartTerm(term: String?){
-        _currentMyProjectStartTerm.value = term
+        _currentMyProjectStartTerm.value = term!!
     }
 
     fun updateMyProjectEndTerm(term: String?){
-        _currentMyProjectEndTerm.value = term
+        _currentMyProjectEndTerm.value = term!!
     }
 
     fun updateMyProjectDeadLine(deadline: String?){
-        _currentMyProjectDeadLine.value = deadline
+        _currentMyProjectDeadLine.value = deadline!!
     }
 
     fun updateMyProjectContent(content: String?){
-        _currentMyProjectContent.value = content
+        _currentMyProjectContent.value = content!!
     }
 
     fun updateMyProjectTotalPerson(person: Int?){
-        _currentMyProjectTotalPerson.value = person
+        _currentMyProjectTotalPerson.value = person!!
     }
 
-    fun updateMyProjectHashTag(hashtag: ArrayList<String>?){
-        _currentMyProjectHashTag.value = hashtag
+    fun updateMyProjectHashTag(hashtag: String){
+        if(hashTagArrayList.size < 4){
+            hashTagArrayList.add(hashtag)
+            _currentMyProjectHashTag.value = hashTagArrayList
+        }
+    }
+
+    fun deleteMyProjectHashTag(index: Int){
+        if(hashTagArrayList.size>0){
+            hashTagArrayList.removeAt(index)
+            _currentMyProjectHashTag.value = hashTagArrayList
+        }
+    }
+
+    fun clearMyProjectHashTag(){
+        hashTagArrayList.clear()
+        _currentMyProjectHashTag.value = hashTagArrayList
     }
 
     fun updateMyProjectImg(img: String?){
