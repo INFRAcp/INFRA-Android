@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -67,8 +68,18 @@ class MyIdeaModifyFragment : BaseFragment<FragmentTeamIdeaBinding>(R.layout.frag
                             viewModel.updateMyProjectEndTerm(data?.pj_endTerm)
                             viewModel.updateMyProjectDeadLine(data?.pj_deadline)
                             viewModel.updateMyProjectTotalPerson(data?.pj_totalPerson?.toInt())
-                            viewModel.updateMyProjectHashTag(data?.hashtag)
                             viewModel.updateMyProjectImg(data?.pj_photo?.get(0))
+                            viewModel.clearMyProjectHashTag()
+                            if(data?.hashtag != null){
+                                for(ht in data.hashtag){
+                                    viewModel.updateMyProjectHashTag(ht)
+                                }
+                            }
+                            if (data != null) {
+                                if(data.pj_recruit != "마감"){
+                                    binding.teamIdeaModifyBtnTv.isVisible = true
+                                }
+                            }
                         }
                     }
                 }

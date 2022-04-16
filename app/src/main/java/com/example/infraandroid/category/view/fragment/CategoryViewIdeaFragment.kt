@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
@@ -52,9 +53,13 @@ class CategoryViewIdeaFragment : BaseFragment<FragmentViewIdeaBinding>(R.layout.
             ) {
                 if(response.isSuccessful){
                     when(response.body()?.code){
-                        1000 -> { binding.viewIdea = response.body()?.result
-                        writerId = response.body()?.result?.user_nickname
-                        opponentProfileImg = response.body()?.result?.user_prPhoto
+                        1000 -> {
+                            binding.viewIdea = response.body()?.result
+                            writerId = response.body()?.result?.user_nickname
+                            opponentProfileImg = response.body()?.result?.user_prPhoto
+                            if(writerId == InfraApplication.prefs.getString("userNickName", "null")){
+                                binding.startChattingImageButton.isVisible = false
+                            }
                         }
                     }
                 }
