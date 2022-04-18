@@ -17,9 +17,7 @@
 | [Firebase](https://firebase.google.com/)                     | Realtime DB for chatting service    |                                           | 
 
 ## 실행 방법(How to start)
-
-> 한달 안에 구글 플레이스토어에 출시 예정입니다.<br>
-> It is expected to be released on GOOGLE PlayStore within a month.
+(추가 예정)
 
 ## 주요 기능(How to use)
 - 사용자들은 프로젝트 인원을 모집하는 게시글을 작성할 수 있습니다.<br>
@@ -52,11 +50,15 @@ Users can chat one-on-one with the author of the post.
     채팅기능(Chatting)<br>
     프로젝트 생성/수정(Project Create/Modify)<br>
     프로젝트 삭제(Project Delete)<br>
+    프로젝트 조회(View Project)<br>
+    프로젝트 지원(Project Apply)<br>
+    홈화면 API(MainHome API)<br>
     내 정보 수정(My Profile Modify)<br>
     </td>
     <td><br>
-    홈화면(MainHome)<br>
-    카테고리뷰(CategoryView)<br>
+    홈화면 뷰작업(MainHome View)<br>
+    카테고리뷰(Category View)<br>
+    내 정보 뷰(My Info View)<br>
     내 정보 조회(My Profile)<br>
     비밀번호 찾기(Find PW)<br>
     팀원찾기(Find Team Member)<br>
