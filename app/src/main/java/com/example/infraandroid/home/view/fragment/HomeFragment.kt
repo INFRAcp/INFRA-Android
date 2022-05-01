@@ -2,6 +2,7 @@ package com.example.infraandroid.home.view.fragment
 
 import android.widget.Toast
 import androidx.navigation.findNavController
+import com.bumptech.glide.Glide
 import com.example.infraandroid.util.InfraApplication
 import com.example.infraandroid.R
 import com.example.infraandroid.databinding.FragmentHomeBinding
@@ -28,6 +29,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     override fun FragmentHomeBinding.onCreateView(){
         binding.homeUserHiTv.text = getString(R.string.home_user_hi).format(InfraApplication.prefs.getString("userNickName", "null"))
+        Glide.with(requireActivity())
+            .load(InfraApplication.prefs.getString("userProfileImg", "null"))
+            .circleCrop()
+            .error(R.drawable.user_photo)
+            .into(binding.homeUserPhotoIv)
     }
 
     override fun FragmentHomeBinding.onViewCreated() {

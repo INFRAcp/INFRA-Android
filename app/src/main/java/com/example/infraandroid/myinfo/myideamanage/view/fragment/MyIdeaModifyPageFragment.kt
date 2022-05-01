@@ -300,6 +300,7 @@ class MyIdeaModifyPageFragment : BaseFragment<FragmentMyInfoProjectModifyBinding
             binding.deletePhotoImageView.isGone = true
             mediaPath = null
             fileToUpload = null
+            viewModel.deleteProjectPhoto()
         }
 
         // 완료 버튼 눌렀을 때 프로젝트 수정 완료
@@ -308,6 +309,9 @@ class MyIdeaModifyPageFragment : BaseFragment<FragmentMyInfoProjectModifyBinding
                 val file = File(mediaPath)
                 val requestBody = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
                 fileToUpload = MultipartBody.Part.createFormData("images", file.name, requestBody)
+            }
+            else{
+                fileToUpload = null
             }
 
             Log.d(TAG, "onViewCreated: 수정완료버튼${viewModel.currentMyProjectSubCategory.value}" )
@@ -323,7 +327,8 @@ class MyIdeaModifyPageFragment : BaseFragment<FragmentMyInfoProjectModifyBinding
                     "\"pj_endTerm\" : "+ endTermString +"," +
                     "\"pj_deadline\" : "+ deadlineString +"," +
                     "\"pj_totalPerson\" : "+ binding.numberOfTeamEditText.text.toString() +"," +
-                    "\"hashtag\" : ["+ hashTagString +"]}"
+                    "\"hashtag\" : ["+ hashTagString +"]," +
+                    "\"pjPhoto\" : \"" + viewModel.currentProjectPhotoStatus.value.toString() + "\"}"
 
             val jsonList = jsonString.toRequestBody("text/plain".toMediaTypeOrNull())
             val call : Call<ResponseModifyProjectData> = ServiceCreator.myProjectService
@@ -401,6 +406,7 @@ class MyIdeaModifyPageFragment : BaseFragment<FragmentMyInfoProjectModifyBinding
             )!!
             cursor.moveToFirst()
             mediaPath = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA))
+            viewModel.updateProjectPhoto()
         }
         else{
             Toast.makeText(requireActivity(), "이미지 업로드 실패", Toast.LENGTH_SHORT).show()

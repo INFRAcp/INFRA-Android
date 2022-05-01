@@ -49,6 +49,17 @@ class MyProjectViewModel : ViewModel() {
     private val _currentDay = MutableLiveData<String?>()
     val currentDay: LiveData<String?> = _currentDay
 
+    private val _currentProjectPhotoStatus = MutableLiveData<String?>(null)
+    val currentProjectPhotoStatus: LiveData<String?> = _currentProjectPhotoStatus
+
+    fun deleteProjectPhoto(){
+        _currentProjectPhotoStatus.value = "삭제"
+   }
+
+    fun updateProjectPhoto(){
+        _currentProjectPhotoStatus.value = "등록"
+    }
+
     fun updateObservingProjectNum(projectNum: Int?){
         _currentObservingProjectNum.value = projectNum!!
     }
