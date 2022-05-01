@@ -263,16 +263,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="30dp" />
 
-            <ImageView
-                android:id="@+id/home_btn_arrow1_iv"
-                android:layout_width="5dp"
-                android:layout_height="10dp"
-                android:src="@drawable/btn_arrow_more_white"
-                android:scaleType="centerCrop"
-                app:layout_constraintTop_toTopOf="@id/home_background_iv"
-                android:layout_marginTop="32dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="31dp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/home_hot_project_recycleview"

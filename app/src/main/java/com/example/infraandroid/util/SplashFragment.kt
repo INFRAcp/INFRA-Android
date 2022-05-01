@@ -38,16 +38,14 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(R.layout.fragment_spl
                                 InfraApplication.prefs.setString("refreshToken", response.body()?.result?.refreshToken.toString())
                                 InfraApplication.prefs.setString("userId", response.body()?.result?.userId.toString())
                                 InfraApplication.prefs.setString("userNickName", response.body()?.result?.userNickName.toString())
+                                InfraApplication.prefs.setString("userProfileImg", response.body()?.result?.userProfileImg.toString())
                                 Toast.makeText(requireActivity(),"요청에 성공하셨습니다.", Toast.LENGTH_SHORT).show()
                                 // 로그인 버튼을 누르면 home_fragment로 이동
                                 findNavController().navigate(R.id.action_splashFragment_to_home_fragment)
                             }
-                            2001 -> {
-                                Toast.makeText(requireActivity(),"id가 비어있습니다.", Toast.LENGTH_SHORT).show()}
-                            3014 -> {
-                                Toast.makeText(requireActivity(),"없는 아이디거나 비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show()}
-                            4000 -> {
-                                Toast.makeText(requireActivity(),"데이터베이스 연결에 실패하였습니다.", Toast.LENGTH_SHORT).show()}
+                            else -> {
+                                findNavController().navigate(R.id.action_splashFragment_to_login_fragment)
+                            }
                         }
                     }
                     else{

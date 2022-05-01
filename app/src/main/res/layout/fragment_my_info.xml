@@ -442,6 +442,7 @@
                     android:layout_marginStart="28dp"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/cs_linear_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp">
@@ -483,6 +484,7 @@
                     android:layout_marginStart="28dp"/>
             </LinearLayout>
             <LinearLayout
+                android:id="@+id/service_linear_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp">

@@ -90,6 +90,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
                                 InfraApplication.prefs.setString("refreshToken", response.body()?.result?.refreshToken.toString())
                                 InfraApplication.prefs.setString("userId", response.body()?.result?.userId.toString())
                                 InfraApplication.prefs.setString("userNickName", response.body()?.result?.userNickName.toString())
+                                InfraApplication.prefs.setString("userProfileImg", response.body()?.result?.userProfileImg.toString())
                                 InfraApplication.prefs.setUserId(response.body()?.result?.userId.toString())
                                 InfraApplication.prefs.setUserPW(inputPw)
                                 Toast.makeText(requireActivity(),"요청에 성공하셨습니다.", Toast.LENGTH_SHORT).show()
