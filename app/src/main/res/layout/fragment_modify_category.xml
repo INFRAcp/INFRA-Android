@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/infra_skyblue_b"
-    tools:context="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaCategoryModifyFragment">
+    tools:context="com.infra.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaCategoryModifyFragment">
 
     <ImageButton
         android:id="@+id/go_back_image_button"

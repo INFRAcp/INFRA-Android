@@ -5,7 +5,7 @@
     <data>
         <variable
             name="myProject"
-            type="com.example.infraandroid.myinfo.myideamanage.model.ResponseMyProjectListData.Result" />
+            type="com.infra.infraandroid.myinfo.myideamanage.model.ResponseMyProjectListData.Result" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

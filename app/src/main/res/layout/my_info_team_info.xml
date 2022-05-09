@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaMemberInfoBottomSheetFragment">
+    tools:context="com.infra.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaMemberInfoBottomSheetFragment">
     <TextView
         android:id="@+id/category_info_name_textview"
         android:layout_width="wrap_content"

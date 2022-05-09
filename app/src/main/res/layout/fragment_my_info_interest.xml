@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.infraandroid.myinfo.myinfointerest.MyInfoInterestFragment">
+    tools:context="com.infra.infraandroid.myinfo.myinfointerest.MyInfoInterestFragment">
     <View
         android:id="@+id/my_info_interest_title_view"
         android:layout_width="match_parent"

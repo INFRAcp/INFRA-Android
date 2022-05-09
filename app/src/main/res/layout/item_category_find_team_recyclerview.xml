@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewUserProfile"
-            type="com.example.infraandroid.category.model.ResponseViewUserProfileData.Result" />
+            type="com.infra.infraandroid.category.model.ResponseViewUserProfileData.Result" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/find_team_item_constraint_layout"

@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyProjectMoreMenuBottomSheetFragment">
+    tools:context="com.infra.infraandroid.myinfo.myideamanage.view.fragment.MyProjectMoreMenuBottomSheetFragment">
 
     <ImageButton
         android:id="@+id/close_menu_image_button"

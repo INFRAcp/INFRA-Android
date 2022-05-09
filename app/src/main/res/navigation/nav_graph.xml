@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/home_fragment"
-        android:name="com.example.infraandroid.home.view.fragment.HomeFragment"
+        android:name="com.infra.infraandroid.home.view.fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/category_fragment"
-        android:name="com.example.infraandroid.category.view.fragment.CategoryFragment"
+        android:name="com.infra.infraandroid.category.view.fragment.CategoryFragment"
         android:label="fragment_category"
         tools:layout="@layout/fragment_category" >
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/chat_fragment"
-        android:name="com.example.infraandroid.chat.view.ChatFragment"
+        android:name="com.infra.infraandroid.chat.view.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" >
         <action
@@ -59,7 +59,7 @@
     </fragment>
     <fragment
         android:id="@+id/my_info_fragment"
-        android:name="com.example.infraandroid.myinfo.MyInfoFragment"
+        android:name="com.infra.infraandroid.myinfo.MyInfoFragment"
         android:label="fragment_my_info"
         tools:layout="@layout/fragment_my_info"
         tools:ignore="ExtraText">
@@ -97,7 +97,7 @@
 
     <fragment
         android:id="@+id/login_fragment"
-        android:name="com.example.infraandroid.id.view.LoginFragment"
+        android:name="com.infra.infraandroid.id.view.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -112,7 +112,7 @@
     </fragment>
     <fragment
         android:id="@+id/chatting_room_list_fragment"
-        android:name="com.example.infraandroid.chat.view.ChattingRoomListFragment"
+        android:name="com.infra.infraandroid.chat.view.ChattingRoomListFragment"
         android:label="fragment_chatting_room_list"
         tools:layout="@layout/fragment_chatting_room_list" >
         <action
@@ -121,7 +121,7 @@
     </fragment>
     <fragment
         android:id="@+id/idea_list_fragment"
-        android:name="com.example.infraandroid.category.view.fragment.IdeaListFragment"
+        android:name="com.infra.infraandroid.category.view.fragment.IdeaListFragment"
         android:label="idea_list_fragment"
         tools:layout="@layout/fragment_idea_list">
         <action
@@ -138,7 +138,7 @@
     </fragment>
     <fragment
         android:id="@+id/sign_up_first_fragment"
-        android:name="com.example.infraandroid.id.view.SignUpFirstFragment"
+        android:name="com.infra.infraandroid.id.view.SignUpFirstFragment"
         android:label="fragment_sign_up_first"
         tools:layout="@layout/fragment_sign_up_first">
         <action
@@ -150,7 +150,7 @@
     </fragment>
     <fragment
         android:id="@+id/sign_up_second_fragment"
-        android:name="com.example.infraandroid.id.view.SignUpSecondFragment"
+        android:name="com.infra.infraandroid.id.view.SignUpSecondFragment"
         android:label="fragment_sign_up_second"
         tools:layout="@layout/fragment_sign_up_second" >
         <action
@@ -159,7 +159,7 @@
     </fragment>
     <fragment
         android:id="@+id/sign_up_fourth_fragment"
-        android:name="com.example.infraandroid.id.view.SignUpFourthFragment"
+        android:name="com.infra.infraandroid.id.view.SignUpFourthFragment"
         android:label="fragment_sign_up_fourth"
         tools:layout="@layout/fragment_sign_up_fourth" >
         <action
@@ -169,7 +169,7 @@
 
     <fragment
         android:id="@+id/sign_up_third_fragment"
-        android:name="com.example.infraandroid.id.view.SignUpThirdFragment"
+        android:name="com.infra.infraandroid.id.view.SignUpThirdFragment"
         android:label="fragment_sign_up_third"
         tools:layout="@layout/fragment_sign_up_third" >
         <action
@@ -179,7 +179,7 @@
 
     <fragment
         android:id="@+id/category_information_fragment"
-        android:name="com.example.infraandroid.category.view.fragment.CategoryInformationFragment"
+        android:name="com.infra.infraandroid.category.view.fragment.CategoryInformationFragment"
         android:label="category_information_fragment"
         tools:layout="@layout/category_information">
         <action
@@ -188,7 +188,7 @@
     </fragment>
     <fragment
         android:id="@+id/my_info_modify_fragment"
-        android:name="com.example.infraandroid.myinfo.myinfomodify.view.MyInfoModifyFragment"
+        android:name="com.infra.infraandroid.myinfo.myinfomodify.view.MyInfoModifyFragment"
         android:label="my_info_modify_fragment"
         tools:layout="@layout/fragment_my_info_modify">
         <action
@@ -198,7 +198,7 @@
 
     <fragment
         android:id="@+id/categoryTeamFragment"
-        android:name="com.example.infraandroid.category.view.fragment.CategoryTeamFragment"
+        android:name="com.infra.infraandroid.category.view.fragment.CategoryTeamFragment"
         android:label="CategoryTeamFragment"
         tools:layout="@layout/fragment_category_team">
         <action
@@ -207,12 +207,12 @@
     </fragment>
     <fragment
         android:id="@+id/categoryInformationFragment"
-        android:name="com.example.infraandroid.category.view.fragment.CategoryInformationFragment"
+        android:name="com.infra.infraandroid.category.view.fragment.CategoryInformationFragment"
         android:label="CategoryInformationFragment"
         tools:layout="@layout/category_information"/>
     <fragment
         android:id="@+id/myInfoProjectModifyFragment"
-        android:name="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaModifyPageFragment"
+        android:name="com.infra.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaModifyPageFragment"
         android:label="fragment_my_info_project_modify"
         tools:layout="@layout/fragment_my_info_project_modify" >
         <action
@@ -227,7 +227,7 @@
     </fragment>
     <fragment
         android:id="@+id/myInfoMyIdeaFragment"
-        android:name="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaManageFragment"
+        android:name="com.infra.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaManageFragment"
         android:label="MyInfoMyIdeaFragment"
         tools:layout="@layout/fragment_my_info_my_idea">
         <action
@@ -239,7 +239,7 @@
     </fragment>
     <fragment
         android:id="@+id/myInfoTeamIdeaFragment"
-        android:name="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaFragment"
+        android:name="com.infra.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaFragment"
         android:label="MyInfoTeamIdeaFragment"
         tools:layout="@layout/my_info_team_idea">
         <action
@@ -264,7 +264,7 @@
 
     <fragment
         android:id="@+id/myInfoInformationFragment"
-        android:name="com.example.infraandroid.myinfo.myintroductionpage.view.MyIntroductionPageFragment"
+        android:name="com.infra.infraandroid.myinfo.myintroductionpage.view.MyIntroductionPageFragment"
         android:label="MyInfoInformationFragment"
         tools:layout="@layout/my_info_information">
         <action
@@ -273,7 +273,7 @@
     </fragment>
     <fragment
         android:id="@+id/createProjectFragment"
-        android:name="com.example.infraandroid.home.view.fragment.CreateProjectFragment"
+        android:name="com.infra.infraandroid.home.view.fragment.CreateProjectFragment"
         android:label="fragment_create_project"
         tools:layout="@layout/fragment_create_project" >
         <action
@@ -291,7 +291,7 @@
     </fragment>
     <fragment
         android:id="@+id/categoryViewIdeaFragment"
-        android:name="com.example.infraandroid.category.view.fragment.CategoryViewIdeaFragment"
+        android:name="com.infra.infraandroid.category.view.fragment.CategoryViewIdeaFragment"
         android:label="fragment_view_idea"
         tools:layout="@layout/fragment_view_idea" >
         <argument
@@ -303,7 +303,7 @@
     </fragment>
     <fragment
         android:id="@+id/myInfoTeamMemberEvaluationFragment"
-        android:name="com.example.infraandroid.myinfo.teammembereval.view.fragment.TeamMemberEvalFragment"
+        android:name="com.infra.infraandroid.myinfo.teammembereval.view.fragment.TeamMemberEvalFragment"
         android:label="MyInfoTeamMemberEvaluationFragment"
         tools:layout="@layout/my_info_team_member_evaluation">
         <action
@@ -312,7 +312,7 @@
     </fragment>
     <fragment
         android:id="@+id/createProjectSelectCategory"
-        android:name="com.example.infraandroid.home.view.fragment.CreateProjectSelectCategoryFragment"
+        android:name="com.infra.infraandroid.home.view.fragment.CreateProjectSelectCategoryFragment"
         android:label="fragment_create_project_select_category"
         tools:layout="@layout/fragment_create_project_select_category" >
         <action
@@ -321,7 +321,7 @@
     </fragment>
     <fragment
         android:id="@+id/applicationStatusFragment"
-        android:name="com.example.infraandroid.myinfo.applicationstatus.view.ApplicationStatusFragment"
+        android:name="com.infra.infraandroid.myinfo.applicationstatus.view.ApplicationStatusFragment"
         android:label="ApplicationStatusFragment" >
         <action
             android:id="@+id/action_applicationStatusFragment_to_my_info_fragment"
@@ -329,7 +329,7 @@
     </fragment>
     <fragment
         android:id="@+id/historyFragment"
-        android:name="com.example.infraandroid.myinfo.history.view.HistoryFragment"
+        android:name="com.infra.infraandroid.myinfo.history.view.HistoryFragment"
         android:label="HistoryFragment" >
         <action
             android:id="@+id/action_historyFragment_to_my_info_fragment"
@@ -337,7 +337,7 @@
     </fragment>
     <fragment
         android:id="@+id/scrapFragment"
-        android:name="com.example.infraandroid.myinfo.scrap.view.ScrapFragment"
+        android:name="com.infra.infraandroid.myinfo.scrap.view.ScrapFragment"
         android:label="ScrapFragment" >
         <action
             android:id="@+id/action_scrapFragment_to_my_info_fragment"
@@ -345,7 +345,7 @@
     </fragment>
     <fragment
         android:id="@+id/myInfoInterestFragment"
-        android:name="com.example.infraandroid.myinfo.myinfointerest.MyInfoInterestFragment"
+        android:name="com.infra.infraandroid.myinfo.myinfointerest.MyInfoInterestFragment"
         android:label="fragment_my_info_interest"
         tools:layout="@layout/fragment_my_info_interest" >
         <action
@@ -354,7 +354,7 @@
     </fragment>
     <fragment
         android:id="@+id/hashTagAlarmFragment"
-        android:name="com.example.infraandroid.myinfo.hashtagalarm.view.HashTagAlarmFragment"
+        android:name="com.infra.infraandroid.myinfo.hashtagalarm.view.HashTagAlarmFragment"
         android:label="HashTagAlarmFragment" >
         <action
             android:id="@+id/action_hashTagAlarmFragment_to_my_info_fragment"
@@ -362,11 +362,11 @@
     </fragment>
     <fragment
         android:id="@+id/teamMemberEvalEditFragment"
-        android:name="com.example.infraandroid.myinfo.teammembereval.view.fragment.TeamMemberEvalEditFragment"
+        android:name="com.infra.infraandroid.myinfo.teammembereval.view.fragment.TeamMemberEvalEditFragment"
         android:label="TeamMemberEvalEditFragment" />
     <fragment
         android:id="@+id/userGuideFragment"
-        android:name="com.example.infraandroid.myinfo.userguide.view.UserGuideFragment"
+        android:name="com.infra.infraandroid.myinfo.userguide.view.UserGuideFragment"
         android:label="fragment_user_guide"
         tools:layout="@layout/fragment_user_guide" >
         <action
@@ -375,7 +375,7 @@
     </fragment>
     <dialog
         android:id="@+id/myProjectMoreMenuBottomSheetFragment"
-        android:name="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyProjectMoreMenuBottomSheetFragment"
+        android:name="com.infra.infraandroid.myinfo.myideamanage.view.fragment.MyProjectMoreMenuBottomSheetFragment"
         android:label="my_project_more_menu"
         tools:layout="@layout/my_project_more_menu" >
         <action
@@ -384,7 +384,7 @@
     </dialog>
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.infraandroid.util.SplashFragment"
+        android:name="com.infra.infraandroid.util.SplashFragment"
         android:label="SplashFragment"
         tools:layout="@layout/fragment_splash">
         <action
@@ -400,7 +400,7 @@
     </fragment>
     <dialog
         android:id="@+id/warningDeleteDialog"
-        android:name="com.example.infraandroid.myinfo.myideamanage.view.WarningDeleteDialog"
+        android:name="com.infra.infraandroid.myinfo.myideamanage.view.WarningDeleteDialog"
         android:label="my_info_my_project_delete_warning"
         tools:layout="@layout/my_info_my_project_delete_warning" >
         <action
@@ -409,12 +409,12 @@
     </dialog>
     <fragment
         android:id="@+id/warningRejectDialog"
-        android:name="com.example.infraandroid.myinfo.myideamanage.view.WarningRejectDialog"
+        android:name="com.infra.infraandroid.myinfo.myideamanage.view.WarningRejectDialog"
         android:label="my_info_my_idea_reject_warning"
         tools:layout="@layout/my_info_my_idea_reject_warning" />
     <fragment
         android:id="@+id/findPWFragment"
-        android:name="com.example.infraandroid.id.view.FindPWFragment"
+        android:name="com.infra.infraandroid.id.view.FindPWFragment"
         android:label="FindPWFragment" >
         <action
             android:id="@+id/action_findPWFragment_to_findPWSecondFragment"
@@ -425,7 +425,7 @@
     </fragment>
     <fragment
         android:id="@+id/findPWSecondFragment"
-        android:name="com.example.infraandroid.id.view.FindPWSecondFragment"
+        android:name="com.infra.infraandroid.id.view.FindPWSecondFragment"
         android:label="FindPWSecondFragment" >
         <action
             android:id="@+id/action_findPWSecondFragment_to_login_fragment"
@@ -433,7 +433,7 @@
     </fragment>
     <fragment
         android:id="@+id/myIdeaCategoryModifyFragment"
-        android:name="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaCategoryModifyFragment"
+        android:name="com.infra.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaCategoryModifyFragment"
         android:label="fragment_modify_category"
         tools:layout="@layout/fragment_modify_category" >
         <action

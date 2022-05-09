@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/infra_gray_c"
-        tools:context="com.example.infraandroid.id.view.FindPWFragment">
+        tools:context="com.infra.infraandroid.id.view.FindPWFragment">
         <View
             android:id="@+id/find_pw_title_view"
             android:layout_width="match_parent"

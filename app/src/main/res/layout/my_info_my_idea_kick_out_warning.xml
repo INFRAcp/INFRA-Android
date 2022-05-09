@@ -6,7 +6,7 @@
     android:background="@drawable/warning_background"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginHorizontal="20dp"
-    tools:context="com.example.infraandroid.myinfo.myideamanage.view.WarningKickOutDialog">
+    tools:context="com.infra.infraandroid.myinfo.myideamanage.view.WarningKickOutDialog">
 
     <ImageView
         android:id="@+id/warning_red_iv"

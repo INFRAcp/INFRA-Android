@@ -5,12 +5,12 @@
     <data>
         <variable
             name="myInfoModify"
-            type="com.example.infraandroid.myinfo.myinfomodify.model.ResponseViewMyInfoData.Result" />
+            type="com.infra.infraandroid.myinfo.myinfomodify.model.ResponseViewMyInfoData.Result" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.infraandroid.myinfo.myinfomodify.view.MyInfoModifyFragment">
+        tools:context="com.infra.infraandroid.myinfo.myinfomodify.view.MyInfoModifyFragment">
 
         <View
             android:id="@+id/my_info_modify_title_view"
