@@ -5,7 +5,7 @@
     <data>
         <variable
             name="projectList"
-            type="com.example.infraandroid.category.model.ResponseLookUpAllProjectData.Result" />
+            type="com.infra.infraandroid.category.model.ResponseLookUpAllProjectData.Result" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

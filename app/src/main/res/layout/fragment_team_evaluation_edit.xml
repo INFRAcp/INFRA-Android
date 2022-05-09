@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/infra_skyblue_b"
-        tools:context="com.example.infraandroid.myinfo.teammembereval.view.fragment.TeamMemberEvalEditFragment">
+        tools:context="com.infra.infraandroid.myinfo.teammembereval.view.fragment.TeamMemberEvalEditFragment">
 
         <ScrollView
             android:layout_width="match_parent"

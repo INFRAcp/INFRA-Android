@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/category_team_idea"
-    tools:context="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaFragment">
+    tools:context="com.infra.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaFragment">
 
     <View
         android:id="@+id/category_team_title_view"

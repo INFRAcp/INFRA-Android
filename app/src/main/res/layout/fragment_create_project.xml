@@ -6,15 +6,15 @@
     <data>
         <variable
             name="createViewModel"
-            type="com.example.infraandroid.home.viewmodel.CreateProjectViewModel" />
+            type="com.infra.infraandroid.home.viewmodel.CreateProjectViewModel" />
         <variable
             name="fragment"
-            type="com.example.infraandroid.home.view.fragment.CreateProjectFragment" />
+            type="com.infra.infraandroid.home.view.fragment.CreateProjectFragment" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.infraandroid.home.view.fragment.CreateProjectFragment">
+    tools:context="com.infra.infraandroid.home.view.fragment.CreateProjectFragment">
 
     <ScrollView
         android:layout_width="match_parent"

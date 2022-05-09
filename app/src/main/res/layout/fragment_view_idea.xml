@@ -7,13 +7,13 @@
     <data>
         <variable
             name="viewIdea"
-            type="com.example.infraandroid.category.model.ResponseViewIdeaData.Result" />
+            type="com.infra.infraandroid.category.model.ResponseViewIdeaData.Result" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.infraandroid.category.view.fragment.CategoryViewIdeaFragment">
+        tools:context="com.infra.infraandroid.category.view.fragment.CategoryViewIdeaFragment">
 
         <ScrollView
             android:layout_width="match_parent"

@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginHorizontal="20dp"
     android:background="@drawable/warning_background"
-    tools:context="com.example.infraandroid.myinfo.myideamanage.view.WarningAcceptDialog">
+    tools:context="com.infra.infraandroid.myinfo.myideamanage.view.WarningAcceptDialog">
 
     <ImageView
         android:id="@+id/warning_blue_iv"

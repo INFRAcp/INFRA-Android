@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.infraandroid.myinfo.hashtagalarm.view.HashTagAlarmFragment">
+        tools:context="com.infra.infraandroid.myinfo.hashtagalarm.view.HashTagAlarmFragment">
 
         <View
             android:id="@+id/hash_tag_alarm_title_view"

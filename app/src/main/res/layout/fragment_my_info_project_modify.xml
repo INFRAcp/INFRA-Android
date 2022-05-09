@@ -6,14 +6,14 @@
     <data>
         <variable
             name="fragment"
-            type="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaModifyPageFragment" />
+            type="com.infra.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaModifyPageFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/infra_skyblue_b"
-        tools:context="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaModifyPageFragment">
+        tools:context="com.infra.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaModifyPageFragment">
 
         <ScrollView
             android:layout_width="match_parent"

@@ -6,13 +6,13 @@
     <data>
         <variable
             name="myIdea"
-            type="com.example.infraandroid.category.model.ResponseViewIdeaData.Result" />
+            type="com.infra.infraandroid.category.model.ResponseViewIdeaData.Result" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaModifyFragment">
+        tools:context="com.infra.infraandroid.myinfo.myideamanage.view.fragment.MyIdeaModifyFragment">
 
         <ScrollView
             android:layout_width="match_parent"

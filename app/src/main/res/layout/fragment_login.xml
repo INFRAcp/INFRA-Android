@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/login_fragment"
-        tools:context="com.example.infraandroid.id.view.LoginFragment"
+        tools:context="com.infra.infraandroid.id.view.LoginFragment"
         android:background="@color/infra_gray_c">
 
         <ImageView

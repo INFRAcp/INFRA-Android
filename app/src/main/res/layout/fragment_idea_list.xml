@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.example.infraandroid.category.view.fragment.IdeaListFragment">
+        tools:context="com.infra.infraandroid.category.view.fragment.IdeaListFragment">
 
         <View
             android:id="@+id/idea_list_title_view"

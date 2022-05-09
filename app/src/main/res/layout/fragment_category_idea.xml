@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/infra_blue_d"
-    tools:context="com.example.infraandroid.category.view.fragment.CategoryIdeaFragment">
+    tools:context="com.infra.infraandroid.category.view.fragment.CategoryIdeaFragment">
 
     <ScrollView
         android:layout_width="match_parent"
