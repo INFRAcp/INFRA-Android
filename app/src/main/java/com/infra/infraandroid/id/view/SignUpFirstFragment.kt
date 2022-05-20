@@ -1,5 +1,6 @@
 package com.infra.infraandroid.id.view
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.InputType
@@ -8,11 +9,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -63,6 +66,7 @@ class SignUpFirstFragment : Fragment() {
         val inputCheckPwEditText = mBinding?.inputCheckPwEditText as EditText
         val goToSecondSignUpButton = mBinding?.goToSecondSignUpButton as AppCompatButton
         val doNotUseThisIdTextView = mBinding?.doNotUseThisIdTextView as TextView
+
 
         // 아이디 생성 유효성 검사 및 정규식
         inputMakeIdEdittext.addTextChangedListener(object: TextWatcher{

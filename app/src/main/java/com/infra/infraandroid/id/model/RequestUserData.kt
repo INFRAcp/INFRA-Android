@@ -10,5 +10,7 @@ data class RequestUserData(
     @SerializedName("user_phone")
     var userPhone : String,
     @SerializedName("user_email")
-    var userEmail : String
+    var userEmail : String,
+    @SerializedName("user_nickname")
+    var userNickName : String
 )

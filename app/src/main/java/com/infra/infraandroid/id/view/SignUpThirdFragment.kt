@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
@@ -21,9 +22,12 @@ import com.infra.infraandroid.id.model.RequestUserData
 import com.infra.infraandroid.id.model.ResponseUserData
 import com.infra.infraandroid.util.ServiceCreator
 import com.infra.infraandroid.id.viewmodel.SignUpViewModel
+import com.infra.infraandroid.myinfo.myinfomodify.model.RequestNicknameCheckData
+import com.infra.infraandroid.myinfo.myinfomodify.model.ResponseNicknameCheckData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.regex.Pattern
 
 
 // 회원가입 third depth 페이지 (닉네임 설정)
@@ -35,6 +39,7 @@ import retrofit2.Response
 class SignUpThirdFragment : Fragment(){
     private  var mBinding : FragmentSignUpThirdBinding? = null
     private val sharedViewModel : SignUpViewModel by activityViewModels()
+    private var isChecked : Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -62,13 +67,13 @@ class SignUpThirdFragment : Fragment(){
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 if (Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches()) {
-                    nextButton.isEnabled = true
+                    nextButton.isEnabled = isChecked
                 }
             }
 
             override fun afterTextChanged(p0: Editable?) {
                 if (Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches()) {
-                    nextButton.isEnabled = true
+                    nextButton.isEnabled = isChecked
                 }
             }
         })
@@ -80,7 +85,8 @@ class SignUpThirdFragment : Fragment(){
                 userId = "",
                 userPw = "",
                 userPhone = "",
-                userEmail = ""
+                userEmail = "",
+                userNickName = ""
             )
             sharedViewModel.currentInputId.observe(viewLifecycleOwner) { currentInputId ->
                 requestUserData.userId = currentInputId
@@ -94,6 +100,8 @@ class SignUpThirdFragment : Fragment(){
             sharedViewModel.currentInputEmail.observe(viewLifecycleOwner) { currentInputEmail ->
                 requestUserData.userEmail = currentInputEmail
             }
+
+            requestUserData.userNickName = mBinding?.inputNicknameEditText?.text.toString()
 
             val call: Call<ResponseUserData> = ServiceCreator.signUpService
                 .postSignUp(requestUserData)
@@ -149,6 +157,62 @@ class SignUpThirdFragment : Fragment(){
 
             })
         }
+
+        mBinding?.inputNicknameEditText?.addTextChangedListener(object: TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                mBinding?.checkButton?.isEnabled = false
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                mBinding?.checkButton?.isEnabled = mBinding?.inputNicknameEditText?.text?.length!! in 2..6
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                mBinding?.checkButton?.isEnabled = mBinding?.inputNicknameEditText?.text?.length!! in 2..6
+            }
+        })
+
+
+        mBinding?.checkButton?.setOnClickListener{
+            //닉네임 중복 서버 연결
+
+            val requestNicknameCheckData = RequestNicknameCheckData(
+                userNickname = mBinding?.inputNicknameEditText?.text.toString(),
+            )
+
+            val call: Call<ResponseNicknameCheckData> = ServiceCreator.nicknameDoubleCheckService
+                .doublecheck(requestNicknameCheckData)
+            call.enqueue(object : Callback<ResponseNicknameCheckData>{
+                override fun onResponse(
+                    call: Call<ResponseNicknameCheckData>,
+                    response: Response<ResponseNicknameCheckData>
+                ) {
+                    if(response.isSuccessful){
+                        val data = response.body()?.code
+                        if(data==1000) {
+                            isChecked = true
+                            mBinding?.doNotUseThisNickNameTextView?.isVisible = false
+                            mBinding?.canUseIconImageView?.isVisible = true
+                            mBinding?.inputNicknameEditText?.setBackgroundResource(R.drawable.can_use_this_id_background)
+                            nextButton.isEnabled = true
+                        }
+                        if(data==3104){
+                            mBinding?.doNotUseThisNickNameTextView?.isVisible = true
+                            mBinding?.canUseIconImageView?.isVisible = false
+                            mBinding?.inputNicknameEditText?.setBackgroundResource(R.drawable.double_check_id_background)
+                            nextButton.isEnabled = false
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseNicknameCheckData>, t: Throwable) {
+
+                }
+
+            })
+        }
+
+
     }
 
     override fun onDestroyView() {
