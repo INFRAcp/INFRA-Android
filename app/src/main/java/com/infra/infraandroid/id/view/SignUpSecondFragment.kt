@@ -1,6 +1,7 @@
 package com.infra.infraandroid.id.view
 
 import android.os.Bundle
+import android.telephony.PhoneNumberFormattingTextWatcher
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
@@ -63,6 +64,7 @@ class SignUpSecondFragment : Fragment(){
         val retryTextView = mBinding?.reInputCodeTextView as TextView
         val certifyImageView = mBinding?.certifyCodeImageView as ImageView
 
+        inputPhoneNumberEditText.addTextChangedListener(PhoneNumberFormattingTextWatcher())
 
         // 전화번호 유효성 검사, 정규식 표현
         inputPhoneNumberEditText.addTextChangedListener(object : TextWatcher {
