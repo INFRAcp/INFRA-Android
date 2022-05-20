@@ -17,8 +17,8 @@
 | [Firebase](https://firebase.google.com/)                     | Realtime DB for chatting service    |                                           | 
 
 ## 실행 방법(How to start)
-플레이스토어에서 다운로드 받을 수 있습니다.(You can downdoad it from the Playstore.)
-[(추가 예정)](https://play.google.com/store/apps/details?id=com.infra.infraandroid)
+플레이스토어에서 다운로드 받을 수 있습니다.(You can download it from the Playstore.)<br>
+https://play.google.com/store/apps/details?id=com.infra.infraandroid
 
 ## 주요 기능(How to use)
 - 사용자들은 프로젝트 인원을 모집하는 게시글을 작성할 수 있습니다.<br>
