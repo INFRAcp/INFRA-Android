@@ -17,7 +17,8 @@
 | [Firebase](https://firebase.google.com/)                     | Realtime DB for chatting service    |                                           | 
 
 ## 실행 방법(How to start)
-(추가 예정)
+플레이스토어에서 다운로드 받을 수 있습니다.(You can downdoad it from the Playstore.)
+[(추가 예정)](https://play.google.com/store/apps/details?id=com.infra.infraandroid)
 
 ## 주요 기능(How to use)
 - 사용자들은 프로젝트 인원을 모집하는 게시글을 작성할 수 있습니다.<br>
@@ -28,7 +29,10 @@ Users can apply for other people's project.
 Users can chat one-on-one with the author of the post.
 
 ## 실행 화면(Work Flow)
-(추가 예정)
+![image](https://user-images.githubusercontent.com/39687846/169569924-fd21356f-56a2-4b01-a323-ef7ad7750c6d.png)
+![image](https://user-images.githubusercontent.com/39687846/169569972-28d77d90-dfba-428c-abba-c7564c601cb7.png)
+
+
 
 ## 만든 사람(Contributor)
 <table align="center" style = "table-layout: auto; width: 100%; table-layout: fixed;">
@@ -52,14 +56,15 @@ Users can chat one-on-one with the author of the post.
     프로젝트 삭제(Project Delete)<br>
     프로젝트 조회(View Project)<br>
     프로젝트 지원(Project Apply)<br>
+    카테고리 API(Category API)<br>
     홈화면 API(MainHome API)<br>
     내 정보 수정(My Profile Modify)<br>
+    내 정보 조회(My Profile)<br>
     </td>
     <td><br>
-    홈화면 뷰작업(MainHome View)<br>
-    카테고리뷰(Category View)<br>
+    홈화면 뷰(MainHome View)<br>
+    카테고리 뷰(Category View)<br>
     내 정보 뷰(My Info View)<br>
-    내 정보 조회(My Profile)<br>
     비밀번호 찾기(Find PW)<br>
     팀원찾기(Find Team Member)<br>
     </td>
