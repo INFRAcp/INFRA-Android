@@ -1,5 +1,8 @@
 package com.infra.infraandroid.chat.view
 
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,6 +12,7 @@ import android.widget.ImageButton
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.infra.infraandroid.util.InfraApplication
 import com.infra.infraandroid.R
@@ -44,6 +48,7 @@ class ChatFragment : Fragment() {
         return mBinding?.root
     }
 
+    @SuppressLint("SimpleDateFormat")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -140,7 +145,8 @@ class ChatFragment : Fragment() {
                 if(chatRoomIndex==null){
                     var i = 0
                     for(chatIndex in snapshot.children){
-                        i += 1
+                        Log.d(TAG, "채팅방번호 ${chatIndex.key}")
+                        i = chatIndex.key.toString().toInt()
                         if(chatIndex.child("users").child("user1").value.toString()==opponentNickName &&
                             chatIndex.child("users").child("user2").value.toString()==InfraApplication.prefs.getString("userNickName", "null")){
                             chatRoomIndex = i
@@ -218,6 +224,16 @@ class ChatFragment : Fragment() {
 
         mBinding?.backToChatListButton?.setOnClickListener {
             it.findNavController().navigate(R.id.action_chat_fragment_to_chatting_room_list_fragment)
+        }
+
+        mBinding?.reportChatImageButton?.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://docs.google.com/forms/d/e/1FAIpQLSeiWgqtOehxOe-YCDpn5mFca9bWK3NcxfyVRC2O56xvz4xeLw/viewform?usp=sf_link"))
+            startActivity(intent)
+        }
+
+        mBinding?.leaveChatImageButton?.setOnClickListener {
+            val warningDialog = LeaveChatRoomDialog(chatRoomIdx = chatRoomIndex.toString())
+            activity?.supportFragmentManager?.let{it1 -> warningDialog.show(it1, warningDialog.tag)}
         }
     }
 
