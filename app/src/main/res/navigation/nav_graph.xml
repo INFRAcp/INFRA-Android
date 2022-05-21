@@ -440,6 +440,15 @@
             android:id="@+id/action_myIdeaCategoryModifyFragment_to_myInfoProjectModifyFragment"
             app:destination="@id/myInfoProjectModifyFragment" />
     </fragment>
+    <dialog
+        android:id="@+id/leaveChatRoomDialog"
+        android:name="com.infra.infraandroid.chat.view.LeaveChatRoomDialog"
+        android:label="leave_chat_room_dialog"
+        tools:layout="@layout/leave_chat_room_dialog" >
+        <action
+            android:id="@+id/action_leaveChatRoomDialog_to_chatting_room_list_fragment"
+            app:destination="@id/chatting_room_list_fragment" />
+    </dialog>
 
 
 </navigation>

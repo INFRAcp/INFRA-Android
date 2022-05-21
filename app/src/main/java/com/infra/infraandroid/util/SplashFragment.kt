@@ -38,7 +38,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(R.layout.fragment_spl
                                 InfraApplication.prefs.setString("userId", response.body()?.result?.userId.toString())
                                 InfraApplication.prefs.setString("userNickName", response.body()?.result?.userNickName.toString())
                                 InfraApplication.prefs.setString("userProfileImg", response.body()?.result?.userProfileImg.toString())
-                                Toast.makeText(requireActivity(),"요청에 성공하셨습니다.", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(requireActivity(),"인프라에 오신걸 환영합니다 :)", Toast.LENGTH_SHORT).show()
                                 // 로그인 버튼을 누르면 home_fragment로 이동
                                 findNavController().navigate(R.id.action_splashFragment_to_home_fragment)
                             }
