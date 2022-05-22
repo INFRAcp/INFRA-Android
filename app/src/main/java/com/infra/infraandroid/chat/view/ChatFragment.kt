@@ -160,7 +160,7 @@ class ChatFragment : Fragment() {
                     }
                     // 처음 시작하는 채팅이면
                     if(chatRoomIndex==null){
-                        chatRoomIndex = snapshot.childrenCount.toInt()+1
+                        chatRoomIndex = i+1
                     }
                     mRef.child(chatRoomIndex.toString()).addChildEventListener(childEventListener)
                     Log.d(TAG, "onDataChange: $chatRoomIndex")

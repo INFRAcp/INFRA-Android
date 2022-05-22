@@ -53,6 +53,7 @@ class CategoryViewIdeaFragment : BaseFragment<FragmentViewIdeaBinding>(R.layout.
                             opponentProfileImg = response.body()?.result?.user_prPhoto
                             if(writerId == InfraApplication.prefs.getString("userNickName", "null")){
                                 binding.startChattingImageButton.isVisible = false
+                                binding.teamIdeaApplyButton.isVisible = false
                             }
                         }
                     }

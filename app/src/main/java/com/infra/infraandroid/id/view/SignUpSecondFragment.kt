@@ -144,7 +144,11 @@ class SignUpSecondFragment : Fragment(){
                         Log.d(TAG, "onResponse: 서버 연결 성공" + response.body()?.code)
                         when(response.body()?.code){
                             1000 -> {
+                                Toast.makeText(requireActivity(),"인증번호가 발송되었습니다. 잠시만 기다려주세요.", Toast.LENGTH_LONG).show()
                                 certificationCode = response.body()?.result?.certifyValue.toString()
+                                getCertificationButton.text = "재인증 받기"
+                                getCertificationButton.setBackgroundResource(R.drawable.check_same_id_button_enable_false_background)
+                                getCertificationButton.setTextColor(resources.getColor(R.color.infra_blue_c))
                             }
                             2601 -> {
                                 Toast.makeText(requireActivity(),"전화번호 형식이 알맞지 않습니다.", Toast.LENGTH_SHORT).show()

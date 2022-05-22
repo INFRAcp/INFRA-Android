@@ -20,8 +20,8 @@ class MyIdeaMemberFragment : BaseFragment<FragmentTeamMemberBinding>(R.layout.fr
     private lateinit var viewModel : MyProjectViewModel
 
     private val teamMemberAdapter = TeamMemberAdapter()
-    private val teamMemberInfo = mutableListOf<MyIdeaMemberManageInfo>()
-    private val teamMemberApplicationInfo = mutableListOf<MyIdeaMemberApplyManageInfo>()
+    private val teamMemberList = mutableListOf<ResponseViewProjectApplyData.Result>()
+    private val applyList = mutableListOf<ResponseViewProjectApplyData.Result>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,9 +64,19 @@ class MyIdeaMemberFragment : BaseFragment<FragmentTeamMemberBinding>(R.layout.fr
                             1000->{
                                 val data = body.result
                                 if(data!=null){
-                                    teamMemberApplyAdapter.teamMemberApplyList = data
+                                    data.forEach{
+                                        if(it.pj_inviteStatus == "승인완료"){
+                                            teamMemberList.add(it)
+                                        }
+                                        if(it.pj_inviteStatus == "신청"){
+                                            applyList.add(it)
+                                        }
+                                    }
+                                    teamMemberApplyAdapter.teamMemberApplyList = applyList
+                                    teamMemberAdapter.teamMemberList = teamMemberList
                                 }
                                 teamMemberApplyAdapter.notifyDataSetChanged()
+                                teamMemberAdapter.notifyDataSetChanged()
                             }
                         }
                     }
@@ -78,36 +88,36 @@ class MyIdeaMemberFragment : BaseFragment<FragmentTeamMemberBinding>(R.layout.fr
 
         })
 
-        val requestTeamMemberData = RequestTeamMemberData(pj_num = viewModel.currentObservingProjectNum.value)
-        val projectMemberCall : Call<ResponseTeamMemberData> = ServiceCreator.myProjectService
-            .viewProjectMember(InfraApplication.prefs.getString("jwt", "null"), InfraApplication.prefs.getString("refreshToken", "null").toInt(),
-                InfraApplication.prefs.getString("userId", "null"), requestTeamMemberData)
-
-        projectMemberCall.enqueue(object: Callback<ResponseTeamMemberData>{
-            override fun onResponse(
-                call: Call<ResponseTeamMemberData>,
-                response: Response<ResponseTeamMemberData>
-            ) {
-                if(response.isSuccessful){
-                    val body = response.body()
-                    if(body!=null){
-                        when(body.code){
-                            1000->{
-                                val data = body.result
-                                if(data!=null){
-                                    teamMemberAdapter.teamMemberList = data
-                                }
-                                teamMemberAdapter.notifyDataSetChanged()
-                            }
-                        }
-                    }
-                }
-            }
-
-            override fun onFailure(call: Call<ResponseTeamMemberData>, t: Throwable) {
-                TODO("Not yet implemented")
-            }
-
-        })
+//        val requestTeamMemberData = RequestTeamMemberData(pj_num = viewModel.currentObservingProjectNum.value)
+//        val projectMemberCall : Call<ResponseTeamMemberData> = ServiceCreator.myProjectService
+//            .viewProjectMember(InfraApplication.prefs.getString("jwt", "null"), InfraApplication.prefs.getString("refreshToken", "null").toInt(),
+//                InfraApplication.prefs.getString("userId", "null"), requestTeamMemberData)
+//
+//        projectMemberCall.enqueue(object: Callback<ResponseTeamMemberData>{
+//            override fun onResponse(
+//                call: Call<ResponseTeamMemberData>,
+//                response: Response<ResponseTeamMemberData>
+//            ) {
+//                if(response.isSuccessful){
+//                    val body = response.body()
+//                    if(body!=null){
+//                        when(body.code){
+//                            1000->{
+//                                val data = body.result
+//                                if(data!=null){
+//                                    teamMemberAdapter.teamMemberList = data
+//                                }
+//                                teamMemberAdapter.notifyDataSetChanged()
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<ResponseTeamMemberData>, t: Throwable) {
+//                TODO("Not yet implemented")
+//            }
+//
+//        })
     }
 }

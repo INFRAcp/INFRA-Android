@@ -97,6 +97,11 @@ class MyInfoFragment : Fragment() {
             startActivity(intent)
         }
 
+        mBinding!!.myInfoPersonalInfoLayout.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://chrome-fortnight-803.notion.site/b07983839bed45188fced4044b29eddb"))
+            startActivity(intent)
+        }
+
     }
 
     override fun onDestroyView() {

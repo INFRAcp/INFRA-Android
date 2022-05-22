@@ -248,18 +248,45 @@ class CreateProjectFragment : Fragment() {
                 ) {
                     if(response.isSuccessful){
                         when(response.body()?.code){
-                            1000 -> Log.d(TAG, "onResponse: 프로젝트 등록 성공")
-                            else -> Log.d(TAG, "onResponse: " + response.body()?.code)
+                            1000 -> {
+                                Toast.makeText(requireActivity(),"프로젝트 등록 성공!", Toast.LENGTH_SHORT).show()
+                                findNavController().navigate(R.id.action_createProjectFragment_to_home_fragment)
+                            }
+                            2002 -> {
+                                Toast.makeText(requireActivity(),"유효하지 않은 JWT입니다.", Toast.LENGTH_SHORT).show()
+                                findNavController().navigate(R.id.action_createProjectFragment_to_login_fragment)
+                            }
+                            2004 -> {
+                                Toast.makeText(requireActivity(),"유효하지 않은 JWT입니다.", Toast.LENGTH_SHORT).show()
+                                findNavController().navigate(R.id.action_createProjectFragment_to_login_fragment)
+                            }
+                            2005 -> {
+                                Toast.makeText(requireActivity(),"유효하지 않은 JWT입니다.", Toast.LENGTH_SHORT).show()
+                                findNavController().navigate(R.id.action_createProjectFragment_to_login_fragment)
+                            }
+                            2310 -> Toast.makeText(requireActivity(),"프로젝트 제목을 입력해주세요.", Toast.LENGTH_SHORT).show()
+                            2311 -> Toast.makeText(requireActivity(),"프로젝트 분야를 입력해주세요.", Toast.LENGTH_SHORT).show()
+                            2312 -> Toast.makeText(requireActivity(),"프로젝트 내용을 입력해주세요.", Toast.LENGTH_SHORT).show()
+                            2314 -> Toast.makeText(requireActivity(),"프로젝트 세부 분야를 입력해주세요.", Toast.LENGTH_SHORT).show()
+                            2315 -> Toast.makeText(requireActivity(),"프로젝트 진도를 입력해주세요.", Toast.LENGTH_SHORT).show()
+                            2316 -> Toast.makeText(requireActivity(),"프로젝트 종료 시점을 입력해주세요.", Toast.LENGTH_SHORT).show()
+                            2317 -> Toast.makeText(requireActivity(),"프로젝트 시작 시점을 입력해주세요.", Toast.LENGTH_SHORT).show()
+                            2318 -> Toast.makeText(requireActivity(),"프로젝트 모집 마감일을 입력해주세요.", Toast.LENGTH_SHORT).show()
+                            2319 -> Toast.makeText(requireActivity(),"프로젝트 모집 인원을 입력해주세요.", Toast.LENGTH_SHORT).show()
+                            2323 -> Toast.makeText(requireActivity(),"예상 시작일이 마감일 이전에 있습니다.", Toast.LENGTH_SHORT).show()
+                            4000 -> Toast.makeText(requireActivity(),"데이터베이스 연결에 실패하였습니다.", Toast.LENGTH_SHORT).show()
+                            2324 -> Toast.makeText(requireActivity(),"예상 종료일이 예상 시작일보다 이전에 있습니다.", Toast.LENGTH_SHORT).show()
+                            2321 -> Toast.makeText(requireActivity(),"키워드 5글자를 초과하였습니다.", Toast.LENGTH_SHORT).show()
+                            2322 -> Toast.makeText(requireActivity(),"키워드 6개를 초과하였습니다.", Toast.LENGTH_SHORT).show()
                         }
                     } else{
-                        Log.d(TAG, "onResponse: 뭐가 문제냐..")
+                        Toast.makeText(requireActivity(), "빈 칸이 없는지 확인해주세요!", Toast.LENGTH_SHORT).show()
                     }
                 }
                 override fun onFailure(call: Call<ResponseCreateProjectData>, t: Throwable) {
                     Log.d(TAG, "onFailure: $t")
                 }
             })
-            findNavController().navigate(R.id.action_createProjectFragment_to_home_fragment)
         }
 
 

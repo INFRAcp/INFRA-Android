@@ -4,11 +4,14 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.infra.infraandroid.R
 import com.infra.infraandroid.databinding.ItemTeamMemberRecyclerviewBinding
 import com.infra.infraandroid.myinfo.myideamanage.model.ResponseTeamMemberData
+import com.infra.infraandroid.myinfo.myideamanage.model.ResponseViewProjectApplyData
 
 class TeamMemberAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    var teamMemberList = mutableListOf<ResponseTeamMemberData.Result>()
+    var teamMemberList = mutableListOf<ResponseViewProjectApplyData.Result>()
     private lateinit var context: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -31,9 +34,13 @@ class TeamMemberAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     inner class TeamMemberViewHolder(
         private val binding: ItemTeamMemberRecyclerviewBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun onBind(myIdeaMemberManageInfo: ResponseTeamMemberData.Result) {
-            binding.projectMember = myIdeaMemberManageInfo
-            //binding.teamMemberProfileIv.setImageResource(teamMemberInfo.profileImg)
+        fun onBind(myIdeaMemberManageInfo: ResponseViewProjectApplyData.Result) {
+            Glide.with(itemView)
+                .load(myIdeaMemberManageInfo.user_prphoto)
+                .error(R.drawable.user_photo)
+                .circleCrop()
+                .into(binding.teamMemberProfileIv)
+            binding.teamMemberNameTv.text = myIdeaMemberManageInfo.user_nickname
 
             //강퇴하기 버튼 클릭시
 //            binding.teamMemberKickOutButton.setOnClickListener {

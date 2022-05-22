@@ -189,10 +189,13 @@ class SignUpFirstFragment : Fragment() {
                             inputMakeIdEdittext.setBackgroundResource(R.drawable.can_use_this_id_background)
                             mBinding?.canUseIconImageView?.isVisible = true
                         }
-                        if(data==2020){
+                        if(data==3012){
                             doNotUseThisIdTextView.isVisible = true
                             inputMakeIdEdittext.setBackgroundResource(R.drawable.double_check_id_background)
                             mBinding?.canUseIconImageView?.isVisible = false
+                        }
+                        if(data==2103){
+                            Toast.makeText(requireActivity(),"아이디 형식을 확인해주세요.", Toast.LENGTH_SHORT).show()
                         }
                     }
                     else{
