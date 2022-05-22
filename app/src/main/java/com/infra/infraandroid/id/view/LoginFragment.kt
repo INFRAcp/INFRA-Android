@@ -85,12 +85,12 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(R.layout.fragment_login
                                 InfraApplication.prefs.setString("userProfileImg", response.body()?.result?.userProfileImg.toString())
                                 InfraApplication.prefs.setUserId(response.body()?.result?.userId.toString())
                                 InfraApplication.prefs.setUserPW(inputPw)
-                                Toast.makeText(requireActivity(),"요청에 성공하셨습니다.", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(requireActivity(),"인프라에 오신걸 환영합니다 :)", Toast.LENGTH_SHORT).show()
                                 // 로그인 버튼을 누르면 home_fragment로 이동
                                 it.findNavController().navigate(R.id.action_login_fragment_to_home_fragment)
                             }
-                            2001 -> {Toast.makeText(requireActivity(),"id가 비어있습니다.", Toast.LENGTH_SHORT).show()}
-                            3014 -> {Toast.makeText(requireActivity(),"없는 아이디거나 비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show()}
+                            2003 -> {Toast.makeText(requireActivity(),"권한이 없는 유저의 접근입니다.", Toast.LENGTH_SHORT).show()}
+                            3106 -> {Toast.makeText(requireActivity(),"없는 아이디거나 비밀번호가 틀렸습니다.", Toast.LENGTH_SHORT).show()}
                             4000 -> {Toast.makeText(requireActivity(),"데이터베이스 연결에 실패하였습니다.", Toast.LENGTH_SHORT).show()}
                         }
                     }

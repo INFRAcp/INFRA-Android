@@ -117,19 +117,16 @@ class SignUpThirdFragment : Fragment(){
                                 Log.d(TAG, "onResponse: 회원가입 성공!")
                                 it.findNavController().navigate(R.id.action_sign_up_third_fragment_to_sign_up_fourth_fragment)
                             }
-                            2021 -> {
+                            3103 -> {
                                 Toast.makeText(requireActivity(),"중복된 핸드폰 번호입니다.", Toast.LENGTH_SHORT).show()
                             }
-                            2016 -> {
+                            2102 -> {
                                 Toast.makeText(requireActivity(),"이메일 형식을 확인해주세요.", Toast.LENGTH_SHORT).show()
                             }
-                            2017 -> {
+                            3105 -> {
                                 Toast.makeText(requireActivity(),"중복된 이메일입니다.", Toast.LENGTH_SHORT).show()
                             }
-                            2018 -> {
-                                Toast.makeText(requireActivity(),"필수 정보가 비어있습니다.", Toast.LENGTH_SHORT).show()
-                            }
-                            2019 -> {
+                            2107 -> {
                                 Toast.makeText(requireActivity(),"필수 정보가 비어있습니다.", Toast.LENGTH_SHORT).show()
                             }
                             3116 -> {

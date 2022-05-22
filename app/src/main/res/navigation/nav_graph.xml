@@ -284,10 +284,15 @@
             app:destination="@id/createProjectSelectCategory" />
         <argument
             android:name="category"
-            app:argType="string" />
+            app:argType="string"
+            android:defaultValue="개발"/>
         <argument
             android:name="categoryDetail"
-            app:argType="string" />
+            app:argType="string"
+            android:defaultValue="APP"/>
+        <action
+            android:id="@+id/action_createProjectFragment_to_login_fragment"
+            app:destination="@id/login_fragment" />
     </fragment>
     <fragment
         android:id="@+id/categoryViewIdeaFragment"

@@ -3,6 +3,7 @@ package com.infra.infraandroid.myinfo.myinfomodify.view
 import android.content.ContentValues.TAG
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
@@ -157,10 +158,10 @@ class MyInfoModifyFragment : BaseFragment<FragmentMyInfoModifyBinding>(R.layout.
                         when(response.body()?.code){
                             1000->{
                                 Log.d(TAG, "onResponse: 성공")
+                                Toast.makeText(requireActivity(), "수정되었습니다.", Toast.LENGTH_SHORT).show()
                             }
-                            else->{
-                                Log.d(TAG, "onResponse: 실패${response.body()?.code}")
-                            }
+                            3000 -> Toast.makeText(requireActivity(), "값을 불러오는데 실패했습니다.", Toast.LENGTH_LONG).show()
+                            4000 -> Toast.makeText(requireActivity(), "데이터베이스 연결에 실패하였습니다.", Toast.LENGTH_LONG).show()
                         }
                     }
                 }

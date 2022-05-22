@@ -9,6 +9,7 @@ data class ResponseTeamMemberData(
     data class Result(
         val user_id: String,
         val user_nickname: String,
-        val user_prPhoto: String
+        val user_prPhoto: String,
+        val pj_inviteStatus: String
     )
 }

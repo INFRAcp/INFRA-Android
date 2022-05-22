@@ -71,6 +71,14 @@ class WarningRejectDialog(private val userId: String, private val userNickName: 
                                 Toast.makeText(requireActivity(), "거절했습니다", Toast.LENGTH_SHORT).show()
                                 dismiss()
                             }
+                            3361->{
+                                Toast.makeText(requireActivity(), "이미 승인한 유저입니다.", Toast.LENGTH_SHORT).show()
+                                dismiss()
+                            }
+                            3362->{
+                                Toast.makeText(requireActivity(), "이미 거절한 유저입니다.", Toast.LENGTH_SHORT).show()
+                                dismiss()
+                            }
                         }
                     }
                 }
